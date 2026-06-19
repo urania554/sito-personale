@@ -1,0 +1,182 @@
+/* RESET GENERALE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfbf9; /* Quel bellissimo color panna/avorio di sfondo */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* 1. STILE NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #fcfbf9;
+}
+
+.logo {
+    font-family: 'Caveat', cursive; /* Font stile firma */
+    font-size: 2rem;
+    font-weight: bold;
+}
+.logo span { color: #d67087; margin-left: 5px; }
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 20px;
+    letter-spacing: 1px;
+}
+
+.menu a.active {
+    color: #d67087;
+    border-bottom: 2px solid #d67087;
+    padding-bottom: 5px;
+}
+
+/* 2. STILE HERO SECTION (Affiancata) */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 80px;
+    min-height: 70px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.payoff {
+    font-family: 'Caveat', cursive; /* Riprende lo stile scritto a mano libera della bozza */
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btn-rosa {
+    display: inline-block;
+    background-color: #d67087; /* Il rosa antico del tuo bottone */
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-rosa:hover {
+    background-color: #be5a71;
+    transform: translateY(-2px); /* Effetto movimento quando ci passi sopra */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* 3. STILE GRIGLIA IN BASSO (5 BLOCCHI) */
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7f4ef; /* Sfondo leggermente più scuro per staccare */
+    padding: 40px 80px;
+    border-top: 1px solid #eadecc;
+}
+
+.feature-card {
+    flex: 1;
+    padding: 20px;
+    margin: 0 10px;
+    text-align: left;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Colori delle icone ispirati al disegno */
+.purple { background-color: #e2daf0; color: #7b5da7; }
+.pink { background-color: #f5dae1; color: #be5a71; }
+.green { background-color: #dae8e0; color: #4e7a61; }
+.yellow { background-color: #fcf0d0; color: #b19340; }
+.blue { background-color: #dae3f0; color: #4e6a92; }
+
+.feature-card h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #2c2c2c;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.link-scopri {
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: #be5a71;
+    font-weight: bold;
+}
+.testo-rosa {
+    color: #d67087; /* Lo stesso rosa antico del tuo bottone e del menu */
+    font-weight: 600; /* Rinforza il grassetto */
+}
+/* INTERATTIVITÀ PER I 5 BLOCCHI IN BASSO */
+
+/* 1. Prepariamo la scheda a muoversi in modo fluido */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px; /* Arrotondiamo leggermente gli angoli per ospitare l'ombra */
+}
+
+/* 2. Cosa succede quando passi il mouse sopra la scheda (Hover Effect) */
+.feature-card:hover {
+    transform: translateY(-8px); /* Solleva la scheda di 8 pixel */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Crea un'ombra leggera e sfumata sul fondo */
+    background-color: #ffffff; /* Sbianca leggermente lo sfondo della scheda per farla risaltare */
+}
+
+/* 3. Prepariamo anche l'icona tonda a una transizione fluida */
+.icon-circle {
+    transition: transform 0.3s ease;
+}
+
+/* 4. Quando passi il mouse sulla scheda, l'icona si ingrandisce leggermente */
+.feature-card:hover .icon-circle {
+    transform: scale(1.1); /* Ingrandisce l'icona del 10% */
+}
