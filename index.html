@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinzia - Tra codice e storie</title>
-    <!-- Colleghiamo un font accogliente da Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinzia - Tra codice e storie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- 1. LA NAVBAR (IL MENU IN ALTO) -->
-    <header class="navbar">
-        <div class="logo">Cinzia<span>★</span></div>
-        <nav class="menu">
-            <a href="#" class="active">HOME</a>
-            <a href="#">CHI SONO</a>
-            <a href="#">COMPETENZE</a>
-            <a href="#">PROGETTI</a>
-            <a href="#">BLOG</a>
-            <a href="#">CONTATTI</a>
-        </nav>
-        <div class="nav-icons">
-            <span class="icon-dark">🌙</span>
-            <span class="icon-email">✉️</span>
-        </div>
-    </header>
+  <header class="navbar">
+    <div class="logo">Cinzia<span>★</span></div>
+    <nav class="menu">
+      <a href="#home" class="active">HOME</a>
+      <a href="#chi-sono">CHI SONO</a>
+      <a href="#competenze">COMPETENZE</a>
+      <a href="#progetti">PROGETTI</a>
+      <a href="#blog">BLOG</a>
+      <a href="#contatti">CONTATTI</a>
+    </nav>
+    <div class="nav-icons">
+      <span>🌙</span>
+      <span>✉️</span>
+    </div>
+  </header>
 
-    <!-- 2. LA HERO SECTION (IL CUORE DELLA PAGINA) -->
-    <section class="hero-container">
-        <div class="hero-text">
-    <h1 class="payoff">Tra codice e storie.<br>Tra dati e immaginazione.</h1>
-    <p class="description">
-        Sono Cinzia <strong class="testo-rosa">
-    </p>
-    <p class="description">
-    IT Specialist, </strong> <strong class="testo-rosa">scrittrice</strong>
-    </p>
-    <p class="description">
-     e <strong class="testo-rosa">viaggiatrice</strong> per passione.
-    </p>
-    <p class="description">
-        Amo risolvere problemi complessi,
-    </p> 
-    <p class="description">
-        raccontare storie e scoprire il mondo
-    </p>
-    <p class="description">
-     con occhi curiosi.
-    </p>
-    <a href="#" class="btn-rosa">SCOPRI DI PIÙ SU DI ME ❤</a>
-</div>
-        <div class="hero-image">
-            <!-- Qui andrà la tua illustrazione. Per ora mettiamo un segnaposto -->
-            <img src="tuo-laboratorio.webp" alt="Cinzia nel suo laboratorio creativo con Bob">
-        </div>
+  <main>
+    <section id="home" class="hero">
+      <img class="hero-bg" src="tuo-laboratorio.webp" alt="Cinzia nel suo laboratorio creativo con Bob" />
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">IT Specialist · Scrittrice · Viaggiatrice</p>
+        <h1>Tra codice e storie.<br>Tra dati e immaginazione.</h1>
+        <p>
+          Sono Cinzia. Amo risolvere problemi complessi,
+          raccontare storie e scoprire il mondo con occhi curiosi.
+        </p>
+        <a href="#chi-sono" class="btn-rosa">Scopri il mio mondo ❤</a>
+      </div>
     </section>
 
-    <!-- 3. I 5 BLOCCHI IN BASSO -->
-    <section class="features-grid">
-        <div class="feature-card">
-            <div class="icon-circle purple">&lt;/&gt;</div>
-            <h3>INFORMATICA</h3>
-            <p>Dati, sistemi e soluzioni. Ogni problema ha sempre una soluzione.</p>
-            <a href="#" class="link-scopri">SCOPRI DI PIÙ &rarr;</a>
-        </div>
-        <div class="feature-card">
-            <div class="icon-circle pink">✎</div>
-            <h3>SCRITTURA</h3>
-            <p>Storie, personaggi e mondi immaginari prendono vita.</p>
-            <a href="#" class="link-scopri">SCOPRI DI PIÙ &rarr;</a>
-        </div>
-        <div class="feature-card">
-            <div class="icon-circle green">🌍</div>
-            <h3>VIAGGI</h3>
-            <p>Esplorare il mondo per riempire gli occhi e il cuore.</p>
-            <a href="#" class="link-scopri">SCOPRI DI PIÙ &rarr;</a>
-        </div>
-        <div class="feature-card">
-            <div class="icon-circle yellow">📷</div>
-            <h3>FOTOGRAFIA</h3>
-            <p>Catturare attimi, colori ed emozioni in uno scatto.</p>
-            <a href="#" class="link-scopri">SCOPRI DI PIÙ &rarr;</a>
-        </div>
-        <div class="feature-card">
-            <div class="icon-circle blue">🐾</div>
-            <h3>BOB</h3>
-            <p>Il mio compagno di avventure a quattro zampe.</p>
-            <a href="#" class="link-scopri">SCOPRI DI PIÙ &rarr;</a>
-        </div>
+    <section id="competenze" class="features-grid">
+      <article class="feature-card">
+        <div class="icon-circle purple">&lt;/&gt;</div>
+        <h3>INFORMATICA</h3>
+        <p>Dati, sistemi e soluzioni. Ogni problema ha sempre una soluzione.</p>
+        <a href="#" class="link-scopri">SCOPRI DI PIÙ →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="icon-circle pink">✎</div>
+        <h3>SCRITTURA</h3>
+        <p>Storie, personaggi e mondi immaginari prendono vita.</p>
+        <a href="#" class="link-scopri">SCOPRI DI PIÙ →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="icon-circle green">🌍</div>
+        <h3>VIAGGI</h3>
+        <p>Esplorare il mondo per riempire gli occhi e il cuore.</p>
+        <a href="#" class="link-scopri">SCOPRI DI PIÙ →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="icon-circle yellow">📷</div>
+        <h3>FOTOGRAFIA</h3>
+        <p>Catturare attimi, colori ed emozioni in uno scatto.</p>
+        <a href="#" class="link-scopri">SCOPRI DI PIÙ →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="icon-circle blue">🐾</div>
+        <h3>BOB FILES</h3>
+        <p>Il mio compagno di avventure e casi quasi realmente accaduti.</p>
+        <a href="#" class="link-scopri">SCOPRI DI PIÙ →</a>
+      </article>
     </section>
+
+    <section id="chi-sono" class="about-section">
+      <div class="about-box dark-card">
+        <span class="small-title">Chi sono</span>
+        <h2>Un po' tecnica, un po' narratrice, molto curiosa.</h2>
+        <p>
+          Lavoro nel mondo IT, tra identità digitali, dati, accessi e automazioni.
+          Quando chiudo il portatile, apro mondi: romanzi, graphic novel, viaggi e Bob Notes.
+        </p>
+        <div class="mini-stats">
+          <span>☕ Caffè infinito</span>
+          <span>📚 Storie in corso</span>
+          <span>🌍 Nuove mete</span>
+          <span>🐾 Bob sempre con me</span>
+        </div>
+      </div>
+
+      <div id="progetti" class="about-box projects-card">
+        <span class="small-title">Progetti in evidenza</span>
+        <div class="project-grid">
+          <div class="project-item">Urania<br><small>Romanzo fantasy</small></div>
+          <div class="project-item">Bob Notes<br><small>Graphic Novel</small></div>
+          <div class="project-item">Automation Tools<br><small>Python & PowerShell</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contatti" class="footer">
+    <p>Tra codice e storie. Tra dati e immaginazione.</p>
+    <small>© 2026 Cinzia Molisano</small>
+  </footer>
 
 </body>
 </html>

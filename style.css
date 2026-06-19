@@ -1,182 +1,380 @@
-/* RESET GENERALE */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fcfbf9; /* Quel bellissimo color panna/avorio di sfondo */
-    color: #333333;
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background: #fcfbf9;
+  color: #2c2c2c;
+  line-height: 1.6;
 }
 
-/* 1. STILE NAVBAR */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 80px;
-    background-color: #fcfbf9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 70px;
+  background: rgba(252, 251, 249, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.45);
 }
 
 .logo {
-    font-family: 'Caveat', cursive; /* Font stile firma */
-    font-size: 2rem;
-    font-weight: bold;
+  font-family: 'Caveat', cursive;
+  font-size: 2.4rem;
+  font-weight: 700;
 }
-.logo span { color: #d67087; margin-left: 5px; }
+
+.logo span {
+  color: #d67087;
+  margin-left: 5px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
 
 .menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0 20px;
-    letter-spacing: 1px;
+  text-decoration: none;
+  color: #2f2b28;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  transition: color .25s ease;
 }
 
+.menu a:hover,
 .menu a.active {
-    color: #d67087;
-    border-bottom: 2px solid #d67087;
-    padding-bottom: 5px;
+  color: #d67087;
 }
 
-/* 2. STILE HERO SECTION (Affiancata) */
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 80px;
-    min-height: 70px;
+.nav-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 1.1rem;
 }
 
-.hero-text {
-    flex: 1;
-    max-width: 500px;
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.payoff {
-    font-family: 'Caveat', cursive; /* Riprende lo stile scritto a mano libera della bozza */
-    font-size: 3.5rem;
-    line-height: 1.2;
-    color: #2c2c2c;
-    margin-bottom: 25px;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.description {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 15px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(252,251,249,.90) 0%, rgba(252,251,249,.62) 34%, rgba(252,251,249,.12) 58%, rgba(0,0,0,.04) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.02) 50%, rgba(0,0,0,.22) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  margin-left: 7vw;
+  margin-top: 70px;
+  padding: 38px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 70px rgba(70, 46, 30, .12);
+}
+
+.eyebrow {
+  color: #c15f77;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  margin-bottom: 12px;
+}
+
+.hero-content h1 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  line-height: .95;
+  color: #1f1d1b;
+  margin-bottom: 24px;
+}
+
+.hero-content p:not(.eyebrow) {
+  font-size: 1.08rem;
+  max-width: 430px;
+  margin-bottom: 26px;
+  color: #3f3934;
 }
 
 .btn-rosa {
-    display: inline-block;
-    background-color: #d67087; /* Il rosa antico del tuo bottone */
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: transform 0.2s, background-color 0.2s;
+  display: inline-block;
+  background: #d67087;
+  color: #fff;
+  padding: 13px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(214, 112, 135, .28);
+  transition: transform .25s ease, background .25s ease;
 }
 
 .btn-rosa:hover {
-    background-color: #be5a71;
-    transform: translateY(-2px); /* Effetto movimento quando ci passi sopra */
+  background: #be5a71;
+  transform: translateY(-3px);
 }
 
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-/* 3. STILE GRIGLIA IN BASSO (5 BLOCCHI) */
 .features-grid {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f7f4ef; /* Sfondo leggermente più scuro per staccare */
-    padding: 40px 80px;
-    border-top: 1px solid #eadecc;
+  position: relative;
+  z-index: 5;
+  margin: -60px auto 0;
+  width: min(1180px, calc(100% - 40px));
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: rgba(255,255,255,.92);
+  border: 1px solid #eadfce;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(82, 50, 28, .14);
 }
 
 .feature-card {
-    flex: 1;
-    padding: 20px;
-    margin: 0 10px;
-    text-align: left;
+  padding: 30px 24px;
+  min-height: 230px;
+  border-right: 1px solid #eadfce;
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+.feature-card:last-child {
+  border-right: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: #fffaf5;
+  box-shadow: 0 18px 40px rgba(80, 50, 30, .12);
 }
 
 .icon-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  transition: transform .3s ease;
 }
 
-/* Colori delle icone ispirati al disegno */
-.purple { background-color: #e2daf0; color: #7b5da7; }
-.pink { background-color: #f5dae1; color: #be5a71; }
-.green { background-color: #dae8e0; color: #4e7a61; }
-.yellow { background-color: #fcf0d0; color: #b19340; }
-.blue { background-color: #dae3f0; color: #4e6a92; }
+.feature-card:hover .icon-circle {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.purple { background: #e2daf0; color: #7b5da7; }
+.pink { background: #f5dae1; color: #be5a71; }
+.green { background: #dae8e0; color: #4e7a61; }
+.yellow { background: #fcf0d0; color: #b19340; }
+.blue { background: #dae3f0; color: #4e6a92; }
 
 .feature-card h3 {
-    font-size: 1rem;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    color: #2c2c2c;
+  font-size: .96rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .feature-card p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
+  font-size: .92rem;
+  color: #625a55;
+  margin-bottom: 18px;
 }
 
 .link-scopri {
-    font-size: 0.85rem;
-    text-decoration: none;
-    color: #be5a71;
-    font-weight: bold;
-}
-.testo-rosa {
-    color: #d67087; /* Lo stesso rosa antico del tuo bottone e del menu */
-    font-weight: 600; /* Rinforza il grassetto */
-}
-/* INTERATTIVITÀ PER I 5 BLOCCHI IN BASSO */
-
-/* 1. Prepariamo la scheda a muoversi in modo fluido */
-.feature-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px; /* Arrotondiamo leggermente gli angoli per ospitare l'ombra */
+  font-size: .82rem;
+  text-decoration: none;
+  color: #be5a71;
+  font-weight: 800;
 }
 
-/* 2. Cosa succede quando passi il mouse sopra la scheda (Hover Effect) */
-.feature-card:hover {
-    transform: translateY(-8px); /* Solleva la scheda di 8 pixel */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Crea un'ombra leggera e sfumata sul fondo */
-    background-color: #ffffff; /* Sbianca leggermente lo sfondo della scheda per farla risaltare */
+.about-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 70px auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 26px;
 }
 
-/* 3. Prepariamo anche l'icona tonda a una transizione fluida */
-.icon-circle {
-    transition: transform 0.3s ease;
+.about-box {
+  border-radius: 26px;
+  padding: 42px;
+  min-height: 330px;
 }
 
-/* 4. Quando passi il mouse sulla scheda, l'icona si ingrandisce leggermente */
-.feature-card:hover .icon-circle {
-    transform: scale(1.1); /* Ingrandisce l'icona del 10% */
+.dark-card {
+  background: #161b23;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-card::after {
+  content: '♡ ☆ ✈';
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 4rem;
+  opacity: .12;
+}
+
+.small-title {
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  color: #d67087;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.about-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.dark-card p {
+  color: #d9d9d9;
+  max-width: 670px;
+}
+
+.mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.mini-stats span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  font-size: .88rem;
+}
+
+.projects-card {
+  background: #f7efe8;
+  border: 1px solid #eadfce;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.project-item {
+  min-height: 78px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(80,50,30,.08);
+  font-weight: 800;
+}
+
+.project-item small {
+  display: block;
+  color: #756a63;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.footer {
+  text-align: center;
+  padding: 42px 20px;
+  color: #796d66;
+  border-top: 1px solid #eadfce;
+}
+
+.footer p {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+@media (max-width: 980px) {
+  .navbar {
+    padding: 16px 24px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hero-content {
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 28px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(252,251,249,.92), rgba(252,251,249,.58));
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+
+  .feature-card {
+    border-right: none;
+    border-bottom: 1px solid #eadfce;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    min-height: 92vh;
+  }
+
+  .hero-bg {
+    object-position: 58% center;
+  }
+
+  .hero-content {
+    margin-top: 90px;
+    background: rgba(255,255,255,.55);
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-box {
+    padding: 30px 24px;
+  }
 }
