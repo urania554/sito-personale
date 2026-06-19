@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competenze - Cinzia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Stili specifici per la pagina competenze che integrano il tuo CSS globale */
+    .skills-page { margin-top: 120px; padding-bottom: 90px; }
+    .intro-narrativa { max-width: 800px; margin-bottom: 60px; }
+    .intro-narrativa p { font-size: 1.2rem; color: #3f3934; line-height: 1.7; }
+    
+    /* Griglia Badge Tecnologie */
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .badge {
+      background: #161b23;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.25s ease;
+    }
+    .badge:hover {
+      border-color: #d67087;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(214, 112, 135, 0.15);
+    }
+    
+    /* Layout a due colonne per macro-aree e badge */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    
+    @media (max-width: 980px) {
+      .skills-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Cinzia<span>★</span></div>
+    <nav class="menu">
+      <a href="index.html">HOME</a>
+      <a href="index.html#chi-sono">CHI SONO</a>
+      <a href="competenze.html" class="active">COMPETENZE</a>
+      <a href="index.html#progetti">PROGETTI</a>
+      <a href="#">BLOG</a>
+      <a href="index.html#contatti">CONTATTI</a>
+    </nav>
+    <div class="nav-icons">
+      <span>🌙</span>
+      <span>✉️</span>
+    </div>
+  </header>
+
+  <main class="skills-page">
+    <div class="skills-container" style="width: min(1180px, calc(100% - 40px)); margin: 0 auto;">
+      
+      <span class="small-title">Cosa Faccio</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px;">
+        Trasformare processi complessi<br>in soluzioni semplici.
+      </h2>
+      
+      <div class="intro-narrativa">
+        <p>
+          Da oltre 14 anni mi occupo di sistemi informatici, gestione delle identità digitali, qualità dei dati e supporto agli utenti. Mi piace unire competenze tecniche, organizzazione e problem solving per rendere la tecnologia uno strumento realmente utile alle persone.
+        </p>
+      </div>
+
+      <div class="skills-layout">
+        
+        <div class="skills-details">
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 24px; color: #161b23;">
+            Aree di Intervento
+          </h3>
+          
+          <div class="project-grid" style="grid-template-columns: 1fr; gap: 20px;">
+            
+            <div class="project-item" style="min-height: auto; padding: 24px;">
+              <span style="font-size: 1.3rem; margin-right: 8px;">🔐</span> 
+              <strong>Identity & Access Management</strong>
+              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
+                Gestione delle identità digitali, smart card, autenticazione forte, Active Directory e Single Sign-On (SSO) per garantire accessi sicuri e tracciabili.
+              </p>
+            </div>
+
+            <div class="project-item" style="min-height: auto; padding: 24px;">
+              <span style="font-size: 1.3rem; margin-right: 8px;">🗄️</span> 
+              <strong>Gestione Dati e Database</strong>
+              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
+                Controllo qualità dei dati, gestione anagrafiche, interrogazioni SQL complesse, analisi e verifica costante della coerenza delle informazioni aziendali.
+              </p>
+            </div>
+
+            <div class="project-item" style="min-height: auto; padding: 24px;">
+              <span style="font-size: 1.3rem; margin-right: 8px;">⚙️</span> 
+              <strong>Automazione e Scripting</strong>
+              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
+                Sviluppo di procedure automatizzate e script custom per semplificare le attività ripetitive, azzerare l'errore umano e migliorare l'efficienza operativa.
+              </p>
+            </div>
+
+            <div class="project-item" style="min-height: auto; padding: 24px;">
+              <span style="font-size: 1.3rem; margin-right: 8px;">🖥️</span> 
+              <strong>Sistemi e Infrastrutture</strong>
+              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
+                Configurazione, amministrazione e supporto di ambienti Windows Server e client, gestione reti, VPN, utenze e attività di troubleshooting sistemistico.
+              </p>
+            </div>
+
+            <div class="project-item" style="min-height: auto; padding: 24px;">
+              <span style="font-size: 1.3rem; margin-right: 8px;">📊</span> 
+              <strong>Reporting, Supporto & Web</strong>
+              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
+                Creazione di estrazioni dati e report per il monitoraggio operativo. Redazione di documentazione tecnica chiara, gestione di contenuti web (WordPress/HTML) e assistenza avanzata agli utenti finali.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="skills-aside">
+          
+          <div class="about-box projects-card" style="min-height: auto; padding: 30px; margin-bottom: 26px;">
+            <span class="small-title" style="font-size: 1.6rem;">Tools & Tech</span>
+            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px;">Tecnologie che utilizzo</h4>
+            
+            <div class="badge-container">
+              <div class="badge">Active Directory</div>
+              <div class="badge">SQL</div>
+              <div class="badge">PowerShell</div>
+              <div class="badge">Python</div>
+              <div class="badge">Excel</div>
+              <div class="badge">Power Query</div>
+              <div class="badge">WordPress</div>
+              <div class="badge">HTML/CSS</div>
+              <div class="badge">LDAP</div>
+              <div class="badge">Kerberos</div>
+              <div class="badge">VPN</div>
+              <div class="badge">Smart Card</div>
+              <div class="badge">SSO</div>
+              <div class="badge">Windows Server</div>
+            </div>
+          </div>
+
+          <div class="about-box dark-card" style="min-height: auto; padding: 30px;">
+            <span class="small-title" style="font-size: 1.6rem;">Dietro le quinte</span>
+            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff;">I miei Superpoteri</h4>
+            <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+              <strong>🔍 Decodifica della realtà:</strong> Che si tratti di un log di errore, di un database disallineato o di una trama narrativa, adoro unire i puntini e trovare la logica nascosta.<br><br>
+              <strong>💬 Traduttore IT-Umano:</strong> Parlo fluidamente sia il linguaggio dei server che quello delle persone, trasformando i problemi tecnici in spiegazioni semplici e accessibili.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 60px;">
+        <a href="index.html" class="link-back" style="color: #d67087; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">← Torna alla Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Tra codice e storie. Tra dati e immaginazione.</p>
+    <small>© 2026 Cinzia Molisano</small>
+  </footer>
+
+</body>
+</html>
