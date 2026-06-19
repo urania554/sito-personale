@@ -362,34 +362,8 @@ body {
   }
 
   .hero-bg {
-  object-fit: contain;
-  object-position: top center;
-  background-color: #f6ddbd;
-}
-
-.hero {
-  min-height: auto;
-  padding-top: 90px;
-}
-
-.hero-bg {
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.hero-overlay {
-  display: none;
-}
-
-.hero-content {
-  position: relative;
-  margin: 0;
-  border-radius: 0;
-  background: #fff8f1;
-  box-shadow: none;
-}
+    object-position: 58% center;
+  }
 
   .hero-content {
     margin-top: 90px;
