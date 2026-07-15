@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae - Vincenza Molisano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cv-page { margin-top: 120px; padding-bottom: 90px; background: #fcfbf9; color: #2c2c2c; }
+    .cv-container { width: min(1000px, calc(100% - 40px)); margin: 0 auto; background: #fff; border: 1px solid #eadfce; border-radius: 24px; padding: 50px; box-shadow: 0 10px 40px rgba(80,50,30,0.05); }
+    .cv-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #eadfce; padding-bottom: 30px; margin-bottom: 40px; }
+    .cv-title h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #161b23; margin-bottom: 5px; }
+    .cv-title p { font-size: 1.1rem; color: #c15f77; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .cv-contacts { text-align: right; font-size: 0.95rem; color: #555; line-height: 1.6; }
+    .cv-section { display: grid; grid-template-columns: 0.3fr 0.7fr; gap: 30px; margin-bottom: 40px; }
+    .cv-section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #161b23; text-transform: uppercase; letter-spacing: 1px; border-right: 3px solid #d67087; padding-right: 15px; height: fit-content; }
+    .timeline-item { margin-bottom: 25px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .item-header h4 { font-size: 1.15rem; color: #161b23; font-weight: 700; }
+    .item-date { font-size: 0.9rem; color: #c15f77; font-weight: 700; white-space: nowrap; }
+    .item-sub { font-size: 0.95rem; color: #796d66; font-weight: 600; margin-bottom: 8px; }
+    .item-desc { font-size: 0.95rem; color: #444; margin-bottom: 8px; padding-left: 15px; }
+    .tech-used { font-size: 0.85rem; background: #f7efe8; color: #52321c; padding: 4px 10px; border-radius: 6px; display: inline-block; font-weight: 600; }
+    .skills-list-cv { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .skill-cv-box strong { color: #161b23; display: block; margin-bottom: 2px; font-size: 0.95rem; }
+    .skill-cv-box p { font-size: 0.9rem; color: #555; }
+    .privacy-text { font-size: 0.8rem; color: #888; text-align: justify; margin-top: 5px; border-top: 1px solid #eadfce; padding-top: 20px; }
+    
+    @media (max-width: 768px) {
+      .cv-header { flex-direction: column; gap: 20px; }
+      .cv-contacts { text-align: left; }
+      .cv-section { grid-template-columns: 1fr; gap: 15px; }
+      .cv-section-title { border-right: none; border-bottom: 3px solid #d67087; padding-bottom: 5px; padding-right: 0; width: 100%; }
+      .item-header { flex-direction: column; gap: 4px; }
+      .skills-list-cv { grid-template-columns: 1fr; }
+      .cv-container { padding: 24px; }
+    }
+
+    /* 🖨️ OTTIMIZZAZIONE PER LA STAMPA PDF PERFETTA */
+    @media print {
+      body { background: #fff; color: #000; }
+      .navbar, .footer, .no-print { display: none !important; }
+      .cv-page { margin: 0; padding: 0; }
+      .cv-container { border: none; box-shadow: none; padding: 0; width: 100%; }
+      .cv-title h1 { font-size: 2.2rem; }
+      .tech-used { border: 1px solid #eadfce; background: transparent; }
+      a { text-decoration: none; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Cinzia<span>★</span></div>
+    <nav class="menu">
+      <a href="index.html">HOME</a>
+      <a href="index.html#chi-sono">CHI SONO</a>
+      <a href="competenze.html" class="active">COMPETENZE</a>
+      <a href="index.html#progetti">PROGETTI</a>
+      <a href="#">BLOG</a>
+      <a href="index.html#contatti">CONTATTI</a>
+    </nav>
+  </header>
+
+  <main class="cv-page">
+    <div class="cv-container">
+      
+      <!-- INTESTAZIONE -->
+      <div class="cv-header">
+        <div class="cv-title">
+          <h1>Vincenza Molisano</h1>
+          <p>IT Specialist & Support Engineer</p>
+        </div>
+        <div class="cv-contacts">
+        
+        </div>
+      </div>
+
+      <!-- ESPERIENZE PROFESSIONALI -->
+      <div class="cv-section">
+        <div class="cv-section-title">Esperienze</div>
+        <div class="cv-content">
+          
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>On-Site Customer Support Engineer</h4>
+              <span class="item-date">Aprile 2012 – In corso</span>
+            </div>
+            <div class="item-sub">Bit4id S.r.l. presso ASST Papa Giovanni XXIII di Bergamo</div>
+            <ul class="item-desc">
+              <li><strong>Identity & Access Management:</strong> Gestione end-to-end del ciclo di vita delle identità digitali aziendali, amministrazione del sistema IDM e controllo degli accessi.</li>
+              <li><strong>Autenticazione Forte & AD:</strong> Amministrazione di Active Directory (utenti, gruppi, permessi per reti e VPN), gestione, rilascio e troubleshooting di Smart Card aziendali, sistemi di firma digitale e infrastrutture di Single Sign-On (SSO).</li>
+              <li><strong>Infrastruttura e Delivery:</strong> Installazione middleware, certificati regionali (SISS/CNS) e configurazione delle postazioni di lavoro (PDL). Monitoraggio applicativi ospedalieri tramite log viewer ed esecuzione di test su script prima del rilascio in produzione.</li>
+              <li><strong>Supporto Avanzato:</strong> Gestione dell'Help Desk interno di secondo livello e collaborazione ai flussi di e-ticketing aziendali.</li>
+            </ul>
+            <span class="tech-used">Tech: Active Directory, IDM, SISS, SSO, VPN, Landesk, TeamViewer, RealVNC, Log Viewer</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Operatore CRM (Stage)</h4>
+              <span class="item-date">Febbraio 2012 – Aprile 2012</span>
+            </div>
+            <div class="item-sub">Accenture S.p.A. (Commessa Enel Energia) — Napoli</div>
+            <ul class="item-desc">
+              <li>Gestione delle pratiche dei clienti, lavorazione disdette e gestione flussi informativi su piattaforma CRM enterprise.</li>
+            </ul>
+            <span class="tech-used">Tech: Siebel CRM</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Impiegata Commerciale & Web Referent</h4>
+              <span class="item-date">Settembre 2010 – Aprile 2012</span>
+            </div>
+            <div class="item-sub">P.C. Distribution S.r.l. — Napoli</div>
+            <ul class="item-desc">
+              <li>Gestione ordini, fatturazione, logistica e problem solving non conformità con fornitori esteri.</li>
+              <li>Cura della presenza online aziendale tramite HTML e gestione delle mailing list promozionali.</li>
+            </ul>
+            <span class="tech-used">Tech: Danea EasyFatt, HTML, Photoshop, PowerPoint</span>
+          </div>
+
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Consulente Informatico & Sistemista</h4>
+              <span class="item-date">Marzo 2008 – Febbraio 2010</span>
+            </div>
+            <div class="item-sub">Spedaliere S.r.l. — Napoli</div>
+            <ul class="item-desc">
+              <li>Sviluppo, manutenzione ed ottimizzazione SEO del sito web aziendale.</li>
+              <li>Progettazione, installazione e configurazione dell'infrastruttura di rete LAN e del sistema di videosorveglianza.</li>
+              <li>Riparazione, assemblaggio hardware e manutenzione ordinaria dei computer aziendali.</li>
+            </ul>
+            <span class="tech-used">Tech: HTML, PHP, Dreamweaver, Danea EasyFatt, Networking, CCTV</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COMPETENZE DI PROFILO -->
+      <div class="cv-section">
+        <div class="cv-section-title">Competenze</div>
+        <div class="cv-content">
+          <div class="skills-list-cv">
+            <div class="skill-cv-box">
+              <strong>Identity & Cyber Security</strong>
+              <p>Active Directory, LDAP, Kerberos, SSO, Strong Authentication, Smart Card, Firma Digitale, VPN.</p>
+            </div>
+            <div class="skill-cv-box">
+              <strong>Sistemi & Automation</strong>
+              <p>Windows Server, Windows Client, PowerShell scripting, Python essentials, Desktop management.</p>
+            </div>
+            <div class="skill-cv-box">
+              <strong>Gestione Dati & Web</strong>
+              <p>Interrogazioni e analisi dati in SQL, controllo qualità anagrafiche, WordPress, HTML/CSS, Danea EasyFatt.</p>
+            </div>
+            <div class="skill-cv-box">
+              <strong>Soft Skills</strong>
+              <p>Problem solving sistemistico avanzato, attitudine al lavoro per obiettivi, ottima interfaccia utente (IT-to-Human).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMAZIONE E CERTIFICAZIONI -->
+      <div class="cv-section">
+        <div class="cv-section-title">Formazione</div>
+        <div class="cv-content">
+          
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Corso Microsoft System Engineer (MCSE Program)</h4>
+              <span class="item-date">2016</span>
+            </div>
+            <div class="item-sub">Accademia Domani — Roma (Attestato di partecipazione)</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Tecnico Hardware PC</h4>
+              <span class="item-date">2005</span>
+            </div>
+            <div class="item-sub">Genius Informatica (Centro accreditato Prometheo) — Napoli</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="item-header">
+              <h4>Maturità Scientifica (Piano Nazionale Informatica - P.N.I.)</h4>
+              <span class="item-date">1998</span>
+            </div>
+            <div class="item-sub">Liceo Scientifico "Filippo Silvestri" — Portici (NA)</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ALTRE INFORMAZIONI -->
+      <div class="cv-section">
+        <div class="cv-section-title">Lingue & Note</div>
+        <div class="cv-content">
+          <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">
+            <strong>Lingua Inglese:</strong> Buona padronanza generale con eccellenti capacità di lettura e comprensione dei testi tecnici.<br>
+            <strong>Patente di guida:</strong> Patente B (Automunita).
+          </p>
+        </div>
+      </div>
+
+      <!-- NOTE LEGALI -->
+      <p class="privacy-text">
+        Autorizzo il trattamento dei miei dati personali ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 "Codice in materia di protezione dei dati personali" e del GDPR (Regolamento UE 2016/679).
+      </p>
+
+    </div>
+    
+    <!-- BOTTONE DI STAMPA SOLO VISIBILE A SCHERMO -->
+    <div class="no-print" style="text-align: center; margin-top: 40px;">
+      <button onclick="window.print()" class="btn-rosa" style="cursor: pointer; border: none; font-size: 1rem; padding: 14px 30px;">
+        Stampa o Salva in PDF 🖨️
+      </button>
+    </div>
+  </main>
+
+</body>
+</html>

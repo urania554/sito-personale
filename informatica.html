@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informatica: Serio & Divertente - Cinzia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .info-page { margin-top: 120px; padding-bottom: 90px; }
+    
+    /* Layout a due colonne speculari */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .column-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eadfce;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .column-title.divertente { border-color: #d67087; }
+
+    /* Card per i singoli aneddoti o progetti */
+    .story-card {
+      background: #fff;
+      border: 1px solid #eadfce;
+      border-radius: 20px;
+      padding: 26px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(80,50,30,0.04);
+      transition: transform 0.25s ease;
+    }
+    .story-card:hover { transform: translateY(-4px); }
+    
+    .story-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #1f1d1b;
+    }
+    
+    .story-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .story-meta {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c15f77;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    /* Spazio per immagini degli aneddoti */
+    .story-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 14px;
+      border: 1px solid #eadfce;
+    }
+
+    @media (max-width: 820px) {
+      .split-layout { grid-template-columns: 1fr; gap: 50px; }
+      .info-page { margin-top: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Cinzia<span>★</span></div>
+    <nav class="menu">
+      <a href="index.html">HOME</a>
+      <a href="index.html#chi-sono">CHI SONO</a>
+      <a href="competenze.html">COMPETENZE</a>
+      <a href="index.html#progetti">PROGETTI</a>
+      <a href="#">BLOG</a>
+      <a href="index.html#contatti">CONTATTI</a>
+    </nav>
+    <div class="nav-icons">
+      <span>🌙</span>
+      <span>✉️</span>
+    </div>
+  </header>
+
+  <main class="info-page">
+    <div style="width: min(1180px, calc(100% - 40px)); margin: 0 auto;">
+      
+      <span class="small-title">Dietro lo Schermo</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 15px;">Due facce della stessa medaglia</h2>
+      <p style="color: #625a55; max-width: 700px; font-size: 1.1rem; margin-bottom: 40px;">
+        C'è l'informatica fatta di scadenze, architetture critiche e rigore logico. E poi c'è la vita reale in laboratorio, fatta di stranezze informatiche, richieste surreali e piccoli misteri quotidiani.
+      </p>
+
+      <div class="split-layout">
+        
+        <!-- COLONNA SERIA: PROGETTI PARTICOLARI -->
+        <div class="column-seria">
+          <h3 class="column-title">💻 Casi di Studio & Progetti</h3>
+          
+          <div class="story-card">
+            <span class="story-meta">Automazione Sistemistica</span>
+            <h4>Il super-script di migrazione account</h4>
+            <p>
+              Invece di gestire manualmente la creazione e il controllo dei permessi per centinaia di utenze, ho sviluppato un tool custom in PowerShell. Un lavoro di logica pura che ha ridotto i tempi di gestione del 90% e azzerato i margini d'errore nelle anagrafiche di sicurezza.
+            </p>
+          </div>
+
+          <div class="story-card">
+            <span class="story-meta">Database Management</span>
+            <h4>Ottimizzazione query in ambienti critici</h4>
+            <p>
+              Risoluzione di un collo di bottiglia strutturale su un server SQL che rallentava i sistemi. Attraverso l'analisi degli indici e la riscrittura di query complesse, i tempi di risposta dei flussi dati sono passati da minuti a pochi millisecondi.
+            </p>
+          </div>
+        </div>
+
+        <!-- COLONNA DIVERTENTE: ANEDDOTI & VITA DA LABORATORIO -->
+        <div class="column-divertente">
+          <h3 class="column-title divertente">🐧 Cronache del Laboratorio</h3>
+          
+          <div class="story-card">
+            <span class="story-meta">Episodi Surreali</span>
+            <h4>Il mistero del PC che si spegneva a mezzogiorno</h4>
+            <p>
+              Dopo giorni di troubleshooting hardware e software su una postazione utente, abbiamo scoperto il colpevole: non era un virus, ma il microonde della sala pausa confinante che mandava in corto la presa principale ogni volta che qualcuno scaldava il pranzo!
+            </p>
+            <!-- Spazio per un'immagine divertente del laboratorio o di un dettaglio -->
+            <!-- <img src="foto-aneddoto1.jpg" alt="Il laboratorio" class="story-img" /> -->
+          </div>
+
+          <div class="story-card">
+            <span class="story-mesh">Assistenza e Supporto</span>
+            <h4>"Il mouse non scorre più"</h4>
+            <p>
+              Chiamata urgente per un blocco hardware totale. Arrivata sulla postazione, scopro che il mouse wireless era semplicemente finito al contrario sul tappetino. Risolto con un sorriso e una tazza di caffè offerta dall'utente grato.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TORNA ALLA HOME -->
+      <div style="text-align: center; margin-top: 60px;">
+        <a href="index.html" class="link-back" style="color: #d67087; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">← Torna alla Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Tra codice e storie. Tra dati e immaginazione.</p>
+    <small>© 2026 Cinzia Molisano</small>
+  </footer>
+
+</body>
+</html>
