@@ -3,172 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informatica: Serio & Divertente - Cinzia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <title>Informatica · Il mio laboratorio digitale - Cinzia</title>
+  <meta name="description" content="Il laboratorio digitale di Cinzia: progetti, automazione, identità digitale, dati e sperimentazione tecnologica." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
-    .info-page { margin-top: 120px; padding-bottom: 90px; }
-    
-    /* Layout a due colonne speculari */
-    .split-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    
-    .column-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #eadfce;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .column-title.divertente { border-color: #d67087; }
-
-    /* Card per i singoli aneddoti o progetti */
-    .story-card {
-      background: #fff;
-      border: 1px solid #eadfce;
-      border-radius: 20px;
-      padding: 26px;
-      margin-bottom: 24px;
-      box-shadow: 0 10px 30px rgba(80,50,30,0.04);
-      transition: transform 0.25s ease;
-    }
-    .story-card:hover { transform: translateY(-4px); }
-    
-    .story-card h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #1f1d1b;
-    }
-    
-    .story-card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .story-meta {
-      display: block;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #c15f77;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    /* Spazio per immagini degli aneddoti */
-    .story-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-top: 14px;
-      border: 1px solid #eadfce;
-    }
-
-    @media (max-width: 820px) {
-      .split-layout { grid-template-columns: 1fr; gap: 50px; }
-      .info-page { margin-top: 90px; }
-    }
+    .lab-page{padding-top:78px}.lab-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}.lab-hero{padding:92px 0 72px;background:var(--surface-soft);border-bottom:1px solid var(--line)}
+    .lab-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}.lab-hero h1{font-family:'Caveat',cursive;font-size:clamp(4rem,7vw,7rem);line-height:.88;margin:12px 0 24px}.lab-lead{font-size:1.12rem;color:var(--muted);max-width:690px}.lab-question{font-family:'Playfair Display',serif;font-size:clamp(1.55rem,2.4vw,2.3rem);margin:25px 0 18px}.lab-note{padding:30px;border:1px solid var(--line);border-radius:28px;background:var(--surface);box-shadow:var(--shadow)}.lab-note code{font-size:1rem}.lab-note p{color:var(--muted);margin-top:13px}
+    .lab-section{padding:88px 0}.lab-section.alt{background:var(--surface-soft)}.lab-head{max-width:760px;margin-bottom:38px}.lab-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.6rem);line-height:1.05;margin:8px 0 14px}.lab-head p{color:var(--muted);font-size:1.05rem}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.lab-card{position:relative;padding:32px;border:1px solid var(--line);border-radius:26px;background:var(--surface);box-shadow:0 14px 40px rgba(82,50,28,.07);transition:transform .25s ease,box-shadow .25s ease}.lab-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.lab-icon{font-size:2rem;margin-bottom:18px}.lab-tag{display:inline-block;color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px}.lab-card h3{font-family:'Playfair Display',serif;font-size:1.55rem;line-height:1.2;margin-bottom:13px}.lab-card p{color:var(--muted);margin-bottom:18px}.tech-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.tech-list span{padding:6px 10px;border-radius:999px;background:var(--surface-soft);border:1px solid var(--line);font-size:.75rem;font-weight:700}.lab-highlight{font-weight:700;color:var(--text)!important;border-left:3px solid var(--accent);padding-left:15px}
+    .experiment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.experiment{padding:34px;border-radius:28px;background:var(--dark);color:#fff}.experiment p{color:#d9dbe0}.experiment .lab-tag{color:#ef9caf}.experiment h3{font-family:'Playfair Display',serif;font-size:1.7rem;margin:7px 0 14px}.experiment strong{color:#fff}
+    .articles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.article-card{padding:28px;border-top:3px solid var(--accent);background:var(--surface);border-radius:0 0 22px 22px;box-shadow:0 12px 35px rgba(82,50,28,.06)}.article-no{font-family:'Caveat',cursive;font-size:2rem;color:var(--accent)}.article-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin:5px 0 12px}.article-card p{color:var(--muted);font-size:.94rem}
+    .lab-closing{text-align:center;padding:88px 20px}.lab-closing h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);max-width:850px;margin:0 auto 18px}.lab-closing p{color:var(--muted);font-size:1.08rem}.code-line{display:inline-block;margin-top:26px;padding:12px 18px;border-radius:12px;background:var(--dark);color:#f4d6de;font-family:monospace}
+    @media(max-width:850px){.lab-hero-grid,.project-grid,.experiment-grid{grid-template-columns:1fr}.articles{grid-template-columns:1fr}.lab-hero{padding-top:65px}.lab-note{margin-top:10px}}
   </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">Cinzia<span>★</span></div>
-    <nav class="menu">
-      <a href="index.html">HOME</a>
-      <a href="index.html#chi-sono">CHI SONO</a>
-      <a href="competenze.html">COMPETENZE</a>
-      <a href="index.html#progetti">PROGETTI</a>
-      <a href="#">BLOG</a>
-      <a href="index.html#contatti">CONTATTI</a>
-    </nav>
-    <div class="nav-icons">
-      <span>🌙</span>
-      <span>✉️</span>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a href="index.html#blog">BLOG</a><a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button><a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button></div>
+</header>
+<main class="lab-page">
+  <section class="lab-hero">
+    <div class="lab-shell lab-hero-grid">
+      <div><span class="section-kicker">Informatica · Il mio laboratorio digitale</span><h1>Dal problema<br>alla soluzione.</h1><p class="lab-lead">L'informatica che mi interessa nasce quasi sempre da una domanda molto semplice:</p><div class="lab-question">“Possiamo farlo meglio?”</div><p class="lab-lead">Mi piace osservare un processo, capire dove si perde tempo, individuare le operazioni ripetitive e trasformarle in qualcosa di più semplice. A volte la risposta è una query. A volte uno script. A volte serve costruire un'applicazione intera.</p></div>
+      <aside class="lab-note"><span class="lab-tag">Il mio approccio</span><code>problema → analisi → idea → prototipo → soluzione</code><p>Il codice, per me, viene dopo. <strong>Prima viene il problema da risolvere.</strong></p></aside>
     </div>
-  </header>
+  </section>
 
-  <main class="info-page">
-    <div style="width: min(1180px, calc(100% - 40px)); margin: 0 auto;">
-      
-      <span class="small-title">Dietro lo Schermo</span>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 15px;">Due facce della stessa medaglia</h2>
-      <p style="color: #625a55; max-width: 700px; font-size: 1.1rem; margin-bottom: 40px;">
-        C'è l'informatica fatta di scadenze, architetture critiche e rigore logico. E poi c'è la vita reale in laboratorio, fatta di stranezze informatiche, richieste surreali e piccoli misteri quotidiani.
-      </p>
-
-      <div class="split-layout">
-        
-        <!-- COLONNA SERIA: PROGETTI PARTICOLARI -->
-        <div class="column-seria">
-          <h3 class="column-title">💻 Casi di Studio & Progetti</h3>
-          
-          <div class="story-card">
-            <span class="story-meta">Automazione Sistemistica</span>
-            <h4>Il super-script di migrazione account</h4>
-            <p>
-              Invece di gestire manualmente la creazione e il controllo dei permessi per centinaia di utenze, ho sviluppato un tool custom in PowerShell. Un lavoro di logica pura che ha ridotto i tempi di gestione del 90% e azzerato i margini d'errore nelle anagrafiche di sicurezza.
-            </p>
-          </div>
-
-          <div class="story-card">
-            <span class="story-meta">Database Management</span>
-            <h4>Ottimizzazione query in ambienti critici</h4>
-            <p>
-              Risoluzione di un collo di bottiglia strutturale su un server SQL che rallentava i sistemi. Attraverso l'analisi degli indici e la riscrittura di query complesse, i tempi di risposta dei flussi dati sono passati da minuti a pochi millisecondi.
-            </p>
-          </div>
-        </div>
-
-        <!-- COLONNA DIVERTENTE: ANEDDOTI & VITA DA LABORATORIO -->
-        <div class="column-divertente">
-          <h3 class="column-title divertente">🐧 Cronache del Laboratorio</h3>
-          
-          <div class="story-card">
-            <span class="story-meta">Episodi Surreali</span>
-            <h4>Il mistero del PC che si spegneva a mezzogiorno</h4>
-            <p>
-              Dopo giorni di troubleshooting hardware e software su una postazione utente, abbiamo scoperto il colpevole: non era un virus, ma il microonde della sala pausa confinante che mandava in corto la presa principale ogni volta che qualcuno scaldava il pranzo!
-            </p>
-            <!-- Spazio per un'immagine divertente del laboratorio o di un dettaglio -->
-            <!-- <img src="foto-aneddoto1.jpg" alt="Il laboratorio" class="story-img" /> -->
-          </div>
-
-          <div class="story-card">
-            <span class="story-mesh">Assistenza e Supporto</span>
-            <h4>"Il mouse non scorre più"</h4>
-            <p>
-              Chiamata urgente per un blocco hardware totale. Arrivata sulla postazione, scopro che il mouse wireless era semplicemente finito al contrario sul tappetino. Risolto con un sorriso e una tazza di caffè offerta dall'utente grato.
-            </p>
-          </div>
-        </div>
-
+  <section class="lab-section">
+    <div class="lab-shell"><div class="lab-head"><span class="section-kicker">Progetti dal laboratorio</span><h2>Strumenti nati da esigenze reali.</h2><p>Non un elenco di tecnologie, ma alcuni dei problemi che mi hanno fatto venire voglia di costruire qualcosa.</p></div>
+      <div class="project-grid">
+        <article class="lab-card"><div class="lab-icon">🪪</div><span class="lab-tag">Identità digitale</span><h3>Un unico strumento per tante operazioni diverse</h3><p>Gestire identità digitali significa lavorare con informazioni distribuite tra sistemi differenti: account, smart card, certificati, gruppi, applicazioni e autorizzazioni.</p><p>Da questa esigenza è nata una suite desktop che riunisce in un'unica interfaccia molte attività operative: ricerca delle informazioni, controlli, storico, gestione delle smart card e automazione di procedure.</p><p class="lab-highlight">La sfida non è soltanto scrivere il codice: è trasformare procedure complesse in pochi passaggi comprensibili.</p><div class="tech-list"><span>C#</span><span>.NET</span><span>WinForms</span><span>Active Directory</span><span>Oracle</span><span>SQL</span><span>API</span></div></article>
+        <article class="lab-card"><div class="lab-icon">⚙️</div><span class="lab-tag">Automazione</span><h3>Se un computer può farlo, perché farlo trenta volte?</h3><p>Controllare dati, confrontare informazioni, individuare anomalie, preparare comunicazioni o verificare lunghe liste: attività semplici che, moltiplicate, diventano tempo e possibilità di errore.</p><p class="lab-highlight">L'obiettivo è lasciare alla macchina il lavoro ripetitivo e alla persona quello che richiede ragionamento.</p><div class="tech-list"><span>Script</span><span>Controlli</span><span>Batch</span><span>Workflow</span></div></article>
+        <article class="lab-card"><div class="lab-icon">🔎</div><span class="lab-tag">Dati & integrazione</span><h3>Quando i sistemi non vanno d'accordo</h3><p>Sistema A dice una cosa. Sistema B ne dice un'altra. Una parte dei miei progetti nasce proprio dal confronto tra informazioni provenienti da fonti differenti.</p><p>Non solo cercare un dato, quindi, ma confrontarlo, evidenziare le differenze e aiutare a capire dove intervenire.</p><p class="lab-highlight">Trovare un'informazione è utile. Capire che qualcosa non torna lo è ancora di più.</p><div class="tech-list"><span>SQL</span><span>Oracle</span><span>Directory</span><span>Confronto dati</span></div></article>
+        <article class="lab-card"><div class="lab-icon">🔐</div><span class="lab-tag">Credenziali & accessi</span><h3>Automatizzare senza dimenticare la sicurezza</h3><p>Sto lavorando anche a strumenti per rendere più ordinata la gestione di credenziali e abilitazioni software: richieste singole, nuovi utenti, operazioni massive e configurazioni centralizzate.</p><p class="lab-highlight">In questi progetti “funziona” non è sufficiente. Deve funzionare nel modo giusto.</p><div class="tech-list"><span>Accessi</span><span>Configurazione</span><span>Tracciabilità</span><span>Sicurezza</span></div></article>
       </div>
-
-      <!-- TORNA ALLA HOME -->
-      <div style="text-align: center; margin-top: 60px;">
-        <a href="index.html" class="link-back" style="color: #d67087; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">← Torna alla Home</a>
-      </div>
-
     </div>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <p>Tra codice e storie. Tra dati e immaginazione.</p>
-    <small>© 2026 Cinzia Molisano</small>
-  </footer>
+  <section class="lab-section alt"><div class="lab-shell"><div class="lab-head"><span class="section-kicker">Esperimenti</span><h2>Quando tecnologia e creatività si incontrano.</h2><p>Non tutti i progetti nascono per diventare software: alcuni servono soprattutto a sperimentare modi nuovi di comunicare e utilizzare la tecnologia.</p></div>
+    <div class="experiment-grid">
+      <article class="experiment"><span class="lab-tag">Tutorial · Grafica · AI</span><h3>👆 UGI — raccontare la tecnologia</h3><p>Un personaggio nato da un'impronta digitale per spiegare procedure e strumenti attraverso tutorial, illustrazioni e video. Un progetto che unisce storyboard, grafica, animazione, voce sintetica e sperimentazione con strumenti di intelligenza artificiale.</p><p><strong>Perché anche una procedura tecnica può essere raccontata bene.</strong></p></article>
+      <article class="experiment"><span class="lab-tag">Hardware · Offline</span><h3>🖥️ Un piccolo totem offline</h3><p>Recuperare hardware economico o non più utilizzato e trasformarlo in una postazione informativa minimale: avvio automatico, contenuti in loop e tutorial selezionabili, senza dipendere da Internet.</p><p><strong>Tecnologia nuova? Non necessariamente. Un nuovo modo di usare quella che abbiamo? Molto più interessante.</strong></p></article>
+    </div>
+  </div></section>
 
+  <section class="lab-section"><div class="lab-shell"><div class="lab-head"><span class="section-kicker">Appunti dal laboratorio</span><h2>Idee da approfondire.</h2><p>Questa sarà la parte editoriale: esperienze, ragionamenti e piccoli approfondimenti nati dai progetti.</p></div>
+    <div class="articles"><article class="article-card"><span class="article-no">01</span><h3>Quando vale la pena automatizzare un'attività?</h3><p>Non tutto ciò che può essere automatizzato dovrebbe esserlo. Come capire quando il codice può davvero farci risparmiare tempo.</p></article><article class="article-card"><span class="article-no">02</span><h3>Da un problema reale a una piccola applicazione</h3><p>Analisi, prototipo, errori, modifiche e soluzione finale: il percorso che trasforma un'esigenza operativa in uno strumento.</p></article><article class="article-card"><span class="article-no">03</span><h3>Quando i dati non coincidono</h3><p>Cosa succede quando due sistemi raccontano cose diverse e perché il confronto può essere più importante della semplice ricerca.</p></article></div>
+  </div></section>
+
+  <section class="lab-closing"><div class="lab-shell"><h2>Non sviluppo software per il gusto di sviluppare software.</h2><p>Mi piace costruire strumenti che risolvono problemi. E spesso tutto comincia da: <em>“Ogni volta dobbiamo fare tutto questo a mano…”</em></p><div class="code-line">while (curiosity) { learn(); }</div><div style="margin-top:34px"><a class="btn btn-primary" href="index.html#progetti">← Torna ai progetti</a></div></div></section>
+</main>
+<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<script src="script.js"></script>
 </body>
 </html>
