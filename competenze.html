@@ -43,8 +43,68 @@
       margin-top: 50px;
     }
     
+    /* Le card della pagina Competenze non devono ereditare la griglia a 3 colonne
+       usata dai progetti della Home. */
+    .skills-details .project-grid {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
+    }
+
+    .skills-details .project-item {
+      display: grid !important;
+      grid-template-columns: auto 1fr !important;
+      grid-template-rows: auto auto !important;
+      column-gap: 12px !important;
+      row-gap: 8px !important;
+      align-items: center !important;
+      min-height: 0 !important;
+      padding: 24px 26px !important;
+      border: 1px solid rgba(214,112,135,.32) !important;
+      border-radius: 22px !important;
+      background: var(--surface) !important;
+      box-shadow: 0 10px 30px rgba(80,50,30,.055) !important;
+    }
+
+    .skills-details .project-item > span {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0 !important;
+      line-height: 1;
+    }
+
+    .skills-details .project-item > strong {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 1.02rem !important;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .skills-details .project-item > p {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+      margin: 3px 0 0 !important;
+      color: var(--muted) !important;
+      line-height: 1.7 !important;
+      font-size: .95rem !important;
+    }
+
+    .skills-details .project-item:hover {
+      transform: translateY(-3px) !important;
+    }
+
+    .skills-aside {
+      min-width: 0;
+    }
+
     @media (max-width: 980px) {
       .skills-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .skills-page { margin-top: 95px; }
+      .skills-details .project-item { padding: 20px !important; }
     }
   </style>
 </head>
