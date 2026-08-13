@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scrittura · Storie, mondi e personaggi - Cinzia</title>
-  <meta name="description" content="La parte narrativa del sito di Cinzia: romanzi, personaggi, idee e appunti di scrittura." />
+  <meta name="description" content="La parte narrativa del sito di Cinzia: Urania, Bob Notes, romanzi, graphic novel, personaggi e appunti di scrittura." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
@@ -306,6 +306,131 @@
       object-fit:contain;
     }
 
+
+    /* Bob Notes */
+    .bob-writing{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:0;
+      overflow:hidden;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 82% 16%,rgba(155,63,66,.16),transparent 26%),
+        linear-gradient(135deg,#17191e,#262126);
+      color:#fff;
+      box-shadow:0 20px 55px rgba(28,24,24,.18);
+    }
+
+    .bob-writing-visual{
+      min-height:560px;
+      overflow:hidden;
+      position:relative;
+      background:#15171c;
+    }
+
+    .bob-writing-visual img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .bob-writing-copy{
+      padding:46px 48px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .bob-writing-copy .writing-kicker{color:#e8a5a9}
+    .bob-writing-copy h3{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.5rem,4.5vw,4.2rem);
+      margin:4px 0 10px;
+    }
+
+    .bob-writing-tagline{
+      font-family:'Caveat',cursive;
+      font-size:1.75rem;
+      color:#f0c5c8;
+      margin-bottom:20px;
+    }
+
+    .bob-writing-copy p{
+      color:#d3d5da;
+      line-height:1.76;
+      margin:0 0 17px;
+    }
+
+    .bob-files-mini{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin:24px 0 27px;
+    }
+
+    .bob-mini-file{
+      min-height:125px;
+      padding:16px 13px;
+      border-radius:5px 13px 13px 5px;
+      background:#efe5cf;
+      color:#2b2721;
+      border:1px solid rgba(0,0,0,.15);
+      transform:rotate(-1deg);
+      box-shadow:0 8px 18px rgba(0,0,0,.16);
+    }
+
+    .bob-mini-file:nth-child(2){transform:rotate(1deg)}
+    .bob-mini-file:nth-child(3){transform:rotate(-.5deg)}
+
+    .bob-mini-file strong{
+      display:block;
+      font-family:'Caveat',cursive;
+      color:#9b3f42;
+      font-size:1.35rem;
+      margin-bottom:7px;
+    }
+
+    .bob-mini-file span{
+      display:block;
+      font-size:.78rem;
+      line-height:1.35;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .bob-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      padding:12px 19px;
+      border-radius:999px;
+      background:#9b3f42;
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      transition:.2s ease;
+    }
+
+    .bob-link:hover{
+      transform:translateY(-2px);
+      background:#ad494d;
+    }
+
+    @media(max-width:900px){
+      .bob-writing{grid-template-columns:1fr}
+      .bob-writing-visual{min-height:430px}
+      .bob-writing-copy{padding:34px 28px}
+    }
+
+    @media(max-width:620px){
+      .bob-files-mini{grid-template-columns:1fr}
+      .bob-writing-visual{min-height:360px}
+    }
+
   </style>
 </head>
 
@@ -382,6 +507,49 @@
           <a class="coming-link" href="urania.html">Entra nel mondo di Urania →</a>
         </div>
       </article>
+
+      <article class="bob-writing">
+        <div class="bob-writing-visual">
+          <img src="images/scrittura/bob-investigatore.png" alt="Bob investigatore, protagonista di Bob Notes">
+        </div>
+
+        <div class="bob-writing-copy">
+          <span class="writing-kicker">Graphic novel · autobiografia ironica</span>
+          <h3>Bob Notes</h3>
+          <div class="bob-writing-tagline">Archivio riservato. Più o meno.</div>
+
+          <p>
+            Se Urania nasce dal mistero, Bob Notes nasce da una domanda molto più pericolosa:
+            cosa succede se gli episodi più assurdi della mia vita vengono affidati a un cane
+            convinto di essere un investigatore?
+          </p>
+
+          <p>
+            Bob osserva, annusa, collega indizi e apre fascicoli su tutto:
+            infanzia, famiglia, università, relazioni, merluzzi sospetti e incidenti culinari.
+            Il risultato è una graphic novel autobiografica in cui la realtà viene trattata
+            con la serietà che merita. Cioè pochissima.
+          </p>
+
+          <div class="bob-files-mini">
+            <div class="bob-mini-file">
+              <strong>FILE #001</strong>
+              <span>L'origine segreta di Cinzia</span>
+            </div>
+            <div class="bob-mini-file">
+              <strong>FILE #002</strong>
+              <span>L'arma arancione</span>
+            </div>
+            <div class="bob-mini-file">
+              <strong>FILE #003</strong>
+              <span>Il merluzzo mutante</span>
+            </div>
+          </div>
+
+          <a class="bob-link" href="bob-notes.html">Entra nell'archivio di Bob →</a>
+        </div>
+      </article>
+
     </div>
   </section>
 
@@ -448,8 +616,8 @@
   <section class="writing-closing">
     <div class="writing-shell">
       <h2>Prima arriva una sensazione. Poi una frase. Poi, se sono fortunata, una storia.</h2>
-      <p>Questa sezione crescerà insieme ai progetti. Il prossimo passo è entrare nel mondo di Urania.</p>
-      <a class="btn btn-primary" href="urania.html">Scopri Urania →</a>
+      <p>Due modi molto diversi di raccontare: il mistero di Urania e il caos investigato da Bob.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn btn-primary" href="urania.html">Scopri Urania →</a><a class="btn" href="bob-notes.html">Apri Bob Notes →</a></div>
     </div>
   </section>
 </main>
