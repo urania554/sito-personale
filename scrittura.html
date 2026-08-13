@@ -282,6 +282,30 @@
       .writing-hero{padding-top:68px}
       .book-visual{min-height:350px}
     }
+
+    /* Copertina reale di Urania */
+    .book-cover-real{
+      min-height:0;
+      padding:0;
+      background:#111;
+      text-decoration:none;
+      align-self:start;
+      overflow:hidden;
+      border-radius:8px 22px 22px 8px;
+      box-shadow:0 22px 55px rgba(0,0,0,.34);
+      transition:transform .25s ease,box-shadow .25s ease;
+    }
+    .book-cover-real:hover{
+      transform:translateY(-5px) rotate(-.35deg);
+      box-shadow:0 30px 65px rgba(0,0,0,.42);
+    }
+    .book-cover-real img{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
   </style>
 </head>
 
@@ -331,13 +355,9 @@
       </div>
 
       <article class="featured-story">
-        <div class="book-visual" aria-label="Anteprima grafica di Urania">
-          <div class="moon"></div>
-          <div class="book-title">
-            <strong>URANIA</strong>
-            <span>Romanzo</span>
-          </div>
-        </div>
+        <a class="book-visual book-cover-real" href="urania.html" aria-label="Apri la pagina dedicata a Urania">
+          <img src="UltimaCover.png" alt="Copertina del romanzo Urania di Cinzia Molisano">
+        </a>
 
         <div class="featured-copy">
           <span class="writing-kicker">Progetto principale</span>
