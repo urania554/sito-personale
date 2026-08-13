@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bob File #003 · L'attacco del merluzzo mutante - Cinzia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{--paper:#efe5cf;--ink:#1f2127;--red:#9b3f42;--dark:#15171c;--tape:#d7c7aa}
+    .case-page{padding-top:78px;background:#f5f0e7}
+    .case-shell{width:min(1160px,calc(100% - 40px));margin:0 auto}
+    .case-hero{background:linear-gradient(135deg,#111318,#20232a 60%,#352428);color:#fff;padding:76px 0 66px;position:relative;overflow:hidden}
+    .case-hero::after{content:"BOB INVESTIGATIONS";position:absolute;right:-35px;top:55px;transform:rotate(12deg);border:4px solid rgba(216,117,124,.18);color:rgba(216,117,124,.2);font-weight:900;letter-spacing:.16em;padding:10px 55px}
+    .hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
+    .case-kicker{font-size:.72rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:#e8a5a9}
+    .case-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5.8rem);line-height:.95;margin:12px 0 18px}
+    .case-subtitle{font-family:'Caveat',cursive;font-size:clamp(1.5rem,2.8vw,2.25rem);color:#f1d2d5;line-height:1.2}
+    .bob-badge{background:#efe5cf;color:#211f1b;border-radius:22px;padding:28px;box-shadow:0 24px 50px rgba(0,0,0,.28);transform:rotate(1deg)}
+    .bob-badge h2{font-family:'Playfair Display',serif;margin:0 0 8px}
+    .bob-badge p{margin:0;color:#655b50}
+    .agent-sign{font-family:'Caveat',cursive;font-size:1.45rem;color:#9b3f42;margin-top:14px}
+    .case-section{padding:76px 0}
+    .dossier{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}
+    .cover-frame{background:#16181d;padding:14px;border-radius:18px;box-shadow:0 18px 38px rgba(0,0,0,.2);position:sticky;top:100px}
+    .cover-frame img{display:block;width:100%;height:auto;border-radius:10px}
+    .file-sheet{background:#fffdf7;border:1px solid #d7c8ad;border-radius:4px 22px 22px 4px;padding:34px;box-shadow:0 14px 32px rgba(78,60,41,.12);position:relative}
+    .file-sheet::before{content:"";position:absolute;left:18px;top:25px;bottom:25px;width:2px;background:rgba(155,63,66,.22)}
+    .file-sheet h2{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 20px 14px}
+    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-left:14px}
+    .meta{padding:13px;border:1px solid #e4d9c6;background:#faf6ed;border-radius:12px}
+    .meta strong{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:#9b3f42;margin-bottom:5px}
+    .file-intro{margin:24px 0 0 14px;color:#645d55;line-height:1.75}
+    .bob-note{margin:24px 0 0 14px;padding:18px 20px;border:2px dashed #9b3f42;background:#fff8f7;color:#4b4140;border-radius:14px}
+    .bob-note strong{color:#9b3f42}
+    .evidence-head{margin-bottom:28px}
+    .evidence-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);margin:6px 0 12px}
+    .evidence-head p{color:#70685f}
+    .evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .evidence{background:#fffdf7;padding:14px 14px 22px;border:1px solid #d6c7ae;box-shadow:0 14px 32px rgba(71,54,36,.12);transform:rotate(-.5deg)}
+    .evidence:nth-child(2){transform:rotate(.7deg)}
+    .evidence img{display:block;width:100%;height:auto}
+    .evidence-label{font-family:'Caveat',cursive;color:#9b3f42;font-size:1.35rem;margin-top:12px}
+    .analysis-box{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .analysis-card{background:#fff;border:1px solid #ddd5ca;border-radius:18px;padding:22px}
+    .analysis-card h3{font-family:'Playfair Display',serif;margin:0 0 9px}
+    .analysis-card p{color:#6e6860;line-height:1.65;margin:0}
+    .verdict{margin-top:38px;background:#17191e;color:#fff;border-radius:24px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+    .verdict-icon{font-size:2.2rem}.verdict strong{display:block;color:#e8a5a9;font-size:.75rem;letter-spacing:.1em}.verdict p{margin:6px 0 0;font-family:'Playfair Display',serif;font-size:1.25rem;line-height:1.45}
+    .case-nav{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:34px}
+    .case-nav a{padding:11px 16px;border-radius:999px;text-decoration:none;font-weight:800;background:#fff;border:1px solid #d8cec0;color:#2a2926}
+    @media(max-width:900px){.hero-grid,.dossier{grid-template-columns:1fr}.cover-frame{position:static;max-width:520px;margin:0 auto}.evidence-grid,.analysis-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a href="index.html#blog">BLOG</a><a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button><a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button></div>
+</header>
+
+<main class="case-page">
+  <section class="case-hero">
+    <div class="case-shell hero-grid">
+      <div>
+        <span class="case-kicker">BOB CASE FILE #003 · TRAUMA ITTICO</span>
+        <h1>L'attacco del merluzzo mutante</h1>
+        <div class="case-subtitle">Negli anni '80 anche il pesce poteva trasformarsi in un evento formativo.</div>
+      </div>
+      <aside class="bob-badge">
+        <h2>Bob Investigations</h2>
+        <p>Unità speciale per casi inutilmente sospetti.</p>
+        <div class="agent-sign">— Agente Bob, investigatore non autorizzato</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="case-shell dossier">
+      <div class="cover-frame">
+        <img src="images/bob-notes/case003-cover.png" alt="L'attacco del merluzzo mutante">
+      </div>
+
+      <div class="file-sheet">
+        <h2>Scheda del fascicolo</h2>
+        <div class="meta-grid">
+          <div class="meta"><strong>Soggetto</strong>Un merluzzo</div>
+          <div class="meta"><strong>Luogo</strong>Cucina / memoria</div>
+          <div class="meta"><strong>Minaccia</strong>Movimenti post-mortem non autorizzati</div>
+          <div class="meta"><strong>Elemento sospetto</strong>Pesce apparentemente morto</div>
+        </div>
+        <p class="file-intro">Un merluzzo, una bambina e un'epoca in cui il concetto di sicurezza alimentare era decisamente più elastico. Bob analizza uno dei casi più improbabili dell'archivio.</p>
+        <div class="bob-note"><strong>ANNOTAZIONE DI BOB</strong><br>L'evento viene ricordato con precisione incompatibile con la sua apparente irrilevanza.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" style="background:#efe6d7">
+    <div class="case-shell">
+      <div class="evidence-head">
+        <span class="case-kicker" style="color:#9b3f42">PROVE RACCOLTE</span>
+        <h2>Materiale dal caso.</h2>
+        <p>Solo alcuni frammenti della graphic novel: abbastanza per capire il tono, non abbastanza per raccontare tutto.</p>
+      </div>
+
+      <div class="evidence-grid">
+        <figure class="evidence">
+          <img src="images/bob-notes/case003-proof-a.png" alt="Prova A - L'attacco del merluzzo mutante">
+          <figcaption class="evidence-label">PROVA A · materiale acquisito</figcaption>
+        </figure>
+        <figure class="evidence">
+          <img src="images/bob-notes/case003-proof-b.png" alt="Prova B - L'attacco del merluzzo mutante">
+          <figcaption class="evidence-label">PROVA B · elemento sospetto</figcaption>
+        </figure>
+      </div>
+
+      <div class="analysis-box">
+        <article class="analysis-card">
+          <h3>Ipotesi di Bob</h3>
+          <p>Bob non esclude un glitch culturale tipico degli anni '80.</p>
+        </article>
+        <article class="analysis-card">
+          <h3>Livello di attendibilità</h3>
+          <p>Variabile. Bob considera “prova” qualunque dettaglio che renda la teoria più interessante.</p>
+        </article>
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-icon">🐾</div>
+        <div><strong>VERDETTO DI BOB</strong><p>CASO CHIUSO. NESSUN MERLUZZO È STATO CONSIDERATO INNOCENTE DOPO L'INCIDENTE.</p></div>
+      </div>
+
+      <div class="case-nav">
+        <a href="bob-notes.html">← Torna all'archivio</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bob Notes · Archivio riservato - Cinzia</title>
+  <meta name="description" content="Bob Notes: casi, sospetti e conclusioni discutibili raccolti da Bob, investigatore non ufficialmente autorizzato." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --bob-paper:#efe5cf;
+      --bob-ink:#1e2025;
+      --bob-red:#9b3f42;
+      --bob-tape:#d6c3a4;
+      --bob-dark:#15171c;
+    }
+
+    .bob-page{padding-top:78px}
+    .bob-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+
+    .bob-hero{
+      position:relative;
+      overflow:hidden;
+      padding:100px 0 86px;
+      background:
+        radial-gradient(circle at 84% 20%, rgba(155,63,66,.20), transparent 28%),
+        linear-gradient(135deg,#111318,#1d2027 62%,#342326);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .bob-hero::after{
+      content:"CONFIDENTIAL";
+      position:absolute;
+      right:-55px;
+      top:70px;
+      transform:rotate(12deg);
+      padding:10px 75px;
+      border:4px solid rgba(183,65,69,.22);
+      color:rgba(183,65,69,.24);
+      font-size:2.1rem;
+      font-weight:900;
+      letter-spacing:.18em;
+    }
+
+    .bob-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:60px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .bob-kicker{
+      display:inline-block;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:.73rem;
+      font-weight:800;
+      color:#e8a5a9;
+      margin-bottom:15px;
+    }
+
+    .bob-hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(4rem,8vw,7.6rem);
+      line-height:.84;
+      margin:0 0 18px;
+    }
+
+    .bob-hero h1 span{
+      color:#d8757c;
+    }
+
+    .bob-tagline{
+      font-family:'Caveat',cursive;
+      color:#f1d2d5;
+      font-size:clamp(1.7rem,3vw,2.5rem);
+      margin-bottom:22px;
+    }
+
+    .bob-lead{
+      max-width:720px;
+      color:#cfd2d8;
+      font-size:1.06rem;
+      line-height:1.78;
+    }
+
+    .bob-board{
+      min-height:390px;
+      border-radius:22px;
+      background:
+        linear-gradient(rgba(255,255,255,.03),rgba(255,255,255,.03)),
+        #272018;
+      border:10px solid #2f2b26;
+      box-shadow:0 28px 70px rgba(0,0,0,.35);
+      padding:28px;
+      position:relative;
+    }
+
+    .board-paper{
+      position:absolute;
+      background:var(--bob-paper);
+      color:var(--bob-ink);
+      padding:18px;
+      width:45%;
+      min-height:125px;
+      box-shadow:0 8px 20px rgba(0,0,0,.25);
+      font-family:'Caveat',cursive;
+      font-size:1.25rem;
+    }
+
+    .board-paper.one{left:8%;top:11%;transform:rotate(-4deg)}
+    .board-paper.two{right:7%;top:20%;transform:rotate(5deg)}
+    .board-paper.three{left:25%;bottom:9%;transform:rotate(2deg);width:50%}
+    .pin{display:inline-block;margin-right:6px}
+    .redline{
+      position:absolute;height:2px;background:#8c393e;opacity:.8;
+      transform-origin:left center;
+    }
+    .redline.a{width:145px;left:38%;top:35%;transform:rotate(15deg)}
+    .redline.b{width:125px;left:37%;top:54%;transform:rotate(-21deg)}
+
+    .bob-section{padding:94px 0}
+    .bob-section.alt{background:var(--surface-soft)}
+
+    .bob-head{max-width:790px;margin-bottom:42px}
+    .bob-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.3rem,4vw,3.6rem);
+      line-height:1.08;
+      margin:8px 0 14px;
+    }
+    .bob-head p{color:var(--muted);font-size:1.04rem;line-height:1.72}
+
+    .case-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:26px;
+    }
+
+    .case-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:0 16px 42px rgba(55,40,30,.08);
+    }
+
+    .case-visual{
+      min-height:270px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      background:
+        repeating-linear-gradient(
+          -7deg,
+          rgba(0,0,0,.025) 0 2px,
+          transparent 2px 9px
+        ),
+        #e9dfca;
+      position:relative;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+
+    .case-visual::before{
+      content:"VIGNETTA ORIGINALE";
+      position:absolute;
+      top:18px;
+      right:18px;
+      font-size:.62rem;
+      font-weight:900;
+      letter-spacing:.12em;
+      color:#7e6d58;
+      border:1px solid rgba(126,109,88,.45);
+      padding:5px 8px;
+      transform:rotate(2deg);
+    }
+
+    .placeholder-note{
+      max-width:330px;
+      background:#fffdf7;
+      border:1px solid #cbbb9f;
+      box-shadow:0 10px 24px rgba(80,65,47,.18);
+      padding:24px;
+      text-align:center;
+      transform:rotate(-1deg);
+      color:#40372d;
+    }
+
+    .placeholder-icon{
+      font-size:3rem;
+      display:block;
+      margin-bottom:12px;
+    }
+
+    .placeholder-note strong{
+      display:block;
+      font-family:'Playfair Display',serif;
+      font-size:1.2rem;
+      margin-bottom:6px;
+    }
+
+    .placeholder-note small{
+      color:#7f7467;
+      line-height:1.5;
+    }
+
+    .case-body{padding:28px}
+    .case-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+
+    .case-no{
+      font-family:'Caveat',cursive;
+      font-size:1.8rem;
+      color:var(--bob-red);
+      font-weight:700;
+    }
+
+    .case-status{
+      font-size:.66rem;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:900;
+      padding:6px 9px;
+      border-radius:999px;
+      background:#f0dde0;
+      color:#7a363a;
+    }
+
+    .case-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.7rem;
+      margin:0 0 12px;
+    }
+
+    .case-card p{
+      color:var(--muted);
+      line-height:1.68;
+      margin-bottom:18px;
+    }
+
+    .case-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+
+    .case-meta span{
+      font-size:.72rem;
+      padding:6px 9px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .extra-case{
+      margin-top:30px;
+      padding:34px;
+      border-radius:28px;
+      background:linear-gradient(135deg,#17191e,#302326);
+      color:#fff;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .extra-icon{font-size:4rem}
+    .extra-case h3{
+      font-family:'Playfair Display',serif;
+      font-size:2rem;
+      margin:0 0 9px;
+    }
+    .extra-case p{color:#ccd0d5;margin:0;line-height:1.65}
+    .extra-case strong{color:#e8a5a9}
+
+    .bob-philosophy{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:42px;
+      align-items:start;
+    }
+
+    .bob-quote{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,3vw,2.7rem);
+      line-height:1.35;
+    }
+
+    .bob-copy p{
+      color:var(--muted);
+      line-height:1.78;
+      margin-bottom:17px;
+    }
+
+    .classified-box{
+      margin-top:25px;
+      padding:18px 20px;
+      border:2px dashed rgba(155,63,66,.42);
+      border-radius:16px;
+      font-weight:700;
+      color:var(--text);
+      background:rgba(155,63,66,.04);
+    }
+
+    .bob-ending{
+      padding:92px 20px;
+      text-align:center;
+      background:var(--surface-soft);
+    }
+
+    .bob-ending h2{
+      max-width:840px;
+      margin:0 auto 15px;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.1rem,4vw,3.4rem);
+    }
+
+    .bob-ending p{
+      max-width:680px;
+      margin:0 auto 28px;
+      color:var(--muted);
+    }
+
+    @media(max-width:900px){
+      .bob-hero-grid,.bob-philosophy{grid-template-columns:1fr}
+      .case-grid{grid-template-columns:1fr}
+      .bob-board{margin-top:15px}
+    }
+
+    @media(max-width:620px){
+      .extra-case{grid-template-columns:1fr}
+      .board-paper{font-size:1rem}
+    }
+
+    /* Immagini reali tratte dalla graphic novel */
+    .case-visual.real{
+      min-height:0;
+      padding:0;
+      background:#111;
+      overflow:hidden;
+    }
+    .case-visual.real::before{display:none}
+    .case-visual.real img{
+      display:block;
+      width:100%;
+      aspect-ratio: 16 / 10;
+      object-fit:cover;
+      object-position:center top;
+      transition:transform .28s ease;
+    }
+    .case-card:hover .case-visual.real img{transform:scale(1.025)}
+    .case-link{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-top:18px;
+      text-decoration:none;
+      font-weight:800;
+      color:var(--bob-red);
+    }
+    .case-link:hover{text-decoration:underline}
+    .extra-case.with-image{
+      grid-template-columns:minmax(220px,.7fr) 1.3fr;
+      padding:0;
+      overflow:hidden;
+    }
+    .extra-case-image{
+      height:100%;
+      min-height:290px;
+    }
+    .extra-case-image img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+    }
+    .extra-case-copy{padding:34px 34px 34px 6px}
+    @media(max-width:760px){
+      .extra-case.with-image{grid-template-columns:1fr}
+      .extra-case-copy{padding:26px}
+      .extra-case-image{min-height:0}
+    }
+
+
+    /* Archivio completo Bob Notes */
+    .archive-section{padding:88px 0;background:#17191e;color:#fff}
+    .archive-section .bob-head p{color:#c9cbd0}
+    .archive-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:30px;
+    }
+    .archive-file{
+      min-height:150px;
+      padding:22px;
+      border-radius:18px;
+      background:#efe5cf;
+      color:#242019;
+      border:1px solid rgba(0,0,0,.12);
+      position:relative;
+      box-shadow:0 12px 28px rgba(0,0,0,.16);
+    }
+    .archive-file::after{
+      content:"";
+      position:absolute;
+      right:14px;top:12px;
+      width:9px;height:9px;border-radius:50%;
+      background:#9b3f42;
+      box-shadow:0 2px 0 rgba(0,0,0,.18);
+    }
+    .archive-id{
+      display:block;
+      font-family:'Caveat',cursive;
+      color:#9b3f42;
+      font-size:1.5rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .archive-file h3{
+      font-family:'Playfair Display',serif;
+      margin:0 0 8px;
+      font-size:1.18rem;
+      line-height:1.25;
+    }
+    .archive-file p{
+      margin:0;color:#6d6254;font-size:.86rem;line-height:1.5;
+    }
+    .archive-file.classified{
+      background:#22252b;
+      color:#f2eee7;
+      border:1px dashed rgba(255,255,255,.2);
+    }
+    .archive-file.classified::after{background:#d8757c}
+    .archive-file.classified .archive-id{color:#e8a5a9}
+    .archive-file.classified p{color:#bfc2c8}
+    .archive-stamp{
+      display:inline-block;
+      margin-top:12px;
+      padding:5px 8px;
+      border:2px solid currentColor;
+      font-size:.65rem;
+      font-weight:900;
+      letter-spacing:.1em;
+      transform:rotate(-2deg);
+      opacity:.7;
+    }
+    @media(max-width:900px){.archive-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.archive-grid{grid-template-columns:1fr}}
+
+  
+    .case-card{position:relative}
+    .case-card .case-overlay-link{
+      position:absolute;inset:0;z-index:5;border-radius:28px;
+    }
+    .case-card:has(.case-overlay-link){cursor:pointer}
+    .case-card:has(.case-overlay-link):hover{transform:translateY(-4px)}
+    .case-card{transition:transform .22s ease,box-shadow .22s ease}
+    .archive-file.openable{cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+    .archive-file.openable:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(0,0,0,.22)}
+    .archive-file.openable a{position:absolute;inset:0}
+
+</style>
+</head>
+
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="index.html#blog">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button>
+    <a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="bob-page">
+
+  <section class="bob-hero">
+    <div class="bob-shell bob-hero-grid">
+      <div>
+        <span class="bob-kicker">Archivio investigativo non autorizzato</span>
+        <h1>BOB <span>NOTES</span></h1>
+        <div class="bob-tagline">Archivio riservato. Più o meno.</div>
+        <p class="bob-lead">
+          Casi, sospetti e conclusioni discutibili raccolti da Bob,
+          investigatore che nessuno ha mai assunto ma che ha comunque deciso di aprire un fascicolo.
+          Qui non trovi i capitoli completi: solo qualche indizio.
+        </p>
+      </div>
+
+      <div class="bob-board">
+        <div class="board-paper one"><span class="pin">📌</span><strong>CASO #001</strong><br>Oggetto arancione. Sospetto.</div>
+        <div class="board-paper two"><span class="pin">📌</span><strong>CASO #002</strong><br>Il pesce non mi convince.</div>
+        <div class="board-paper three"><span class="pin">📌</span><strong>REGOLA #1</strong><br>Se sembra normale, probabilmente non lo è.</div>
+        <div class="redline a"></div>
+        <div class="redline b"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bob-section">
+    <div class="bob-shell">
+      <div class="bob-head">
+        <span class="bob-kicker" style="color:var(--bob-red)">I fascicoli</span>
+        <h2>Sei fascicoli in evidenza. Il resto è classificato.</h2>
+        <p>
+          Ogni capitolo racconta un pezzo dell'universo di Bob Notes. Sul sito ne mostro soltanto un'immagine e un piccolo teaser: il resto resta nelle pagine della graphic novel.
+        </p>
+      </div>
+
+      <div class="case-grid">
+
+        <article class="case-card">
+          <div class="case-visual real">
+            <img src="images/bob-notes/ch01-origine-segreta.png" alt="Capitolo 1 - L'origine segreta di Cinzia">
+          </div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-no">CAP. 1</span>
+              <span class="case-status">Origin story</span>
+            </div>
+            <h3>L'origine segreta di Cinzia</h3>
+            <p>
+              Alcuni supereroi scoprono la propria identità dopo un morso radioattivo.
+              Altri la scoprono all'anagrafe. Un'origine story decisamente più burocratica che Marvel.
+            </p>
+            <div class="case-meta"><span>Identità</span><span>Famiglia</span><span>Burocrazia</span></div>
+          </div>
+        <a class="case-overlay-link" href="bob-case-001.html" aria-label="Apri L'origine segreta di Cinzia"></a></article>
+
+        <article class="case-card">
+          <div class="case-visual real">
+            <img src="images/bob-notes/ch02-arma-arancione.png" alt="Capitolo 2 - L'arma arancione">
+          </div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-no">CAP. 2</span>
+              <span class="case-status">Villain origin</span>
+            </div>
+            <h3>L'arma arancione</h3>
+            <p>
+              Ogni famiglia ha almeno un oggetto mitologico. Nella mia viveva sopra un armadio,
+              era arancione e bastava una frase per attivare la modalità sopravvivenza.
+            </p>
+            <div class="case-meta"><span>Infanzia</span><span>Peretta arancione</span><span>Terrore educativo</span></div>
+          </div>
+        <a class="case-overlay-link" href="bob-case-002.html" aria-label="Apri L'arma arancione"></a></article>
+
+        <article class="case-card">
+          <div class="case-visual real">
+            <img src="images/bob-notes/ch03-merluzzo-mutante.png" alt="Capitolo 3 - L'attacco del merluzzo mutante">
+          </div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-no">CAP. 3</span>
+              <span class="case-status">Trauma ittico</span>
+            </div>
+            <h3>L'attacco del merluzzo mutante</h3>
+            <p>
+              Negli anni '80 i bambini giocavano con qualunque cosa. Anche con il pesce.
+              Poi un merluzzo apparentemente morto decise di trasformarsi in un nemico giurato.
+            </p>
+            <div class="case-meta"><span>Merluzzo</span><span>Anni '80</span><span>Glitch culturale</span></div>
+          </div>
+        <a class="case-overlay-link" href="bob-case-003.html" aria-label="Apri L'attacco del merluzzo mutante"></a></article>
+
+        <article class="case-card">
+          <div class="case-visual real">
+            <img src="images/bob-notes/ch04-bravo-ragazzo.png" alt="Capitolo 4 - La maledizione del bravo ragazzo">
+          </div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-no">CAP. 4</span>
+              <span class="case-status">Minaccia emotiva</span>
+            </div>
+            <h3>La maledizione del bravo ragazzo</h3>
+            <p>
+              Gentile, educato, stabile, emotivamente disponibile.
+              Sulla carta perfetto. Ed è proprio lì che il mio sistema nervoso comincia a percepire il pericolo.
+            </p>
+            <div class="case-meta"><span>Relazioni</span><span>Istinto di fuga</span><span>Horror romantico</span></div>
+          </div>
+        <a class="case-overlay-link" href="bob-case-004.html" aria-label="Apri La maledizione del bravo ragazzo"></a></article>
+
+        <article class="case-card">
+          <div class="case-visual real">
+            <img src="images/bob-notes/ch05-donne-razzi-numeri-erotici.png" alt="Capitolo 5 - Donne, razzi e numeri erotici">
+          </div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-no">CAP. 5</span>
+              <span class="case-status">Caos accademico</span>
+            </div>
+            <h3>Donne, razzi e numeri erotici</h3>
+            <p>
+              Ingegneria aerospaziale, nove ragazze in mezzo a un esercito di uomini,
+              una risposta memorabile e una matricola che sembra uscita da una hotline anni '90.
+            </p>
+            <div class="case-meta"><span>Università</span><span>Ingegneria aerospaziale</span><span>166</span></div>
+          </div>
+        <a class="case-overlay-link" href="bob-case-005.html" aria-label="Apri Donne, razzi e numeri erotici"></a></article>
+
+      </div>
+
+      <div class="extra-case with-image">
+        <div class="extra-case-image">
+          <img src="images/bob-notes/ch09-frittata-cosmica.png" alt="Capitolo 9 - La caduta della frittata cosmica">
+        </div>
+        <div class="extra-case-copy">
+          <strong>CAPITOLO 9 · DOSSIER EXTRA</strong>
+          <h3>La caduta della frittata cosmica</h3>
+          <p>
+            Campeggio, missione alimentare, gravità e una frittata di pasta ad altissimo valore emotivo.
+            Bastò un solo incidente per distruggere una reputazione logistica costruita in otto anni.
+          </p>
+          <div class="case-meta" style="margin-top:18px">
+            <span>Campeggio anni '90</span><span>Caos organizzato</span><span>Trauma familiare</span>
+          <p style="margin-top:18px"><a class="case-link" href="bob-case-009.html">Apri il dossier →</a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="archive-section">
+    <div class="bob-shell">
+      <div class="bob-head">
+        <span class="bob-kicker">Archivio completo</span>
+        <h2>BOB FILES #001–#009</h2>
+        <p>
+          Alcuni fascicoli sono consultabili. Altri, per il bene di tutti, decisamente meno.
+          I capitoli senza materiale pubblico restano volutamente classificati.
+        </p>
+      </div>
+
+      <div class="archive-grid">
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #001</span>
+          <h3>L'origine segreta di Cinzia</h3>
+          <p>Un'origine story burocratica, due nomi e il primo addestramento alla sopravvivenza.</p>
+          <span class="archive-stamp">CONSULTABILE</span>
+        <a href="bob-case-001.html" aria-label="Apri FILE #001"></a></article>
+
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #002</span>
+          <h3>L'arma arancione</h3>
+          <p>Il primo supervillain domestico: silenzioso, esposto e psicologicamente devastante.</p>
+          <span class="archive-stamp">CONSULTABILE</span>
+        <a href="bob-case-002.html" aria-label="Apri FILE #002"></a></article>
+
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #003</span>
+          <h3>L'attacco del merluzzo mutante</h3>
+          <p>Un trauma ittico nato negli anni '80 e mai realmente archiviato.</p>
+          <span class="archive-stamp">CONSULTABILE</span>
+        <a href="bob-case-003.html" aria-label="Apri FILE #003"></a></article>
+
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #004</span>
+          <h3>La maledizione del bravo ragazzo</h3>
+          <p>Quando la gentilezza diventa una minaccia emotiva ad altissimo rischio.</p>
+          <span class="archive-stamp">CONSULTABILE</span>
+        <a href="bob-case-004.html" aria-label="Apri FILE #004"></a></article>
+
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #005</span>
+          <h3>Donne, razzi e numeri erotici</h3>
+          <p>Ingegneria aerospaziale, nove ragazze e una matricola decisamente memorabile.</p>
+          <span class="archive-stamp">CONSULTABILE</span>
+        <a href="bob-case-005.html" aria-label="Apri FILE #005"></a></article>
+
+        <article class="archive-file classified">
+          <span class="archive-id">FILE #006</span>
+          <h3>CLASSIFICATO</h3>
+          <p>Contenuto non ancora autorizzato alla pubblicazione.</p>
+          <span class="archive-stamp">ACCESSO NEGATO</span>
+        </article>
+
+        <article class="archive-file classified">
+          <span class="archive-id">FILE #007</span>
+          <h3>CLASSIFICATO</h3>
+          <p>Bob si rifiuta di commentare. La cosa è sospetta.</p>
+          <span class="archive-stamp">ACCESSO NEGATO</span>
+        </article>
+
+        <article class="archive-file classified">
+          <span class="archive-id">FILE #008</span>
+          <h3>CLASSIFICATO</h3>
+          <p>Fascicolo presente. Dettagli volutamente non pubblicati.</p>
+          <span class="archive-stamp">ACCESSO NEGATO</span>
+        </article>
+
+        <article class="archive-file openable">
+          <span class="archive-id">FILE #009</span>
+          <h3>La caduta della frittata cosmica</h3>
+          <p>Una missione di trasporto alimentare che distrugge una reputazione logistica.</p>
+          <span class="archive-stamp">DOSSIER EXTRA</span>
+        <a href="bob-case-009.html" aria-label="Apri FILE #009"></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bob-section alt">
+    <div class="bob-shell">
+      <div class="bob-philosophy">
+        <div class="bob-quote">
+          Bob non cerca necessariamente la verità.
+          Cerca soprattutto una teoria abbastanza interessante da meritare un fascicolo.
+        </div>
+
+        <div class="bob-copy">
+          <p>
+            Bob Notes nasce come una piccola raccolta di casi raccontati attraverso vignette,
+            osservazioni e interpretazioni assolutamente soggettive.
+          </p>
+          <p>
+            Sul sito voglio mostrare soltanto qualche frammento:
+            abbastanza per capire il tono del progetto, non abbastanza per sostituire la graphic novel.
+          </p>
+
+          <div class="classified-box">
+            CLASSIFICAZIONE: contenuto parziale · spoiler ridotti · conclusioni di Bob non certificate.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bob-ending">
+    <div class="bob-shell">
+      <h2>L'archivio è aperto. Bob, purtroppo, sta ancora indagando.</h2>
+      <p>
+        Le immagini in evidenza sono tratte dalla graphic novel originale. L'archivio completo mostra invece tutti i fascicoli senza pubblicarne il contenuto.
+      </p>
+      <a class="btn btn-primary" href="index.html">← Torna alla Home</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Tra codice e storie. Tra dati e immaginazione.</p>
+  <small>© 2026 Cinzia Molisano</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
