@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrittura · Storie, mondi e personaggi - Cinzia</title>
+  <meta name="description" content="La parte narrativa del sito di Cinzia: romanzi, personaggi, idee e appunti di scrittura." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .writing-page{padding-top:78px}
+    .writing-shell{width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+    .writing-hero{
+      position:relative;
+      overflow:hidden;
+      padding:100px 0 86px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(188,96,120,.16), transparent 30%),
+        radial-gradient(circle at 12% 80%, rgba(188,96,120,.08), transparent 32%),
+        var(--surface-soft);
+      border-bottom:1px solid var(--line);
+    }
+    .writing-hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:64px;
+      align-items:center;
+    }
+    .writing-kicker{
+      display:inline-block;
+      color:var(--accent);
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:15px;
+    }
+    .writing-hero h1{
+      font-family:'Caveat',cursive;
+      font-size:clamp(4.6rem,8vw,7.6rem);
+      line-height:.86;
+      margin:0 0 26px;
+      max-width:760px;
+    }
+    .writing-lead{
+      max-width:700px;
+      color:var(--muted);
+      font-size:1.1rem;
+      line-height:1.8;
+    }
+    .writing-quote{
+      position:relative;
+      padding:38px;
+      border-radius:30px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .writing-quote::before{
+      content:"“";
+      position:absolute;
+      top:-17px;
+      left:24px;
+      font-family:'Playfair Display',serif;
+      font-size:6.5rem;
+      line-height:1;
+      color:rgba(188,96,120,.2);
+    }
+    .writing-quote p{
+      position:relative;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.45rem,2.5vw,2.15rem);
+      line-height:1.35;
+      margin:0;
+      color:var(--text);
+    }
+    .writing-quote small{
+      display:block;
+      margin-top:20px;
+      color:var(--muted);
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:700;
+    }
+
+    .writing-section{padding:92px 0}
+    .writing-section.alt{background:var(--surface-soft)}
+    .writing-head{max-width:790px;margin-bottom:42px}
+    .writing-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.3rem,4vw,3.7rem);
+      line-height:1.08;
+      margin:8px 0 15px;
+    }
+    .writing-head p{
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.75;
+    }
+
+    .featured-story{
+      display:grid;
+      grid-template-columns:.72fr 1.28fr;
+      gap:38px;
+      padding:34px;
+      border-radius:32px;
+      background:var(--dark);
+      color:#fff;
+      box-shadow:0 20px 55px rgba(28,24,24,.18);
+    }
+    .book-visual{
+      min-height:430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:24px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,.16), transparent 15%),
+        linear-gradient(155deg,#272932 0%,#171920 62%,#472f3b 100%);
+      position:relative;
+    }
+    .moon{
+      position:absolute;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      background:#f6f0dc;
+      box-shadow:0 0 55px rgba(246,240,220,.28);
+      top:48px;
+      right:42px;
+      opacity:.95;
+    }
+    .book-title{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:25px;
+    }
+    .book-title strong{
+      display:block;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.8rem,5vw,4.8rem);
+      letter-spacing:.08em;
+    }
+    .book-title span{
+      display:block;
+      margin-top:12px;
+      color:#efd5dd;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.75rem;
+      font-weight:800;
+    }
+    .featured-copy{padding:18px 8px 12px}
+    .featured-copy .writing-kicker{color:#ef9caf}
+    .featured-copy h3{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.2rem,4vw,3.8rem);
+      margin:5px 0 18px;
+    }
+    .featured-copy p{
+      color:#d8dae0;
+      line-height:1.76;
+      margin-bottom:18px;
+    }
+    .story-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:24px 0 30px;
+    }
+    .story-tags span{
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      color:#f3d8df;
+      font-size:.76rem;
+      font-weight:700;
+    }
+    .coming-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 18px;
+      border-radius:999px;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      text-decoration:none;
+      font-weight:800;
+    }
+    .coming-link:hover{background:rgba(255,255,255,.08)}
+
+    .writing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:21px;
+    }
+    .writing-card{
+      padding:29px;
+      border-radius:25px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:0 12px 36px rgba(70,48,34,.06);
+    }
+    .writing-card-icon{font-size:2rem;margin-bottom:18px}
+    .writing-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.45rem;
+      margin:0 0 12px;
+    }
+    .writing-card p{
+      color:var(--muted);
+      line-height:1.65;
+      margin:0;
+    }
+
+    .notebook{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .note-card{
+      position:relative;
+      padding:28px;
+      min-height:230px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:4px 24px 24px 4px;
+      box-shadow:0 12px 32px rgba(70,48,34,.06);
+    }
+    .note-card::before{
+      content:"";
+      position:absolute;
+      left:13px;
+      top:22px;
+      bottom:22px;
+      width:2px;
+      background:rgba(188,96,120,.28);
+    }
+    .note-no{
+      font-family:'Caveat',cursive;
+      color:var(--accent);
+      font-size:1.7rem;
+      display:block;
+      margin-left:10px;
+    }
+    .note-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.35rem;
+      margin:7px 0 11px 10px;
+    }
+    .note-card p{
+      color:var(--muted);
+      line-height:1.65;
+      margin-left:10px;
+    }
+
+    .writing-closing{
+      padding:92px 20px;
+      text-align:center;
+    }
+    .writing-closing h2{
+      max-width:870px;
+      margin:0 auto 18px;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.1rem,4vw,3.5rem);
+    }
+    .writing-closing p{
+      max-width:670px;
+      margin:0 auto 28px;
+      color:var(--muted);
+      font-size:1.04rem;
+    }
+
+    @media(max-width:900px){
+      .writing-hero-grid,.featured-story{grid-template-columns:1fr}
+      .writing-grid,.notebook{grid-template-columns:1fr}
+      .writing-hero{padding-top:68px}
+      .book-visual{min-height:350px}
+    }
+  </style>
+</head>
+
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="index.html#blog">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button>
+    <a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="writing-page">
+  <section class="writing-hero">
+    <div class="writing-shell writing-hero-grid">
+      <div>
+        <span class="writing-kicker">Scrittura · Il lato narrativo</span>
+        <h1>Alcune storie<br>vogliono esistere.</h1>
+        <p class="writing-lead">
+          Scrivere, per me, significa prendere un'idea che continua a tornare e darle finalmente uno spazio.
+          Personaggi, mondi, dialoghi e immagini cominciano spesso come frammenti; poi, lentamente, trovano il loro posto.
+        </p>
+      </div>
+
+      <aside class="writing-quote">
+        <p>Scrivo perché alcune storie, a un certo punto, decidono che vogliono esistere.</p>
+        <small>Dal mio quaderno</small>
+      </aside>
+    </div>
+  </section>
+
+  <section class="writing-section">
+    <div class="writing-shell">
+      <div class="writing-head">
+        <span class="writing-kicker">Le mie storie</span>
+        <h2>Mondi che sto costruendo.</h2>
+        <p>Questa è la parte del sito dove raccolgo i progetti narrativi, il loro percorso e tutto ciò che nasce intorno a una storia prima ancora che diventi un libro finito.</p>
+      </div>
+
+      <article class="featured-story">
+        <div class="book-visual" aria-label="Anteprima grafica di Urania">
+          <div class="moon"></div>
+          <div class="book-title">
+            <strong>URANIA</strong>
+            <span>Romanzo</span>
+          </div>
+        </div>
+
+        <div class="featured-copy">
+          <span class="writing-kicker">Progetto principale</span>
+          <h3>Urania</h3>
+          <p>
+            È il progetto narrativo a cui ho dedicato più tempo: una storia costruita intorno a identità, legami,
+            scoperte e a un mondo che si rivela poco alla volta insieme alla sua protagonista.
+          </p>
+          <p>
+            La pagina dedicata raccoglierà la presentazione del romanzo, i personaggi, le atmosfere,
+            alcuni estratti e il percorso che ha portato la storia dalla prima idea alla forma attuale.
+          </p>
+
+          <div class="story-tags">
+            <span>Romanzo</span>
+            <span>Personaggi</span>
+            <span>Mistero</span>
+            <span>Legami</span>
+            <span>Identità</span>
+          </div>
+
+          <a class="coming-link" href="urania.html">Entra nel mondo di Urania →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="writing-section alt">
+    <div class="writing-shell">
+      <div class="writing-head">
+        <span class="writing-kicker">Dietro le storie</span>
+        <h2>Non c'è soltanto il testo.</h2>
+        <p>Una storia cresce anche fuori dalle pagine: nelle immagini che la accompagnano, negli appunti, nei cambi di direzione e nei personaggi che iniziano a fare di testa loro.</p>
+      </div>
+
+      <div class="writing-grid">
+        <article class="writing-card">
+          <div class="writing-card-icon">✍️</div>
+          <h3>Dal primo appunto</h3>
+          <p>Idee iniziali, scene appuntate al volo e piccoli dettagli che, mesi dopo, possono diventare una parte importante della storia.</p>
+        </article>
+
+        <article class="writing-card">
+          <div class="writing-card-icon">🎭</div>
+          <h3>I personaggi</h3>
+          <p>Non soltanto nomi e descrizioni: relazioni, contraddizioni, motivazioni e tutto ciò che permette a un personaggio di diventare credibile.</p>
+        </article>
+
+        <article class="writing-card">
+          <div class="writing-card-icon">🌙</div>
+          <h3>Atmosfere e immagini</h3>
+          <p>Luoghi, colori e suggestioni visive che aiutano a dare una forma al mondo della storia ancora prima di descriverlo con le parole.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="writing-section">
+    <div class="writing-shell">
+      <div class="writing-head">
+        <span class="writing-kicker">Dal quaderno</span>
+        <h2>Appunti di scrittura.</h2>
+        <p>Uno spazio che potrà crescere nel tempo con brevi articoli sul processo creativo, sulla revisione e su quello che scopro mentre provo a trasformare un'idea in una storia.</p>
+      </div>
+
+      <div class="notebook">
+        <article class="note-card">
+          <span class="note-no">01</span>
+          <h3>Quando un personaggio cambia la storia</h3>
+          <p>Perché a volte la scaletta dice una cosa e il personaggio, arrivato sulla pagina, sembra voler andare da tutt'altra parte.</p>
+        </article>
+
+        <article class="note-card">
+          <span class="note-no">02</span>
+          <h3>Scrivere è anche riscrivere</h3>
+          <p>Il primo testo serve a trovare la storia. La revisione serve a capire quale storia stavamo davvero cercando di raccontare.</p>
+        </article>
+
+        <article class="note-card">
+          <span class="note-no">03</span>
+          <h3>Dall'immagine alla scena</h3>
+          <p>Una fotografia, un colore o un luogo possono essere il punto di partenza per costruire un'intera scena narrativa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="writing-closing">
+    <div class="writing-shell">
+      <h2>Prima arriva una sensazione. Poi una frase. Poi, se sono fortunata, una storia.</h2>
+      <p>Questa sezione crescerà insieme ai progetti. Il prossimo passo è entrare nel mondo di Urania.</p>
+      <a class="btn btn-primary" href="urania.html">Scopri Urania →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Tra codice e storie. Tra dati e immaginazione.</p>
+  <small>© 2026 Cinzia Molisano</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

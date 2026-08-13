@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Happens · Storie dall'assistenza informatica - Cinzia</title>
+  <meta name="description" content="IT Happens: piccoli episodi, equivoci e momenti surreali realmente ispirati all'assistenza informatica." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .it-page{padding-top:78px}
+    .it-shell{width:min(1120px,calc(100% - 40px));margin:0 auto}
+    .it-hero{padding:88px 0 70px;background:var(--dark);color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+    .it-hero .section-kicker{color:#ef9caf}
+    .it-hero h1{font-family:'Caveat',cursive;font-size:clamp(4.5rem,9vw,8rem);line-height:.82;margin:13px 0 26px}
+    .it-hero h1 span{color:#ef9caf}
+    .it-lead{max-width:760px;font-size:1.12rem;line-height:1.75;color:#d9dbe0}
+    .it-note{margin-top:30px;display:inline-block;padding:11px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:#f4c7d2;font-size:.9rem}
+    .case{padding:92px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+    .case:nth-child(even){background:var(--surface-soft)}
+    .case-head{display:grid;grid-template-columns:auto 1fr;gap:25px;align-items:start;margin-bottom:34px}
+    .case-number{font-family:'Caveat',cursive;font-size:3.5rem;line-height:1;color:var(--accent)}
+    .case-tag{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+    .case h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:0 0 10px}
+    .case-sub{color:var(--muted);font-size:1.03rem;max-width:730px}
+    .comic{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .panel{position:relative;min-height:245px;padding:25px;border:1px solid var(--line);border-radius:26px;background:var(--surface);box-shadow:0 12px 34px rgba(50,35,25,.06);overflow:hidden}
+    .panel-no{position:absolute;right:18px;top:15px;font-family:'Caveat',cursive;color:#c6c2c0;font-size:1.5rem}
+    .scene{font-size:2.65rem;margin-bottom:16px}
+    .panel h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);margin-bottom:11px}
+    .panel p{color:var(--muted);line-height:1.62;margin-bottom:11px}
+    .dialogue{display:inline-block;padding:10px 13px;border-radius:15px 15px 15px 4px;background:var(--surface-soft);color:var(--text)!important;font-weight:600}
+    .thought{font-family:'Caveat',cursive;font-size:1.5rem!important;line-height:1.25!important;color:var(--text)!important}
+    .big-reveal{font-family:'Playfair Display',serif;font-size:1.35rem!important;color:var(--text)!important}
+    .diagnosis{margin-top:25px;padding:20px 24px;border-radius:20px;background:var(--dark);color:#fff;display:flex;gap:13px;align-items:flex-start}
+    .diagnosis-icon{font-size:1.55rem}
+    .diagnosis strong{color:#ef9caf;letter-spacing:.05em;font-size:.78rem}
+    .diagnosis p{margin:3px 0 0;color:#f1f1f3}
+    .it-ending{padding:90px 20px;text-align:center}
+    .it-ending h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);margin-bottom:14px}
+    .it-ending p{max-width:680px;margin:0 auto 28px;color:var(--muted)}
+    .archive-mini{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .archive-mini a{padding:8px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:700;font-size:.82rem;background:var(--surface)}
+    @media(max-width:800px){
+      .comic{grid-template-columns:1fr}
+      .case-head{grid-template-columns:1fr;gap:8px}
+      .panel{min-height:auto}
+      .it-hero{padding-top:65px}
+    }
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="index.html#blog">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button>
+    <a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="it-page">
+  <section class="it-hero">
+    <div class="it-shell">
+      <span class="section-kicker">Archivio semiserio dell'assistenza informatica</span>
+      <h1>IT <span>Happens.</span></h1>
+      <p class="it-lead">Storie (quasi) vere, piccoli equivoci e misteri tecnologici raccolti negli anni. Nessun utente è stato identificato durante la realizzazione di questa pagina. Qualche smart card, invece, potrebbe riconoscersi.</p>
+      <div class="it-note">⚠️ Ispirato a episodi reali. Persone e dettagli sono volutamente anonimizzati.</div>
+      <div class="archive-mini">
+        <a href="#caso-001">#001 Orologio</a>
+        <a href="#caso-002">#002 Smart card</a>
+        <a href="#caso-003">#003 Password</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="case" id="caso-001">
+    <div class="it-shell">
+      <div class="case-head">
+        <div class="case-number">#001</div>
+        <div>
+          <span class="case-tag">Assistenza remota</span>
+          <h2>L'icona vicino all'orologio</h2>
+          <p class="case-sub">Era il periodo delle prime assistenze remote. Per collegarmi avevo bisogno dell'indirizzo IP del PC, visibile passando dall'icona di VNC nella barra di Windows.</p>
+        </div>
+      </div>
+
+      <div class="comic">
+        <article class="panel">
+          <span class="panel-no">1</span><div class="scene">☎️💻</div>
+          <h3>La richiesta</h3>
+          <p>Io, al telefono:</p>
+          <p class="dialogue">«In basso a destra, vicino all'orologio, dovrebbe vedere l'icona di VNC…»</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">2</span><div class="scene">🧑‍💼 ↪️ 🕒</div>
+          <h3>L'utente</h3>
+          <p>L'utente si gira lentamente sulla sedia e comincia a osservare con attenzione…</p>
+          <p class="big-reveal">l'orologio appeso alla parete.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">3</span><div class="scene">🕵️‍♀️🕒</div>
+          <h3>La ricerca</h3>
+          <p class="dialogue">«No… vicino all'orologio non vedo nessuna icona.»</p>
+          <p>Io continuo a spiegare. Lui continua a cercare sul muro.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">4</span><div class="scene">😶</div>
+          <h3>La rivelazione</h3>
+          <p class="dialogue">«Scusi… ma lei quale orologio sta guardando?»</p>
+          <p class="thought">Da quel giorno “in basso a destra” è diventato importante quanto “vicino all'orologio”.</p>
+        </article>
+      </div>
+      <div class="diagnosis"><div class="diagnosis-icon">🕒</div><div><strong>DIAGNOSI IT</strong><p>Errore di localizzazione dell'orologio.</p></div></div>
+    </div>
+  </section>
+
+  <section class="case" id="caso-002">
+    <div class="it-shell">
+      <div class="case-head">
+        <div class="case-number">#002</div>
+        <div>
+          <span class="case-tag">Smart card</span>
+          <h2>Ha fatto tutto da sola</h2>
+          <p class="case-sub">Alcuni guasti richiedono analisi approfondite. Altri arrivano in ufficio già accompagnati da una spiegazione scientificamente ineccepibile.</p>
+        </div>
+      </div>
+
+      <div class="comic">
+        <article class="panel">
+          <span class="panel-no">1</span><div class="scene">🔥💳</div>
+          <h3>Il reperto</h3>
+          <p>Arriva in ufficio una smart card completamente bruciata.</p>
+          <p class="thought">Non “un po' rovinata”. Bruciata.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">2</span><div class="scene">👀💳👀</div>
+          <h3>L'analisi tecnica</h3>
+          <p>Guardo la carta. Guardo l'utente. Riguardo la carta.</p>
+          <p class="dialogue">«Scusi… ma cosa è successo?»</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">3</span><div class="scene">🤷</div>
+          <h3>La spiegazione</h3>
+          <p>L'utente, con assoluta tranquillità:</p>
+          <p class="dialogue">«Niente. Ha fatto tutto da sola.»</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">4</span><div class="scene">🧪🔥💳</div>
+          <h3>Nuova casistica</h3>
+          <p class="thought">Ah. L'autocombustione spontanea delle smart card.</p>
+          <p>Prendo mentalmente nota della nuova categoria di guasto.</p>
+        </article>
+      </div>
+      <div class="diagnosis"><div class="diagnosis-icon">🔥</div><div><strong>DIAGNOSI IT</strong><p>Autocombustione digitale spontanea.</p></div></div>
+    </div>
+  </section>
+
+  <section class="case" id="caso-003">
+    <div class="it-shell">
+      <div class="case-head">
+        <div class="case-number">#003</div>
+        <div>
+          <span class="case-tag">PIN &amp; password</span>
+          <h2>La password è sempre quella</h2>
+          <p class="case-sub">Il PIN è bloccato. Spiego che succede dopo tre tentativi errati. La risposta implicita nello sguardo è sempre la stessa: impossibile.</p>
+        </div>
+      </div>
+
+      <div class="comic">
+        <article class="panel">
+          <span class="panel-no">1</span><div class="scene">🔒💳</div>
+          <h3>Il mistero</h3>
+          <p class="dialogue">«Non capisco perché si sia bloccata. La password è sempre quella.»</p>
+          <p>Io spiego: dopo tre tentativi errati il PIN si blocca.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">2</span><div class="scene">😐</div>
+          <h3>La certezza</h3>
+          <p class="dialogue">«Ma io non l'ho mai sbagliato.»</p>
+          <p>Procediamo con lo sblocco.</p>
+          <p class="dialogue">«Va bene. Adesso inserisca il PIN.»</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">3</span><div class="scene">👂☝️↘️⌨️</div>
+          <h3>Il sistema di puntamento</h3>
+          <p>Il dito parte più o meno dall'altezza dell'orecchio e prova a centrare il tasto.</p>
+          <p>❌ Primo tentativo. &nbsp; ❌ Secondo. &nbsp; ❌ Terzo.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-no">4</span><div class="scene">😶‍🌫️⌨️</div>
+          <h3>Silenzio</h3>
+          <p>L'utente guarda la tastiera. Io guardo l'utente. Poi guardo il dito.</p>
+          <p class="thought">La password sarà anche sempre quella. Il tasto, evidentemente, no.</p>
+        </article>
+      </div>
+      <div class="diagnosis"><div class="diagnosis-icon">☝️</div><div><strong>DIAGNOSI IT</strong><p>Password corretta. Sistema di puntamento da calibrare.</p></div></div>
+    </div>
+  </section>
+
+  <section class="it-ending">
+    <div class="it-shell">
+      <h2>L'archivio è appena cominciato.</h2>
+      <p>Altri casi torneranno a galla con il tempo. Nel frattempo questi tre hanno guadagnato ufficialmente un posto nella memoria dell'assistenza informatica.</p>
+      <a class="btn btn-primary" href="informatica.html#it-happens">← Torna al laboratorio digitale</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<script src="script.js"></script>
+</body>
+</html>
