@@ -25,7 +25,18 @@
     .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px} .pill{display:inline-flex;padding:12px 17px;border-radius:999px;background:var(--brick);color:#fff;text-decoration:none;font-weight:800}
     .pill.alt{background:transparent;color:var(--brick);border:1px solid var(--brick)}
     @media(max-width:850px){.hero-grid,.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
-  </style>
+  
+    .photo-slot{padding:0!important;overflow:hidden;background:#111!important;min-height:520px}
+    .photo-slot img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}
+    .ny-gallery{display:grid;grid-template-columns:1.35fr .65fr;grid-template-rows:300px 300px;gap:14px;margin-top:34px}
+    .ny-gallery figure{margin:0;border-radius:24px;overflow:hidden;position:relative;background:#ddd}
+    .ny-gallery figure:first-child{grid-row:1/3}
+    .ny-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+    .ny-gallery figure:hover img{transform:scale(1.025)}
+    .ny-gallery figcaption{position:absolute;left:16px;bottom:14px;background:rgba(20,20,20,.66);color:#fff;padding:8px 11px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.04em;backdrop-filter:blur(8px)}
+    @media(max-width:850px){.photo-slot,.photo-slot img{min-height:380px}.ny-gallery{grid-template-columns:1fr;grid-template-rows:none}.ny-gallery figure,.ny-gallery figure:first-child{grid-row:auto;height:330px}}
+
+</style>
 </head>
 <body><header class="navbar">
   <a class="logo" href="index.html">Cinzia<span>★</span></a>
@@ -36,8 +47,22 @@
   <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button">🌙</button><a class="icon-btn" href="index.html#contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button></div>
 </header>
 <main>
-<section class="ny-hero"><div class="shell hero-grid"><div><span class="kicker">Viaggio fatto · 28 agosto – 2 settembre</span><h1>New<br>York</h1><p>Sei giorni a piedi dentro una città che cambia identità a ogni quartiere: dalla memoria di Lower Manhattan alla luce di Midtown, dalla distanza di Brooklyn alla profondità di Harlem.</p></div><div class="photo-slot"><div><strong>Qui arriverà una tua foto</strong>Skyline, Brooklyn Bridge, Empire State Building o una delle immagini più iconiche del viaggio.</div></div></div></section>
+<section class="ny-hero"><div class="shell hero-grid"><div><span class="kicker">Viaggio fatto · 28 agosto – 2 settembre</span><h1>New<br>York</h1><p>Sei giorni a piedi dentro una città che cambia identità a ogni quartiere: dalla memoria di Lower Manhattan alla luce di Midtown, dalla distanza di Brooklyn alla profondità di Harlem.</p></div><div class="photo-slot"><img src="assets/viaggi/ny-skyline.jpg" alt="New York al tramonto, vista dall’alto"></div></div></section>
 <section class="section"><div class="shell intro"><div><span class="kicker" style="color:var(--brick)">La città</span><h2>Più che un viaggio, una collezione di New York diverse.</h2></div><div><p>New York non si è lasciata riassumere in un solo panorama. Il viaggio è diventato un continuo cambio di ritmo: Wall Street e Chinatown nello stesso giorno, Central Park dopo Times Square, Brooklyn osservando Manhattan da lontano, Harlem seguendo una storia ancora diversa.</p><p>Ho separato il materiale in due pagine: l'itinerario pratico dei sei giorni e il racconto, più personale, di quello che è rimasto dopo averla attraversata.</p><div class="route"><span>Lower Manhattan</span><span>Midtown</span><span>Central Park</span><span>Brooklyn</span><span>Harlem</span><span>Museum Mile</span></div><div class="actions"><a class="pill" href="new-york-itinerario.html">Scopri l'itinerario →</a><a class="pill alt" href="new-york-racconto.html">Leggi il racconto →</a></div></div></div></section>
+
+<section class="section">
+  <div class="shell">
+    <span class="kicker" style="color:var(--brick)">Fotografie dal viaggio</span>
+    <h2 style="font-size:clamp(2.5rem,4vw,3.8rem);margin:7px 0 8px">New York, per immagini.</h2>
+    <p style="max-width:760px;color:#6a655f;line-height:1.7">Ponti, skyline e luce: una piccola selezione degli scatti che raccontano meglio il ritmo della città.</p>
+    <div class="ny-gallery">
+      <figure><img src="assets/viaggi/ny-dumbo.jpg" alt="Manhattan Bridge visto da DUMBO"><figcaption>DUMBO · Brooklyn</figcaption></figure>
+      <figure><img src="assets/viaggi/ny-hero.jpg" alt="Statua della Libertà al tramonto"><figcaption>Liberty Island</figcaption></figure>
+      <figure><img src="assets/viaggi/ny-city.jpg" alt="Skyline di Manhattan e ponte"><figcaption>Manhattan</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="section alt"><div class="shell"><span class="kicker" style="color:var(--brick)">Sei giorni</span><h2 style="font-size:clamp(2.5rem,4vw,3.8rem);margin:7px 0 28px">Le New York del viaggio.</h2><div class="cards">
 <article class="card"><small>DOWNTOWN</small><h3>Lower Manhattan</h3><p>Battery Park, Financial District, 9/11 Memorial, Chinatown, Little Italy, NoHo e Greenwich Village.</p></article>
 <article class="card"><small>VERTICALITÀ</small><h3>Midtown & Central Park</h3><p>Rockefeller Center, St. Patrick's Cathedral, Central Park e la città vista dall'acqua al tramonto.</p></article>

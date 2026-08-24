@@ -1,122 +1,99 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cina 2025 - Cinzia Molisano</title>
-  <meta name="description" content="Il viaggio in Cina del 2025: Hong Kong, Guilin, Shanghai, Zhouzhuang, Chengdu, Xi'an e Pechino.">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--red:#a94443;--ink:#262422;--paper:#f4eee2;--gold:#b68a54}
-    .shell{width:min(1160px,calc(100% - 40px));margin:0 auto}
-    .china-hero{padding:140px 0 82px;background:linear-gradient(135deg,#5f181c,#a64240);color:#fff;overflow:hidden;position:relative}
-    .china-hero::after{content:"中国";position:absolute;right:4%;bottom:-40px;font-size:16rem;font-family:serif;color:rgba(255,255,255,.05)}
-    .china-hero-grid{display:grid;grid-template-columns:1fr .85fr;gap:44px;align-items:center;position:relative;z-index:2}
-    .kicker{font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#f0c2b8}
-    h1,h2,h3{font-family:'Playfair Display',serif}
-    .china-hero h1{font-size:clamp(4rem,8vw,7.4rem);line-height:.9;margin:10px 0 20px}
-    .china-hero p{color:#edd8d3;line-height:1.8;max-width:670px}
-    .china-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .china-stat{padding:18px;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:rgba(255,255,255,.05)}
-    .china-stat strong{display:block;font-family:'Playfair Display',serif;font-size:2rem}.china-stat span{font-size:.72rem;color:#e6c8c2}
-    .section{padding:82px 0}.section.alt{background:var(--paper)}
-    .intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;align-items:start}
-    .intro h2{font-size:clamp(2.6rem,4.5vw,4.1rem);line-height:1.05;margin:8px 0 0}
-    .intro-copy p{color:#69625b;line-height:1.8;margin-top:0}
-    .route-strip{margin-top:28px;display:flex;gap:9px;flex-wrap:wrap}
-    .route-strip span{background:#fff;border:1px solid #ddd3c4;border-radius:999px;padding:9px 12px;font-size:.8rem;font-weight:800}
-    .timeline{position:relative;margin-top:36px}
-    .timeline::before{content:"";position:absolute;left:28px;top:10px;bottom:10px;width:2px;background:#d4b29b}
-    .stop{display:grid;grid-template-columns:60px 1fr;gap:22px;margin-bottom:18px}
-    .stop-dot{width:18px;height:18px;background:var(--red);border:5px solid #f4eee2;border-radius:50%;margin:19px 0 0 20px;position:relative;z-index:2;box-shadow:0 0 0 1px #b98567}
-    .stop-card{background:#fff;border:1px solid #e0d7ca;border-radius:22px;padding:25px}
-    .stop-card small{color:#9e5553;font-weight:900;letter-spacing:.08em}.stop-card h3{font-size:1.8rem;margin:5px 0 10px}.stop-card p{color:#6b655f;line-height:1.65;margin:0}
-    .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .highlight{padding:24px;border-radius:22px;border:1px solid #e0d7ca;background:#fff;min-height:190px}
-    .highlight b{font-size:.67rem;letter-spacing:.09em;color:#a34f4e}.highlight h3{font-size:1.55rem;margin:14px 0 8px}.highlight p{color:#6c6660;line-height:1.55;font-size:.9rem}
-    .back{display:inline-flex;margin-top:30px;padding:11px 16px;border-radius:999px;background:#a94443;color:#fff;text-decoration:none;font-weight:800}
-    @media(max-width:850px){.china-hero-grid,.intro{grid-template-columns:1fr}.highlights{grid-template-columns:1fr}.china-stats{grid-template-columns:1fr 1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cina 2025 · Cinzia Molisano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#202522;--muted:#6b6762;--paper:#f7f3ed;--card:#fff;--red:#a9443f;--green:#526d65;--line:#ddd5cb}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}
+.navbar{height:76px;padding:0 max(24px,calc((100vw - 1180px)/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(247,243,237,.94);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+.logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;text-decoration:none;color:var(--ink)}.logo span{color:var(--red)}
+.menu{display:flex;gap:22px}.menu a{font-size:.78rem;font-weight:800;letter-spacing:.05em;text-decoration:none;color:var(--ink)}.menu a.active{color:var(--red)}
+.nav-actions{display:flex;gap:8px}.icon-btn{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 10px;text-decoration:none}
+.shell{width:min(1180px,calc(100% - 44px));margin:auto}
+.hero{padding:64px 0 46px}.hero-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:center}
+.kicker{font-size:.77rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--red)}
+h1,h2,h3{font-family:'Playfair Display',serif}h1{font-size:clamp(4.2rem,9vw,8.2rem);line-height:.82;margin:12px 0 22px}
+.hero p{font-size:1.08rem;line-height:1.8;color:var(--muted);max-width:530px}
+.hero-photo{height:610px;border-radius:30px;overflow:hidden;background:#ddd;box-shadow:0 20px 55px rgba(42,35,28,.14)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.section{padding:70px 0}.section.alt{background:#ece5db}
+.intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px}.intro h2{font-size:clamp(2.6rem,4vw,4rem);margin:7px 0}.intro p{line-height:1.8;color:var(--muted)}
+.route{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.route span{padding:8px 11px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:.76rem;font-weight:800}
+.photo-story{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:300px 300px;gap:14px;margin-top:35px}
+.photo-story figure{margin:0;position:relative;overflow:hidden;border-radius:24px;background:#ddd}
+.photo-story figure:first-child{grid-row:1/3}.photo-story img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.photo-story figure:hover img{transform:scale(1.025)}
+figcaption{position:absolute;left:14px;bottom:14px;color:#fff;background:rgba(15,18,18,.64);padding:8px 11px;border-radius:999px;font-size:.72rem;font-weight:800;backdrop-filter:blur(8px)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px}.card small{color:var(--red);font-weight:900;letter-spacing:.09em}.card h3{font-size:1.55rem;margin:8px 0 10px}.card p{color:var(--muted);line-height:1.65;margin:0}
+.mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:270px;gap:14px;margin-top:32px}
+.mosaic figure{margin:0;border-radius:22px;overflow:hidden;position:relative}.mosaic figure.wide{grid-column:span 2}.mosaic figure.tall{grid-row:span 2}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+.quote{padding:38px;border-radius:28px;background:#191b20;color:#fff;margin-top:34px}.quote p{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.25;margin:0;max-width:900px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.pill{display:inline-flex;padding:12px 17px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font-weight:800}.pill.alt{background:transparent;color:var(--red);border:1px solid var(--red)}
+.footer{padding:38px 22px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:900px){.hero-grid,.intro{grid-template-columns:1fr}.hero-photo{height:420px}.cards{grid-template-columns:1fr}.photo-story{grid-template-columns:1fr;grid-template-rows:none}.photo-story figure,.photo-story figure:first-child{grid-row:auto;height:330px}.mosaic{grid-template-columns:1fr;grid-auto-rows:320px}.mosaic figure.wide,.mosaic figure.tall{grid-column:auto;grid-row:auto}.menu{display:none}}
+</style>
 </head>
 <body>
 <header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-  <nav class="menu" id="mainMenu">
-    <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a>
-    <a href="index.html#progetti">PROGETTI</a><a href="viaggi.html" class="active">VIAGGI</a><a href="index.html#contatti">CONTATTI</a>
-  </nav>
-  <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button">🌙</button><a class="icon-btn" href="index.html#contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button></div>
+<a class="logo" href="index.html">Cinzia<span>★</span></a>
+<nav class="menu"><a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a class="active" href="viaggi.html">VIAGGI</a><a href="index.html#contatti">CONTATTI</a></nav>
+<div class="nav-actions"><a class="icon-btn" href="viaggi.html">←</a><a class="icon-btn" href="index.html#contatti">✉️</a></div>
 </header>
+
 <main>
-<section class="china-hero">
-  <div class="shell china-hero-grid">
-    <div>
-      <span class="kicker">Viaggio fatto · 2025</span>
-      <h1>Cina<br>2025</h1>
-      <p>
-        Dal 30 marzo al 17 aprile: Hong Kong, paesaggi carsici, città gigantesche,
-        panda, città antiche, templi, treni e l'arrivo finale a Pechino.
-      </p>
-    </div>
-    <div class="china-stats">
-      <div class="china-stat"><strong>18</strong><span>giorni di itinerario</span></div>
-      <div class="china-stat"><strong>7</strong><span>tappe principali</span></div>
-      <div class="china-stat"><strong>2025</strong><span>anno del viaggio</span></div>
-      <div class="china-stat"><strong>30/03</strong><span>partenza da Milano</span></div>
-    </div>
-  </div>
-</section>
+<section class="hero"><div class="shell hero-grid">
+<div><span class="kicker">Viaggio fatto · 2025</span><h1>Cina</h1><p>Un viaggio lungo e pieno di contrasti: skyline vertiginosi, città che sembrano non finire, storia millenaria, panda, mura, templi e notti accese di luce.</p></div>
+<div class="hero-photo"><img src="assets/viaggi/china-summer-palace.jpg" alt="Palazzo d'Estate incorniciato dai fiori"></div>
+</div></section>
 
-<section class="section">
-  <div class="shell intro">
-    <div><span class="kicker" style="color:#a94443">La rotta</span><h2>Un viaggio che cambia continuamente scenario.</h2></div>
-    <div class="intro-copy">
-      <p>
-        Il programma partiva da Hong Kong, proseguiva verso Guilin, quindi Shanghai e Zhouzhuang,
-        prima di spostarsi a Chengdu, Xi'an e infine Pechino.
-      </p>
-      <p>
-        In questa pagina non voglio ripubblicare il programma giorno per giorno:
-        preferisco conservarne la struttura e i luoghi principali, lasciando spazio in futuro alle fotografie e ai ricordi del viaggio vero.
-      </p>
-      <div class="route-strip"><span>Hong Kong</span><span>Guilin</span><span>Shanghai</span><span>Zhouzhuang</span><span>Chengdu</span><span>Xi'an</span><span>Pechino</span></div>
-      <a class="back" style="margin-top:26px" href="cina-2025-racconto.html">Leggi il racconto completo →</a>
-    </div>
-  </div>
-</section>
+<section class="section"><div class="shell intro">
+<div><span class="kicker">Il viaggio</span><h2>Sette tappe, molte Cine diverse.</h2></div>
+<div><p>Hong Kong, Guilin, Shanghai, Zhouzhuang, Chengdu, Xi'an e Pechino: più che una linea sulla mappa, una successione continua di atmosfere. Le fotografie qui sotto non cercano di documentare tutto. Ho scelto quelle che, insieme, restituiscono meglio il carattere del viaggio.</p>
+<div class="route"><span>Hong Kong</span><span>Guilin</span><span>Shanghai</span><span>Zhouzhuang</span><span>Chengdu</span><span>Xi'an</span><span>Pechino</span></div></div>
+</div></section>
 
-<section class="section alt">
-  <div class="shell">
-    <span class="kicker" style="color:#a94443">Timeline</span>
-    <h2 style="font-size:clamp(2.5rem,4vw,3.8rem);margin:7px 0 20px">Le tappe del viaggio.</h2>
+<section class="section alt"><div class="shell">
+<span class="kicker">Metropoli</span><h2 style="font-size:clamp(2.7rem,4vw,4rem);margin:7px 0 10px">La Cina verticale.</h2>
+<p style="max-width:760px;color:var(--muted);line-height:1.75">Città immense viste dall'alto, tra fiumi, grattacieli e quartieri che sembrano proseguire fino all'orizzonte.</p>
+<div class="photo-story">
+<figure><img src="assets/viaggi/china-shanghai.jpg" alt="Shanghai vista dall'alto"><figcaption>Shanghai · dall'alto</figcaption></figure>
+<figure><img src="assets/viaggi/china-hongkong.jpg" alt="Hong Kong vista dal Victoria Peak"><figcaption>Hong Kong</figcaption></figure>
+<figure><img src="assets/viaggi/china-night-canal.jpg" alt="Canale illuminato di notte in Cina"><figcaption>La Cina di notte</figcaption></figure>
+</div>
+</div></section>
 
-    <div class="timeline">
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>31 MARZO – 2 APRILE</small><h3>Hong Kong</h3><p>Central District, Victoria Peak, skyline, Tsim Sha Tsui, Symphony of Lights e Temple Street; il programma lasciava anche spazio all'ipotesi Lantau.</p></div></article>
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>3–4 APRILE</small><h3>Guilin</h3><p>Elephant Trunk Hill, centro città, pagode gemelle e soprattutto il fiume Li con le formazioni carsiche; nel programma anche Reed Flute Cave.</p></div></article>
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>5–8 APRILE</small><h3>Shanghai & Zhouzhuang</h3><p>Bund, Nanjing Road, Yu Garden, Lujiazui e Shanghai Tower; poi templi, museo, Concessione Francese e una giornata nella città sull'acqua di Zhouzhuang.</p></div></article>
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>9–10 APRILE</small><h3>Chengdu</h3><p>Parco del Popolo, centro di conservazione dei panda giganti, Wuhou Shrine, Jinli Ancient Street e Wenshu Monastery.</p></div></article>
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>11–12 APRILE</small><h3>Xi'an</h3><p>Big Wild Goose Pagoda, Esercito di Terracotta, Quartiere Musulmano, antiche mura della città e le torri della Campana e del Tamburo.</p></div></article>
-      <article class="stop"><div class="stop-dot"></div><div class="stop-card"><small>13–16 APRILE</small><h3>Pechino</h3><p>Hutong, Città Proibita, Piazza Tiananmen, Tempio del Cielo, Grande Muraglia di Mutianyu, Palazzo d'Estate, Tempio Lama e 798 Art District.</p></div></article>
-    </div>
-  </div>
-</section>
+<section class="section"><div class="shell">
+<span class="kicker">Icone e incontri</span><h2 style="font-size:clamp(2.7rem,4vw,4rem);margin:7px 0 26px">Quello che non poteva mancare.</h2>
+<div class="cards">
+<article class="card"><small>CHENGDU</small><h3>Il panda</h3><p>Una delle immagini più immediate del viaggio: impossibile attraversare Chengdu senza portarsene dietro almeno una.</p></article>
+<article class="card"><small>XI'AN</small><h3>L'Esercito di Terracotta</h3><p>Volti simili e tutti diversi, disposti in file che sembrano continuare molto oltre l'inquadratura.</p></article>
+<article class="card"><small>STRADA</small><h3>Tradizione viva</h3><p>Non solo monumenti: abiti, gesti, persone e piccoli frammenti di quotidianità che danno al viaggio una voce diversa.</p></article>
+</div>
+<div class="mosaic">
+<figure class="tall"><img src="assets/viaggi/china-traditional.jpg" alt="Giovani donne in abiti tradizionali"></figure>
+<figure class="wide"><img src="assets/viaggi/china-terracotta.jpg" alt="Guerrieri dell'Esercito di Terracotta"></figure>
+<figure><img src="assets/viaggi/china-panda.jpg" alt="Panda che mangia bambù"></figure>
+</div>
+</div></section>
 
-<section class="section">
-  <div class="shell">
-    <span class="kicker" style="color:#a94443">Dal programma</span>
-    <h2 style="font-size:clamp(2.5rem,4vw,3.8rem);margin:7px 0 28px">Tre facce molto diverse della Cina.</h2>
-    <div class="highlights">
-      <article class="highlight"><b>PAESAGGIO</b><h3>Il fiume Li</h3><p>La tappa di Guilin ruotava attorno alla crociera sul fiume e alle formazioni carsiche che caratterizzano il paesaggio della zona.</p></article>
-      <article class="highlight"><b>CITTÀ</b><h3>Shanghai</h3><p>Il programma metteva insieme Bund, antica Shanghai, templi e il distretto futuristico di Lujiazui: uno dei contrasti più evidenti dell'intero itinerario.</p></article>
-      <article class="highlight"><b>STORIA</b><h3>Xi'an e Pechino</h3><p>Dall'Esercito di Terracotta alla Città Proibita e alla Grande Muraglia: la parte finale del viaggio era quella più legata alla storia imperiale.</p></article>
-    </div>
-    <a class="back" href="cina-2025-racconto.html">Leggi il racconto completo →</a>
-    <a class="back" href="viaggi.html" style="background:transparent;color:var(--red);border:1px solid var(--red);margin-left:12px">← Torna ai viaggi</a>
-  </div>
-</section>
+<section class="section alt"><div class="shell">
+<span class="kicker">Pechino</span><h2 style="font-size:clamp(2.7rem,4vw,4rem);margin:7px 0 10px">Dalla delicatezza alla pietra.</h2>
+<p style="max-width:780px;color:var(--muted);line-height:1.75">Il Palazzo d'Estate tra i fiori e la Grande Muraglia: due immagini quasi opposte, ma entrambe capaci di riassumere la scala del viaggio.</p>
+<div class="photo-story">
+<figure><img src="assets/viaggi/china-great-wall.jpg" alt="Grande Muraglia Cinese in prospettiva"><figcaption>Grande Muraglia</figcaption></figure>
+<figure><img src="assets/viaggi/china-summer-palace.jpg" alt="Palazzo d'Estate incorniciato dai fiori"><figcaption>Palazzo d'Estate</figcaption></figure>
+<figure><img src="assets/viaggi/china-hongkong.jpg" alt="Panorama urbano della Cina"><figcaption>Contrasti</figcaption></figure>
+</div>
+<div class="quote"><p>Alla fine non resta una sola Cina, ma una sequenza di immagini che continuano a contraddirsi e completarsi.</p></div>
+<div class="actions"><a class="pill alt" href="viaggi.html">← Torna ai viaggi</a></div>
+</div></section>
 </main>
 <footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
-<script src="script.js"></script>
 </body>
 </html>

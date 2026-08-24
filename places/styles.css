@@ -338,3 +338,43 @@ button{cursor:pointer}
   line-height:1;
   opacity:.82;
 }
+
+/* Guide pratiche */
+.section-intro{margin:8px 0 0;color:var(--muted);line-height:1.55;max-width:720px}
+.guides-list{display:grid;gap:22px}
+.guide-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;scroll-margin-top:20px}
+.guide-card-head{display:flex;align-items:flex-start;gap:14px}
+.guide-icon{width:48px;height:48px;border-radius:15px;background:var(--soft);display:grid;place-items:center;font-size:1.5rem;flex:0 0 auto}
+.guide-card h3{margin:5px 0 4px;font-size:1.35rem}
+.guide-subtitle,.guide-intro,.guide-step p{color:var(--muted);line-height:1.55}
+.guide-subtitle{margin:0;font-size:.9rem}
+.guide-intro{margin:18px 0}
+.guide-steps{display:grid;gap:14px}
+.guide-step{background:#f9f7f3;border:1px solid var(--line);border-radius:18px;padding:18px}
+.guide-step h4{margin:0 0 6px;font-size:1.02rem}
+.guide-step p{margin:0 0 14px;font-size:.92rem}
+.guide-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.guide-image-btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:8px;text-align:left;overflow:hidden}
+.guide-image-btn img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:9px;background:#eee}
+.guide-image-btn span{display:block;padding:8px 3px 2px;font-size:.76rem;font-weight:800;color:var(--ink)}
+.guide-note{margin-top:16px;padding:14px 16px;background:#f4eee5;border-radius:14px;line-height:1.5;font-size:.9rem}
+.guide-link-btn{display:inline-flex;margin:10px 8px 0 0;border:0;border-radius:12px;background:var(--dark);color:#fff;padding:10px 12px;font-weight:800}
+.image-viewer{position:fixed;inset:0;z-index:9999;background:rgba(10,12,16,.94);display:flex;align-items:center;justify-content:center;padding:52px 16px 20px}
+.image-viewer img{max-width:min(1200px,100%);max-height:calc(100vh - 72px);object-fit:contain;border-radius:10px;background:#fff}
+.viewer-close{position:fixed;right:18px;top:14px;width:42px;height:42px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:28px;line-height:1}
+.no-scroll{overflow:hidden}
+@media(max-width:640px){
+  .guide-card{padding:17px}
+  .guide-gallery{grid-template-columns:1fr}
+  .guide-image-btn img{aspect-ratio:16/10;object-fit:cover}
+}
+
+/* Legenda e ritmo itinerario */
+.itinerary-legend{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 10px}
+.itinerary-legend span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:.78rem;font-weight:800}
+.itinerary-note{margin:0 0 18px;color:var(--muted);font-size:.9rem;line-height:1.5}
+.activity.priority{border-left:4px solid #b7575d}
+.activity.evening{border-left:4px solid #4f5562}
+.activity.alternative{border-left:4px dashed #8c7d66}
+.activity.optional{border-left:4px solid #7f9276}
+.activity.skippable{opacity:.86}

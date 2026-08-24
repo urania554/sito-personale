@@ -54,6 +54,7 @@
         <button class="tab" data-tab="itinerary" type="button">Itinerario</button>
         <button class="tab" data-tab="bookings" type="button">Prenotazioni</button>
         <button class="tab" data-tab="resources" type="button">Risorse</button>
+        <button class="tab" data-tab="guides" type="button">Guide pratiche</button>
       </nav>
 
       <section id="today" class="tab-panel active">
@@ -95,6 +96,10 @@
             <h2>Itinerario completo</h2>
           </div>
         </div>
+        <div class="itinerary-legend" aria-label="Legenda itinerario">
+          <span>⭐ Prioritario</span><span>🟢 Se abbiamo energie</span><span>🌙 Sera</span><span>🔀 Alternativa</span><span>😴 Sacrificabile</span>
+        </div>
+        <p class="itinerary-note">Il programma è volutamente ricco: le tappe facoltative si saltano senza doverle recuperare.</p>
         <div id="itineraryList" class="day-list"></div>
       </section>
 
@@ -116,6 +121,19 @@
         <div id="bookingsList" class="cards-grid"></div>
       </section>
 
+
+
+      <section id="guides" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Passo per passo</span>
+            <h2>Guide pratiche</h2>
+            <p class="section-intro">Le istruzioni da aprire sul telefono quando servono davvero: aeroporto, navetta e biglietti ferroviari.</p>
+          </div>
+        </div>
+        <div id="guidesList" class="guides-list"></div>
+      </section>
+
       <section id="resources" class="tab-panel">
         <div class="section-head">
           <div>
@@ -125,6 +143,13 @@
         </div>
         <div id="resourcesList" class="cards-grid"></div>
       </section>
+
+
+      <div id="imageViewer" class="image-viewer hidden" role="dialog" aria-modal="true" aria-label="Immagine guida">
+        <button id="closeImageViewer" class="viewer-close" type="button" aria-label="Chiudi">×</button>
+        <img id="viewerImage" alt="Istruzione ingrandita">
+      </div>
+
     </main>
   </div>
 

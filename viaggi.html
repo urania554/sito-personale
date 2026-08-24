@@ -50,7 +50,17 @@
     .places h2{font-size:clamp(2.5rem,4vw,3.7rem);margin:6px 0 16px}.places p{color:#6b6762;line-height:1.75}
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tags span{background:#fff;border:1px solid #ddd5cb;border-radius:999px;padding:8px 11px;font-size:.78rem;font-weight:700}
     @media(max-width:850px){.hero-grid,.trip-grid,.places{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:14px}}
-  </style>
+  
+    .trip-card.newyork .trip-visual{background:
+      linear-gradient(180deg,rgba(15,18,22,.08),rgba(15,18,22,.58)),
+      url('assets/viaggi/ny-dumbo.jpg') center 46%/cover no-repeat!important}
+    .trip-card.china .trip-visual{background:
+      linear-gradient(180deg,rgba(15,18,22,.08),rgba(15,18,22,.58)),
+      url('assets/viaggi/china-summer-palace.jpg') center/cover no-repeat!important}
+    .trip-card.newyork .trip-year,.trip-card.china .trip-year,
+    .trip-card.newyork .trip-status,.trip-card.china .trip-status{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+
+</style>
 </head>
 <body>
 <header class="navbar">
