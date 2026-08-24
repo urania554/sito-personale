@@ -37,6 +37,16 @@ figcaption{position:absolute;left:14px;bottom:14px;color:#fff;background:rgba(15
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.pill{display:inline-flex;padding:12px 17px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font-weight:800}.pill.alt{background:transparent;color:var(--red);border:1px solid var(--red)}
 .footer{padding:38px 22px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
 @media(max-width:900px){.hero-grid,.intro{grid-template-columns:1fr}.hero-photo{height:420px}.cards{grid-template-columns:1fr}.photo-story{grid-template-columns:1fr;grid-template-rows:none}.photo-story figure,.photo-story figure:first-child{grid-row:auto;height:330px}.mosaic{grid-template-columns:1fr;grid-auto-rows:320px}.mosaic figure.wide,.mosaic figure.tall{grid-column:auto;grid-row:auto}.menu{display:none}}
+
+.mosaic figure img{transition:transform .4s ease}
+.mosaic figure:hover img{transform:scale(1.02)}
+.mosaic .tall img{object-position:center 22%}
+.mosaic .wide img{object-position:center 38%}
+.mosaic .panda-frame img{object-position:center 34%}
+@media(max-width:900px){
+  .mosaic .tall img,.mosaic .wide img,.mosaic .panda-frame img{object-position:center}
+}
+
 </style>
 </head>
 <body>
@@ -55,7 +65,8 @@ figcaption{position:absolute;left:14px;bottom:14px;color:#fff;background:rgba(15
 <section class="section"><div class="shell intro">
 <div><span class="kicker">Il viaggio</span><h2>Sette tappe, molte Cine diverse.</h2></div>
 <div><p>Hong Kong, Guilin, Shanghai, Zhouzhuang, Chengdu, Xi'an e Pechino: più che una linea sulla mappa, una successione continua di atmosfere. Le fotografie qui sotto non cercano di documentare tutto. Ho scelto quelle che, insieme, restituiscono meglio il carattere del viaggio.</p>
-<div class="route"><span>Hong Kong</span><span>Guilin</span><span>Shanghai</span><span>Zhouzhuang</span><span>Chengdu</span><span>Xi'an</span><span>Pechino</span></div></div>
+<div class="route"><span>Hong Kong</span><span>Guilin</span><span>Shanghai</span><span>Zhouzhuang</span><span>Chengdu</span><span>Xi'an</span><span>Pechino</span></div>
+<div class="actions"><a class="pill" href="cina-2025-racconto.html">Leggi il racconto completo →</a></div></div>
 </div></section>
 
 <section class="section alt"><div class="shell">
@@ -78,7 +89,7 @@ figcaption{position:absolute;left:14px;bottom:14px;color:#fff;background:rgba(15
 <div class="mosaic">
 <figure class="tall"><img src="assets/viaggi/china-traditional.jpg" alt="Giovani donne in abiti tradizionali"></figure>
 <figure class="wide"><img src="assets/viaggi/china-terracotta.jpg" alt="Guerrieri dell'Esercito di Terracotta"></figure>
-<figure><img src="assets/viaggi/china-panda.jpg" alt="Panda che mangia bambù"></figure>
+<figure class="wide panda-frame"><img src="assets/viaggi/china-panda.jpg" alt="Panda che mangia bambù"></figure>
 </div>
 </div></section>
 
@@ -91,7 +102,10 @@ figcaption{position:absolute;left:14px;bottom:14px;color:#fff;background:rgba(15
 <figure><img src="assets/viaggi/china-hongkong.jpg" alt="Panorama urbano della Cina"><figcaption>Contrasti</figcaption></figure>
 </div>
 <div class="quote"><p>Alla fine non resta una sola Cina, ma una sequenza di immagini che continuano a contraddirsi e completarsi.</p></div>
-<div class="actions"><a class="pill alt" href="viaggi.html">← Torna ai viaggi</a></div>
+<div class="actions">
+<a class="pill" href="cina-2025-racconto.html">Leggi il racconto completo →</a>
+<a class="pill alt" href="viaggi.html">← Torna ai viaggi</a>
+</div>
 </div></section>
 </main>
 <footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
