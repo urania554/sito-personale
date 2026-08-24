@@ -475,6 +475,35 @@
     .archive-file.openable:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(0,0,0,.22)}
     .archive-file.openable a{position:absolute;inset:0}
 
+
+    .hq-hero{padding:92px 0 82px}
+    .hq-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center;position:relative;z-index:2}
+    .hq-status{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}
+    .hq-status div{min-width:120px;padding:14px 16px;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.04)}
+    .hq-status strong{display:block;font-family:'Playfair Display',serif;font-size:1.65rem;color:#f3d4d7}
+    .hq-status span{font-size:.7rem;color:#bfc3ca;text-transform:uppercase;letter-spacing:.06em}
+    .hq-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .hq-btn{display:inline-flex;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800}
+    .hq-btn.primary{background:var(--bob-red);color:#fff}.hq-btn.ghost{border:1px solid rgba(255,255,255,.18);color:#fff}
+    .bob-hq-board{min-height:460px;background:#292117;border:10px solid #342e28;border-radius:22px;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden}
+    .hq-stamp{position:absolute;left:24px;top:20px;color:#b8565b;border:3px solid #8f4044;padding:7px 12px;font-weight:900;letter-spacing:.12em;transform:rotate(-4deg);z-index:3;background:rgba(239,229,207,.9)}
+    .hq-photo{position:absolute;left:28%;top:18%;width:42%;background:#f4ead8;padding:9px 9px 24px;transform:rotate(3deg);box-shadow:0 12px 30px rgba(0,0,0,.32);z-index:2}
+    .hq-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+    .hq-photo span{display:block;color:#514638;text-align:center;margin-top:8px;font-family:'Caveat',cursive;font-size:1.1rem}
+    .hq-note{position:absolute;width:34%;padding:14px;background:#efe5cf;color:#29231c;font-family:'Caveat',cursive;font-size:1.05rem;line-height:1.2;box-shadow:0 8px 18px rgba(0,0,0,.25);z-index:2}
+    .note-a{left:5%;top:44%;transform:rotate(-6deg)}.note-b{right:4%;top:24%;transform:rotate(6deg)}.note-c{right:7%;bottom:8%;transform:rotate(-3deg)}
+    .hq-thread{position:absolute;height:2px;background:#a44146;transform-origin:left center;z-index:1}.t1{width:190px;left:22%;top:55%;transform:rotate(-18deg)}.t2{width:170px;left:53%;top:53%;transform:rotate(25deg)}
+    .hq-paw{position:absolute;left:10%;bottom:7%;font-size:2.3rem;transform:rotate(-12deg)}
+    .bob-desk-section{padding:84px 0;background:#f3eadb}
+    .bob-desk-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .desk-copy h2{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,4vw,3.6rem);line-height:1.1;margin:8px 0 18px}
+    .desk-copy p{color:#6d655d;line-height:1.76}
+    .desk-manifesto{background:#fffdf7;border:1px solid #d3c3a8;border-radius:5px 22px 22px 5px;padding:30px;box-shadow:0 14px 32px rgba(73,55,36,.13);transform:rotate(.6deg)}
+    .manifesto-title{font-family:'Caveat',cursive;color:#9b3f42;font-size:2rem;font-weight:700;margin-bottom:12px}
+    .desk-manifesto ol{padding-left:21px;margin:0}.desk-manifesto li{margin:10px 0;color:#514b44;line-height:1.5}
+    .manifesto-sign{margin-top:18px;text-align:right;font-family:'Caveat',cursive;font-size:1.35rem;color:#9b3f42}
+    @media(max-width:900px){.hq-grid,.bob-desk-grid{grid-template-columns:1fr}.bob-hq-board{min-height:420px}}
+
 </style>
 </head>
 
@@ -487,7 +516,7 @@
     <a href="index.html#chi-sono">CHI SONO</a>
     <a href="competenze.html">COMPETENZE</a>
     <a href="index.html#progetti">PROGETTI</a>
-    <a href="index.html#blog">BLOG</a>
+    <a href="blog.html">BLOG</a>
     <a href="index.html#contatti">CONTATTI</a>
   </nav>
 
@@ -500,34 +529,62 @@
 
 <main class="bob-page">
 
-  <section class="bob-hero">
-    <div class="bob-shell bob-hero-grid">
-      <div>
-        <span class="bob-kicker">Archivio investigativo non autorizzato</span>
+  
+  <section class="bob-hero hq-hero">
+    <div class="bob-shell hq-grid">
+      <div class="hq-copy">
+        <span class="bob-kicker">Bob Investigations · Unità speciale per casi inutilmente sospetti</span>
         <h1>BOB <span>NOTES</span></h1>
         <div class="bob-tagline">Archivio riservato. Più o meno.</div>
-        <p class="bob-lead">
-          Casi, sospetti e conclusioni discutibili raccolti da Bob,
-          investigatore che nessuno ha mai assunto ma che ha comunque deciso di aprire un fascicolo.
-          Qui non trovi i capitoli completi: solo qualche indizio.
-        </p>
+        <p class="bob-lead">Io racconto. Bob indaga. Ogni ricordo diventa un fascicolo, ogni dettaglio una prova e ogni episodio sufficientemente assurdo merita almeno un timbro rosso.</p>
+        <div class="hq-status">
+          <div><strong>09</strong><span>fascicoli registrati</span></div>
+          <div><strong>06</strong><span>consultabili</span></div>
+          <div><strong>03</strong><span>classificati</span></div>
+        </div>
+        <div class="hq-actions">
+          <a class="hq-btn primary" href="#fascicoli">Apri l'archivio →</a>
+          <a class="hq-btn ghost" href="bob-case-001.html">Inizia dal FILE #001</a>
+        </div>
       </div>
-
-      <div class="bob-board">
-        <div class="board-paper one"><span class="pin">📌</span><strong>CASO #001</strong><br>Oggetto arancione. Sospetto.</div>
-        <div class="board-paper two"><span class="pin">📌</span><strong>CASO #002</strong><br>Il pesce non mi convince.</div>
-        <div class="board-paper three"><span class="pin">📌</span><strong>REGOLA #1</strong><br>Se sembra normale, probabilmente non lo è.</div>
-        <div class="redline a"></div>
-        <div class="redline b"></div>
-      </div>
+      <aside class="bob-hq-board">
+        <div class="hq-stamp">BOB INVESTIGATIONS</div>
+        <div class="hq-photo"><img src="images/bob-notes/case001-cover.png" alt="Primo caso Bob Notes"><span>PROVA MADRE</span></div>
+        <div class="hq-note note-a"><b>REGOLA #1</b><br>Se sembra normale, controlla meglio.</div>
+        <div class="hq-note note-b"><b>REGOLA #2</b><br>Gli snack non sono mai irrilevanti.</div>
+        <div class="hq-note note-c"><b>STATO</b><br>Indagine permanente.</div>
+        <div class="hq-thread t1"></div><div class="hq-thread t2"></div><div class="hq-paw">🐾</div>
+      </aside>
     </div>
   </section>
 
-  <section class="bob-section">
+  
+  <section class="bob-desk-section">
+    <div class="bob-shell bob-desk-grid">
+      <div class="desk-copy">
+        <span class="bob-kicker" style="color:var(--bob-red)">Dalla scrivania dell'agente Bob</span>
+        <h2>Ogni vita ha dei ricordi.<br>Bob ha dei dossier.</h2>
+        <p>Bob Notes è una graphic novel autobiografica filtrata attraverso lo sguardo di Bob: cane filosofo, investigatore non autorizzato e osservatore professionista del caos.</p>
+        <p>I capitoli raccontano gli episodi. I Bob Files li trattano come casi investigativi: soggetti, prove, minacce, ipotesi e verdetti che nessuno aveva chiesto.</p>
+      </div>
+      <div class="desk-manifesto">
+        <div class="manifesto-title">METODO BOB</div>
+        <ol>
+          <li><b>Osserva</b> quello che gli umani fingono di non vedere.</li>
+          <li><b>Annusa</b> qualsiasi dettaglio sospetto.</li>
+          <li><b>Collega</b> prove anche quando probabilmente non sono collegate.</li>
+          <li><b>Giudica</b> con moderazione. Più o meno.</li>
+          <li><b>Archivia</b> tutto. Soprattutto le figuracce.</li>
+        </ol>
+        <div class="manifesto-sign">— Agente Bob 🐾</div>
+      </div>
+    </div>
+  </section>
+<section class="bob-section" id="fascicoli">
     <div class="bob-shell">
       <div class="bob-head">
         <span class="bob-kicker" style="color:var(--bob-red)">I fascicoli</span>
-        <h2>Sei fascicoli in evidenza. Il resto è classificato.</h2>
+        <h2>Fascicoli in evidenza.</h2>
         <p>
           Ogni capitolo racconta un pezzo dell'universo di Bob Notes. Sul sito ne mostro soltanto un'immagine e un piccolo teaser: il resto resta nelle pagine della graphic novel.
         </p>

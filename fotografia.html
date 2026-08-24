@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotografia - Cinzia Molisano</title>
+<meta name="description" content="Fotografie di viaggio, dettagli, atmosfere e immagini che raccontano qualcosa.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--photo-ink:#1d2025;--photo-paper:#f4efe7;--photo-pink:#b86679}
+.photo-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.photo-hero{padding:140px 0 90px;background:linear-gradient(135deg,#1a1c20,#2d2c31);color:#fff}
+.photo-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.photo-kicker{font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#e3a6b5}
+.photo-hero h1{font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,7.2rem);line-height:.88;margin:12px 0 20px}
+.photo-hero h1 span{font-family:'Caveat',cursive;color:#e2a2b1}
+.photo-lead{color:#c9cbd0;line-height:1.8;font-size:1.06rem}
+.photo-frame{min-height:430px;border:12px solid #f4eee6;background:linear-gradient(145deg,#69766f,#c7b7aa);position:relative;box-shadow:0 28px 60px rgba(0,0,0,.35)}
+.photo-frame::before{content:"LE FOTO ARRIVANO QUI";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-3deg);font-family:'Caveat',cursive;font-size:2.5rem;color:rgba(255,255,255,.82);white-space:nowrap}
+.photo-section{padding:84px 0}.photo-section.alt{background:var(--photo-paper)}
+.photo-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+.photo-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4.5vw,4rem);margin:7px 0 0}
+.photo-head p{max-width:500px;color:#706b66;line-height:1.7;margin:0}
+.gallery-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-auto-rows:245px;gap:16px}
+.shot{border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(145deg,#d9ded9,#c9bdb2);border:1px solid #ded7ce}
+.shot.tall{grid-row:span 2}.shot.wide{grid-column:span 2}
+.shot::after{content:attr(data-label);position:absolute;left:16px;bottom:14px;background:rgba(24,26,29,.78);color:#fff;padding:7px 10px;border-radius:999px;font-size:.72rem;font-weight:800}
+.shot-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:2rem;color:rgba(38,42,42,.45)}
+.photo-categories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.category-card{padding:26px;border-radius:22px;border:1px solid #e0d9cf;background:#fff;min-height:210px}
+.category-card h3{font-family:'Playfair Display',serif;font-size:1.55rem;margin:16px 0 8px}
+.category-card p{color:#6d6862;line-height:1.6;font-size:.92rem}
+.china-photo-box{background:#191b20;color:#fff;border-radius:28px;padding:34px;display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:center}
+.china-photo-placeholder{min-height:300px;border-radius:18px;background:linear-gradient(145deg,#712124,#b1514b);position:relative}
+.china-photo-placeholder::after{content:"CINA 2025";position:absolute;left:20px;bottom:14px;font-family:'Caveat',cursive;font-size:3rem;color:rgba(255,255,255,.22)}
+.china-photo-box h2{font-family:'Playfair Display',serif;font-size:2.8rem;margin:8px 0 12px}.china-photo-box p{color:#c9cbd0;line-height:1.7}
+.photo-btn{display:inline-flex;padding:11px 16px;border-radius:999px;background:#b86679;color:#fff;text-decoration:none;font-weight:800;margin-top:12px}
+@media(max-width:900px){.photo-hero-grid,.china-photo-box{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-auto-rows:240px}.shot.tall,.shot.wide{grid-row:auto;grid-column:auto}.photo-categories{grid-template-columns:1fr}.photo-head{display:block}.photo-head p{margin-top:14px}}
+</style>
+</head>
+<body>
+<header class="navbar">
+<a class="logo" href="index.html">Cinzia<span>★</span></a>
+<nav class="menu" id="mainMenu"><a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a href="viaggi.html">VIAGGI</a><a href="index.html#contatti">CONTATTI</a></nav>
+<div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button">🌙</button><a class="icon-btn" href="index.html#contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button></div>
+</header>
+<main>
+<section class="photo-hero"><div class="photo-shell photo-hero-grid"><div><span class="photo-kicker">Fotografia · viaggi · dettagli</span><h1>Quello che<br><span>resta negli occhi.</span></h1><p class="photo-lead">Non fotografo per documentare tutto. Mi interessano soprattutto i dettagli, le atmosfere e quei momenti che, anche mesi dopo, riescono a riportarmi esattamente in un luogo.</p></div><div class="photo-frame"></div></div></section>
+<section class="photo-section"><div class="photo-shell"><div class="photo-head"><div><span class="photo-kicker" style="color:var(--photo-pink)">Selezione</span><h2>Immagini che raccontano qualcosa.</h2></div><p>Qui non finiranno centinaia di fotografie. Solo quelle che riescono a raccontare un luogo, una sensazione o un momento.</p></div><div class="gallery-grid"><article class="shot tall" data-label="VIAGGI"><div class="shot-placeholder">foto verticale</div></article><article class="shot" data-label="DETTAGLI"><div class="shot-placeholder">foto</div></article><article class="shot" data-label="ATMOSFERE"><div class="shot-placeholder">foto</div></article><article class="shot wide" data-label="LUOGHI"><div class="shot-placeholder">foto panoramica</div></article></div></div></section>
+<section class="photo-section alt"><div class="photo-shell"><div class="photo-categories"><article class="category-card"><span>🌍</span><h3>Viaggi</h3><p>Città, paesaggi e posti che assumono un significato diverso quando finalmente li vedi fuori da una mappa.</p></article><article class="category-card"><span>⌕</span><h3>Dettagli</h3><p>Insegne, porte, luci, oggetti e tutte quelle cose piccole che spesso raccontano un luogo meglio di una veduta famosa.</p></article><article class="category-card"><span>◐</span><h3>Atmosfere</h3><p>Immagini che non hanno bisogno di mostrare tutto: basta una luce, una strada vuota o un colore.</p></article></div></div></section>
+<section class="photo-section"><div class="photo-shell"><div class="china-photo-box"><div class="china-photo-placeholder"></div><div><span class="photo-kicker">Prima galleria · prossimamente</span><h2>Cina 2025</h2><p>Sarà la prima raccolta fotografica vera del sito. Useremo poche immagini iconiche: Hong Kong, Guilin, Shanghai, Chengdu, Xi'an e Pechino.</p><a class="photo-btn" href="cina-2025.html">Torna al viaggio Cina 2025 →</a></div></div></div></section>
+</main>
+<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<script src="script.js"></script>
+</body>
+</html>

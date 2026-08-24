@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Urania Travel Hub · Giappone 2026</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <section id="loginView" class="login-view">
+      <div class="login-card">
+        <div class="brand">URANIA <span>TRAVEL HUB</span></div>
+        <h1>Giappone 2026</h1>
+        <p>Dashboard condivisa del viaggio. Inserisci l'e-mail autorizzata e riceverai un link di accesso.</p>
+
+        <form id="loginForm">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="email" required placeholder="nome@email.it">
+          <button type="submit">Invia link di accesso</button>
+        </form>
+
+        <p id="loginMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <main id="dashboardView" class="dashboard hidden">
+      <header class="topbar">
+        <div>
+          <div class="brand">URANIA <span>TRAVEL HUB</span></div>
+          <div class="trip-title" id="tripTitle">Giappone 2026</div>
+        </div>
+        <div class="topbar-actions">
+          <span id="userEmail" class="user-email"></span>
+          <button id="logoutBtn" class="ghost-btn" type="button">Esci</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow" id="tripStatus">VIAGGIO IN PREPARAZIONE</div>
+          <h1 id="heroTitle">Giappone 2026</h1>
+          <p id="tripDates">—</p>
+        </div>
+        <div class="countdown-card">
+          <span>Alla partenza</span>
+          <strong id="countdown">—</strong>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Sezioni dashboard">
+        <button class="tab active" data-tab="today" type="button">Oggi</button>
+        <button class="tab" data-tab="itinerary" type="button">Itinerario</button>
+        <button class="tab" data-tab="bookings" type="button">Prenotazioni</button>
+        <button class="tab" data-tab="resources" type="button">Risorse</button>
+      </nav>
+
+      <section id="today" class="tab-panel active">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">La schermata utile</span>
+            <h2>Oggi nel viaggio</h2>
+          </div>
+          <div class="date-nav">
+            <button id="prevDay" type="button">←</button>
+            <input id="dayPicker" type="date">
+            <button id="nextDay" type="button">→</button>
+          </div>
+        </div>
+
+        <div class="today-grid">
+          <div>
+            <div id="todayDate" class="today-date">—</div>
+            <div id="todayActivities" class="timeline-list"></div>
+          </div>
+
+          <aside class="side-stack">
+            <article class="side-card">
+              <span class="card-kicker">Dove dormiamo</span>
+              <div id="todayHotel">—</div>
+            </article>
+            <article class="side-card">
+              <span class="card-kicker">Prossimo spostamento</span>
+              <div id="nextTransport">—</div>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section id="itinerary" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Giorno per giorno</span>
+            <h2>Itinerario completo</h2>
+          </div>
+        </div>
+        <div id="itineraryList" class="day-list"></div>
+      </section>
+
+      <section id="bookings" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Tutto sotto mano</span>
+            <h2>Prenotazioni</h2>
+          </div>
+          <div class="filter-pills" id="bookingFilters">
+            <button class="pill active" data-filter="all" type="button">Tutte</button>
+            <button class="pill" data-filter="flight" type="button">Voli</button>
+            <button class="pill" data-filter="train" type="button">Treni</button>
+            <button class="pill" data-filter="hotel" type="button">Hotel</button>
+            <button class="pill" data-filter="transfer" type="button">Transfer</button>
+            <button class="pill" data-filter="guided_tour" type="button">Tour</button>
+          </div>
+        </div>
+        <div id="bookingsList" class="cards-grid"></div>
+      </section>
+
+      <section id="resources" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Link utili</span>
+            <h2>Risorse del viaggio</h2>
+          </div>
+        </div>
+        <div id="resourcesList" class="cards-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

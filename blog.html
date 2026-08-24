@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dal taccuino - Cinzia Molisano</title>
+  <meta name="description" content="Appunti di tecnologia, scrittura e viaggi dal sito personale di Cinzia Molisano.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --journal-paper:#f4efe7;
+      --journal-ink:#232326;
+      --journal-pink:#b86679;
+      --journal-green:#657d74;
+      --journal-purple:#746784;
+    }
+    .journal-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .journal-hero{
+      padding:140px 0 88px;
+      background:
+        radial-gradient(circle at 82% 20%,rgba(184,102,121,.14),transparent 27%),
+        linear-gradient(135deg,#f3ece4,#ebe8ef);
+      overflow:hidden;
+    }
+    .journal-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+    .journal-kicker{
+      display:inline-block;font-size:.7rem;font-weight:900;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--journal-pink)
+    }
+    .journal-hero h1{
+      font-family:'Playfair Display',serif;font-size:clamp(4rem,8vw,7.2rem);
+      line-height:.88;margin:10px 0 22px;color:var(--journal-ink)
+    }
+    .journal-hero h1 span{font-family:'Caveat',cursive;color:var(--journal-pink)}
+    .journal-lead{color:#68646a;line-height:1.8;font-size:1.06rem;max-width:700px}
+    .notebook-cover{
+      min-height:410px;background:#1c1d21;border-radius:6px 26px 26px 6px;
+      box-shadow:0 28px 60px rgba(44,35,31,.22);padding:42px;color:#fff;
+      position:relative;overflow:hidden;transform:rotate(1deg)
+    }
+    .notebook-cover::before{
+      content:"";position:absolute;left:20px;top:0;bottom:0;width:6px;
+      background:repeating-linear-gradient(#9d5868 0 12px,#1c1d21 12px 24px)
+    }
+    .notebook-cover small{font-size:.7rem;letter-spacing:.12em;color:#d4bbc1}
+    .notebook-cover strong{
+      display:block;font-family:'Caveat',cursive;font-size:4.2rem;line-height:.9;
+      margin-top:80px;color:#f0d3da
+    }
+    .notebook-cover p{color:#bbbcc1;line-height:1.55;max-width:330px}
+    .journal-section{padding:86px 0}.journal-section.alt{background:var(--journal-paper)}
+    .journal-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:32px}
+    .journal-head h2{
+      font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,4rem);
+      line-height:1.05;margin:7px 0 0
+    }
+    .journal-head p{max-width:500px;color:#706b66;line-height:1.7;margin:0}
+    .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .topic-card{
+      padding:28px;border-radius:25px;min-height:245px;text-decoration:none;
+      color:var(--journal-ink);border:1px solid #e0d9cf;display:flex;
+      flex-direction:column;justify-content:space-between;transition:.22s ease
+    }
+    .topic-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(45,39,34,.1)}
+    .topic-tech{background:#e7efec}.topic-write{background:#f3e6eb}.topic-travel{background:#eee9f3}
+    .topic-card span{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .topic-card h3{font-family:'Playfair Display',serif;font-size:2rem;margin:12px 0 10px}
+    .topic-card p{color:#66625e;line-height:1.6;margin:0}
+    .topic-card b{margin-top:22px;font-size:.8rem}
+    .entries{display:grid;gap:14px}
+    .entry{
+      display:grid;grid-template-columns:100px 1fr auto;gap:22px;align-items:center;
+      padding:23px 24px;background:#fff;border:1px solid #e2dbd2;border-radius:20px;
+      text-decoration:none;color:var(--journal-ink);transition:.2s ease
+    }
+    .entry:hover{transform:translateX(4px);border-color:#c9b7bc}
+    .entry-tag{
+      font-size:.66rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;
+      color:var(--journal-pink)
+    }
+    .entry h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin:0 0 5px}
+    .entry p{color:#706b66;font-size:.9rem;margin:0;line-height:1.5}
+    .entry-arrow{font-size:1.4rem}
+    .journal-note{
+      margin-top:30px;padding:24px;border-left:3px solid var(--journal-pink);
+      background:#fff;border-radius:0 18px 18px 0;color:#6b6661;line-height:1.7
+    }
+    .journal-note strong{font-family:'Caveat',cursive;font-size:1.5rem;color:#9f5868}
+    @media(max-width:900px){
+      .journal-hero-grid,.topic-grid{grid-template-columns:1fr}
+      .journal-head{display:block}.journal-head p{margin-top:14px}
+      .notebook-cover{min-height:330px}
+    }
+    @media(max-width:650px){
+      .entry{grid-template-columns:1fr}.entry-arrow{display:none}
+    }
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="blog.html" class="active">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button">🌙</button>
+    <a class="icon-btn" href="index.html#contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="journal-hero">
+  <div class="journal-shell journal-hero-grid">
+    <div>
+      <span class="journal-kicker">Dal taccuino</span>
+      <h1>Idee, appunti<br>e <span>deviazioni.</span></h1>
+      <p class="journal-lead">
+        Non tutto merita una pagina intera e non tutto nasce già come progetto.
+        Qui raccolgo pensieri, episodi, dietro le quinte e cose che ho imparato
+        mentre cercavo di fare tutt'altro.
+      </p>
+    </div>
+    <aside class="notebook-cover">
+      <small>APPUNTI NON PERFETTAMENTE ORDINATI</small>
+      <strong>Il mio<br>taccuino</strong>
+      <p>Tecnologia, scrittura, viaggi e qualche digressione inevitabile.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="journal-section">
+  <div class="journal-shell">
+    <div class="journal-head">
+      <div>
+        <span class="journal-kicker">Tre filoni</span>
+        <h2>Dipende da che giornata è.</h2>
+      </div>
+      <p>
+        A volte parto da un problema tecnico, altre da un personaggio o da un posto
+        che vorrei vedere. Il taccuino serve proprio a non costringerli nello stesso cassetto.
+      </p>
+    </div>
+
+    <div class="topic-grid">
+      <a class="topic-card topic-tech" href="#tecnologia">
+        <div><span>Tecnologia</span><h3>Codice & realtà</h3><p>Progetti, problemi reali e quegli episodi IT che sembrano inventati ma purtroppo non lo sono.</p></div>
+        <b>LEGGI GLI APPUNTI →</b>
+      </a>
+      <a class="topic-card topic-write" href="#scrittura">
+        <div><span>Scrittura</span><h3>Dietro le storie</h3><p>Romanzi, revisioni, personaggi e tutto quello che succede prima che una storia sembri finalmente semplice.</p></div>
+        <b>LEGGI GLI APPUNTI →</b>
+      </a>
+      <a class="topic-card topic-travel" href="#viaggi">
+        <div><span>Viaggi</span><h3>Prima e dopo la mappa</h3><p>Itinerari, luoghi, preparativi e quello che cambia quando un pin diventa un posto in cui sei davvero stata.</p></div>
+        <b>LEGGI GLI APPUNTI →</b>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="journal-section alt" id="tecnologia">
+  <div class="journal-shell">
+    <div class="journal-head">
+      <div><span class="journal-kicker">Tecnologia</span><h2>Dal lavoro al racconto.</h2></div>
+      <p>La parte seria e quella decisamente meno seria finiscono spesso per nascere dallo stesso problema.</p>
+    </div>
+    <div class="entries">
+      <a class="entry" href="informatica.html"><span class="entry-tag">Progetti</span><div><h3>Quando un problema reale diventa uno strumento.</h3><p>Utility, automazioni e software nati per rendere più semplice il lavoro quotidiano.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="it-happens.html"><span class="entry-tag">IT Happens</span><div><h3>Assistenza remota, orologi a parete e altre anomalie.</h3><p>Una raccolta di episodi realmente accaduti in cui la tecnologia è quasi sempre la parte meno imprevedibile.</p></div><span class="entry-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="journal-section" id="scrittura">
+  <div class="journal-shell">
+    <div class="journal-head">
+      <div><span class="journal-kicker">Scrittura</span><h2>Prima dell'ultima pagina.</h2></div>
+      <p>Le storie finite sembrano lineari. Il percorso per arrivarci molto meno.</p>
+    </div>
+    <div class="entries">
+      <a class="entry" href="urania.html"><span class="entry-tag">Urania</span><div><h3>Raccontare un romanzo senza raccontarlo troppo.</h3><p>Atmosfera, personaggi e mistero: trovare il punto giusto tra incuriosire e svelare.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="bob-notes.html"><span class="entry-tag">Bob Notes</span><div><h3>Quando i ricordi diventano fascicoli investigativi.</h3><p>Autobiografia ironica, graphic novel e Bob incaricato di trovare prove dove probabilmente non ce ne sono.</p></div><span class="entry-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="journal-section alt" id="viaggi">
+  <div class="journal-shell">
+    <div class="journal-head">
+      <div><span class="journal-kicker">Viaggi</span><h2>Dalla pianificazione ai ricordi.</h2></div>
+      <p>Il viaggio comincia molto prima della partenza e continua parecchio dopo il rientro.</p>
+    </div>
+    <div class="entries">
+      <a class="entry" href="cina-2025.html"><span class="entry-tag">Cina 2025</span><div><h3>Un viaggio già diventato memoria.</h3><p>Hong Kong, Guilin, Shanghai, Chengdu, Xi'an e Pechino: la prima grande rotta raccontata nel sito.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="cina-2025-racconto.html"><span class="entry-tag">Cina 2025 · Racconto</span><div><h3>Diciotto giorni, sei volti della Cina.</h3><p>Non l'itinerario ma le sensazioni: dalla vertigine di Hong Kong al silenzio dell'Esercito di Terracotta, fino alla Grande Muraglia.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="viaggi.html"><span class="entry-tag">Giappone 2026</span><div><h3>Il viaggio che esiste ancora soprattutto sulla mappa.</h3><p>Tokyo, Kanazawa, Kyoto e Osaka: preparativi, luoghi salvati e tutto ciò che verrà dopo.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="fotografia.html"><span class="entry-tag">Fotografia</span><div><h3>Le immagini che restano.</h3><p>Una selezione di fotografie e dettagli per raccontare i luoghi senza trasformare il sito in una galleria infinita.</p></div><span class="entry-arrow">→</span></a>
+    </div>
+
+    <div class="journal-note">
+      <strong>Questo spazio crescerà senza fretta.</strong><br>
+      Quando nasce un nuovo articolo, entrerà qui. Il taccuino non deve essere riempito per forza:
+      deve soltanto avere un posto pronto quando c'è qualcosa che vale la pena raccontare.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <p>Tra codice e storie. Tra dati e immaginazione.</p>
+  <small>© 2026 Cinzia Molisano</small>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
