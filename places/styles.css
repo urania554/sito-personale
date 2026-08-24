@@ -324,3 +324,17 @@ button{cursor:pointer}
   .cards-grid{grid-template-columns:1fr}
   .activity{grid-template-columns:62px 1fr}
 }
+
+/* Urania Travel Hub - stato attività */
+.activity-status{
+  display:inline-block;
+  margin:0 0 6px 0;
+  padding:4px 8px;
+  border:1px solid currentColor;
+  border-radius:999px;
+  font-size:.70rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  line-height:1;
+  opacity:.82;
+}

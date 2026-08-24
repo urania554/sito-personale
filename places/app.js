@@ -41,6 +41,18 @@ function toDateOnly(date){
 function safe(value, fallback="—"){
   return value === null || value === undefined || value === "" ? fallback : value;
 }
+function bookingDateTime(booking){
+  if(!booking?.start_datetime) return "Data/orario non inseriti";
+  const zone = booking.local_timezone || "Asia/Tokyo";
+  const dt = new Date(booking.start_datetime);
+  const dateFmt = new Intl.DateTimeFormat("it-IT", {
+    day:"2-digit", month:"2-digit", year:"numeric", timeZone:zone
+  });
+  const timeFmt = new Intl.DateTimeFormat("it-IT", {
+    hour:"2-digit", minute:"2-digit", hour12:false, timeZone:zone
+  });
+  return `${dateFmt.format(dt)} · ${timeFmt.format(dt)}`;
+}
 function bookingIcon(type){
   return {
     hotel:"🏨", flight:"✈️", train:"🚄", transfer:"🚐", guided_tour:"🧑‍🏫"
@@ -214,8 +226,9 @@ function renderActivity(x){
   return `<article class="activity">
     <div class="activity-time">${time}</div>
     <div>
+      ${x.category ? `<span class="activity-status">${escapeHtml(x.category)}</span>` : ""}
       <h3>${escapeHtml(x.title)}</h3>
-      <p>${escapeHtml(detail || x.category || "")}</p>
+      <p>${escapeHtml(detail || "")}</p>
     </div>
   </article>`;
 }
@@ -256,7 +269,7 @@ function renderNextTransport(date){
   }
 
   el.innerHTML=`<h3>${bookingIcon(transport.booking_type)} ${escapeHtml(transport.title)}</h3>
-    <p>${fmtShort.format(new Date(transport.start_datetime))} · ${fmtTime.format(new Date(transport.start_datetime))}</p>
+    <p>${escapeHtml(bookingDateTime(transport))}</p>
     <p>${escapeHtml(safe(transport.location,""))}</p>`;
 }
 
@@ -287,9 +300,7 @@ function renderBookings(filter){
   }
 
   el.innerHTML=rows.map(b=>{
-    const when=b.start_datetime
-      ? `${fmtShort.format(new Date(b.start_datetime))} · ${fmtTime.format(new Date(b.start_datetime))}`
-      : "Data/orario non inseriti";
+    const when=bookingDateTime(b);
 
     return `<article class="data-card">
       <span class="type">${bookingIcon(b.booking_type)} ${escapeHtml(b.booking_type)}</span>
