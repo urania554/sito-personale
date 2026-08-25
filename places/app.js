@@ -19,55 +19,93 @@ let selectedDate = null;
 
 
 const dayExtras = {
-  "2026-09-16":[
-    {start_time:"18:30",title:"Asakusa e Sumida River con calma",location:"Asakusa",description:"Prima sera soft: passeggiata, Senso-ji illuminato se abbiamo energie e rientro senza orari rigidi.",category:"🌙 SERA"}
-  ],
-  "2026-09-17":[
-    {start_time:"08:50",title:"Incontro con Gioacchino",location:"Fermata Asakusabashi",description:"Arriviamo in metro e da qui raggiungiamo insieme il resto del gruppo. Tour: Meiji Jingu, Takeshita Street, Giardini del Palazzo Imperiale, Tokyo Station, Ueno, Kappabashi e Asakusa.",category:"⭐ PRIORITARIO"},
-    {start_time:"18:30",title:"Asakusa by night / Hoppy Street",location:"Asakusa",description:"Solo se abbiamo ancora energie dopo le 8–9 ore di tour. Altrimenti rientro diretto in hotel.",category:"🌙 SERA · 😴 SACRIFICABILE"}
-  ],
-  "2026-09-18":[
-    {start_time:"18:00",title:"Shinjuku di sera",location:"Shinjuku",description:"Omoide Yokocho → Kabukicho → Godzilla Head → Golden Gai. Passeggiata libera, senza obbligo di fare tutto.",category:"🌙 SERA"}
-  ],
-  "2026-09-19":[
-    {start_time:"17:30",title:"Akihabara al tramonto",location:"Akihabara",description:"Insegne, elettronica e atmosfera serale. Da fare se la giornata scorre bene; si può accorciare senza problemi.",category:"🟢 SE ABBIAMO ENERGIE · 🌙 SERA"}
-  ],
-  "2026-09-20":[
-    {start_time:"17:30",title:"Tokyo Bay al tramonto",location:"Toyosu / Odaiba",description:"Serata volutamente rilassata prima della partenza per Kanazawa.",category:"🌙 SERA"},
-    {start_time:"19:00",title:"Onsen Manyo Club",location:"Toyosu",description:"Onsen e relax; alternativa: restare a Odaiba/Toyosu e rientrare quando vogliamo.",category:"🔀 ALTERNATIVA · 🟢 FACOLTATIVO"}
-  ],
-  "2026-09-21":[
-    {start_time:"17:30",title:"Higashi Chaya al tramonto",location:"Kanazawa",description:"Passeggiata quando i gruppi giornalieri iniziano ad andare via. Nessun'altra attrazione obbligatoria.",category:"🌙 SERA"}
-  ],
-  "2026-09-22":[
-    {start_time:"18:30",title:"Katamachi",location:"Kanazawa",description:"Zona più viva della città per una passeggiata serale; completamente libera e sacrificabile.",category:"🌙 SERA · 😴 SACRIFICABILE"}
-  ],
-  "2026-09-23":[
-    {start_time:"18:00",title:"Gion, Kamo River e Ponto-cho",location:"Kyoto",description:"Prima sera a Kyoto in modalità soft. Se siamo stanche, accorciamo senza recuperi obbligatori.",category:"🌙 SERA"}
-  ],
-  "2026-09-24":[
-    {start_time:"18:30",title:"Kyoto Station di sera",location:"Kyoto Station",description:"Grande scalinata, Skyway e vista verso Kyoto Tower. Tappa semplice, comoda e senza corse.",category:"🌙 SERA · 🟢 FACOLTATIVO"}
-  ],
-  "2026-09-25":[
-    {start_time:"18:30",title:"Teramachi / Shinkyogoku",location:"Kyoto",description:"Passeggiata serale leggera dopo Arashiyama/Sagano. Se siamo stanche: rientro e basta.",category:"🌙 SERA · 😴 SACRIFICABILE"}
-  ],
-  "2026-09-26":[
-    {start_time:"18:00",title:"Ultima sera a Gion",location:"Kyoto",description:"Passeggiata lungo Shirakawa e recupero eventuale di ciò che abbiamo saltato il 23. Nessuna corsa contro il tempo.",category:"🌙 SERA"}
-  ],
-  "2026-09-27":[
-    {start_time:"18:00",title:"Osaka di notte",location:"Dotonbori / Namba",description:"Dotonbori, Glico, Hozenji Yokocho e, se va, Ura-Namba. Questa è una delle sere da vivere con calma.",category:"🌙 SERA · ⭐ PRIORITARIO"}
-  ],
-  "2026-09-28":[
-    {start_time:"08:30",title:"Nara oppure Osaka",location:"Nara / Osaka",description:"Scelta sul momento: escursione a Nara oppure giornata dedicata a Osaka. Nessun obbligo di decidere prima.",category:"🔀 ALTERNATIVA"},
-    {start_time:"19:00",title:"Serata libera a Osaka",location:"Osaka",description:"Dopo Nara: riposo e uscita solo se ne abbiamo voglia. Se restiamo a Osaka, continuiamo la giornata senza aggiungere tappe obbligatorie.",category:"🌙 SERA · 😴 SACRIFICABILE"}
-  ],
-  "2026-09-29":[
-    {start_time:"17:30",title:"Umeda al tramonto e sera",location:"Umeda / Kita",description:"Umeda Sky Building opzionale e passeggiata nella zona nord di Osaka per vedere un'atmosfera diversa da Dotonbori.",category:"🌙 SERA · 🟢 FACOLTATIVO"}
-  ],
-  "2026-09-30":[
-    {start_time:"09:30",title:"Ultima mattina senza corse",location:"Namba / Shinsaibashi",description:"Passeggiata, ultimi acquisti, pranzo e poi recupero bagagli. Niente attrazioni da incastrare prima del volo.",category:"⭐ PRIORITARIO"}
-  ]
+  "2026-09-16":[{start_time:"18:00",title:"Prima sera soft ad Asakusa",location:"Asakusa",description:"Solo se abbiamo energie dopo il viaggio: Sensō-ji illuminato e Sumida. Nessun obbligo.",category:"🌙 SERA · 😴 SACRIFICABILE"}],
+  "2026-09-17":[{start_time:"08:50",title:"Incontro con Gioacchino",location:"Asakusabashi Station",description:"Punto fisso. Tour: Meiji Jingu → Takeshita → Palazzo Imperiale → Tokyo Station → Ueno → Kappabashi → Asakusa → Sensō-ji.",category:"⭐ PRIORITARIO"}],
+  "2026-09-20":[{start_time:"08:30",title:"Valigie pronte per Kyoto",location:"Ano Hotel Asakusa",description:"Trolley chiusi. Spedizione oggi oppure il 21 mattina se l'hotel gestisce Takkyubin.",category:"⭐ PRIORITARIO"}],
+  "2026-09-23":[{start_time:"18:00",title:"Prima sera a Kyoto",location:"Gion / Kamo / Ponto-chō",description:"Passeggiata morbida dopo il trasferimento.",category:"🌙 SERA"}],
+  "2026-09-25":[{start_time:"08:00",title:"Due alternative per il bambù",location:"Kyoto Ovest",description:"A: Arashiyama/Sagano. B: Take-no-Michi, meno famosa e meno affollata.",category:"🔀 ALTERNATIVA"}],
+  "2026-09-29":[{start_time:"08:30",title:"Nara oppure Osaka",location:"Nara / Osaka",description:"Prima scelta Nara; Osaka resta alternativa se preferiamo una giornata più libera.",category:"🔀 ALTERNATIVA"}]
 };
+
+const TOKYO_FOOD_MAP = "https://maps.app.goo.gl/P5XV9x6WBgCZvK5j8";
+const KYOTO_FOOD_MAP = "https://maps.app.goo.gl/aBQNmPHSpUSPNZW46";
+const OSAKA_FOOD_MAP = "https://maps.app.goo.gl/YGEKmwQPEidLJGMh7";
+
+function mapsDir(origin,destination,waypoints=[],travelmode="transit"){
+  const params=new URLSearchParams({origin,destination,travelmode});
+  if(waypoints.length) params.set("waypoints",waypoints.join("|"));
+  return `https://www.google.com/maps/dir/?api=1&${params.toString()}`;
+}
+
+const dayRoutes = {
+"2026-09-16":{city:"Tokyo",title:"Arrivo + Asakusa soft",note:"Dopo Narita e check-in: solo una passeggiata facoltativa.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🌙 Passeggiata soft",mode:"walking",stops:["Ano Hotel Asakusa","Sensō-ji Tokyo","Sumida Park Tokyo","Ano Hotel Asakusa"]}]},
+"2026-09-17":{city:"Tokyo",title:"Tokyo con Gioacchino",note:"Punto fisso 08:50 ad Asakusabashi; percorso della guida.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Mattina",mode:"transit",stops:["Asakusabashi Station Tokyo","Meiji Jingu Tokyo","Takeshita Street Tokyo","Imperial Palace East Gardens Tokyo","Tokyo Station"]},
+ {label:"🗺️ Pomeriggio",mode:"transit",stops:["Tokyo Station","Ueno Park Tokyo","Kappabashi Dougu Street Tokyo","Sensō-ji Tokyo"]}]},
+"2026-09-18":{city:"Tokyo",title:"Tokyo moderna",note:"Minato → Shibuya → Shinjuku. teamLab resta facoltativo.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Minato",mode:"walking",stops:["teamLab Borderless Azabudai Hills","Zōjō-ji Tokyo","Tokyo Tower"]},
+ {label:"🌙 Shibuya → Shinjuku",mode:"transit",stops:["Tokyo Tower","Hachikō Memorial Statue","Shibuya Scramble Crossing","Tokyo Metropolitan Government Building","Shinjuku Golden Gai"]}]},
+"2026-09-19":{city:"Tokyo",title:"Tokyo centrale",note:"Giardini, mercato e quartieri; nessun negozio è una tappa obbligatoria.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Mattina",mode:"transit",stops:["Hamarikyu Gardens Tokyo","Tsukiji Outer Market","Ginza Tokyo"]},
+ {label:"🌙 Finale facoltativo",mode:"transit",stops:["Ginza Tokyo","Akihabara Electric Town"]}]},
+"2026-09-20":{city:"Tokyo",title:"Tokyo Bay + giornata jolly",note:"Ritmo leggero prima di Kanazawa; priorità alla spedizione valigie.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Baia di Tokyo",mode:"transit",stops:["Ano Hotel Asakusa","Toyosu Senkyaku Banrai","Odaiba Marine Park","Rainbow Bridge Tokyo"]}]},
+"2026-09-21":{city:"Kanazawa",title:"Tokyo → Kanazawa",note:"Solo zainetti. Hakutaka 559 10:33 → 13:36.",legs:[
+ {label:"🚄 Verso lo Shinkansen",mode:"transit",stops:["Ano Hotel Asakusa","Tokyo Station"]},
+ {label:"🌙 Primo giro",mode:"transit",stops:["Kanazawa Station","Oyama Shrine Kanazawa","Kanazawa Castle","Higashi Chaya District"]}]},
+"2026-09-22":{city:"Kanazawa",title:"Kanazawa storica",note:"Quartieri storici, giardino e castello in un percorso compatto.",legs:[
+ {label:"🗺️ Mattina",mode:"walking",stops:["Higashi Chaya District","Kazue-machi Chaya District","Kenroku-en","Kanazawa Castle"]},
+ {label:"🗺️ Pomeriggio",mode:"transit",stops:["Kanazawa Castle","Nagamachi Samurai District","Nomura-ke Samurai Residence"]}]},
+"2026-09-23":{food:KYOTO_FOOD_MAP,city:"Kyoto",title:"Kanazawa → Kyoto + prima sera",note:"Arrivo 13:35; KIORI e poi Gion con calma.",legs:[
+ {label:"🚇 Stazione → hotel",mode:"transit",stops:["Kyoto Station","KIORI Exec Gojo Kyoto"]},
+ {label:"🌙 Prima Kyoto",mode:"transit",stops:["KIORI Exec Gojo Kyoto","Yasaka Shrine Kyoto","Gion Kyoto","Pontocho Alley Kyoto"]}]},
+"2026-09-24":{food:KYOTO_FOOD_MAP,city:"Kyoto",title:"Fushimi Inari + Higashiyama",note:"Giornata prioritaria. Partenza presto.",legs:[
+ {label:"⛩️ Fushimi → Kiyomizu",mode:"transit",stops:["KIORI Exec Gojo Kyoto","Fushimi Inari Taisha","Kiyomizu-dera"]},
+ {label:"🚶 Higashiyama",mode:"walking",stops:["Kiyomizu-dera","Sannenzaka Kyoto","Ninenzaka Kyoto","Hōkan-ji Temple Yasaka Pagoda","Yasaka Shrine Kyoto"]}]},
+"2026-09-25":{food:KYOTO_FOOD_MAP,city:"Kyoto",title:"Bambù: scegliamo la versione",note:"A: Arashiyama/Sagano. B: Take-no-Michi più tranquilla.",legs:[
+ {label:"🎋 A · Arashiyama",mode:"walking",stops:["Otagi Nenbutsuji Temple","Saga Toriimoto Preserved Street","Adashino Nenbutsuji","Arashiyama Bamboo Forest","Tenryū-ji"]},
+ {label:"🌿 B · Take-no-Michi",mode:"transit",stops:["KIORI Exec Gojo Kyoto","Take-no-Michi Bamboo Path Muko Kyoto"]}]},
+"2026-09-26":{food:KYOTO_FOOD_MAP,city:"Kyoto",title:"Kyoto Nord + extra",note:"Kinkaku-ji e Ryōan-ji; il resto si adatta alle energie.",legs:[
+ {label:"🗺️ Kyoto Nord",mode:"transit",stops:["KIORI Exec Gojo Kyoto","Kinkaku-ji","Ryōan-ji","Ninna-ji"]},
+ {label:"🟢 Extra facoltativo",mode:"transit",stops:["Ninna-ji","Ginkaku-ji","Philosopher's Path Kyoto"]}]},
+"2026-09-27":{food:OSAKA_FOOD_MAP,city:"Osaka",title:"Kyoto → Osaka + Dotonbori",note:"Deposito bagagli e prima sera nel cuore di Osaka.",legs:[
+ {label:"🚆 Trasferimento",mode:"transit",stops:["Kyoto Station","Weekly Green In Namba Osaka"]},
+ {label:"🌙 Namba by night",mode:"walking",stops:["Weekly Green In Namba Osaka","Hozenji Yokocho","Dotonbori Osaka","Ebisu Bridge Osaka"]}]},
+"2026-09-28":{food:OSAKA_FOOD_MAP,city:"Osaka",title:"Osaka completa",note:"Castello, Umeda e finale rétro a Shinsekai.",legs:[
+ {label:"🏯 Castello → Umeda",mode:"transit",stops:["Weekly Green In Namba Osaka","Osaka Castle","Nakanoshima Park Osaka","Umeda Sky Building"]},
+ {label:"🌙 Shinsekai",mode:"transit",stops:["Umeda Sky Building","Shinsekai Osaka","Tsutenkaku"]}]},
+"2026-09-29":{food:OSAKA_FOOD_MAP,foodCity:"Osaka",city:"Nara / Osaka",title:"Nara oppure Osaka",note:"Prima scelta Nara; Osaka resta l'alternativa.",legs:[
+ {label:"🦌 A · Nara",mode:"walking",stops:["Kintetsu-Nara Station","Kōfuku-ji","Tōdai-ji","Nigatsu-dō","Kasuga Taisha"]},
+ {label:"🏙️ B · Osaka",mode:"transit",stops:["Weekly Green In Namba Osaka","Shitennō-ji","Tennoji Park","Abeno Harukas"]}]},
+"2026-09-30":{food:OSAKA_FOOD_MAP,city:"Osaka",title:"Ultima mezza giornata",note:"Check-out entro le 10:00. Partenza per KIX verso le 14:00; EVA Air BR129 da Kansai T1 alle 18:30.",legs:[
+ {label:"✈️ Verso l'aeroporto",mode:"transit",stops:["Weekly Green In Namba Osaka","Kansai International Airport"]}]}
+};
+
+const CITY_HOTELS = {
+  "Tokyo":"Ano Hotel Asakusa",
+  "Kanazawa":"Kanazawa Station",
+  "Kyoto":"KIORI Exec Gojo Kyoto",
+  "Osaka":"Weekly Green In Namba Osaka",
+  "Nara / Osaka":"Weekly Green In Namba Osaka"
+};
+
+function compactStop(name){
+  return name.replace(/ Tokyo| Kyoto| Osaka| Kanazawa/g,"").replace("Weekly Green In Namba","Hotel").replace("KIORI Exec Gojo","Hotel").replace("Ano Hotel Asakusa","Hotel");
+}
+
+function routeCardFor(date){
+  const route=dayRoutes[date]; if(!route) return "";
+  const buttons=route.legs.map(leg=>{
+    const s=leg.stops, href=mapsDir(s[0],s[s.length-1],s.slice(1,-1),leg.mode);
+    return `<a class="map-route-btn" href="${escapeAttr(href)}" target="_blank" rel="noopener">${escapeHtml(leg.label)} · Apri in Maps ↗</a>`;
+  }).join("");
+  const food=route.food ? `<a class="map-route-btn food" href="${escapeAttr(route.food)}" target="_blank" rel="noopener">🍜 Dove mangiare a ${escapeHtml(route.foodCity || route.city)} ↗</a>` : "";
+  const hotel=CITY_HOTELS[route.city];
+  const hotelBtn=hotel ? `<a class="map-route-btn hotel" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel)}" target="_blank" rel="noopener">🏨 Torna in hotel ↗</a>` : "";
+  const routeSummary=route.legs.map(leg=>`<div class="route-summary"><b>${escapeHtml(leg.label)}</b><span>${leg.stops.map(compactStop).map(escapeHtml).join(" → ")}</span></div>`).join("");
+  return `<aside class="day-map-card"><div class="day-map-head"><span>📍 ${escapeHtml(route.city)}</span><strong>${escapeHtml(route.title)}</strong></div><p>${escapeHtml(route.note)}</p>${routeSummary}<div class="day-map-actions">${buttons}${food}${hotelBtn}</div></aside>`;
+}
 
 function dayItemsFor(iso){
   const db=itinerary.filter(x=>x.activity_date===iso);
@@ -355,9 +393,9 @@ function renderToday(){
   const box=document.querySelector("#todayActivities");
 
   if(!dayItems.length){
-    box.innerHTML='<div class="empty">Nessuna attività inserita per questa giornata.</div>';
+    box.innerHTML='<div class="empty">Nessuna attività inserita per questa giornata.</div>' + routeCardFor(iso);
   } else {
-    box.innerHTML=dayItems.map(renderActivity).join("");
+    box.innerHTML=dayItems.map(renderActivity).join("") + routeCardFor(iso);
   }
 
   renderTodayHotel(selectedDate);
@@ -419,6 +457,19 @@ function renderNextTransport(date){
     <p>${escapeHtml(safe(transport.location,""))}</p>`;
 }
 
+function itineraryLegend(){
+  return `<div class="trip-legend">
+    <strong>Come leggere l’itinerario</strong>
+    <span>⭐ Prioritario</span><span>🟢 Consigliato</span><span>⚪ Facoltativo</span><span>🔀 Alternativa</span><span>🌙 Sera</span><span>😴 Sacrificabile</span>
+  </div>
+  <div class="food-map-strip">
+    <strong>🍜 Le nostre mappe cibo</strong>
+    <a href="${TOKYO_FOOD_MAP}" target="_blank" rel="noopener">Tokyo ↗</a>
+    <a href="${KYOTO_FOOD_MAP}" target="_blank" rel="noopener">Kyoto ↗</a>
+    <a href="${OSAKA_FOOD_MAP}" target="_blank" rel="noopener">Osaka ↗</a>
+  </div>`;
+}
+
 function renderItinerary(){
   const dates=[];
   const start=parseDateOnly(trip.start_date);
@@ -432,6 +483,7 @@ function renderItinerary(){
     return `<section class="day-group">
       <div class="day-heading">${fmtDate.format(d)}</div>
       <div class="day-activities">${items.length ? items.map(renderActivity).join("") : '<div class="empty">Giornata ancora libera: decidiamo sul momento.</div>'}</div>
+      ${routeCardFor(date)}
     </section>`;
   }).join("");
 }
@@ -463,8 +515,11 @@ function renderBookings(filter){
 
 function renderResources(){
   const el=document.querySelector("#resourcesList");
-  const plotline={category:"MAPPA",title:"I nostri posti salvati su Plotline",description:"Cibo, cose da vedere e posti salvati: scegliamo sul momento in base a dove ci troviamo.",url:"https://getplotline.app/u/urania554"};
-  const rows=[plotline,...resources];
+  const plotline={category:"MAPPA",title:"I nostri posti salvati su Plotline",description:"Posti salvati e idee da recuperare durante il viaggio.",url:"https://getplotline.app/u/urania554"};
+  const tokyoFood={category:"CIBO · TOKYO",title:"Dove mangiare a Tokyo",description:"Lista condivisa Google Maps: scegliamo sul momento in base alla zona.",url:TOKYO_FOOD_MAP};
+  const kyotoFood={category:"CIBO · KYOTO",title:"Dove mangiare a Kyoto",description:"Lista condivisa Google Maps da popolare con ristoranti, caffè e posti interessanti.",url:KYOTO_FOOD_MAP};
+  const osakaFood={category:"CIBO · OSAKA",title:"Dove mangiare a Osaka",description:"Lista condivisa Google Maps da popolare e consultare sul momento.",url:OSAKA_FOOD_MAP};
+  const rows=[tokyoFood,kyotoFood,osakaFood,plotline,...resources];
 
   el.innerHTML=rows.map(r=>`<article class="data-card">
     <span class="type">${escapeHtml(r.category)}</span>

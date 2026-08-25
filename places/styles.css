@@ -378,3 +378,23 @@ button{cursor:pointer}
 .activity.alternative{border-left:4px dashed #8c7d66}
 .activity.optional{border-left:4px solid #7f9276}
 .activity.skippable{opacity:.86}
+
+/* Itinerari Google Maps giorno per giorno */
+.day-map-card{margin:14px 0 8px;padding:18px;border:1px solid rgba(82,109,101,.22);border-radius:20px;background:linear-gradient(135deg,rgba(82,109,101,.08),rgba(255,255,255,.72))}
+.day-map-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:7px}
+.day-map-head span{font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#526d65}
+.day-map-head strong{font-size:1rem}.day-map-card p{margin:0 0 13px;color:#6d6a65;line-height:1.55}
+.day-map-actions{display:flex;gap:9px;flex-wrap:wrap}
+.map-route-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:999px;background:#526d65;color:#fff!important;text-decoration:none!important;font-size:.78rem;font-weight:800}
+.map-route-btn.food{background:#b65d63}
+@media(max-width:620px){.day-map-actions{display:grid;grid-template-columns:1fr}.map-route-btn{width:100%}}
+
+/* Rifiniture finali itinerario */
+.route-summary{display:grid;gap:4px;margin:10px 0;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.66)}
+.route-summary b{font-size:.76rem}.route-summary span{font-size:.78rem;line-height:1.45;color:#625f5a}
+.map-route-btn.hotel{background:#6d665d}
+.trip-legend,.food-map-strip{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 14px;padding:13px 15px;border-radius:17px;background:rgba(255,255,255,.72);border:1px solid rgba(82,109,101,.16)}
+.trip-legend strong,.food-map-strip strong{margin-right:4px}
+.trip-legend span{font-size:.76rem;padding:5px 8px;border-radius:999px;background:rgba(82,109,101,.08)}
+.food-map-strip a{font-size:.78rem;font-weight:800;text-decoration:none;padding:7px 10px;border-radius:999px;background:#b65d63;color:#fff}
+@media(max-width:620px){.route-summary span{font-size:.75rem}.trip-legend,.food-map-strip{align-items:flex-start}}
