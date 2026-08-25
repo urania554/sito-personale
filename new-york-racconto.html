@@ -4,7 +4,15 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><style>
 :root{--brick:#a33d3d;--ny:#17324f}.story-page{padding-top:78px}.story-shell{width:min(760px,calc(100% - 40px));margin:auto}.story-hero{padding:96px 0 70px;background:linear-gradient(135deg,#10263e,#294c6d 60%,#8e3b3b);color:#fff;position:relative;overflow:hidden}.story-hero::after{content:"NYC";position:absolute;right:4%;bottom:-35px;font-size:11rem;font-family:'Playfair Display',serif;font-weight:800;color:rgba(255,255,255,.05)}.story-hero .story-shell{position:relative;z-index:2}.k{font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#f1c5bd}.story-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.7rem,6vw,4.4rem);line-height:1.04;margin:12px 0 18px}.story-hero p{color:#e1e7ec;line-height:1.75}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.meta span{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);border-radius:999px;padding:8px 11px;font-size:.76rem;font-weight:700}.story-body{padding:72px 0 40px}.story-body h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);margin:52px 0 16px;color:var(--brick)}.story-body p{color:var(--text);line-height:1.87;font-size:1.05rem;margin:0 0 20px}.photo-note{margin:48px 0;padding:22px;border:1px dashed var(--line);border-radius:20px;color:var(--muted);text-align:center}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0 85px}.btnx{padding:11px 16px;border-radius:999px;background:var(--brick);color:#fff;text-decoration:none;font-weight:800}.btnx.alt{background:transparent;color:var(--brick);border:1px solid var(--brick)}
-</style></head><body><header class="navbar">
+</style>
+<style>
+.story-photo-strip{display:grid;grid-template-columns:1fr 1.25fr;gap:14px;margin:38px 0}
+.story-photo-strip figure{margin:0;height:390px;border-radius:24px;overflow:hidden}
+.story-photo-strip img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:800px){.story-photo-strip{grid-template-columns:1fr}.story-photo-strip figure{height:320px}}
+</style>
+
+</head><body><header class="navbar">
   <a class="logo" href="index.html">Cinzia<span>★</span></a>
   <nav class="menu" id="mainMenu">
     <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a>
@@ -57,6 +65,9 @@
 <h2>Quello che resta</h2>
 <p>Alla fine, non mi è rimasta un’immagine sola, ma un ritmo. Il ritmo dei passi, prima di tutto. Quello delle avenue interminabili, delle svolte improvvise, dei quartieri che cambiano voce nel giro di pochi isolati. Mi è rimasta la sensazione fisica di una città che va capita con le gambe oltre che con gli occhi.</p>
 <p>E mi sono rimaste almeno quattro New York diverse: la potenza severa di Lower Manhattan, la verticalità abbagliante di Midtown, la grazia sospesa di Brooklyn, la memoria profonda di Harlem. Nessuna basta da sola. Insieme, però, compongono qualcosa che somiglia molto all’idea stessa del viaggio: non la conquista di un luogo, ma il lento imparare a starci dentro.</p>
-<p>New York, in fondo, non chiede di essere amata in modo semplice. Chiede presenza, resistenza, disponibilità a lasciarsi smentire. Forse è per questo che, dopo giorni interi passati a camminarla, la stanchezza non aveva il sapore della fatica, ma quello pieno e quasi commovente delle esperienze vere. Come se dietro ogni angolo, fino all’ultimo, ci fosse ancora qualcosa capace di sorprenderti. E di dirti, senza enfasi, che il viaggio non era finito: si stava solo trasformando in memoria.</p><div class="photo-note">Le fotografie del viaggio verranno inserite qui appena disponibili, scegliendo le immagini più iconiche e coerenti con ogni capitolo.</div><div class="actions"><a class="btnx" href="new-york-itinerario.html">Vedi l'itinerario →</a><a class="btnx alt" href="new-york.html">← New York</a></div></div></section>
+<p>New York, in fondo, non chiede di essere amata in modo semplice. Chiede presenza, resistenza, disponibilità a lasciarsi smentire. Forse è per questo che, dopo giorni interi passati a camminarla, la stanchezza non aveva il sapore della fatica, ma quello pieno e quasi commovente delle esperienze vere. Come se dietro ogni angolo, fino all’ultimo, ci fosse ancora qualcosa capace di sorprenderti. E di dirti, senza enfasi, che il viaggio non era finito: si stava solo trasformando in memoria.</p><div class="story-photo-strip">
+<figure><img src="assets/viaggi/ny-bridge.jpg" alt="Ponte di New York illuminato di notte"></figure>
+<figure><img src="assets/viaggi/ny-skyline.jpg" alt="Skyline di New York al tramonto"></figure>
+</div><div class="actions"><a class="btnx" href="new-york-itinerario.html">Vedi l'itinerario →</a><a class="btnx alt" href="new-york.html">← New York</a></div></div></section>
 </main><footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
 <script src="script.js"></script></body></html>
