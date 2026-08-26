@@ -4,14 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111827">
-  <title>Urania Travel Hub · Giappone 2026</title>
+  <meta name="application-name" content="Urania Japan">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Urania Japan">
+  <meta name="description" content="Dashboard privata del viaggio in Giappone 2026">
+  <title>Urania Japan · Travel Hub</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="app">
     <section id="loginView" class="login-view">
       <div class="login-card">
-        <div class="brand">URANIA <span>TRAVEL HUB</span></div>
+        <div class="app-identity">
+          <img class="app-mark app-mark-large" src="icons/icon-192.png" alt="">
+          <div class="brand">URANIA <span>TRAVEL HUB</span></div>
+        </div>
         <h1>Giappone 2026</h1>
         <p>Dashboard condivisa del viaggio. Inserisci l'e-mail autorizzata e riceverai un link di accesso.</p>
 
@@ -27,9 +38,12 @@
 
     <main id="dashboardView" class="dashboard hidden">
       <header class="topbar">
-        <div>
-          <div class="brand">URANIA <span>TRAVEL HUB</span></div>
-          <div class="trip-title" id="tripTitle">Giappone 2026</div>
+        <div class="app-identity">
+          <img class="app-mark" src="icons/icon-192.png" alt="">
+          <div>
+            <div class="brand">URANIA <span>TRAVEL HUB</span></div>
+            <div class="trip-title" id="tripTitle">Giappone 2026</div>
+          </div>
         </div>
         <div class="topbar-actions">
           <span id="userEmail" class="user-email"></span>

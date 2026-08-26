@@ -48,6 +48,26 @@ button{cursor:pointer}
 }
 .brand span{color:var(--red)}
 
+.app-identity{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.app-mark{
+  width:44px;
+  height:44px;
+  flex:0 0 auto;
+  border-radius:13px;
+  box-shadow:0 6px 18px rgba(17,24,39,.18);
+}
+
+.app-mark-large{
+  width:62px;
+  height:62px;
+  border-radius:18px;
+}
+
 .login-card h1{
   font-size:clamp(2.4rem,8vw,4rem);
   line-height:1;

@@ -615,3 +615,11 @@ else showLogin();
 supabase.auth.onAuthStateChange(async (_event, session)=>{
   if(session) await showDashboard(session);
 });
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("./sw.js").catch(error=>{
+      console.warn("Service worker non disponibile:",error);
+    });
+  });
+}
