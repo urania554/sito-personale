@@ -39,6 +39,12 @@
     .trip-copy p{color:#69655f;line-height:1.65;margin:0 0 18px}
     .route{font-weight:800;font-size:.83rem;color:#4b514e;line-height:1.6}
     .open{display:inline-block;margin-top:16px;font-weight:900;font-size:.8rem;color:#9c5156}
+    .trip-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .trip-action{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:999px;text-decoration:none;font-size:.76rem;font-weight:900;letter-spacing:.02em;transition:.2s ease}
+    .trip-action.primary{background:#9c5156;color:#fff}
+    .trip-action.download{background:#eef1ed;color:#34463f;border:1px solid #d2dad5}
+    .trip-action:hover{transform:translateY(-2px);filter:brightness(.98)}
+    .trip-action svg{width:17px;height:17px;margin-right:7px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .places{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
     .fake-map{min-height:380px;border-radius:30px;background:
       radial-gradient(circle at 18% 40%,#b65d63 0 5px,transparent 6px),
@@ -57,8 +63,12 @@
     .trip-card.china .trip-visual{background:
       linear-gradient(180deg,rgba(15,18,22,.08),rgba(15,18,22,.58)),
       url('assets/viaggi/china-summer-palace.jpg') center/cover no-repeat!important}
+    .trip-card.japan .trip-visual{background:
+      linear-gradient(180deg,rgba(15,18,22,.06),rgba(15,18,22,.55)),
+      url('images/copertina-giappone-2026.webp') center 43%/cover no-repeat!important}
     .trip-card.newyork .trip-year,.trip-card.china .trip-year,
-    .trip-card.newyork .trip-status,.trip-card.china .trip-status{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+    .trip-card.newyork .trip-status,.trip-card.china .trip-status,
+    .trip-card.japan .trip-status{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
 
 </style>
 </head>
@@ -125,7 +135,7 @@
         </div>
       </a>
 
-      <a class="trip-card japan" href="https://www.uraniainviaggio.it/viaggio-in-giappone/" target="_blank" rel="noopener">
+      <article class="trip-card japan">
         <div class="trip-visual">
           <span class="trip-status">IN COSTRUZIONE</span>
           <span class="trip-year">2026</span>
@@ -134,9 +144,15 @@
           <h3>Giappone 2026</h3>
           <p>Il viaggio che sto preparando adesso: itinerario, treni, hotel, luoghi salvati e quella fase in cui tutto esiste ancora soprattutto sulla mappa.</p>
           <div class="route">Tokyo → Kanazawa → Kyoto → Osaka</div>
-          <span class="open">APRI LA DASHBOARD →</span>
+          <div class="trip-actions">
+            <a class="trip-action primary" href="https://www.uraniainviaggio.it/viaggio-in-giappone/" target="_blank" rel="noopener">APRI LA DASHBOARD →</a>
+            <a class="trip-action download" href="assets/download/guida-giappone-2026.pdf" download="Guida-Giappone-2026.pdf" type="application/pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+              SCARICA LA GUIDA PDF
+            </a>
+          </div>
         </div>
-      </a>
+      </article>
     </div>
   </div>
 </section>
