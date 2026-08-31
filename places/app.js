@@ -18,10 +18,50 @@ let resources = [];
 let selectedDate = null;
 
 
+const TOKYO_GUIDE_OVERRIDES = new Set(["2026-09-16","2026-09-17","2026-09-18","2026-09-19","2026-09-20"]);
+
 const dayExtras = {
-  "2026-09-16":[{start_time:"18:00",title:"Prima sera soft ad Asakusa",location:"Asakusa",description:"Solo se abbiamo energie dopo il viaggio: Sensō-ji illuminato e Sumida. Nessun obbligo.",category:"🌙 SERA · 😴 SACRIFICABILE"}],
-  "2026-09-17":[{start_time:"08:50",title:"Incontro con Gioacchino",location:"Asakusabashi Station",description:"Punto fisso. Tour: Meiji Jingu → Takeshita → Palazzo Imperiale → Tokyo Station → Ueno → Kappabashi → Asakusa → Sensō-ji.",category:"⭐ PRIORITARIO"}],
-  "2026-09-20":[{start_time:"08:30",title:"Valigie pronte per Kyoto",location:"Ano Hotel Asakusa",description:"Trolley chiusi. Spedizione oggi oppure il 21 mattina se l'hotel gestisce Takkyubin.",category:"⭐ PRIORITARIO"}],
+  "2026-09-16":[
+    {start_time:"09:00",title:"Volo Taipei → Tokyo",location:"EVA Air BR198 · Narita T1",description:"Arrivo previsto alle 13:25.",category:"✅ CONFERMATO"},
+    {start_time:"13:25",title:"Controlli e bagagli",location:"Narita Terminal 1",description:"Ritiro bagagli e procedure d’ingresso.",category:"✅ CONFERMATO"},
+    {start_time:"13:55",title:"Trasferimento ad Asakusa",location:"Narita → Asakusa",description:"Navetta o collegamento ferroviario verso l’hotel.",category:"✅ CONFERMATO"},
+    {start_time:"15:00",title:"Check-in",location:"Ano Hotel Asakusa",description:"Sistemazione in hotel; serata libera e leggera. Appena arrivati: Suica/IC Card, verifica biglietti ferroviari e informazioni Takkyubin Tokyo → Kyoto.",category:"⚪ SOFT"}
+  ],
+  "2026-09-17":[
+    {start_time:"08:50",title:"Incontro con Gioacchino",location:"Asakusabashi Station",description:"Punto di incontro del tour.",category:"✅ CONFERMATO"},
+    {start_time:"09:15",title:"Meiji e Harajuku",location:"Meiji Jingu / Takeshita Street",description:"Santuario Meiji e Takeshita Street.",category:"✅ CONFERMATO"},
+    {start_time:"11:30",title:"Tokyo imperiale",location:"Palazzo Imperiale / Tokyo Station",description:"Palazzo Imperiale e Tokyo Station.",category:"✅ CONFERMATO"},
+    {start_time:"14:00",title:"Ueno e Kappabashi",location:"Ueno / Kappabashi",description:"Quartieri popolari e strada degli utensili da cucina.",category:"✅ CONFERMATO"},
+    {start_time:"16:30",title:"Asakusa e Sensō-ji",location:"Asakusa",description:"Conclusione del tour dopo circa 8–9 ore.",category:"✅ CONFERMATO"},
+    {start_time:"18:00",title:"Asakusa by night",location:"Sensō-ji / Kaminarimon",description:"Cena, tempio illuminato e, se abbiamo energia, terrazza gratuita dell’Asakusa Culture Tourist Information Center (8° piano, fino alle 22:00).",category:"🌙 SERA · ⚪ SOFT"}
+  ],
+  "2026-09-18":[
+    {start_time:"09:30",title:"Atago Jinja",location:"Atago Jinja",description:"Piccolo santuario fra i grattacieli; alternativa gratuita a teamLab.",category:"⚪ OPZIONALE"},
+    {start_time:"10:30",title:"Azabudai Hills",location:"Azabudai Hills",description:"Architettura contemporanea, Central Green e Market.",category:"⭐ PRIORITARIO"},
+    {start_time:"12:30",title:"Pranzo",location:"Azabudai Hills",description:"Pausa libera nell’area ristorazione.",category:"⚪ SOFT"},
+    {start_time:"14:30",title:"Zōjō-ji e Tokyo Tower",location:"Zōjō-ji / Tokyo Tower",description:"Tempio e Tokyo Tower dall’esterno; non è prevista la salita.",category:"⭐ PRIORITARIO"},
+    {start_time:"16:00",title:"Roppongi",location:"Roppongi Hills / Mori Garden",description:"Passeggiata compatta tra Roppongi Hills e Mori Garden.",category:"⭐ PRIORITARIO"},
+    {start_time:"17:30",title:"Shibuya",location:"Hachikō / Scramble Crossing",description:"Hachikō, attraversamento pedonale, negozi e passeggiata.",category:"⭐ PRIORITARIO"},
+    {start_time:"19:30",title:"Shinjuku",location:"Tokyo Metropolitan Government Building",description:"Osservatorio gratuito e cena nei dintorni.",category:"⭐ PRIORITARIO"}
+  ],
+  "2026-09-19":[
+    {start_time:"09:00",title:"Hamarikyu Gardens",location:"Hamarikyu Gardens",description:"Passeggiata nel giardino paesaggistico.",category:"⭐ PRIORITARIO"},
+    {start_time:"11:00",title:"Tsukiji Outer Market",location:"Tsukiji",description:"Street food e piccoli assaggi; portare contanti.",category:"⭐ PRIORITARIO"},
+    {start_time:"13:30",title:"Ginza",location:"Ginza",description:"Ginza Six, department store, Uniqlo e shopping.",category:"⭐ PRIORITARIO"},
+    {start_time:"15:30",title:"Rientro in hotel e riposo",location:"Ano Hotel Asakusa",description:"Lasciare gli acquisti e fare una vera pausa ad Asakusa.",category:"😴 SOFT"},
+    {start_time:"17:30",title:"Akihabara by night",location:"Akihabara",description:"Elettronica, manga/anime, gachapon e insegne illuminate.",category:"🌙 SERA · ⭐ PRIORITARIO"}
+  ],
+  "2026-09-20":[
+    {start_time:"08:30",title:"Preparazione trolley",location:"Ano Hotel Asakusa",description:"Seguire le indicazioni dell’hotel per il Takkyubin Tokyo → Kyoto; con noi solo il necessario per Kanazawa.",category:"⭐ PRIORITARIO"},
+    {start_time:"10:00",title:"Partenza per Toyosu",location:"Asakusa → Toyosu",description:"Trasferimento con calma.",category:"⚪ SOFT"},
+    {start_time:"10:30",title:"Senkyaku Banrai",location:"Toyosu Senkyaku Banrai",description:"Passeggiata nel complesso in stile Edo.",category:"⭐ PRIORITARIO"},
+    {start_time:"11:30",title:"Pranzo / assaggi",location:"Toyosu",description:"Nessun ristorante obbligatorio: proviamo ciò che ci incuriosisce.",category:"⚪ SOFT"},
+    {start_time:"14:00",title:"Odaiba waterfront",location:"Odaiba",description:"Statua della Libertà, Rainbow Bridge, passeggiata sulla baia e Fuji TV dall’esterno.",category:"⭐ PRIORITARIO"},
+    {start_time:"15:30",title:"DiverCity Tokyo Plaza",location:"DiverCity",description:"Pausa, shopping, caffè e tempo libero. Nessuna tappa Gundam prevista.",category:"⚪ SOFT"},
+    {start_time:"17:00",title:"Tramonto sulla baia",location:"Odaiba waterfront",description:"Ritorno verso il waterfront per il cambio di luce.",category:"⭐ PRIORITARIO"},
+    {start_time:"18:00",title:"Extra solo se siamo in anticipo",location:"Odaiba",description:"Tokyo Aqua Symphony oppure Daiba Park: facoltativi, solo se orario ed energie coincidono.",category:"⚪ OPZIONALE"},
+    {start_time:"19:00",title:"Finale A · Manyo Club / Finale B · Odaiba by night",location:"Toyosu / Odaiba",description:"A: onsen e relax, poi cena. B: restiamo nella baia per luci serali e cena, senza aggiungere altri quartieri.",category:"🔀 ALTERNATIVA"}
+  ],
   "2026-09-23":[{start_time:"18:00",title:"Prima sera a Kyoto",location:"Gion / Kamo / Ponto-chō",description:"Passeggiata morbida dopo il trasferimento.",category:"🌙 SERA"}],
   "2026-09-25":[{start_time:"08:00",title:"Due alternative per il bambù",location:"Kyoto Ovest",description:"A: Arashiyama/Sagano. B: Take-no-Michi, meno famosa e meno affollata.",category:"🔀 ALTERNATIVA"}],
   "2026-09-29":[{start_time:"08:30",title:"Nara oppure Osaka",location:"Nara / Osaka",description:"Prima scelta Nara; Osaka resta alternativa se preferiamo una giornata più libera.",category:"🔀 ALTERNATIVA"}]
@@ -40,17 +80,18 @@ function mapsDir(origin,destination,waypoints=[],travelmode="transit"){
 const dayRoutes = {
 "2026-09-16":{city:"Tokyo",title:"Arrivo + Asakusa soft",note:"Dopo Narita e check-in: solo una passeggiata facoltativa.",food:TOKYO_FOOD_MAP,legs:[
  {label:"🌙 Passeggiata soft",mode:"walking",stops:["Ano Hotel Asakusa","Sensō-ji Tokyo","Sumida Park Tokyo","Ano Hotel Asakusa"]}]},
-"2026-09-17":{city:"Tokyo",title:"Tokyo con Gioacchino",note:"Punto fisso 08:50 ad Asakusabashi; percorso della guida.",food:TOKYO_FOOD_MAP,legs:[
- {label:"🗺️ Mattina",mode:"transit",stops:["Asakusabashi Station Tokyo","Meiji Jingu Tokyo","Takeshita Street Tokyo","Imperial Palace East Gardens Tokyo","Tokyo Station"]},
- {label:"🗺️ Pomeriggio",mode:"transit",stops:["Tokyo Station","Ueno Park Tokyo","Kappabashi Dougu Street Tokyo","Sensō-ji Tokyo"]}]},
-"2026-09-18":{city:"Tokyo",title:"Tokyo moderna",note:"Minato → Shibuya → Shinjuku. teamLab resta facoltativo.",food:TOKYO_FOOD_MAP,legs:[
- {label:"🗺️ Minato",mode:"walking",stops:["teamLab Borderless Azabudai Hills","Zōjō-ji Tokyo","Tokyo Tower"]},
- {label:"🌙 Shibuya → Shinjuku",mode:"transit",stops:["Tokyo Tower","Hachikō Memorial Statue","Shibuya Scramble Crossing","Tokyo Metropolitan Government Building","Shinjuku Golden Gai"]}]},
-"2026-09-19":{city:"Tokyo",title:"Tokyo centrale",note:"Giardini, mercato e quartieri; nessun negozio è una tappa obbligatoria.",food:TOKYO_FOOD_MAP,legs:[
- {label:"🗺️ Mattina",mode:"transit",stops:["Hamarikyu Gardens Tokyo","Tsukiji Outer Market","Ginza Tokyo"]},
- {label:"🌙 Finale facoltativo",mode:"transit",stops:["Ginza Tokyo","Akihabara Electric Town"]}]},
-"2026-09-20":{city:"Tokyo",title:"Tokyo Bay + giornata jolly",note:"Ritmo leggero prima di Kanazawa; priorità alla spedizione valigie.",food:TOKYO_FOOD_MAP,legs:[
- {label:"🗺️ Baia di Tokyo",mode:"transit",stops:["Ano Hotel Asakusa","Toyosu Senkyaku Banrai","Odaiba Marine Park","Rainbow Bridge Tokyo"]}]},
+"2026-09-17":{city:"Tokyo",title:"Tokyo con Gioacchino + Asakusa by night",note:"Tour confermato; dopo le 18:00 serata soft ad Asakusa e terrazza panoramica se abbiamo energia.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Tour con Gioacchino",mode:"transit",stops:["Asakusabashi Station Tokyo","Meiji Jingu Tokyo","Takeshita Street Tokyo","Imperial Palace East Gardens Tokyo","Tokyo Station","Ueno Park Tokyo","Kappabashi Dougu Street Tokyo","Sensō-ji Tokyo"]},
+ {label:"🌙 Asakusa by night",mode:"walking",stops:["Sensō-ji Tokyo","Kaminarimon Gate Tokyo","Asakusa Culture Tourist Information Center"]}]},
+"2026-09-18":{city:"Tokyo",title:"Tokyo moderna, Roppongi, Shibuya e Shinjuku",note:"Atago Jinja è opzionale; Tokyo Tower solo dall’esterno. Roppongi è ora parte del percorso.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Minato + Roppongi",mode:"walking",stops:["Atago Jinja Tokyo","Azabudai Hills","Zōjō-ji Tokyo","Tokyo Tower","Roppongi Hills","Mori Garden Tokyo"]},
+ {label:"🌙 Shibuya → Shinjuku",mode:"transit",stops:["Roppongi Hills","Hachikō Memorial Statue","Shibuya Scramble Crossing","Tokyo Metropolitan Government Building"]}]},
+"2026-09-19":{city:"Tokyo",title:"Mercati, Ginza, riposo e Akihabara by night",note:"Il riposo pomeridiano è intenzionale: Akihabara si vive meglio quando si accende.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Mattina + Ginza",mode:"transit",stops:["Hamarikyu Gardens Tokyo","Tsukiji Outer Market","Ginza Tokyo","Ano Hotel Asakusa"]},
+ {label:"🌙 Akihabara by night",mode:"transit",stops:["Ano Hotel Asakusa","Akihabara Electric Town"]}]},
+"2026-09-20":{city:"Tokyo",title:"Toyosu e Odaiba · giornata rilassata e flessibile",note:"Nessuna tappa Gundam. Aqua Symphony e Daiba Park solo se siamo in anticipo.",food:TOKYO_FOOD_MAP,legs:[
+ {label:"🗺️ Toyosu → Odaiba",mode:"transit",stops:["Ano Hotel Asakusa","Toyosu Senkyaku Banrai","Odaiba Marine Park","Statue of Liberty Odaiba","DiverCity Tokyo Plaza"]},
+ {label:"🌙 Waterfront",mode:"walking",stops:["DiverCity Tokyo Plaza","Odaiba Marine Park","Rainbow Bridge Tokyo"]}]},
 "2026-09-21":{city:"Kanazawa",title:"Tokyo → Kanazawa",note:"Solo zainetti. Hakutaka 559 10:33 → 13:36.",legs:[
  {label:"🚄 Verso lo Shinkansen",mode:"transit",stops:["Ano Hotel Asakusa","Tokyo Station"]},
  {label:"🌙 Primo giro",mode:"transit",stops:["Kanazawa Station","Oyama Shrine Kanazawa","Kanazawa Castle","Higashi Chaya District"]}]},
@@ -108,7 +149,7 @@ function routeCardFor(date){
 }
 
 function dayItemsFor(iso){
-  const db=itinerary.filter(x=>x.activity_date===iso);
+  const db=TOKYO_GUIDE_OVERRIDES.has(iso) ? [] : itinerary.filter(x=>x.activity_date===iso);
   const extra=(dayExtras[iso]||[]).map((x,i)=>({...x,activity_date:iso,sort_order:900+i}));
   const keys=new Set(db.map(x=>(x.title||"").trim().toLowerCase()));
   return [...db,...extra.filter(x=>!keys.has(x.title.trim().toLowerCase()))]
