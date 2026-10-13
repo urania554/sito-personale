@@ -4,7 +4,7 @@ const menuToggle = document.getElementById('menuToggle');
 const themeToggle = document.getElementById('themeToggle');
 
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
+  navbar?.classList.toggle('scrolled', window.scrollY > 20);
 });
 
 menuToggle?.addEventListener('click', () => {

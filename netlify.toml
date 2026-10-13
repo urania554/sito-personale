@@ -1,0 +1,61 @@
+# Configurazione Netlify per il sito personale
+
+# Pagine spostate su Urania in Viaggio
+[[redirects]]
+  from = "/viaggi.html"
+  to = "https://www.uraniainviaggio.it/viaggi.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/viaggi"
+  to = "https://www.uraniainviaggio.it/viaggi.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cina-2025.html"
+  to = "https://www.uraniainviaggio.it/viaggi/cina-2025.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cina-2025-racconto.html"
+  to = "https://www.uraniainviaggio.it/viaggi/cina-2025-racconto.html"
+  status = 301
+  force = true
+
+# La sezione Fotografia è diventata Cartoni e action figure
+[[redirects]]
+  from = "/fotografia.html"
+  to = "/cartoni-e-action-figure.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/anime-manga.html"
+  to = "/cartoni-e-action-figure.html"
+  status = 301
+  force = true
+
+# Cache lunga per immagini e font; HTML sempre aggiornato
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
