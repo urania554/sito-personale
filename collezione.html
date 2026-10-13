@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La mia collezione - Cinzia Molisano</title>
+<meta name="description" content="La mia collezione di DVD dei cartoni anni '80 e quello che cerco per completarla.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+.co-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.co-hero{padding:120px 0 56px;background:linear-gradient(135deg,#1b1d27,#2a2230 60%,#3a2a3a);color:#fff}
+.co-kicker{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#f0a3b6}
+.co-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,4.4rem);line-height:1.05;margin:12px 0 16px}
+.co-hero h1 span{color:#f0a3b6}.co-hero p{color:#d9d3dd;line-height:1.8;max-width:620px;margin:0;font-size:1.06rem}
+.co-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px}.co-stats b{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:#f0a3b6}.co-stats span{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#d9d3dd}
+.co-sec{padding:60px 0}.co-sec.alt{background:var(--surface-soft)}
+.co-k2{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark)}
+.co-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.6vw,2.7rem);margin:6px 0 10px}
+.co-sec .lead{color:var(--muted);line-height:1.7;max-width:640px;margin:0 0 22px}
+.co-shelf{display:block;width:100%;height:auto;border-radius:20px;margin:0 0 30px;box-shadow:0 14px 40px rgba(60,40,30,.15)}
+.co-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
+.co-tab{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:9px 18px;border-radius:999px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
+.co-tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.co-grp{margin:0 0 40px}.co-grp h3.gh{font-family:'Playfair Display',serif;font-size:1.5rem;margin:0 0 16px;display:flex;gap:10px;align-items:baseline}.co-grp h3.gh small{font:700 .85rem Inter,sans-serif;color:var(--muted)}
+.co-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.co-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.co-card img,.co-ph{display:block;width:100%;aspect-ratio:8/5;object-fit:cover;background:#2a2230}
+.co-ph{display:flex;align-items:center;justify-content:center;font-size:2.4rem;background:linear-gradient(135deg,#f3e6e0,#ead9d3)}
+.co-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;flex:1}
+.co-card h4{font-family:'Playfair Display',serif;font-size:1.12rem;line-height:1.25;margin:0}
+.co-card .fmt{color:var(--muted);font-size:.9rem}
+.co-note{color:var(--muted);font-size:.88rem;margin:0}
+.co-badge{align-self:flex-start;margin-top:auto;padding-top:0;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#e8f3ea;color:#2f6b3d}
+.co-badge.miss{background:#fbeadf;color:#a24d1f}.co-badge.run{background:#e8eefb;color:#2f4b8a}
+.co-want{display:grid;gap:12px}
+.co-row{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px dashed var(--line);border-radius:18px;padding:18px 22px}
+.co-row h4{font-family:'Playfair Display',serif;font-size:1.2rem;margin:0}.co-row .d{color:var(--muted)}
+.co-btn{display:inline-flex;padding:10px 18px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;font-size:.9rem}
+.co-empty{color:var(--muted);border:2px dashed var(--line);border-radius:20px;padding:26px;line-height:1.7;background:var(--surface)}
+.co-link{font-size:.85rem;font-weight:800;color:var(--accent-dark);text-decoration:none;margin-top:6px}.co-link:hover,.co-row .d a:hover{text-decoration:underline}.co-row .d a{color:var(--accent-dark);font-weight:700;text-decoration:none}
+.is-hidden{display:none!important}
+@media(max-width:700px){.co-hero{padding:100px 0 44px}.co-sec{padding:44px 0}.co-grid{grid-template-columns:repeat(2,1fr);gap:12px}.co-body{padding:12px 13px 14px}.co-card h4{font-size:1rem}.co-row{padding:16px}}
+</style>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#fcfbf9">
+<meta property="og:title" content="Cartoni anni '80 e action figure - Cinzia Molisano">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:description" content="Cartoni animati anni '80, action figure e qualche lettura recente: il mio angolo nerd.">
+<link rel="canonical" href="https://www.cinziamolisano.it/collezione.html">
+<meta property="og:url" content="https://www.cinziamolisano.it/collezione.html">
+<meta property="og:image" content="https://www.cinziamolisano.it/og-cinzia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="blog.html" class="active">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button">🌙</button>
+    <a class="icon-btn" href="index.html#contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+<section class="co-hero"><div class="co-shell">
+  <span class="co-kicker">Passioni · Collezione</span>
+  <h1>La mia collezione,<br><span>e quello che cerco.</span></h1>
+  <p>I DVD dei cartoni con cui sono cresciuta e i fumetti che amo, raccolti serie dopo serie. Qui trovi cosa ho e cosa mi manca: se ne hai uno, scrivimi.</p>
+  <div class="co-stats" id="coStats"></div>
+</div></section>
+
+<section class="co-sec"><div class="co-shell">
+  <span class="co-k2">Ce l'ho</span><h2>Sugli scaffali.</h2>
+  <p class="lead">Serie complete e qualche volume che attende il suo compagno.</p>
+  <img class="co-shelf" src="images/collezione/scaffale-dvd.webp" width="1536" height="330" alt="Il mio scaffale dei DVD dei cartoni animati" loading="lazy">
+  <div class="co-tabs" role="group" aria-label="Filtra">
+    <button class="co-tab" data-f="all" aria-pressed="true">Tutto</button>
+    <button class="co-tab" data-f="dvd" aria-pressed="false">DVD</button>
+    <button class="co-tab" data-f="fum" aria-pressed="false">Fumetti e libri</button>
+  </div>
+  <div class="co-grp" id="gDvd"><h3 class="gh">DVD <small id="nDvd"></small></h3><div class="co-grid" id="coSerie"></div></div>
+  <div class="co-grp" id="gFum"><h3 class="gh">Fumetti e libri <small id="nFum"></small></h3><div class="co-grid" id="coFumetti"></div></div>
+</div></section>
+
+<section class="co-sec alt"><div class="co-shell">
+  <span class="co-k2">Cerco</span><h2>Mi manca ancora…</h2>
+  <p class="lead">Se hai uno di questi pezzi o sai dove trovarlo, scrivimi: ti ringrazio in anticipo.</p>
+  <div class="co-want" id="coCerco"></div>
+</div></section>
+</main>
+<footer class="footer">
+  <p>Tra codice e storie. Tra dati e immaginazione.</p>
+  <small>© 2026 Cinzia Molisano</small>
+</footer>
+<script id="coData" type="application/json">
+{
+ "serie": [
+  {
+   "titolo": "Cattivissimo me e Cattivissimo me 2",
+   "formato": "Cofanetto",
+   "stato": "completa",
+   "foto": "cattivissimo",
+   "scheda": "https://it.wikipedia.org/wiki/Cattivissimo_me"
+  },
+  {
+   "titolo": "Grisù il draghetto",
+   "formato": "12 volumi su 13",
+   "stato": "manca",
+   "nota": "Mi manca il primo volume",
+   "foto": "grisu",
+   "scheda": "https://www.animeclick.it/anime/31142/grisu-il-draghetto"
+  },
+  {
+   "titolo": "Iridella",
+   "formato": "6 DVD",
+   "stato": "completa",
+   "foto": "iridella"
+  },
+  {
+   "titolo": "Judo Boy",
+   "formato": "Cofanetto",
+   "stato": "completa",
+   "foto": "judo",
+   "scheda": "https://www.animeclick.it/anime/1615/judo-boy"
+  },
+  {
+   "titolo": "Lady Oscar",
+   "formato": "20 DVD",
+   "editore": "DeA",
+   "stato": "completa",
+   "foto": "ladyoscar",
+   "scheda": "https://www.animeclick.it/anime/499/lady-oscar"
+  },
+  {
+   "titolo": "Maison Ikkoku, Cara dolce Kyoko",
+   "formato": "4 box",
+   "stato": "completa",
+   "foto": "maison",
+   "scheda": "https://www.animeclick.it/anime/475/maison-ikkoku"
+  },
+  {
+   "titolo": "Nanà Supergirl",
+   "formato": "Memorial Box",
+   "stato": "completa",
+   "foto": "nana",
+   "scheda": "https://www.animeclick.it/anime/1066/nanako-sos"
+  },
+  {
+   "titolo": "Pollon",
+   "formato": "6 volumi",
+   "stato": "completa",
+   "foto": "pollon",
+   "scheda": "https://www.animeclick.it/anime/854/pollon"
+  },
+  {
+   "titolo": "Sui monti con Annette",
+   "formato": "8 volumi",
+   "stato": "completa",
+   "foto": "annette",
+   "scheda": "https://www.animeclick.it/anime/594/alps-monogatari-watashi-no-annette"
+  },
+  {
+   "titolo": "Il Tulipano Nero",
+   "formato": "Serie completa",
+   "stato": "completa",
+   "foto": "tulipano",
+   "scheda": "https://www.animeclick.it/anime/1476/la-stella-della-senna"
+  },
+  {
+   "titolo": "Yoko cacciatrice di demoni",
+   "formato": "3 volumi",
+   "stato": "completa",
+   "foto": "yoko",
+   "scheda": "https://www.animeclick.it/anime/1812/mamono-hunter-youko"
+  }
+ ],
+ "cerco": [
+  {
+   "titolo": "Grisù il draghetto",
+   "dettaglio": "Volume 1 (BD-001)",
+   "tipo": "DVD",
+   "scheda": "https://www.animeclick.it/anime/31142/grisu-il-draghetto"
+  }
+ ],
+ "fumetti": [
+  {
+   "titolo": "Demon Slayer",
+   "dettaglio": "Star Comics · 23 volumi · serie completa",
+   "scheda": "https://www.animeclick.it/manga/17678/kimetsu-no-yaiba"
+  },
+  {
+   "titolo": "Dr. Slump e Arale",
+   "dettaglio": "Star Comics · 28 volumi · serie completa",
+   "scheda": "https://www.animeclick.it/manga/10302/dr-slump"
+  },
+  {
+   "titolo": "Girl Friends: The Complete Collection",
+   "dettaglio": "Edizione inglese · Seven Seas · 2 volumi · serie completa",
+   "scheda": "https://okazu.yuricon.com/category/series/girl-friends/"
+  },
+  {
+   "titolo": "I diari della speziale",
+   "dettaglio": "J-Pop · volumi 1-7",
+   "stato": "incorso",
+   "scheda": "https://www.animeclick.it/manga/23236/kusuriya-no-hitorigoto"
+  },
+  {
+   "titolo": "Il bacio di Marte",
+   "dettaglio": "Flashbook · volume unico",
+   "scheda": "https://www.animeclick.it/manga/12010/il-bacio-di-marte"
+  },
+  {
+   "titolo": "Juny Peperina Inventatutto",
+   "dettaglio": "Sprea Editori · volume unico",
+   "scheda": "https://www.animeclick.it/edizione/3096599/juny-peperina-inventatutto"
+  },
+  {
+   "titolo": "Maison Ikkoku",
+   "dettaglio": "Star Comics, prima edizione · 27 volumi · serie completa",
+   "scheda": "https://www.animeclick.it/manga/9859/maison-ikkoku"
+  },
+  {
+   "titolo": "Nanako SOS",
+   "dettaglio": "Magic Press · 5 volumi · serie completa",
+   "scheda": "https://www.animeclick.it/manga/10092/nanako-sos"
+  },
+  {
+   "titolo": "Strawberry Panic: The Complete Novel Collection",
+   "dettaglio": "Edizione inglese · Seven Seas · raccolta in un unico volume dei tre romanzi",
+   "scheda": "https://www.yuricon.com/product/strawberry-panic-the-complete-novel-collection"
+  }
+ ]
+}
+</script>
+<script src="script.js"></script>
+<script>
+(function(){
+var M='cinziamweb@gmail.com';
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function plural(n,s,p){return n+' '+(n===1?s:p)}
+try{
+var d=JSON.parse(document.getElementById('coData').textContent);
+var s=d.serie||[],f=d.fumetti||[],c=d.cerco||[];
+document.getElementById('nDvd').textContent=plural(s.length,'titolo','titoli');
+document.getElementById('nFum').textContent=plural(f.length,'titolo','titoli');
+document.getElementById('coStats').innerHTML='<div><b>'+s.length+'</b><span>Serie DVD</span></div><div><b>'+f.length+'</b><span>Fumetti e libri</span></div><div><b>'+c.length+'</b><span>Da trovare</span></div>';
+function badge(st){return st==='manca'?'<span class="co-badge miss">Quasi completa</span>':st==='incorso'?'<span class="co-badge run">In corso</span>':'<span class="co-badge">Completa</span>'}
+function card(x,ic){
+ var img=x.foto?'<img src="images/collezione/'+esc(x.foto)+'.webp" alt="'+esc(x.titolo)+'" loading="lazy" width="480" height="300">':'<div class="co-ph" aria-hidden="true">'+ic+'</div>';
+ return '<article class="co-card">'+img+'<div class="co-body"><h4>'+esc(x.titolo)+'</h4><div class="fmt">'+esc(x.formato||x.dettaglio||'')+(x.editore?' · '+esc(x.editore):'')+'</div>'+(x.nota?'<p class="co-note">'+esc(x.nota)+'</p>':'')+badge(x.stato||'completa')+(x.scheda?'<a class="co-link" href="'+esc(x.scheda)+'" target="_blank" rel="noopener">Scheda ↗</a>':'')+'</div></article>';}
+document.getElementById('coSerie').innerHTML=s.map(function(x){return card(x,'📀')}).join('');
+document.getElementById('coFumetti').innerHTML=f.map(function(x){return card(x,'📚')}).join('');
+document.getElementById('coCerco').innerHTML=c.length?c.map(function(x){
+ var sub=encodeURIComponent('Ce l\'hai? '+x.titolo+(x.dettaglio?' - '+x.dettaglio:''));
+ return '<div class="co-row"><div><h4>'+esc(x.titolo)+'</h4><span class="d">'+esc(x.dettaglio||'')+(x.tipo?' · '+esc(x.tipo):'')+(x.scheda?' · <a href="'+esc(x.scheda)+'" target="_blank" rel="noopener">Scheda ↗</a>':'')+'</span></div><a class="co-btn" href="mailto:'+M+'?subject='+sub+'">Ce l\'hai? Scrivimi</a></div>';}).join(''):'<div class="co-empty">Per ora non cerco nulla.</div>';
+var tabs=document.querySelectorAll('.co-tab');
+tabs.forEach(function(t){t.addEventListener('click',function(){
+ tabs.forEach(function(o){o.setAttribute('aria-pressed',o===t?'true':'false')});
+ var k=t.getAttribute('data-f');
+ document.getElementById('gDvd').classList.toggle('is-hidden',k==='fum');
+ document.getElementById('gFum').classList.toggle('is-hidden',k==='dvd');});});
+}catch(e){document.getElementById('coSerie').innerHTML='<div class="co-empty">Non riesco a mostrare la collezione.</div>';}
+})();
+</script>
+</body>
+</html>
