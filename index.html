@@ -417,6 +417,24 @@
     }
   </style>
 
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    /* Fascia "Nuova uscita" Origin Movie */
+    .home-book-band{padding:56px 20px;background:#1b2a52;color:#fff;border-top:4px solid #f2b632;border-bottom:4px solid #f2b632}
+    .home-book-inner{width:min(980px,100%);margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:center}
+    .home-book-cover img{display:block;width:100%;height:auto!important;border-radius:4px 8px 8px 4px;box-shadow:10px 10px 0 #c62f2f;transform:rotate(-2deg);transition:transform .25s ease}
+    .home-book-cover:hover img{transform:rotate(0) translateY(-4px)}
+    .home-book-badge{display:inline-block;background:#f2b632;color:#121c38;font-family:'Bangers',cursive;font-size:1.15rem;letter-spacing:.08em;padding:4px 12px 2px;transform:rotate(-2deg)}
+    .home-book-copy h2{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.03em;font-size:clamp(3rem,6vw,4.8rem);line-height:1;margin:14px 0 4px;color:#fff}
+    .home-book-sub{font-family:'Caveat',cursive;font-size:1.7rem;color:#f2b632;margin:0 0 14px;line-height:1.15}
+    .home-book-copy p{color:#d5d9e6;line-height:1.7}
+    .home-book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .home-book-btn{display:inline-flex;padding:13px 20px;border-radius:999px;font-weight:800;text-decoration:none;color:#fff;border:2px solid rgba(255,255,255,.4)}
+    .home-book-btn.primary{background:#c62f2f;border-color:#c62f2f}
+    .home-book-btn:hover{transform:translateY(-2px)}
+    @media(max-width:820px){.home-book-inner{grid-template-columns:1fr;gap:28px}.home-book-cover{max-width:260px;margin:0 auto}}
+  </style>
+
 <script>document.documentElement.className+=' js'</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#fcfbf9">
@@ -483,6 +501,25 @@
       </a>
     </section>
 
+    <section class="home-book-band" aria-label="Nuova uscita: Origin Movie">
+      <div class="home-book-inner">
+        <a href="origin-movie.html" class="home-book-cover" aria-label="Scopri Origin Movie">
+          <img src="images/origin-movie/copertina.webp" width="799" height="1200" loading="lazy"
+               alt="Copertina di Origin Movie di Cinzia Molisano">
+        </a>
+        <div class="home-book-copy">
+          <span class="home-book-badge">NUOVA USCITA</span>
+          <h2>Origin Movie</h2>
+          <p class="home-book-sub">Pensavo di essere sfigata… invece ero un supereroe</p>
+          <p>Due nomi, un merluzzo sospetto e una frittata di pasta che la mia famiglia non ha mai dimenticato. Il mio libro illustrato è finalmente uscito.</p>
+          <div class="home-book-actions">
+            <a class="home-book-btn primary" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista su Amazon →</a>
+            <a class="home-book-btn" href="origin-movie.html">Scopri il libro e gli incontri</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="mondi" class="section-intro reveal">
       <span class="section-kicker">Il mio mondo</span>
       <h2>Cinque passioni, una sola storia.</h2>
@@ -520,9 +557,9 @@
 
       <article class="feature-card">
         <div class="icon-circle blue">🐾</div>
-        <h3>BOB FILES</h3>
-        <p>Il mio compagno di avventure e una raccolta di casi quasi realmente accaduti.</p>
-        <a href="bob-notes.html" class="link-scopri">SCOPRI DI PIÙ <span>→</span></a>
+        <h3>ORIGIN MOVIE</h3>
+        <p>Il mio libro illustrato: un'origin story quasi da supereroina, con Bob e i suoi fascicoli.</p>
+        <a href="origin-movie.html" class="link-scopri">SCOPRI DI PIÙ <span>→</span></a>
       </article>
     </section>
 
@@ -633,17 +670,17 @@
             <span class="project-mark">URANIA</span>
           </a>
 
-          <a class="project-showcase-card project-bob" href="bob-notes.html">
+          <a class="project-showcase-card project-bob" href="origin-movie.html">
             <div class="project-top">
               <span class="project-index">02</span>
-              <span class="project-type">Graphic novel</span>
+              <span class="project-type">Libro illustrato · Pubblicato</span>
             </div>
             <div>
-              <h3>Bob Notes</h3>
-              <p>Ricordi realmente accaduti, reinterpretati da Bob come fascicoli investigativi. Autobiografia, fumetto e parecchie prove discutibili.</p>
-              <span class="project-open">APRI BOB INVESTIGATIONS →</span>
+              <h3>Origin Movie</h3>
+              <p>Non ero sfigata: stavo solo facendo l'origin story. Autobiografia, ironia e fantasia, con Bob e i suoi fascicoli investigativi.</p>
+              <span class="project-open">SCOPRI IL LIBRO →</span>
             </div>
-            <span class="project-mark">TOP SECRET</span>
+            <span class="project-mark">ORIGIN</span>
           </a>
 
           <a class="project-showcase-card project-ugid" href="informatica.html">

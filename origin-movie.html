@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Origin Movie · Pensavo di essere sfigata… invece ero un supereroe - Cinzia</title>
+  <meta name="description" content="Origin Movie: un racconto illustrato tra autobiografia, ironia e fantasia, con Bob e i suoi fascicoli investigativi. Disponibile su Amazon. Incontri per scuole, biblioteche e librerie." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&family=Bangers&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --om-navy:#1b2a52;
+      --om-navy-deep:#121c38;
+      --om-red:#c62f2f;
+      --om-gold:#f2b632;
+      --om-cream:#f7f0e1;
+      --om-paper:#fffaf0;
+      --om-ink:#1d2333;
+      --om-muted:#5d6273;
+      --bob-paper:#efe5cf;
+      --bob-red:#9b3f42;
+    }
+
+    .om-page{padding-top:78px;color:var(--om-ink)}
+    .om-page img{max-width:100%;height:auto!important}
+    .om-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .om-kicker{
+      display:inline-block;text-transform:uppercase;letter-spacing:.13em;
+      font-size:.73rem;font-weight:800;color:var(--om-red);margin-bottom:12px;
+    }
+    .om-bangers{font-family:'Bangers',cursive;letter-spacing:.04em;font-weight:400}
+
+    .om-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;
+      font-weight:800;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    }
+    .om-btn:hover{transform:translateY(-2px)}
+    .om-btn.amazon{background:var(--om-red);color:#fff;box-shadow:0 10px 24px rgba(198,47,47,.28)}
+    .om-btn.amazon:hover{background:#a92626}
+    .om-btn.ghost{border:2px solid var(--om-navy);color:var(--om-navy)}
+    .om-btn.ghost:hover{background:var(--om-navy);color:#fff}
+    .om-btn.light{border:2px solid rgba(255,255,255,.4);color:#fff}
+    .om-btn.light:hover{background:#fff;color:var(--om-navy)}
+    .om-btn.gold{background:var(--om-gold);color:var(--om-navy-deep)}
+
+    /* HERO */
+    .om-hero{
+      position:relative;overflow:hidden;padding:72px 0 80px;
+      background:
+        radial-gradient(circle at 12% 18%,rgba(242,182,50,.20),transparent 30%),
+        radial-gradient(circle at 92% 85%,rgba(198,47,47,.12),transparent 32%),
+        var(--om-cream);
+      border-bottom:4px solid var(--om-navy);
+    }
+    .om-hero::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+      background-image:radial-gradient(rgba(27,42,82,.18) 1px,transparent 1.2px);
+      background-size:14px 14px;
+      mask-image:linear-gradient(90deg,#000,transparent 55%);
+      -webkit-mask-image:linear-gradient(90deg,#000,transparent 55%);
+    }
+    .om-hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center;position:relative;z-index:1}
+    .om-badge{
+      display:inline-block;background:var(--om-gold);color:var(--om-navy-deep);
+      font-family:'Bangers',cursive;font-size:1.35rem;letter-spacing:.08em;
+      padding:6px 16px 4px;border:3px solid var(--om-navy);transform:rotate(-2deg);
+      box-shadow:4px 4px 0 var(--om-navy);margin-bottom:22px;
+    }
+    .om-hero h1{
+      font-family:'Bangers',cursive;font-weight:400;letter-spacing:.02em;
+      font-size:clamp(3.2rem,6.4vw,5.6rem);line-height:.95;margin:0 0 6px;color:var(--om-navy);
+    }
+    .om-hero h1 em{display:block;font-style:normal;color:var(--om-red)}
+    .om-subtitle{
+      font-family:'Caveat',cursive;font-size:clamp(1.5rem,2.6vw,2.1rem);
+      color:var(--om-navy);margin:14px 0 20px;line-height:1.15;
+    }
+    .om-lead{font-size:1.08rem;line-height:1.75;color:#3f4456;max-width:560px;margin:0 0 26px}
+    .om-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .om-meta{margin-top:18px;font-size:.85rem;color:var(--om-muted)}
+    .om-hero-visual{position:relative}
+    .om-hero-visual img{
+      display:block;width:100%;height:auto;border:4px solid var(--om-navy);border-radius:6px;
+      box-shadow:10px 10px 0 var(--om-red);transform:rotate(1deg);background:#fff;
+    }
+    .om-hero-visual{max-width:420px;margin:0 auto}
+    .om-hero-visual img.om-cover{
+      border-radius:4px 10px 10px 4px;transform:rotate(2deg);
+      box-shadow:-6px 0 0 rgba(0,0,0,.18) inset,12px 12px 0 var(--om-red),0 24px 50px rgba(27,42,82,.28);
+      transition:transform .25s ease;
+    }
+    .om-hero-visual a:hover img.om-cover{transform:rotate(0deg) translateY(-4px)}
+    .om-sticker{
+      position:absolute;left:-18px;bottom:-22px;background:var(--om-red);color:#fff;
+      font-family:'Bangers',cursive;font-size:1.25rem;letter-spacing:.06em;line-height:1.05;
+      padding:14px 16px;border:3px solid var(--om-navy);transform:rotate(-6deg);text-align:center;
+      box-shadow:4px 4px 0 var(--om-navy);
+    }
+
+    /* IL LIBRO */
+    .om-section{padding:92px 0}
+    .om-book{background:var(--om-paper)}
+    .om-book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+    .om-book h2,.om-section h2{
+      font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.08;margin:6px 0 18px;color:var(--om-navy);
+    }
+    .om-book-copy p{line-height:1.8;color:#41465a;margin:0 0 16px;font-size:1.04rem}
+    .om-book-copy .om-for{
+      margin-top:22px;padding:18px 22px;border-left:5px solid var(--om-gold);background:#fff;
+      border-radius:0 14px 14px 0;font-weight:600;color:var(--om-navy);line-height:1.6;
+    }
+    .om-ingredients{display:grid;gap:14px}
+    .om-ingredient{
+      display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;
+      background:#fff;border:2px solid var(--om-navy);border-radius:14px;padding:16px 18px;
+      box-shadow:4px 4px 0 rgba(27,42,82,.14);
+    }
+    .om-ingredient .ico{font-size:2rem;text-align:center}
+    .om-ingredient b{display:block;font-family:'Bangers',cursive;font-weight:400;font-size:1.35rem;letter-spacing:.05em;color:var(--om-red)}
+    .om-ingredient span{color:var(--om-muted);font-size:.93rem;line-height:1.5}
+
+    /* PERSONALE */
+    .om-personal{background:var(--om-navy);color:#fff;position:relative;overflow:hidden}
+    .om-personal::after{
+      content:"★";position:absolute;right:-30px;top:-70px;font-size:18rem;color:rgba(255,255,255,.04);transform:rotate(14deg);
+    }
+    .om-personal-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+    .om-personal-grid{align-items:start}
+    .om-portrait{
+      margin:40px 0 0;background:#fffaf0;padding:14px 14px 0;border-radius:4px;
+      transform:rotate(1.5deg);box-shadow:12px 12px 0 var(--om-gold);
+      position:sticky;top:110px;align-self:start;
+    }
+    .om-portrait img{
+      display:block;width:100%!important;height:auto!important;max-height:none!important;
+      aspect-ratio:874/607;object-fit:cover;border:0;border-radius:2px;box-shadow:none;
+    }
+    .om-portrait figcaption{
+      font-family:'Caveat',cursive;font-size:1.45rem;color:var(--om-navy);text-align:center;padding:10px 0 12px;
+    }
+    @media(max-width:900px){.om-portrait{position:static;margin-top:10px;transform:rotate(1deg)}}
+    .om-personal .om-kicker{color:var(--om-gold)}
+    .om-personal h2{color:#fff}
+    .om-personal p{color:#d5d9e6;line-height:1.8;margin:0 0 16px}
+    .om-personal p strong{color:#fff}
+    .om-timeline{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+    .om-timeline li{
+      display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+      padding:10px 14px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.04);
+      color:#e3e6ef;font-size:.95rem;line-height:1.5;
+    }
+    .om-timeline li b{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.06em;color:var(--om-gold);font-size:1.1rem;white-space:nowrap}
+    .om-sign{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--om-gold);margin-top:20px}
+
+    /* BOB FILES (capitoli) */
+    .om-files{background:var(--om-cream)}
+    .om-head{max-width:780px;margin-bottom:40px}
+    .om-head p{color:var(--om-muted);line-height:1.72;font-size:1.04rem}
+    .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .case-card{
+      position:relative;overflow:hidden;border-radius:22px;border:2px solid var(--om-navy);
+      background:#fff;box-shadow:6px 6px 0 rgba(27,42,82,.16);transition:transform .22s ease,box-shadow .22s ease;
+    }
+    .case-card:hover{transform:translateY(-4px);box-shadow:8px 10px 0 rgba(27,42,82,.2)}
+    .case-visual img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top;border-bottom:2px solid var(--om-navy)}
+    .case-body{padding:24px 26px 26px}
+    .case-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}
+    .case-no{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--om-red);font-weight:700}
+    .case-status{
+      font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900;padding:6px 9px;border-radius:999px;
+      background:#fdf0cf;color:#7a5a0b;
+    }
+    .case-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin:0 0 10px;color:var(--om-navy)}
+    .case-card p{color:var(--om-muted);line-height:1.66;margin:0}
+    .case-overlay-link{position:absolute;inset:0;z-index:5;border-radius:22px}
+    .extra-case{
+      margin-top:24px;border-radius:22px;overflow:hidden;background:var(--om-navy);color:#fff;
+      display:grid;grid-template-columns:minmax(220px,.75fr) 1.25fr;border:2px solid var(--om-navy);position:relative;
+    }
+    .extra-case img{display:block;width:100%;height:100%;min-height:260px;object-fit:cover;object-position:center top}
+    .extra-copy{padding:32px}
+    .extra-copy strong{color:var(--om-gold);font-size:.78rem;letter-spacing:.1em}
+    .extra-copy h3{font-family:'Playfair Display',serif;font-size:2rem;margin:8px 0 10px}
+    .extra-copy p{color:#d1d6e4;line-height:1.65;margin:0 0 16px}
+    .extra-copy a{color:var(--om-gold);font-weight:800;text-decoration:none}
+    .extra-copy a:hover{text-decoration:underline}
+    .classified-strip{
+      margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+      padding:22px 26px;border:2px dashed var(--om-red);border-radius:18px;background:#fff;
+    }
+    .classified-strip .ids{display:flex;gap:8px;flex-wrap:wrap}
+    .classified-strip .ids span{
+      font-family:'Bangers',cursive;letter-spacing:.06em;font-size:1.05rem;color:#fff;background:var(--om-ink);
+      padding:5px 10px 3px;transform:rotate(-2deg);
+    }
+    .classified-strip p{margin:0;color:var(--om-muted);flex:1;min-width:220px;line-height:1.55}
+    .classified-strip p b{color:var(--om-navy)}
+
+    /* INCONTRI */
+    .om-meet{background:var(--om-paper)}
+    .om-meet-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:44px}
+    .om-meet-intro p{color:#41465a;line-height:1.78;margin:0 0 14px;font-size:1.04rem}
+    .om-topics{display:flex;flex-wrap:wrap;gap:8px}
+    .om-topics span{
+      padding:8px 13px;border-radius:999px;background:#fff;border:2px solid var(--om-navy);
+      font-weight:700;font-size:.85rem;color:var(--om-navy);
+    }
+    .om-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .om-step{background:#fff;border:2px solid var(--om-navy);border-radius:18px;padding:26px;position:relative;box-shadow:5px 5px 0 rgba(27,42,82,.14)}
+    .om-step .n{
+      position:absolute;top:-18px;left:22px;width:40px;height:40px;border-radius:50%;
+      display:grid;place-items:center;font-family:'Bangers',cursive;font-size:1.4rem;
+      background:var(--om-gold);color:var(--om-navy-deep);border:2px solid var(--om-navy);
+    }
+    .om-step:nth-child(2) .n{background:var(--om-red);color:#fff}
+    .om-step:nth-child(3) .n{background:#3d7fd1;color:#fff}
+    .om-step h3{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.05em;font-size:1.6rem;color:var(--om-navy);margin:10px 0 8px}
+    .om-step p{margin:0;color:var(--om-muted);line-height:1.6;font-size:.95rem}
+
+    .om-preview{margin-top:52px}
+    .om-preview h3{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--om-navy);margin:0 0 6px}
+    .om-preview > p{color:var(--om-muted);margin:0 0 20px;line-height:1.6}
+    .om-slides{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .om-slides figure{margin:0}
+    .om-slides img{display:block;width:100%;height:auto;border:2px solid var(--om-navy);border-radius:8px;background:#fff}
+    .om-slides figcaption{font-size:.84rem;color:var(--om-muted);margin-top:8px;line-height:1.45}
+
+    .om-practical{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+    .om-box{border-radius:18px;padding:26px 28px}
+    .om-box.format{background:#fff;border:2px solid var(--om-navy)}
+    .om-box.sheet{background:var(--bob-paper);border:2px dashed var(--om-red);display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+    .om-box h3{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.05em;font-size:1.55rem;color:var(--om-navy);margin:0 0 12px}
+    .om-box ul{margin:0;padding-left:20px}
+    .om-box li{margin:8px 0;color:#41465a;line-height:1.55}
+    .om-box p{margin:0;color:#41465a;line-height:1.6}
+    .om-box small{color:var(--om-muted);line-height:1.5}
+
+    /* CTA FINALE */
+    .om-cta{
+      padding:90px 0;text-align:center;color:#fff;
+      background:radial-gradient(circle at 50% 0%,rgba(242,182,50,.18),transparent 45%),var(--om-navy-deep);
+    }
+    .om-cta h2{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.03em;font-size:clamp(2.4rem,5vw,4rem);line-height:1;margin:0 0 14px;color:#fff}
+    .om-cta h2 span{color:var(--om-gold)}
+    .om-cta p{max-width:640px;margin:0 auto 26px;color:#cfd4e3;line-height:1.7}
+    .om-cta .om-actions{justify-content:center}
+    .om-cta .om-mail{margin-top:18px;font-size:.95rem;color:#cfd4e3}
+    .om-cta .om-mail a{color:var(--om-gold);font-weight:700}
+    .om-cta .om-sign{margin-top:30px}
+
+    /* Modulo incontri */
+    .om-form{
+      max-width:820px;margin:0 auto;text-align:left;background:var(--om-paper);color:var(--om-ink);
+      border:3px solid var(--om-gold);border-radius:20px;padding:32px;box-shadow:10px 10px 0 var(--om-red);
+    }
+    .om-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+    .om-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .om-field.full,.om-check.full{grid-column:1/-1}
+    .om-field > span{font-weight:700;font-size:.86rem;color:var(--om-navy)}
+    .om-field small{font-weight:400;color:var(--om-muted)}
+    .om-field input,.om-field select,.om-field textarea{
+      width:100%;box-sizing:border-box;font:inherit;font-size:1rem;color:var(--om-ink);
+      background:#fff;border:2px solid #c9cedb;border-radius:10px;padding:11px 13px;
+      transition:border-color .15s ease,box-shadow .15s ease;
+    }
+    .om-field textarea{resize:vertical;min-height:110px}
+    .om-field input:focus,.om-field select:focus,.om-field textarea:focus{
+      outline:none;border-color:var(--om-navy);box-shadow:0 0 0 3px rgba(242,182,50,.45);
+    }
+    .om-field input::placeholder,.om-field textarea::placeholder{color:#9aa0ae}
+    .om-check{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;line-height:1.5;color:#41465a;cursor:pointer}
+    .om-check input{width:18px;height:18px;margin-top:2px;accent-color:var(--om-red);flex:none}
+    .om-form-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .om-form-actions .om-btn.light{border-color:var(--om-navy);color:var(--om-navy)}
+    .om-form-actions .om-btn.light:hover{background:var(--om-navy);color:#fff}
+    .om-form button.om-btn{border:0;cursor:pointer;font:inherit;font-weight:800}
+    .om-form-note{margin:12px 0 0!important;font-size:.82rem;color:var(--om-muted)!important;text-align:left}
+    .om-hp{position:absolute!important;left:-9999px!important}
+    @media(max-width:620px){
+      .om-form{padding:22px 18px;box-shadow:6px 6px 0 var(--om-red)}
+      .om-form-grid{grid-template-columns:1fr}
+    }
+
+    @media(max-width:900px){
+      .om-hero-grid,.om-book-grid,.om-personal-grid,.om-meet-intro,.om-practical{grid-template-columns:1fr}
+      .om-steps{grid-template-columns:1fr;gap:28px}
+      .om-slides{grid-template-columns:1fr 1fr}
+      .case-grid{grid-template-columns:1fr}
+      .om-hero-visual{margin-top:10px}
+    }
+    @media(max-width:620px){
+      .om-section{padding:68px 0}
+      .om-hero{padding:48px 0 64px}
+      .om-slides{grid-template-columns:1fr}
+      .extra-case{grid-template-columns:1fr}
+      .extra-case img{min-height:0;aspect-ratio:16/10}
+      .om-sticker{left:8px;bottom:-26px;font-size:1.05rem}
+      .om-btn{width:100%;justify-content:center}
+    }
+  </style>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1b2a52">
+  <meta property="og:title" content="Origin Movie · Pensavo di essere sfigata… invece ero un supereroe">
+  <meta property="og:type" content="book">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:description" content="Non ero sfigata. Stavo solo facendo l'origin story. Un racconto illustrato tra autobiografia, ironia e fantasia.">
+  <link rel="canonical" href="https://www.cinziamolisano.it/origin-movie.html">
+  <meta property="og:url" content="https://www.cinziamolisano.it/origin-movie.html">
+  <meta property="og:image" content="https://www.cinziamolisano.it/images/origin-movie/og-origin-movie.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+<header class="navbar">
+  <a class="logo" href="index.html">Cinzia<span>★</span></a>
+
+  <nav class="menu" id="mainMenu">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="competenze.html">COMPETENZE</a>
+    <a href="index.html#progetti">PROGETTI</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button>
+    <a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="om-page">
+
+  <!-- HERO -->
+  <section class="om-hero">
+    <div class="om-shell om-hero-grid">
+      <div>
+        <span class="om-badge">ORIGIN MOVIE</span>
+        <h1>Non ero sfigata.<em>Stavo solo facendo l'origin story.</em></h1>
+        <p class="om-subtitle">Pensavo di essere sfigata… invece ero un supereroe</p>
+        <p class="om-lead">
+          Ogni supereroina ha una storia delle origini. La mia comincia con due nomi,
+          un merluzzo sospetto e una frittata di pasta che la mia famiglia non ha mai dimenticato.
+        </p>
+        <div class="om-actions">
+          <a class="om-btn amazon" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista su Amazon →</a>
+          <a class="om-btn ghost" href="#incontri">Incontri e scuole</a>
+        </div>
+        <p class="om-meta">Libro illustrato · edizione cartacea · di Cinzia Molisano</p>
+      </div>
+      <div class="om-hero-visual">
+        <a href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener" aria-label="Acquista Origin Movie su Amazon">
+          <img class="om-cover" src="images/origin-movie/copertina.webp" width="799" height="1200"
+               alt="Copertina di Origin Movie di Cinzia Molisano: Cinzia con il cane Bob, un merluzzo, una frittata di pasta e la peretta arancione">
+        </a>
+        <div class="om-sticker">NUOVA<br>USCITA!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IL LIBRO -->
+  <section class="om-section om-book" id="libro">
+    <div class="om-shell om-book-grid">
+      <div class="om-book-copy">
+        <span class="om-kicker">Il libro</span>
+        <h2>Tra ciò che volevo essere e ciò che sono diventata.</h2>
+        <p>
+          <b>Origin Movie</b> è un racconto illustrato che intreccia autobiografia, ironia e fantasia.
+          Tra piccoli disastri quotidiani, passioni e sogni che cambiano strada, racconto il percorso
+          tra ciò che volevo essere e ciò che sono diventata.
+        </p>
+        <p>
+          Ad accompagnarmi c'è Bob, con i suoi immancabili fascicoli investigativi:
+          ogni ricordo diventa un caso, ogni dettaglio una prova, ogni figuraccia un timbro rosso.
+        </p>
+        <p class="om-for">
+          Per chi si è sentito almeno una volta fuori posto
+          e ha voglia di guardare le proprie avventure da un'altra prospettiva.
+        </p>
+        <div class="om-actions" style="margin-top:24px">
+          <a class="om-btn amazon" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista Origin Movie su Amazon →</a>
+        </div>
+      </div>
+
+      <div class="om-ingredients" aria-label="Che cosa c'è dentro il libro">
+        <div class="om-ingredient"><div class="ico">🎬</div><div><b>Capitoli come episodi</b><span>Dall'anagrafe all'università, ogni capitolo è una puntata della mia origin story.</span></div></div>
+        <div class="om-ingredient"><div class="ico">🐾</div><div><b>I Bob Files</b><span>Bob rilegge ogni episodio come un caso: soggetti, prove, minacce e verdetti non richiesti.</span></div></div>
+        <div class="om-ingredient"><div class="ico">📊</div><div><b>Infografiche ironiche</b><span>Statistiche improbabili, schede personaggio e splash page da fumetto.</span></div></div>
+        <div class="om-ingredient"><div class="ico">⭐</div><div><b>Superpoteri sbloccati</b><span>L'adattamento, la curiosità, sfidare le probabilità: scoperti di solito dopo un disastro.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONALE -->
+  <section class="om-section om-personal" id="perche">
+    <div class="om-shell om-personal-grid">
+      <div>
+        <span class="om-kicker">Perché l'ho scritto</span>
+        <h2>Piacere, Cinzia. E lui è Bob.</h2>
+        <p>
+          Ufficialmente Vincenza, praticamente Cinzia. La mia identità è cominciata così: con un nome
+          scelto da altri e una doppia vita tra casa e registro di classe.
+        </p>
+        <p>
+          Per anni ho pensato che i miei piccoli disastri dicessero chi ero. Poi ho capito che
+          <strong>forse i supereroi sono quelli che sopravvivono ai piccoli disastri quotidiani
+          senza perdere completamente la capacità di ridere.</strong>
+        </p>
+        <p>
+          Ho scritto Origin Movie per rileggere quei momenti con un altro sguardo, e perché qualcuno,
+          leggendoli, potesse pensare: <em>«Allora non è successo solo a me.»</em>
+        </p>
+        <ul class="om-timeline">
+          <li><b>Il nome</b> Cinzia a casa, Vincenza a scuola. Primo superpotere: l'adattamento.</li>
+          <li><b>La curiosità</b> Smontare, svitare, capire il circuito. Anche quando non si doveva.</li>
+          <li><b>L'aula</b> Ingegneria aerospaziale: eravamo nove ragazze.</li>
+          <li><b>Il sogno</b> Astronauta. Altezza minima 160 cm. Io: 158.</li>
+          <li><b>Oggi</b> Una missione in un tipo di spazio diverso: codice, storie e Bob.</li>
+        </ul>
+        <div class="om-sign">— Cinzia 🐾</div>
+      </div>
+      <figure class="om-portrait">
+        <img src="images/origin-movie/cinzia-e-bob-ritratto.webp" width="874" height="607" loading="lazy"
+             alt="Illustrazione di Cinzia con un cacciavite in mano e Bob appoggiato al fascicolo dei Bob Files">
+        <figcaption>Agente Bob e Cinzia · fascicolo aperto</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BOB FILES -->
+  <section class="om-section om-files" id="fascicoli">
+    <div class="om-shell">
+      <div class="om-head">
+        <span class="om-kicker">Dentro il libro · I Bob Files</span>
+        <h2>Qualche fascicolo, senza spoiler.</h2>
+        <p>
+          Ogni capitolo è anche un caso investigativo di Bob. Qui ne trovi un'immagine e un piccolo teaser:
+          il resto resta nelle pagine di Origin Movie.
+        </p>
+      </div>
+
+      <div class="case-grid">
+        <article class="case-card">
+          <div class="case-visual"><img src="images/bob-notes/case001-cover.webp" loading="lazy" alt="Capitolo 1 - L'origine segreta di Cinzia"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #001</span><span class="case-status">Origin story</span></div>
+            <h3>L'origine segreta di Cinzia</h3>
+            <p>Alcuni supereroi scoprono la propria identità dopo un morso radioattivo. Altri la scoprono all'anagrafe.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-001.html" aria-label="Apri L'origine segreta di Cinzia"></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-visual"><img src="images/bob-notes/case002-cover.webp" loading="lazy" alt="Capitolo 2 - L'arma arancione"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #002</span><span class="case-status">Villain origin</span></div>
+            <h3>L'arma arancione</h3>
+            <p>Ogni famiglia ha un oggetto mitologico. Nella mia viveva sopra un armadio, era arancione e bastava nominarlo.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-002.html" aria-label="Apri L'arma arancione"></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-visual"><img src="images/bob-notes/case003-cover.webp" loading="lazy" alt="Capitolo 3 - L'attacco del merluzzo mutante"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #003</span><span class="case-status">Trauma ittico</span></div>
+            <h3>L'attacco del merluzzo mutante</h3>
+            <p>Negli anni '80 si giocava con qualunque cosa. Anche con un merluzzo apparentemente morto. Apparentemente.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-003.html" aria-label="Apri L'attacco del merluzzo mutante"></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-visual"><img src="images/bob-notes/case004-cover.webp" loading="lazy" alt="Capitolo 4 - La maledizione del bravo ragazzo"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #004</span><span class="case-status">Minaccia emotiva</span></div>
+            <h3>La maledizione del bravo ragazzo</h3>
+            <p>Gentile, educato, stabile. Sulla carta perfetto. Ed è proprio lì che il mio sistema nervoso percepisce il pericolo.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-004.html" aria-label="Apri La maledizione del bravo ragazzo"></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-visual"><img src="images/bob-notes/case005-cover.webp" loading="lazy" alt="Capitolo 5 - Donne, razzi e numeri erotici"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #005</span><span class="case-status">Caos accademico</span></div>
+            <h3>Donne, razzi e numeri erotici</h3>
+            <p>Ingegneria aerospaziale, nove ragazze in un esercito di uomini e una matricola da hotline anni '90.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-005.html" aria-label="Apri Donne, razzi e numeri erotici"></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-visual"><img src="images/origin-movie/frittata-cosmica.webp" loading="lazy" alt="Capitolo 9 - La caduta della frittata cosmica"></div>
+          <div class="case-body">
+            <div class="case-top"><span class="case-no">FILE #009</span><span class="case-status">Dossier extra</span></div>
+            <h3>La caduta della frittata cosmica</h3>
+            <p>Campeggio, gravità e una frittata di pasta. È caduta una volta sola; nella memoria di famiglia cade ancora.</p>
+          </div>
+          <a class="case-overlay-link" href="bob-case-009.html" aria-label="Apri La caduta della frittata cosmica"></a>
+        </article>
+      </div>
+
+      <div class="classified-strip">
+        <div class="ids"><span>FILE #006</span><span>FILE #007</span><span>FILE #008</span></div>
+        <p><b>Classificati.</b> Bob si rifiuta di commentare. Per aprirli serve il libro.</p>
+        <a class="om-btn amazon" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Sblocca su Amazon →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCONTRI -->
+  <section class="om-section om-meet" id="incontri">
+    <div class="om-shell">
+      <div class="om-meet-intro">
+        <div>
+          <span class="om-kicker">Incontri · Scuole, biblioteche, librerie</span>
+          <h2>Portiamo la storia fuori dalle pagine.</h2>
+          <p>
+            Propongo incontri per scuole, biblioteche e librerie: un'occasione per parlare di identità,
+            etichette, appartenenza, curiosità e prime delusioni, partendo dalle immagini e dagli episodi del libro.
+          </p>
+          <p>
+            Non è una lezione: è una conversazione. Nessuna risposta giusta, nessuno obbligato a raccontarsi.
+          </p>
+        </div>
+        <div class="om-topics" aria-label="Temi dell'incontro">
+          <span>🪪 Identità</span><span>🏷️ Etichette</span><span>🤝 Appartenenza</span>
+          <span>💡 Curiosità</span><span>📏 Delusioni</span><span>🧭 Cambiare strada</span>
+          <span>🫶 Le persone che ci accompagnano</span>
+        </div>
+      </div>
+
+      <div class="om-steps">
+        <div class="om-step"><span class="n">1</span><h3>Racconto</h3><p>Leggo e mostro alcune tavole: il nome, la frittata, le nove ragazze a ingegneria, i due centimetri tra me e un sogno.</p></div>
+        <div class="om-step"><span class="n">2</span><h3>Domande</h3><p>Ogni episodio apre una domanda per la classe: «Un errore può definire una persona per sempre?» «Un no racconta tutto di noi?»</p></div>
+        <div class="om-step"><span class="n">3</span><h3>Il tuo Bob File</h3><p>Una scheda per trasformare un piccolo episodio, vero o inventato, in una storia con parole o disegni. Condividere è sempre una scelta.</p></div>
+      </div>
+
+      <div class="om-preview">
+        <h3>Un'anteprima dell'incontro</h3>
+        <p>Alcune delle tavole che uso. La presentazione completa la invio ai docenti su richiesta.</p>
+        <div class="om-slides">
+          <figure>
+            <img src="images/origin-movie/protagonista-perfetto.webp" width="1400" height="788" loading="lazy" alt="Slide: Per seguire una storia abbiamo bisogno di un protagonista perfetto?">
+            <figcaption>Si parte da un'immagine: chi vi incuriosisce di più, e perché?</figcaption>
+          </figure>
+          <figure>
+            <img src="images/origin-movie/nove-ragazze.webp" width="1400" height="776" loading="lazy" alt="Slide: Le nove ragazze a ingegneria">
+            <figcaption>Le nove ragazze a ingegneria: che cosa ci fa sentire parte di un gruppo?</figcaption>
+          </figure>
+          <figure>
+            <img src="images/origin-movie/il-tuo-bob-file.webp" width="1400" height="768" loading="lazy" alt="Slide: Il tuo Bob File, trasforma un piccolo imprevisto in una storia">
+            <figcaption>Il laboratorio finale: trasformare un piccolo imprevisto in una storia.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="om-practical">
+        <div class="om-box format">
+          <h3>Come funziona</h3>
+          <ul>
+            <li><b>Scuole:</b> 45–60 minuti, pensato soprattutto per le scuole secondarie. Contenuti e modalità li concordiamo con i docenti.</li>
+            <li><b>Biblioteche e librerie:</b> costruiamo insieme una presentazione adatta al pubblico, anche per adulti.</li>
+            <li><b>Privacy:</b> la scheda non chiede nomi né dati personali, e si può tenere per sé.</li>
+          </ul>
+        </div>
+        <div class="om-box sheet">
+          <div>
+            <h3>Scarica la scheda «Il tuo Bob File»</h3>
+            <p>La scheda A4 usata durante gli incontri, da stampare o da guardare in anteprima.</p>
+          </div>
+          <div>
+            <a class="om-btn ghost" href="downloads/origin-movie-il-tuo-bob-file.pdf" download>Scarica il PDF ↓</a>
+            <br><small>PDF · 1 pagina · A4</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="om-cta" id="proponi">
+    <div class="om-shell">
+      <h2>Vuoi organizzare un <span>incontro?</span></h2>
+      <p>
+        Compila il modulo per propormi un incontro o chiedere un'anteprima del materiale.
+        Ti rispondo personalmente, di solito entro pochi giorni.
+      </p>
+
+      <form class="om-form" name="incontro-origin-movie" method="POST" action="/grazie-incontro.html"
+            data-netlify="true" netlify-honeypot="sito-web">
+        <input type="hidden" name="form-name" value="incontro-origin-movie">
+        <p class="om-hp"><label>Non compilare questo campo: <input name="sito-web" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="om-form-grid">
+          <label class="om-field">
+            <span>Nome e cognome *</span>
+            <input type="text" name="nome" required autocomplete="name">
+          </label>
+          <label class="om-field">
+            <span>Email *</span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+
+          <label class="om-field">
+            <span>Ruolo</span>
+            <input type="text" name="ruolo" placeholder="Es. docente di lettere, bibliotecaria…">
+          </label>
+          <label class="om-field">
+            <span>Telefono <small>(facoltativo)</small></span>
+            <input type="tel" name="telefono" autocomplete="tel">
+          </label>
+
+          <label class="om-field">
+            <span>Tipo di realtà *</span>
+            <select name="tipo" required>
+              <option value="" selected disabled>Scegli…</option>
+              <option>Scuola secondaria di primo grado</option>
+              <option>Scuola secondaria di secondo grado</option>
+              <option>Biblioteca</option>
+              <option>Libreria</option>
+              <option>Associazione / altro</option>
+            </select>
+          </label>
+          <label class="om-field">
+            <span>Nome della scuola o dell'ente e città *</span>
+            <input type="text" name="ente" required placeholder="Es. IC Rossi, Bergamo">
+          </label>
+
+          <label class="om-field">
+            <span>Classe o età del pubblico *</span>
+            <input type="text" name="pubblico" required placeholder="Es. 2ª media, 12–13 anni">
+          </label>
+          <label class="om-field">
+            <span>Partecipanti (circa)</span>
+            <input type="number" name="partecipanti" min="1" max="500" inputmode="numeric">
+          </label>
+
+          <label class="om-field">
+            <span>Periodo preferito</span>
+            <input type="text" name="periodo" placeholder="Es. febbraio, mattina">
+          </label>
+          <label class="om-field">
+            <span>Modalità</span>
+            <select name="modalita">
+              <option>In presenza</option>
+              <option>Online</option>
+              <option>Da valutare</option>
+            </select>
+          </label>
+
+          <label class="om-field full">
+            <span>Messaggio</span>
+            <textarea name="messaggio" rows="4" placeholder="Temi che vi interessano, esigenze della classe, domande…"></textarea>
+          </label>
+
+          <label class="om-check full">
+            <input type="checkbox" name="anteprima" value="sì">
+            <span>Vorrei ricevere un'anteprima della presentazione e della scheda.</span>
+          </label>
+          <label class="om-check full">
+            <input type="checkbox" name="privacy" value="accettata" required>
+            <span>Acconsento all'uso dei miei dati solo per rispondere a questa richiesta. Non vengono ceduti a terzi né usati per newsletter. *</span>
+          </label>
+        </div>
+
+        <div class="om-form-actions">
+          <button class="om-btn gold" type="submit">Invia la proposta →</button>
+          <a class="om-btn light" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista il libro</a>
+        </div>
+        <p class="om-form-note">* campi obbligatori</p>
+      </form>
+
+      <p class="om-mail">Preferisci l'email? Scrivimi a <a href="mailto:cinziamweb@gmail.com?subject=Proposta%20incontro%20Origin%20Movie">cinziamweb@gmail.com</a></p>
+      <div class="om-sign">Vincenza Molisano, per tutti Cinzia.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Tra codice e storie. Tra dati e immaginazione.</p>
+  <small>© 2026 Cinzia Molisano</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
