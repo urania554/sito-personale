@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <title>Origin Movie · Pensavo di essere sfigata… invece ero un supereroe - Cinzia</title>
   <meta name="description" content="Origin Movie: un racconto illustrato tra autobiografia, ironia e fantasia, con Bob e i suoi fascicoli investigativi. Disponibile su Amazon. Incontri per scuole, biblioteche e librerie." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&family=Bangers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -301,6 +300,28 @@
       .om-sticker{left:8px;bottom:-26px;font-size:1.05rem}
       .om-btn{width:100%;justify-content:center}
     }
+    /* Scheda docenti, calendario e testimonianze */
+    .om-teacher{margin-top:18px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--om-navy);color:#fff;border-radius:18px;padding:24px 28px;border-bottom:4px solid var(--om-gold)}
+    .om-teacher .ico{font-size:2.2rem}
+    .om-teacher h3{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.05em;font-size:1.55rem;color:var(--om-gold);margin:0 0 4px}
+    .om-teacher p{margin:0;color:#d5d9e6;line-height:1.55}
+    .om-teacher small{display:block;margin-top:6px;color:#aab2c8}
+    .om-agenda{margin-top:52px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+    .om-agenda h3{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.05em;font-size:1.8rem;color:var(--om-navy);margin:0 0 14px}
+    .om-events{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .om-event{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:center;background:#fff;border:2px solid var(--om-navy);border-radius:16px;padding:14px 16px}
+    .om-date{text-align:center;background:var(--om-cream);border-radius:12px;padding:8px 4px;line-height:1.05}
+    .om-date b{display:block;font-family:'Bangers',cursive;font-weight:400;font-size:1.9rem;color:var(--om-red)}
+    .om-date span{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--om-navy)}
+    .om-event strong{display:block;color:var(--om-ink)}
+    .om-event p{margin:2px 0 0;color:var(--om-muted);font-size:.9rem}
+    .om-empty{background:#fff;border:2px dashed var(--om-navy);border-radius:16px;padding:22px 24px;color:#41465a;line-height:1.6}
+    .om-empty a{color:var(--om-red);font-weight:800}
+    .om-voices{display:grid;gap:12px}
+    .om-voice{margin:0;background:var(--bob-paper);border-radius:16px;padding:20px 22px;border-left:5px solid var(--om-red)}
+    .om-voice p{margin:0;color:var(--om-ink);font-style:italic;line-height:1.6}
+    .om-voice cite{display:block;margin-top:10px;font-style:normal;font-weight:800;font-size:.84rem;color:var(--om-navy)}
+    @media(max-width:900px){.om-agenda{grid-template-columns:1fr}.om-teacher{grid-template-columns:1fr;text-align:left}}
   </style>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -313,29 +334,58 @@
   <meta property="og:url" content="https://www.cinziamolisano.it/origin-movie.html">
   <meta property="og:image" content="https://www.cinziamolisano.it/images/origin-movie/og-origin-movie.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "@id": "https://www.cinziamolisano.it/origin-movie.html#libro",
+    "name": "Origin Movie",
+    "alternateName": "Origin Movie: Pensavo di essere sfigata… invece ero un supereroe",
+    "description": "Un racconto illustrato tra autobiografia, ironia e fantasia, con Bob e i suoi fascicoli investigativi.",
+    "author": {
+      "@type": "Person",
+      "@id": "https://www.cinziamolisano.it/#cinzia",
+      "name": "Cinzia Molisano",
+      "url": "https://www.cinziamolisano.it/"
+    },
+    "illustrator": { "@id": "https://www.cinziamolisano.it/#cinzia" },
+    "genre": ["Libro illustrato", "Autobiografia", "Umorismo"],
+    "inLanguage": "it",
+    "bookFormat": "https://schema.org/Paperback",
+    "isbn": "9798171536060",
+    "numberOfPages": 102,
+    "datePublished": "2026-10-16",
+    "image": "https://www.cinziamolisano.it/images/origin-movie/copertina-640.webp",
+    "url": "https://www.cinziamolisano.it/origin-movie.html",
+    "sameAs": "https://www.amazon.it/dp/B0HNCC3PMH",
+    "audience": { "@type": "PeopleAudience", "suggestedMinAge": 11 }
+  }
+  </script>
 </head>
 
 <body>
-<header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-
-  <nav class="menu" id="mainMenu">
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
     <a href="index.html">HOME</a>
     <a href="index.html#chi-sono">CHI SONO</a>
-    <a href="competenze.html">COMPETENZE</a>
-    <a href="index.html#progetti">PROGETTI</a>
+    <a href="origin-movie.html" class="active" aria-current="page">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
     <a href="blog.html">BLOG</a>
     <a href="index.html#contatti">CONTATTI</a>
   </nav>
-
   <div class="nav-actions">
-    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button>
-    <a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="om-page">
+<main id="contenuto" class="om-page">
 
   <!-- HERO -->
   <section class="om-hero">
@@ -352,7 +402,7 @@
           <a class="om-btn amazon" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista su Amazon →</a>
           <a class="om-btn ghost" href="#incontri">Incontri e scuole</a>
         </div>
-        <p class="om-meta">Libro illustrato · edizione cartacea · di Cinzia Molisano</p>
+        <p class="om-meta">Libro illustrato · edizione cartacea · 102 pagine · di Cinzia Molisano<br>Acquistabile anche con Carta del Docente e Carta della Cultura <small>(se venduto e spedito da Amazon)</small></p>
       </div>
       <div class="om-hero-visual">
         <a href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener" aria-label="Acquista Origin Movie su Amazon">
@@ -447,7 +497,7 @@
 
       <div class="case-grid">
         <article class="case-card">
-          <div class="case-visual"><img src="images/bob-notes/case001-cover.webp" loading="lazy" alt="Capitolo 1 - L'origine segreta di Cinzia"></div>
+          <div class="case-visual"><img src="images/bob-notes/case001-cover-600.webp" srcset="images/bob-notes/case001-cover-600.webp 600w, images/bob-notes/case001-cover.webp 1100w" sizes="(max-width: 900px) 92vw, 560px" width="600" height="803" loading="lazy" decoding="async" alt="Capitolo 1 - L'origine segreta di Cinzia"></div>
           <div class="case-body">
             <div class="case-top"><span class="case-no">FILE #001</span><span class="case-status">Origin story</span></div>
             <h3>L'origine segreta di Cinzia</h3>
@@ -457,7 +507,7 @@
         </article>
 
         <article class="case-card">
-          <div class="case-visual"><img src="images/bob-notes/case002-cover.webp" loading="lazy" alt="Capitolo 2 - L'arma arancione"></div>
+          <div class="case-visual"><img src="images/bob-notes/case002-cover-600.webp" srcset="images/bob-notes/case002-cover-600.webp 600w, images/bob-notes/case002-cover.webp 1023w" sizes="(max-width: 900px) 92vw, 560px" width="600" height="901" loading="lazy" decoding="async" alt="Capitolo 2 - L'arma arancione"></div>
           <div class="case-body">
             <div class="case-top"><span class="case-no">FILE #002</span><span class="case-status">Villain origin</span></div>
             <h3>L'arma arancione</h3>
@@ -467,7 +517,7 @@
         </article>
 
         <article class="case-card">
-          <div class="case-visual"><img src="images/bob-notes/case003-cover.webp" loading="lazy" alt="Capitolo 3 - L'attacco del merluzzo mutante"></div>
+          <div class="case-visual"><img src="images/bob-notes/case003-cover-600.webp" srcset="images/bob-notes/case003-cover-600.webp 600w, images/bob-notes/case003-cover.webp 1054w" sizes="(max-width: 900px) 92vw, 560px" width="600" height="849" loading="lazy" decoding="async" alt="Capitolo 3 - L'attacco del merluzzo mutante"></div>
           <div class="case-body">
             <div class="case-top"><span class="case-no">FILE #003</span><span class="case-status">Trauma ittico</span></div>
             <h3>L'attacco del merluzzo mutante</h3>
@@ -477,7 +527,7 @@
         </article>
 
         <article class="case-card">
-          <div class="case-visual"><img src="images/bob-notes/case004-cover.webp" loading="lazy" alt="Capitolo 4 - La maledizione del bravo ragazzo"></div>
+          <div class="case-visual"><img src="images/bob-notes/case004-cover-600.webp" srcset="images/bob-notes/case004-cover-600.webp 600w, images/bob-notes/case004-cover.webp 1023w" sizes="(max-width: 900px) 92vw, 560px" width="600" height="901" loading="lazy" decoding="async" alt="Capitolo 4 - La maledizione del bravo ragazzo"></div>
           <div class="case-body">
             <div class="case-top"><span class="case-no">FILE #004</span><span class="case-status">Minaccia emotiva</span></div>
             <h3>La maledizione del bravo ragazzo</h3>
@@ -487,7 +537,7 @@
         </article>
 
         <article class="case-card">
-          <div class="case-visual"><img src="images/bob-notes/case005-cover.webp" loading="lazy" alt="Capitolo 5 - Donne, razzi e numeri erotici"></div>
+          <div class="case-visual"><img src="images/bob-notes/case005-cover-600.webp" srcset="images/bob-notes/case005-cover-600.webp 600w, images/bob-notes/case005-cover.webp 1023w" sizes="(max-width: 900px) 92vw, 560px" width="600" height="901" loading="lazy" decoding="async" alt="Capitolo 5 - Donne, razzi e numeri erotici"></div>
           <div class="case-body">
             <div class="case-top"><span class="case-no">FILE #005</span><span class="case-status">Caos accademico</span></div>
             <h3>Donne, razzi e numeri erotici</h3>
@@ -569,6 +619,7 @@
             <li><b>Scuole:</b> 45–60 minuti, pensato soprattutto per le scuole secondarie. Contenuti e modalità li concordiamo con i docenti.</li>
             <li><b>Biblioteche e librerie:</b> costruiamo insieme una presentazione adatta al pubblico, anche per adulti.</li>
             <li><b>Privacy:</b> la scheda non chiede nomi né dati personali, e si può tenere per sé.</li>
+            <li><b>Il libro per la classe o la biblioteca:</b> su Amazon si può acquistare anche con Carta del Docente e Carta della Cultura, quando è venduto e spedito da Amazon. ISBN 979-8171536060.</li>
           </ul>
         </div>
         <div class="om-box sheet">
@@ -582,6 +633,75 @@
           </div>
         </div>
       </div>
+      <div class="om-teacher">
+        <div class="ico" aria-hidden="true">🗂️</div>
+        <div>
+          <h3>Per docenti e bibliotecari: la scheda dell'incontro</h3>
+          <p>Durata, età consigliate, temi, come si svolge e cosa serve in aula, tutto in una pagina da condividere con i colleghi o allegare alla proposta per il collegio docenti.</p>
+          <small>PDF · 2 pagine · A4</small>
+        </div>
+        <a class="om-btn gold" href="downloads/origin-movie-scheda-incontro.pdf" download>Scarica la scheda ↓</a>
+      </div>
+
+      <div class="om-agenda">
+        <div>
+          <h3>Prossimi incontri</h3>
+          <!-- Il calendario si aggiorna modificando l'elenco "eventi" qui sotto, nel blocco omIncontri. -->
+          <ul class="om-events" id="omEvents"></ul>
+          <div class="om-empty" id="omEventsEmpty">
+            Al momento non ci sono incontri aperti al pubblico in calendario.
+            Il prossimo potrebbe essere nella tua scuola o nella tua biblioteca: <a href="#proponi">proponimelo</a>.
+          </div>
+        </div>
+        <div id="omVoicesWrap" hidden>
+          <h3>Dicono degli incontri</h3>
+          <div class="om-voices" id="omVoices"></div>
+        </div>
+      </div>
+
+      <!--
+        COME AGGIORNARE IL CALENDARIO E LE TESTIMONIANZE
+        - "eventi": aggiungi un oggetto per ogni incontro. La data va nel formato AAAA-MM-GG.
+          Gli incontri passati spariscono da soli dalla lista.
+          Esempio: { "data": "2026-11-21", "titolo": "Incontro con l'autrice", "luogo": "Biblioteca civica, Bergamo", "orario": "17:30", "link": "" }
+        - "testimonianze": inserisci SOLO frasi reali, con il permesso di chi le ha scritte.
+          Esempio: { "testo": "I ragazzi ne parlavano ancora il giorno dopo.", "autore": "Una docente di lettere, Bergamo" }
+          Finché l'elenco è vuoto, il riquadro resta nascosto.
+      -->
+      <script type="application/json" id="omIncontri">
+      {
+        "eventi": [],
+        "testimonianze": []
+      }
+      </script>
+      <script>
+      (function(){
+        var data; try { data = JSON.parse(document.getElementById('omIncontri').textContent); } catch(e){ return; }
+        var esc=function(t){return String(t||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
+        var mesi=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+        var oggi=new Date(); oggi.setHours(0,0,0,0);
+        var ev=(data.eventi||[]).filter(function(e){return new Date(e.data+'T23:59:00')>=oggi;})
+          .sort(function(a,b){return a.data<b.data?-1:1;});
+        var ul=document.getElementById('omEvents');
+        if(ev.length){
+          document.getElementById('omEventsEmpty').hidden=true;
+          ul.innerHTML=ev.map(function(e){
+            var d=new Date(e.data+'T12:00:00');
+            var titolo=e.link?'<a href="'+esc(e.link)+'">'+esc(e.titolo)+'</a>':esc(e.titolo);
+            return '<li class="om-event"><div class="om-date"><b>'+d.getDate()+'</b><span>'+mesi[d.getMonth()]+' '+d.getFullYear()+'</span></div>'
+              +'<div><strong>'+titolo+'</strong><p>'+esc(e.luogo)+(e.orario?' · ore '+esc(e.orario):'')+'</p></div></li>';
+          }).join('');
+        }
+        var vv=data.testimonianze||[];
+        if(vv.length){
+          document.getElementById('omVoicesWrap').hidden=false;
+          document.getElementById('omVoices').innerHTML=vv.map(function(v){
+            return '<figure class="om-voice"><p>«'+esc(v.testo)+'»</p><cite>'+esc(v.autore)+'</cite></figure>';
+          }).join('');
+        }
+      })();
+      </script>
+
     </div>
   </section>
 
@@ -686,8 +806,55 @@
 </main>
 
 <footer class="footer">
-  <p>Tra codice e storie. Tra dati e immaginazione.</p>
-  <small>© 2026 Cinzia Molisano</small>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
 </footer>
 
 <script src="script.js"></script>

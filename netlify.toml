@@ -1,6 +1,20 @@
-# Configurazione Netlify per il sito personale
+# Configurazione Netlify per cinziamolisano.it
+# (redirect e header sono tutti qui: niente più _headers / _redirects separati)
 
-# Pagine spostate su Urania in Viaggio
+# --- Bob Notes è diventato Origin Movie ---
+[[redirects]]
+  from = "/bob-notes.html"
+  to = "/origin-movie.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bob-notes"
+  to = "/origin-movie.html"
+  status = 301
+  force = true
+
+# --- Pagine spostate su Urania in Viaggio ---
 [[redirects]]
   from = "/viaggi.html"
   to = "https://www.uraniainviaggio.it/viaggi.html"
@@ -25,7 +39,20 @@
   status = 301
   force = true
 
-# La sezione Fotografia è diventata Cartoni e action figure
+# Vecchi file di viaggio rimossi da questo sito
+[[redirects]]
+  from = "/assets/download/*"
+  to = "https://www.uraniainviaggio.it/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/assets/viaggi/*"
+  to = "https://www.uraniainviaggio.it/viaggi.html"
+  status = 301
+  force = true
+
+# --- La sezione Fotografia è diventata Cartoni e action figure ---
 [[redirects]]
   from = "/fotografia.html"
   to = "/cartoni-e-action-figure.html"
@@ -38,24 +65,47 @@
   status = 301
   force = true
 
-# Cache lunga per immagini e font; HTML sempre aggiornato
+# --- Cache ---
+# Font: non cambiano mai nome → cache lunghissima
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Immagini: 30 giorni. Se sostituisci un'immagine tenendo lo stesso nome,
+# chi è già passato di qui potrebbe vedere la vecchia per un po':
+# in quel caso conviene salvarla con un nome nuovo.
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=2592000"
 
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=2592000"
 
 [[headers]]
   for = "/*.webp"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=2592000"
 
+# CSS e JS: sempre ricontrollati, così le modifiche si vedono subito
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Sicurezza di base per tutte le pagine
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"

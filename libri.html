@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <title>I miei libri · Origin Movie, guide e quaderni di viaggio - Cinzia Molisano</title>
+  <meta name="description" content="Tutti i libri di Cinzia Molisano: Origin Movie, il quaderno di viaggio di Urania, la guida Giappone 2026, la guida di Bilbao in lavorazione e il romanzo Urania." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .books-page { padding-top: 78px; }
+    .books-hero { padding: 80px 0 56px; background: radial-gradient(circle at 85% 10%, rgba(214,112,135,.14), transparent 30%), var(--paper); border-bottom: 1px solid var(--line); }
+    .books-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1; margin: 10px 0 18px; }
+    .books-hero h1 span { font-family: 'Caveat', cursive; color: var(--accent-dark); font-weight: 700; }
+    .books-hero p { max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .books-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .books-filter a { text-decoration: none; font-weight: 700; font-size: .84rem; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+    .books-filter a:hover { border-color: var(--accent); }
+
+    .books-group { padding: 64px 0 20px; }
+    .books-group h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 6px 0 8px; }
+    .books-group > .shell > p { color: var(--muted); max-width: 640px; margin-bottom: 28px; }
+
+    .book { display: grid; grid-template-columns: 220px 1fr; gap: 34px; align-items: center; padding: 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 12px 35px rgba(80,50,30,.06); margin-bottom: 20px; }
+    .book-cover { position: relative; }
+    .book-cover img, .book-cover .cover-art { display: block; width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 4px 10px 10px 4px; box-shadow: 8px 10px 0 rgba(0,0,0,.08), 0 14px 30px rgba(0,0,0,.18); }
+    .book-cover a { display: block; text-decoration: none; color: #fff; transition: transform .2s ease; }
+    .book-cover a:hover { transform: translateY(-4px) rotate(-1deg); }
+    .book-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+    .status { font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; }
+    .status.ok { background: #dcefe3; color: #24603d; }
+    .status.soon { background: #fcefd0; color: #7a5a0f; }
+    .status.wip { background: #e9e4f3; color: #5a4685; }
+    .book-kind { font-size: .78rem; color: var(--muted); font-weight: 700; }
+    .book h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.08; margin-bottom: 6px; }
+    .book .tagline { font-family: 'Caveat', cursive; font-size: 1.45rem; color: var(--accent-dark); line-height: 1.2; margin-bottom: 12px; }
+    .book p { color: var(--muted); line-height: 1.7; max-width: 640px; }
+    .book-facts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; padding: 0; list-style: none; font-size: .84rem; font-weight: 700; }
+    .book-facts li::before { content: '· '; color: var(--accent); }
+    .book-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .book-actions .btn { min-height: 44px; padding: 10px 20px; font-size: .86rem; }
+    .btn-amazon { background: #c62f2f; color: #fff; box-shadow: 0 10px 22px rgba(198,47,47,.22); }
+    .btn-amazon:hover { background: #a92626; }
+
+    /* copertine disegnate per i libri senza immagine */
+    .cover-art { display: flex !important; flex-direction: column; justify-content: space-between; padding: 22px 18px; color: #fff; overflow: hidden; position: relative; }
+    .cover-art small { font-size: .62rem; letter-spacing: .18em; font-weight: 800; text-transform: uppercase; opacity: .85; }
+    .cover-art strong { font-family: 'Playfair Display', serif; font-size: 1.7rem; line-height: 1.05; }
+    .cover-art em { font-family: 'Caveat', cursive; font-style: normal; font-size: 1.3rem; line-height: 1.1; }
+    .cover-diario { background: radial-gradient(circle at 80% 20%, rgba(242,182,50,.35), transparent 35%), linear-gradient(160deg, #1d3557, #14213d); }
+    .cover-diario::after { content: '✈'; position: absolute; right: 16px; top: 46%; font-size: 3.4rem; opacity: .18; transform: rotate(-18deg); }
+    .cover-bilbao { background: radial-gradient(circle at 25% 75%, rgba(255,255,255,.18), transparent 30%), linear-gradient(160deg, #b5452f, #6d2a33); }
+    .cover-bilbao::after { content: '4'; position: absolute; right: 10px; bottom: 26px; font-family: 'Playfair Display', serif; font-size: 7rem; font-weight: 800; opacity: .14; }
+
+    .books-cta { margin: 50px 0 90px; padding: clamp(28px, 5vw, 48px); border-radius: 28px; background: #1b2a52; color: #fff; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; border-bottom: 5px solid #f2b632; }
+    .books-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.12; margin-bottom: 8px; }
+    .books-cta p { color: #d5d9e6; }
+    .books-cta .btn { background: #f2b632; color: #121c38; }
+
+    @media (max-width: 760px) {
+      .books-hero { padding: 56px 0 40px; }
+      .book { grid-template-columns: 1fr; padding: 24px 20px; gap: 22px; }
+      .book-cover { max-width: 200px; }
+      .books-cta { grid-template-columns: 1fr; }
+      .book-actions .btn { width: 100%; }
+    }
+  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfbf9">
+  <link rel="canonical" href="https://www.cinziamolisano.it/libri.html">
+  <meta property="og:title" content="I miei libri · Cinzia Molisano">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:description" content="Origin Movie, il quaderno di viaggio di Urania, le guide di viaggio e il romanzo in scrittura: tutti i libri di Cinzia Molisano.">
+  <meta property="og:url" content="https://www.cinziamolisano.it/libri.html">
+  <meta property="og:image" content="https://www.cinziamolisano.it/images/origin-movie/og-origin-movie.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "I libri di Cinzia Molisano",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Book", "name": "Origin Movie: Pensavo di essere sfigata… invece ero un supereroe", "author": { "@id": "https://www.cinziamolisano.it/#cinzia" }, "bookFormat": "https://schema.org/Paperback", "isbn": "9798171536060", "numberOfPages": 102, "datePublished": "2026-10-16", "inLanguage": "it", "url": "https://www.cinziamolisano.it/origin-movie.html", "sameAs": "https://www.amazon.it/dp/B0HNCC3PMH" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Book", "name": "Urania – Diario di viaggio", "author": { "@id": "https://www.cinziamolisano.it/#cinzia" }, "bookFormat": "https://schema.org/Paperback", "numberOfPages": 50, "inLanguage": "it", "url": "https://www.uraniainviaggio.it/guide/quaderno-di-viaggio.html", "sameAs": "https://www.amazon.it/dp/B0HN4MVFNG" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Book", "name": "Giappone 2026 · Urania in Viaggio", "author": { "@id": "https://www.cinziamolisano.it/#cinzia" }, "bookFormat": "https://schema.org/Paperback", "numberOfPages": 34, "inLanguage": "it", "url": "https://www.uraniainviaggio.it/guide/giappone.html" } }
+    ]
+  }
+  </script>
+</head>
+<body>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html" class="active" aria-current="page">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="contenuto" class="books-page">
+  <section class="books-hero">
+    <div class="shell">
+      <span class="section-kicker">Libri · Guide · Quaderni</span>
+      <h1>Le mie storie,<br><span>anche di carta.</span></h1>
+      <p>Un libro illustrato sulla mia origin story, le guide e i quaderni nati dai viaggi di Urania e un romanzo che sta ancora prendendo forma. Qui li trovi tutti, con il link per acquistarli.</p>
+      <nav class="books-filter" aria-label="Vai alla sezione">
+        <a href="#racconti">Racconti e romanzi</a>
+        <a href="#viaggi">Guide e quaderni di viaggio</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ RACCONTI ============ -->
+  <section class="books-group" id="racconti">
+    <div class="shell">
+      <span class="section-kicker">Racconti e romanzi</span>
+      <h2>Storie da leggere.</h2>
+      <p>Quello che scrivo quando la logica può finalmente comportarsi male.</p>
+
+      <article class="book">
+        <div class="book-cover">
+          <a href="origin-movie.html" aria-label="Scopri Origin Movie">
+            <img src="images/origin-movie/copertina-400.webp" srcset="images/origin-movie/copertina-400.webp 400w, images/origin-movie/copertina-640.webp 640w" sizes="(max-width: 760px) 200px, 220px" width="400" height="601" alt="Copertina di Origin Movie di Cinzia Molisano">
+          </a>
+        </div>
+        <div>
+          <div class="book-meta"><span class="status ok">Disponibile</span><span class="book-kind">Libro illustrato · autobiografia ironica</span></div>
+          <h3>Origin Movie</h3>
+          <div class="tagline">Pensavo di essere sfigata… invece ero un supereroe</div>
+          <p>Un racconto illustrato tra autobiografia, ironia e fantasia. Due nomi, un merluzzo sospetto, nove ragazze a ingegneria e una frittata di pasta che la mia famiglia non ha mai dimenticato. Ad accompagnarmi c'è Bob, con i suoi fascicoli investigativi.</p>
+          <ul class="book-facts"><li>Edizione cartacea, 102 pagine</li><li>Pensato anche per adolescenti</li><li>Acquistabile con Carta del Docente</li><li>ISBN 979-8171536060</li></ul>
+          <div class="book-actions">
+            <a class="btn btn-amazon" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista su Amazon →</a>
+            <a class="btn btn-secondary" href="origin-movie.html">Scopri il libro</a>
+            <a class="btn btn-secondary" href="origin-movie.html#incontri">Incontri</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book">
+        <div class="book-cover">
+          <a href="urania.html" aria-label="Scopri il romanzo Urania">
+            <img src="images/urania-copertina-480.webp" width="480" height="679" loading="lazy" decoding="async" alt="Copertina del romanzo Urania di Cinzia Molisano">
+          </a>
+        </div>
+        <div>
+          <div class="book-meta"><span class="status wip">In scrittura</span><span class="book-kind">Romanzo</span></div>
+          <h3>Urania</h3>
+          <div class="tagline">Il potere di sentire. Il pericolo di entrare.</div>
+          <p>Un romanzo tra mistero, identità e legami, ambientato a Pietra-Antica. Il mio progetto narrativo più intimo: lo racconto senza svelarne troppo, un frammento alla volta.</p>
+          <div class="book-actions">
+            <a class="btn btn-secondary" href="urania.html">Entra nel mondo di Urania →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ VIAGGI ============ -->
+  <section class="books-group" id="viaggi">
+    <div class="shell">
+      <span class="section-kicker">Guide e quaderni di viaggio · Urania in Viaggio</span>
+      <h2>Libri da portare in valigia.</h2>
+      <p>Nati dai miei viaggi e pubblicati con il marchio Urania in Viaggio: guide pratiche costruite sugli itinerari che ho fatto davvero, e un quaderno da riempire a penna.</p>
+
+      <article class="book">
+        <div class="book-cover">
+          <a href="https://www.uraniainviaggio.it/guide/quaderno-di-viaggio.html" aria-label="Sfoglia il quaderno di viaggio">
+            <div class="cover-art cover-diario" role="img" aria-label="Copertina: Urania, Diario di viaggio">
+              <small>Urania in Viaggio</small>
+              <strong>Diario<br>di viaggio</strong>
+              <em>giorni, spese, ristoranti e cosa rifarei</em>
+            </div>
+          </a>
+        </div>
+        <div>
+          <div class="book-meta"><span class="status ok">Disponibile</span><span class="book-kind">Quaderno da compilare</span></div>
+          <h3>Urania – Diario di viaggio</h3>
+          <div class="tagline">Il viaggio, scritto a penna.</div>
+          <p>Un quaderno adatto a qualsiasi destinazione: una pagina per ogni giornata, il budget, i ristoranti provati, le frasi utili da tradurre sul posto e una pagina per “cosa rifarei e cosa cambierei”.</p>
+          <ul class="book-facts"><li>50 pagine</li><li>21 giornate</li><li>Formato 6 × 9 pollici</li></ul>
+          <div class="book-actions">
+            <a class="btn btn-amazon" href="https://www.amazon.it/dp/B0HN4MVFNG" target="_blank" rel="noopener">Acquista su Amazon →</a>
+            <a class="btn btn-secondary" href="https://www.uraniainviaggio.it/guide/quaderno-di-viaggio.html">Sfoglia le pagine</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book">
+        <div class="book-cover">
+          <a href="https://www.uraniainviaggio.it/guide/giappone.html" aria-label="Scopri la guida Giappone 2026">
+            <img src="https://www.uraniainviaggio.it/assets/libro/copertina-giappone.webp" onerror="this.onerror=null;this.src='images/copertina-giappone-2026.webp'" width="400" height="600" loading="lazy" decoding="async" alt="Copertina della guida Giappone 2026 di Urania in Viaggio">
+          </a>
+        </div>
+        <div>
+          <div class="book-meta"><span class="status soon">In arrivo su Amazon</span><span class="book-kind">Guida di viaggio</span></div>
+          <h3>Giappone 2026</h3>
+          <div class="tagline">Un Giappone da vivere, non solo da visitare.</div>
+          <p>Una guida operativa di 17 giorni tra Tokyo, Kanazawa, Kyoto e Osaka, costruita sul nostro itinerario: giornate, trasporti e carte IC, dove mangiare, cultura, budget e i consigli “Urania Tip”.</p>
+          <ul class="book-facts"><li>34 pagine</li><li>Formato 6 × 9 pollici</li><li>Copertina opaca</li></ul>
+          <div class="book-actions">
+            <a class="btn btn-primary" href="https://www.uraniainviaggio.it/guide/giappone.html">Avvisami quando esce →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book">
+        <div class="book-cover">
+          <div class="cover-art cover-bilbao" role="img" aria-label="Copertina provvisoria: Bilbao in 4 giorni">
+            <small>Urania in Viaggio</small>
+            <strong>Bilbao<br>in 4 giorni</strong>
+            <em>guida illustrata</em>
+          </div>
+        </div>
+        <div>
+          <div class="book-meta"><span class="status wip">In lavorazione</span><span class="book-kind">Guida di viaggio</span></div>
+          <h3>Bilbao in 4 giorni</h3>
+          <div class="tagline">La prossima guida di Urania.</div>
+          <p>Stessa grafica della guida Giappone, quattro giornate costruite sul nostro itinerario. I testi sono già in corso: foto e verifiche arriveranno dopo il viaggio di dicembre.</p>
+          <div class="book-actions">
+            <a class="btn btn-secondary" href="https://www.uraniainviaggio.it/guide.html">Le guide su Urania in Viaggio →</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="books-cta">
+        <div>
+          <h2>Vuoi portare Origin Movie nella tua scuola o biblioteca?</h2>
+          <p>Propongo incontri per ragazzi e adulti partendo dalle tavole del libro.</p>
+        </div>
+        <a class="btn" href="origin-movie.html#incontri">Scopri gli incontri →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

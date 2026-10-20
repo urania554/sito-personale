@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <title>Bob File #002 · L'arma arancione - Cinzia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Bob File #002: L&#x27;arma arancione. Un caso quasi realmente accaduto dalla raccolta Bob Notes.">
+  <meta name="description" content="Bob File #002: L&#x27;arma arancione. Un caso quasi realmente accaduto, dal libro Origin Movie.">
   <link rel="stylesheet" href="style.css">
   <style>
     :root{--paper:#efe5cf;--ink:#1f2127;--red:#9b3f42;--dark:#15171c;--tape:#d7c7aa}
@@ -50,29 +52,42 @@
     .verdict-icon{font-size:2.2rem}.verdict strong{display:block;color:#e8a5a9;font-size:.75rem;letter-spacing:.1em}.verdict p{margin:6px 0 0;font-family:'Playfair Display',serif;font-size:1.25rem;line-height:1.45}
     .case-nav{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:34px}
     .case-nav a{padding:11px 16px;border-radius:999px;text-decoration:none;font-weight:800;background:#fff;border:1px solid #d8cec0;color:#2a2926}
-    @media(max-width:900px){.hero-grid,.dossier{grid-template-columns:1fr}.cover-frame{position:static;max-width:520px;margin:0 auto}.evidence-grid,.analysis-box{grid-template-columns:1fr}}
+    @media(max-width:900px){.hero-grid,.dossier{grid-template-columns:1fr}.cover-frame{position:static;max-width:520px;margin:0 auto}.dossier>*{min-width:0}.evidence-grid,.analysis-box{grid-template-columns:1fr}}
 </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#fcfbf9">
 <meta property="og:title" content="Bob File #002 · L'arma arancione - Cinzia">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
-<meta property="og:description" content="Bob File #002: L&#x27;arma arancione. Un caso quasi realmente accaduto dalla raccolta Bob Notes.">
+<meta property="og:description" content="Bob File #002: L&#x27;arma arancione. Un caso quasi realmente accaduto, dal libro Origin Movie.">
 <link rel="canonical" href="https://www.cinziamolisano.it/bob-case-002.html">
 <meta property="og:url" content="https://www.cinziamolisano.it/bob-case-002.html">
 <meta property="og:image" content="https://www.cinziamolisano.it/og-cinzia.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-  <nav class="menu" id="mainMenu">
-    <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a href="blog.html">BLOG</a><a href="index.html#contatti">CONTATTI</a>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html" class="active" aria-current="page">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
   </nav>
-  <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button><a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button></div>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
-<main class="case-page">
+<main id="contenuto" class="case-page">
   <section class="case-hero">
     <div class="case-shell hero-grid">
       <div>
@@ -88,10 +103,10 @@
     </div>
   </section>
 
-  <section class="case-section">
+  <section class="case-section light-island">
     <div class="case-shell dossier">
       <div class="cover-frame">
-        <img src="images/bob-notes/case002-cover.webp" alt="L'arma arancione">
+        <img src="images/bob-notes/case002-cover-600.webp" srcset="images/bob-notes/case002-cover-600.webp 600w, images/bob-notes/case002-cover.webp 1023w" sizes="(max-width: 760px) 90vw, 420px" width="600" height="901" decoding="async" alt="L'arma arancione">
       </div>
 
       <div class="file-sheet">
@@ -108,21 +123,21 @@
     </div>
   </section>
 
-  <section class="case-section" style="background:#efe6d7">
+  <section class="case-section light-island" style="background:#efe6d7">
     <div class="case-shell">
       <div class="evidence-head">
         <span class="case-kicker" style="color:#9b3f42">PROVE RACCOLTE</span>
         <h2>Materiale dal caso.</h2>
-        <p>Solo alcuni frammenti della graphic novel: abbastanza per capire il tono, non abbastanza per raccontare tutto.</p>
+        <p>Solo alcuni frammenti del libro: abbastanza per capire il tono, non abbastanza per raccontare tutto.</p>
       </div>
 
       <div class="evidence-grid">
         <figure class="evidence">
-          <img src="images/bob-notes/case002-proof-a.webp" alt="Prova A - L'arma arancione">
+          <img src="images/bob-notes/case002-proof-a-800.webp" srcset="images/bob-notes/case002-proof-a-800.webp 800w, images/bob-notes/case002-proof-a.webp 1023w" sizes="(max-width: 760px) 92vw, 560px" width="800" height="1202" loading="lazy" decoding="async" alt="Prova A - L'arma arancione">
           <figcaption class="evidence-label">PROVA A · materiale acquisito</figcaption>
         </figure>
         <figure class="evidence">
-          <img src="images/bob-notes/case002-proof-b.webp" alt="Prova B - L'arma arancione">
+          <img src="images/bob-notes/case002-proof-b-800.webp" srcset="images/bob-notes/case002-proof-b-800.webp 800w, images/bob-notes/case002-proof-b.webp 1023w" sizes="(max-width: 760px) 92vw, 560px" width="800" height="1202" loading="lazy" decoding="async" alt="Prova B - L'arma arancione">
           <figcaption class="evidence-label">PROVA B · elemento sospetto</figcaption>
         </figure>
       </div>
@@ -144,14 +159,64 @@
       </div>
 
       <div class="case-nav">
-        <a href="bob-notes.html">← Torna all'archivio</a>
+        <a href="origin-movie.html#fascicoli">← Torna ai fascicoli di Origin Movie</a>
         <a href="index.html">Home</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

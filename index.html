@@ -3,439 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Il sito personale di Cinzia Molisano: informatica, scrittura, viaggi, cartoni anni '80, action figure e progetti creativi." />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="description" content="Il sito personale di Cinzia Molisano, autrice di Origin Movie: informatica, scrittura, libri, viaggi, cartoni anni '80 e progetti creativi." />
   <title>Cinzia Molisano · Tra codice e storie</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
-  <style>
-    /* Progetti in evidenza - versione editoriale */
-    #progetti.projects-showcase{
-      padding:86px 0;
-      background:#f4efe7;
-    }
-    .projects-shell{
-      width:min(1180px,calc(100% - 40px));
-      margin:0 auto;
-    }
-    .projects-intro{
-      display:flex;
-      justify-content:space-between;
-      gap:30px;
-      align-items:end;
-      margin-bottom:32px;
-    }
-    .projects-intro h2{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.4rem,4.5vw,4.3rem);
-      line-height:1;
-      margin:7px 0 0;
-    }
-    .projects-intro p{
-      max-width:480px;
-      color:#6d6862;
-      line-height:1.7;
-      margin:0;
-    }
-    .project-showcase-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-    .project-showcase-card{
-      min-height:350px;
-      border-radius:28px;
-      padding:30px;
-      text-decoration:none;
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      border:1px solid rgba(0,0,0,.08);
-      transition:transform .22s ease,box-shadow .22s ease;
-    }
-    .project-showcase-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 22px 45px rgba(31,28,25,.14);
-    }
-    .project-showcase-card .project-top{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      align-items:start;
-    }
-    .project-index{
-      font-family:'Caveat',cursive;
-      font-size:1.6rem;
-      font-weight:700;
-      opacity:.8;
-    }
-    .project-type{
-      font-size:.66rem;
-      font-weight:900;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid currentColor;
-      opacity:.75;
-    }
-    .project-showcase-card h3{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.2rem,4vw,3.5rem);
-      line-height:1;
-      margin:0 0 13px;
-    }
-    .project-showcase-card p{
-      max-width:520px;
-      line-height:1.65;
-      margin:0 0 22px;
-      opacity:.82;
-    }
-    .project-open{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-weight:900;
-      font-size:.83rem;
-      letter-spacing:.03em;
-    }
-    .project-urania{
-      background:
-        radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 24%),
-        linear-gradient(135deg,#25213e,#605879);
-      color:#fff;
-    }
-    .project-bob{
-      background:
-        radial-gradient(circle at 88% 12%,rgba(155,63,66,.23),transparent 25%),
-        #181a1f;
-      color:#fff;
-    }
-    .project-ugid{
-      background:linear-gradient(135deg,#e9f1ee,#d7e6e2);
-      color:#233431;
-    }
-    .project-places{
-      background:linear-gradient(135deg,#f3e7d6,#e6d2b8);
-      color:#3e3127;
-    }
-    .project-mark{
-      position:absolute;
-      right:24px;
-      bottom:15px;
-      font-family:'Caveat',cursive;
-      font-size:clamp(4rem,8vw,7rem);
-      font-weight:700;
-      opacity:.07;
-      pointer-events:none;
-    }
-    .projects-note{
-      margin-top:20px;
-      padding:17px 20px;
-      border-radius:16px;
-      background:#fff;
-      border:1px solid #e5ddd2;
-      color:#6d6862;
-      font-size:.9rem;
-    }
-    @media(max-width:820px){
-      .projects-intro{display:block}
-      .projects-intro p{margin-top:18px}
-      .project-showcase-grid{grid-template-columns:1fr}
-    }
-  </style>
 
-
-  <style>
-    /* Chi sono - nuova versione */
-    .about-profile{
-      padding:88px 0;
-      background:#fff;
-    }
-    .about-profile-shell{
-      width:min(1180px,calc(100% - 40px));
-      margin:0 auto;
-    }
-    .about-profile-grid{
-      display:grid;
-      grid-template-columns:.82fr 1.18fr;
-      gap:24px;
-      align-items:stretch;
-    }
-    .about-intro-card{
-      background:#191b20;
-      color:#fff;
-      border-radius:30px;
-      padding:40px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      min-height:520px;
-      position:relative;
-      overflow:hidden;
-    }
-    .about-intro-card::after{
-      content:"★";
-      position:absolute;
-      right:-12px;
-      bottom:-50px;
-      font-size:13rem;
-      color:rgba(255,255,255,.035);
-      transform:rotate(12deg);
-    }
-    .about-intro-card .small-title{color:#e5a6b7}
-    .about-intro-card h2{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.6rem,4.5vw,4.4rem);
-      line-height:1.02;
-      margin:10px 0 22px;
-      max-width:620px;
-    }
-    .about-intro-card p{
-      color:#c7c9ce;
-      line-height:1.75;
-      max-width:600px;
-    }
-    .about-manifesto{
-      font-family:'Caveat',cursive;
-      color:#efc1cc;
-      font-size:1.55rem;
-      line-height:1.25;
-      margin-top:24px;
-    }
-    .about-path{
-      display:inline-flex;
-      width:max-content;
-      margin-top:28px;
-      color:#fff;
-      text-decoration:none;
-      font-weight:800;
-      position:relative;
-      z-index:2;
-    }
-    .about-worlds{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    .about-world{
-      border-radius:24px;
-      padding:25px;
-      min-height:205px;
-      border:1px solid #e4ddd3;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .about-world:nth-child(1){background:#eaf1ef}
-    .about-world:nth-child(2){background:#f4e9ed}
-    .about-world:nth-child(3){background:#eee9f5}
-    .about-world:nth-child(4){background:#f3eadb}
-    .about-world-icon{font-size:1.7rem}
-    .about-world h3{
-      font-family:'Playfair Display',serif;
-      font-size:1.55rem;
-      margin:16px 0 7px;
-    }
-    .about-world p{
-      color:#69645e;
-      font-size:.9rem;
-      line-height:1.55;
-      margin:0;
-    }
-    .about-quick{
-      grid-column:1/-1;
-      background:#f7f5f1;
-      border:1px solid #e5dfd6;
-      border-radius:24px;
-      padding:23px 25px;
-    }
-    .about-quick-title{
-      display:block;
-      font-size:.68rem;
-      font-weight:900;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:14px;
-      color:#777069;
-    }
-    .about-quick-items{
-      display:flex;
-      flex-wrap:wrap;
-      gap:9px;
-    }
-    .about-quick-items span{
-      padding:9px 12px;
-      background:#fff;
-      border:1px solid #e5ded5;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:700;
-    }
-    @media(max-width:900px){
-      .about-profile-grid{grid-template-columns:1fr}
-      .about-intro-card{min-height:auto}
-    }
-    @media(max-width:620px){
-      .about-worlds{grid-template-columns:1fr}
-      .about-intro-card{padding:30px 25px}
-    }
-  </style>
-
-
-  <style>
-    .travel-home-card{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:.85fr 1.15fr;
-      gap:0;
-      overflow:hidden;
-      border-radius:28px;
-      background:linear-gradient(135deg,#e8eee9,#efe2d3);
-      border:1px solid #ddd6cc;
-      text-decoration:none;
-      color:#26302d;
-      transition:transform .2s ease,box-shadow .2s ease;
-    }
-    .travel-home-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(34,31,28,.13)}
-    .travel-home-map{
-      min-height:290px;
-      position:relative;
-      background:
-        radial-gradient(circle at 19% 36%,#b65d63 0 5px,transparent 6px),
-        radial-gradient(circle at 38% 55%,#526d65 0 6px,transparent 7px),
-        radial-gradient(circle at 65% 42%,#b65d63 0 5px,transparent 6px),
-        radial-gradient(circle at 78% 67%,#526d65 0 6px,transparent 7px),
-        linear-gradient(25deg,#dce6e1,#f0e6d9);
-    }
-    .travel-home-map::before{
-      content:"VIAGGI";
-      position:absolute;left:24px;bottom:18px;
-      font-family:'Caveat',cursive;font-size:4.4rem;
-      font-weight:700;color:rgba(35,58,52,.15)
-    }
-    .travel-home-copy{padding:32px 34px;display:flex;flex-direction:column;justify-content:center}
-    .travel-home-copy span{font-size:.67rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#9e565b}
-    .travel-home-copy h3{font-family:'Playfair Display',serif;font-size:2.6rem;line-height:1.05;margin:7px 0 12px}
-    .travel-home-copy p{color:#68645f;line-height:1.65;margin:0 0 18px}
-    .travel-home-copy b{font-size:.86rem}
-    @media(max-width:760px){.travel-home-card{grid-template-columns:1fr}.travel-home-map{min-height:220px}}
-  </style>
-
-
-  <style>
-    /* Correzioni impaginazione Home */
-    #competenze.features-grid{
-      width:min(1180px,calc(100% - 40px));
-      margin:0 auto;
-      display:grid !important;
-      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-      gap:20px !important;
-      align-items:stretch;
-      padding-bottom:88px;
-    }
-
-    #competenze .feature-card{
-      width:auto !important;
-      max-width:none !important;
-      min-width:0;
-      height:100%;
-      box-sizing:border-box;
-    }
-
-    #competenze .feature-card:nth-child(4),
-    #competenze .feature-card:nth-child(5){
-      grid-column:auto;
-    }
-
-    .home-blog-link{
-      text-decoration:none;
-      color:inherit;
-      display:flex;
-      flex-direction:column;
-    }
-
-    .blog-grid{
-      align-items:stretch;
-    }
-
-    .blog-card{
-      height:100%;
-      box-sizing:border-box;
-    }
-
-    .home-travel-section{
-      padding:0 0 88px;
-      background:var(--bg, #fff);
-    }
-
-    .home-travel-shell{
-      width:min(1180px,calc(100% - 40px));
-      margin:0 auto;
-    }
-
-    .travel-home-card{
-      margin-top:0;
-    }
-
-    /* Riduce i vuoti verticali tra sezioni */
-    .about-profile,
-    #progetti.projects-showcase,
-    .blog-section{
-      margin-top:0 !important;
-      margin-bottom:0 !important;
-    }
-
-    @media (min-width:901px){
-      #competenze .feature-card:nth-child(4){
-        grid-column:1 / 2;
-      }
-      #competenze .feature-card:nth-child(5){
-        grid-column:2 / 3;
-      }
-    }
-
-    @media(max-width:900px){
-      #competenze.features-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-      }
-      #competenze .feature-card:nth-child(4),
-      #competenze .feature-card:nth-child(5){
-        grid-column:auto;
-      }
-    }
-
-    @media(max-width:620px){
-      #competenze.features-grid{
-        grid-template-columns:1fr !important;
-      }
-    }
-  </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-  <style>
-    /* Fascia "Nuova uscita" Origin Movie */
-    .home-book-band{padding:56px 20px;background:#1b2a52;color:#fff;border-top:4px solid #f2b632;border-bottom:4px solid #f2b632}
-    .home-book-inner{width:min(980px,100%);margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:center}
-    .home-book-cover img{display:block;width:100%;height:auto!important;border-radius:4px 8px 8px 4px;box-shadow:10px 10px 0 #c62f2f;transform:rotate(-2deg);transition:transform .25s ease}
-    .home-book-cover:hover img{transform:rotate(0) translateY(-4px)}
-    .home-book-badge{display:inline-block;background:#f2b632;color:#121c38;font-family:'Bangers',cursive;font-size:1.15rem;letter-spacing:.08em;padding:4px 12px 2px;transform:rotate(-2deg)}
-    .home-book-copy h2{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.03em;font-size:clamp(3rem,6vw,4.8rem);line-height:1;margin:14px 0 4px;color:#fff}
-    .home-book-sub{font-family:'Caveat',cursive;font-size:1.7rem;color:#f2b632;margin:0 0 14px;line-height:1.15}
-    .home-book-copy p{color:#d5d9e6;line-height:1.7}
-    .home-book-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-    .home-book-btn{display:inline-flex;padding:13px 20px;border-radius:999px;font-weight:800;text-decoration:none;color:#fff;border:2px solid rgba(255,255,255,.4)}
-    .home-book-btn.primary{background:#c62f2f;border-color:#c62f2f}
-    .home-book-btn:hover{transform:translateY(-2px)}
-    @media(max-width:820px){.home-book-inner{grid-template-columns:1fr;gap:28px}.home-book-cover{max-width:260px;margin:0 auto}}
-  </style>
-
-<script>document.documentElement.className+=' js'</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#fcfbf9">
 <meta property="og:title" content="Cinzia Molisano · Tra codice e storie">
@@ -446,31 +21,60 @@
 <meta property="og:url" content="https://www.cinziamolisano.it/">
 <meta property="og:image" content="https://www.cinziamolisano.it/og-cinzia.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.cinziamolisano.it/#cinzia",
+      "name": "Cinzia Molisano",
+      "url": "https://www.cinziamolisano.it/",
+      "image": "https://www.cinziamolisano.it/og-cinzia.jpg",
+      "jobTitle": "IT Specialist e autrice",
+      "description": "Lavora nel mondo IT e scrive storie: autrice di Origin Movie e delle guide di viaggio di Urania in Viaggio.",
+      "knowsAbout": ["Identity and Access Management", "Active Directory", "SQL", "Automazione", "Scrittura", "Libri illustrati", "Viaggi"],
+      "sameAs": [
+        "https://www.instagram.com/cinzia.originmovie/",
+        "https://www.tiktok.com/@cinzia.originmovie",
+        "https://www.uraniainviaggio.it/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.cinziamolisano.it/#sito",
+      "url": "https://www.cinziamolisano.it/",
+      "name": "Cinzia Molisano · Tra codice e storie",
+      "inLanguage": "it",
+      "publisher": { "@id": "https://www.cinziamolisano.it/#cinzia" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="#home" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="#home" class="active">HOME</a>
+    <a href="#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-  <header class="navbar" id="navbar">
-    <a class="logo" href="#home" aria-label="Torna alla home">Cinzia<span>★</span></a>
-
-    <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-      <a href="#home" class="active">HOME</a>
-      <a href="#chi-sono">CHI SONO</a>
-      <a href="competenze.html">COMPETENZE</a>
-      <a href="#progetti">PROGETTI</a>
-      <a href="blog.html">BLOG</a>
-      <a href="#contatti">CONTATTI</a>
-    </nav>
-
-    <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema" title="Cambia tema">☾</button>
-      <a class="icon-btn mail-btn" href="#contatti" aria-label="Vai ai contatti" title="Contatti">✉</a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
+  <main id="contenuto">
     <section id="home" class="hero hero-split">
       <div class="hero-copy reveal">
         <div class="hero-copy-inner">
@@ -516,6 +120,7 @@
             <a class="home-book-btn primary" href="https://www.amazon.it/dp/B0HNCC3PMH" target="_blank" rel="noopener">Acquista su Amazon →</a>
             <a class="home-book-btn" href="origin-movie.html">Scopri il libro e gli incontri</a>
           </div>
+          <a class="home-book-more" href="libri.html">Tutti i miei libri, anche le guide di viaggio →</a>
         </div>
       </div>
     </section>
@@ -523,7 +128,7 @@
     <section id="mondi" class="section-intro reveal">
       <span class="section-kicker">Il mio mondo</span>
       <h2>Cinque passioni, una sola storia.</h2>
-      <p>Il digitale incontra la creatività, i viaggi e tutto ciò che mi incuriosisce.</p>
+      <p>Il digitale incontra la creatività, i viaggi, i libri e tutto ciò che mi incuriosisce.</p>
     </section>
 
     <section id="competenze" class="features-grid reveal">
@@ -545,7 +150,7 @@
         <div class="icon-circle green">🌍</div>
         <h3>VIAGGI</h3>
         <p>Itinerari, fotografie e piccoli dettagli raccolti lungo la strada.</p>
-        <a href="https://uraniainviaggio.it/" class="link-scopri">SCOPRI DI PIÙ <span>→</span></a>
+        <a href="https://www.uraniainviaggio.it/" class="link-scopri">SCOPRI DI PIÙ <span>→</span></a>
       </article>
 
       <article class="feature-card">
@@ -556,10 +161,10 @@
       </article>
 
       <article class="feature-card">
-        <div class="icon-circle blue">🐾</div>
-        <h3>ORIGIN MOVIE</h3>
-        <p>Il mio libro illustrato: un'origin story quasi da supereroina, con Bob e i suoi fascicoli.</p>
-        <a href="origin-movie.html" class="link-scopri">SCOPRI DI PIÙ <span>→</span></a>
+        <div class="icon-circle blue">📚</div>
+        <h3>LIBRI</h3>
+        <p>Origin Movie, le guide di viaggio di Urania e il quaderno da riempire in viaggio: tutto quello che ho pubblicato.</p>
+        <a href="libri.html" class="link-scopri">SCOPRI I LIBRI <span>→</span></a>
       </article>
     </section>
 
@@ -607,7 +212,7 @@
               <span class="about-world-icon">✎</span>
               <div>
                 <h3>Scrittura</h3>
-                <p>Romanzi, personaggi e graphic novel: il posto in cui la logica può finalmente comportarsi male.</p>
+                <p>Romanzi, personaggi e libri illustrati: il posto in cui la logica può finalmente comportarsi male.</p>
               </div>
             </article>
 
@@ -710,8 +315,12 @@
           </a>
         </div>
 
-        <div class="projects-note">
-          Questi sono i progetti principali di questo momento. Il sito continuerà a crescere insieme a loro.
+        <div class="projects-more">
+          <strong>Altri progetti</strong>
+          <a href="it-happens.html">🕒 IT Happens</a>
+          <a href="urania-live-translator.html">🎧 Urania Live Translator</a>
+          <a href="collezione.html">📀 La mia collezione</a>
+          <a href="libri.html">📚 I miei libri</a>
         </div>
       </div>
     </section>
@@ -726,30 +335,30 @@
       </div>
 
       <div class="blog-grid">
-        <a href="https://uraniainviaggio.it/" class="blog-card featured-post home-blog-link">
-          <span class="post-tag">VIAGGI</span>
-          <div class="blog-card-body">
-            <p class="post-meta">Diario di viaggio</p>
-            <h3>La prossima storia parte da qui.</h3>
-            <p>Uno spazio per raccogliere itinerari, fotografie, impressioni e piccoli dettagli che non voglio dimenticare.</p>
-          </div>
-        </a>
-
-        <a href="scrittura.html" class="blog-card home-blog-link">
+        <a href="blog-dietro-le-quinte-origin-movie.html" class="blog-card featured-post">
           <span class="post-tag">SCRITTURA</span>
-          <div class="blog-card-body">
-            <p class="post-meta">Dietro le quinte</p>
-            <h3>Dal primo appunto a una storia.</h3>
-            <p>Idee, personaggi, bozze e tutto quello che succede prima dell'ultima pagina.</p>
+          <div>
+            <p class="post-meta">Dietro le quinte · 6 min</p>
+            <h3>Da “Sfigata” a Origin Movie: come è nato il mio libro.</h3>
+            <p>Un titolo cambiato, un cane investigatore e una frittata di pasta: il percorso dalla prima idea al libro su Amazon.</p>
           </div>
         </a>
 
-        <a href="informatica.html" class="blog-card home-blog-link">
+        <a href="blog-come-nasce-una-guida-di-viaggio.html" class="blog-card">
+          <span class="post-tag">VIAGGI</span>
+          <div>
+            <p class="post-meta">Guide Urania · 5 min</p>
+            <h3>Come nasce una guida di viaggio di carta.</h3>
+            <p>Formato, abbondanza, 300 DPI e immagini a tutta pagina: cosa ho imparato impaginando per Amazon KDP.</p>
+          </div>
+        </a>
+
+        <a href="blog-dal-problema-allo-strumento.html" class="blog-card">
           <span class="post-tag">TECNOLOGIA</span>
-          <div class="blog-card-body">
-            <p class="post-meta">Appunti digitali</p>
-            <h3>Quando la tecnologia diventa creativa.</h3>
-            <p>Esperimenti, strumenti e soluzioni che uniscono il mio lato tecnico a quello creativo.</p>
+          <div>
+            <p class="post-meta">Appunti digitali · 4 min</p>
+            <h3>Dal problema allo strumento.</h3>
+            <p>Perché il codice, per me, arriva sempre dopo: come una procedura ripetuta trenta volte diventa un tool.</p>
           </div>
         </a>
       </div>
@@ -758,7 +367,7 @@
     
     <section class="home-travel-section reveal">
       <div class="home-travel-shell">
-        <a href="https://uraniainviaggio.it/" class="travel-home-card">
+        <a href="https://www.uraniainviaggio.it/" class="travel-home-card">
           <div class="travel-home-map" aria-hidden="true"></div>
           <div class="travel-home-copy">
             <span>Viaggi</span>
@@ -778,6 +387,11 @@
         <span class="section-kicker">Restiamo in contatto</span>
         <h2>Hai un'idea, una storia o semplicemente vuoi salutarmi?</h2>
         <p>Per progetti, collaborazioni, scrittura o semplicemente per scambiare due parole, puoi scrivermi direttamente via e-mail.</p>
+        <div class="contact-social">
+          <a href="https://www.instagram.com/cinzia.originmovie/" target="_blank" rel="me noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@cinzia.originmovie" target="_blank" rel="me noopener">TikTok</a>
+          <a href="origin-movie.html#proponi">Organizza un incontro</a>
+        </div>
       </div>
       <a class="contact-button" href="mailto:cinziamweb@gmail.com?subject=Contatto%20dal%20sito%20cinziamolisano.it">
         <span class="contact-icon">✉</span>
@@ -788,12 +402,56 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-inner">
-      <a class="logo footer-logo" href="#home">Cinzia<span>★</span></a>
-      <p>Tra codice e storie. Tra dati e immaginazione.</p>
-      <small>© 2026 Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
 
   <script src="script.js"></script>
 </body>

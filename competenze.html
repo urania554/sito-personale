@@ -3,110 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <title>Competenze - Cinzia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <meta name="description" content="Competenze di Cinzia Molisano: identity &amp; access management, Active Directory, smart card, automazione e strumenti per semplificare processi complessi.">
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Stili specifici per la pagina competenze che integrano il tuo CSS globale */
-    .skills-page { margin-top: 120px; padding-bottom: 90px; }
-    .intro-narrativa { max-width: 800px; margin-bottom: 60px; }
-    .intro-narrativa p { font-size: 1.2rem; color: #3f3934; line-height: 1.7; }
-    
-    /* Griglia Badge Tecnologie */
-    .badge-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
+    .skills-page { padding: 130px 0 90px; }
+    .skills-page h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.12; margin-bottom: 20px; }
+    .intro-narrativa { max-width: 800px; margin-bottom: 50px; }
+    .intro-narrativa p { font-size: 1.15rem; color: var(--muted); line-height: 1.7; }
+    .skills-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; }
+    .skills-details h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 22px; }
+    .skill-list { display: grid; gap: 16px; }
+    .skill-card {
+      display: grid; grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 8px; align-items: center;
+      padding: 24px 26px; border: 1px solid rgba(214,112,135,.32); border-radius: 22px;
+      background: var(--surface); box-shadow: 0 10px 30px rgba(80,50,30,.055);
+      transition: transform .2s ease;
     }
-    .badge {
-      background: #161b23;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.25s ease;
-    }
-    .badge:hover {
-      border-color: #d67087;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(214, 112, 135, 0.15);
-    }
-    
-    /* Layout a due colonne per macro-aree e badge */
-    .skills-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      margin-top: 50px;
-    }
-    
-    /* Le card della pagina Competenze non devono ereditare la griglia a 3 colonne
-       usata dai progetti della Home. */
-    .skills-details .project-grid {
-      grid-template-columns: 1fr !important;
-      gap: 18px !important;
-    }
-
-    .skills-details .project-item {
-      display: grid !important;
-      grid-template-columns: auto 1fr !important;
-      grid-template-rows: auto auto !important;
-      column-gap: 12px !important;
-      row-gap: 8px !important;
-      align-items: center !important;
-      min-height: 0 !important;
-      padding: 24px 26px !important;
-      border: 1px solid rgba(214,112,135,.32) !important;
-      border-radius: 22px !important;
-      background: var(--surface) !important;
-      box-shadow: 0 10px 30px rgba(80,50,30,.055) !important;
-    }
-
-    .skills-details .project-item > span {
-      grid-column: 1;
-      grid-row: 1;
-      margin: 0 !important;
-      line-height: 1;
-    }
-
-    .skills-details .project-item > strong {
-      grid-column: 2;
-      grid-row: 1;
-      font-size: 1.02rem !important;
-      line-height: 1.35;
-      color: var(--text);
-    }
-
-    .skills-details .project-item > p {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      width: 100%;
-      margin: 3px 0 0 !important;
-      color: var(--muted) !important;
-      line-height: 1.7 !important;
-      font-size: .95rem !important;
-    }
-
-    .skills-details .project-item:hover {
-      transform: translateY(-3px) !important;
-    }
-
-    .skills-aside {
-      min-width: 0;
-    }
-
-    @media (max-width: 980px) {
-      .skills-layout { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 560px) {
-      .skills-page { margin-top: 95px; }
-      .skills-details .project-item { padding: 20px !important; }
-    }
+    .skill-card:hover { transform: translateY(-3px); }
+    .skill-card .ic { font-size: 1.3rem; line-height: 1; }
+    .skill-card h3 { font-size: 1.02rem; line-height: 1.35; }
+    .skill-card p { grid-column: 1 / -1; color: var(--muted); line-height: 1.7; font-size: .95rem; }
+    .aside-box { border-radius: 26px; padding: 30px; margin-bottom: 22px; }
+    .aside-box h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; }
+    .aside-tools { background: var(--surface-soft); border: 1px solid var(--line); }
+    .aside-dark { background: #161b23; color: #fff; }
+    body.dark-theme .aside-dark { background: #0b0e13; border: 1px solid var(--line); }
+    .aside-dark .small-title { color: #efc1cc; }
+    .aside-dark p { font-size: .92rem; color: #cbd5e1; line-height: 1.65; }
+    .aside-dark p + p { margin-top: 14px; }
+    .badge-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; list-style: none; }
+    .badge { background: #161b23; color: #fff; padding: 8px 15px; border-radius: 999px; font-size: .86rem; font-weight: 600; border: 1px solid rgba(255,255,255,.1); }
+    body.dark-theme .badge { background: #2a2e36; }
+    .skills-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .skills-back { text-align: center; margin-top: 60px; }
+    @media (max-width: 980px) { .skills-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .skills-page { padding-top: 105px; } .skill-card { padding: 20px; } }
   </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#fcfbf9">
@@ -120,141 +55,164 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html" class="active" aria-current="page">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-  <header class="navbar">
-    <div class="logo">Cinzia<span>★</span></div>
-    <nav class="menu">
-      <a href="index.html">HOME</a>
-      <a href="index.html#chi-sono">CHI SONO</a>
-      <a href="competenze.html" class="active">COMPETENZE</a>
-      <a href="index.html#progetti">PROGETTI</a>
-      <a href="blog.html">BLOG</a>
-      <a href="index.html#contatti">CONTATTI</a>
-    </nav>
-    <div class="nav-icons">
-      <span>🌙</span>
-      <span>✉️</span>
-    </div>
-  </header>
+  <main id="contenuto" class="skills-page">
+    <div class="shell">
+      <span class="small-title">Cosa faccio</span>
+      <h1>Trasformare processi complessi<br>in soluzioni semplici.</h1>
 
-  <main class="skills-page">
-    <div class="skills-container" style="width: min(1180px, calc(100% - 40px)); margin: 0 auto;">
-      
-      <span class="small-title">Cosa Faccio</span>
-      <h1 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 20px;">
-        Trasformare processi complessi<br>in soluzioni semplici.
-      </h1>
-      
       <div class="intro-narrativa">
         <p>
           Da oltre 14 anni mi occupo di sistemi informatici, gestione delle identità digitali, qualità dei dati e supporto agli utenti. Mi piace unire competenze tecniche, organizzazione e problem solving per rendere la tecnologia uno strumento realmente utile alle persone.
         </p>
-        <!-- NUOVO BOTTONE DOWNLOAD -->
-        <a href="cv.html" download class="btn-rosa" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
-          <span>Consulta CV Completo</span> 📄
-        </a>
+        <div class="skills-actions">
+          <a href="cv.html" class="btn btn-primary">Leggi il CV completo →</a>
+          <a href="informatica.html" class="btn btn-secondary">I progetti del laboratorio</a>
+        </div>
       </div>
 
       <div class="skills-layout">
-        
         <div class="skills-details">
-          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 24px; color: #161b23;">
-            Aree di Intervento
-          </h3>
-          
-          <div class="project-grid" style="grid-template-columns: 1fr; gap: 20px;">
-            
-            <div class="project-item" style="min-height: auto; padding: 24px;">
-              <span style="font-size: 1.3rem; margin-right: 8px;">🔐</span> 
-              <strong>Identity & Access Management</strong>
-              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
-                Gestione delle identità digitali, smart card, autenticazione forte, Active Directory e Single Sign-On (SSO) per garantire accessi sicuri e tracciabili.
-              </p>
-            </div>
-
-            <div class="project-item" style="min-height: auto; padding: 24px;">
-              <span style="font-size: 1.3rem; margin-right: 8px;">🗄️</span> 
-              <strong>Gestione Dati e Database</strong>
-              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
-                Controllo qualità dei dati, gestione anagrafiche, interrogazioni SQL complesse, analisi e verifica costante della coerenza delle informazioni aziendali.
-              </p>
-            </div>
-
-            <div class="project-item" style="min-height: auto; padding: 24px;">
-              <span style="font-size: 1.3rem; margin-right: 8px;">⚙️</span> 
-              <strong>Automazione e Scripting</strong>
-              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
-                Sviluppo di procedure automatizzate e script custom per semplificare le attività ripetitive, azzerare l'errore umano e migliorare l'efficienza operativa.
-              </p>
-            </div>
-
-            <div class="project-item" style="min-height: auto; padding: 24px;">
-              <span style="font-size: 1.3rem; margin-right: 8px;">🖥️</span> 
-              <strong>Sistemi e Infrastrutture</strong>
-              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
-                Configurazione, amministrazione e supporto di ambienti Windows Server e client, gestione reti, VPN, utenze e attività di troubleshooting sistemistico.
-              </p>
-            </div>
-
-            <div class="project-item" style="min-height: auto; padding: 24px;">
-              <span style="font-size: 1.3rem; margin-right: 8px;">📊</span> 
-              <strong>Reporting, Supporto & Web</strong>
-              <p style="font-weight: 400; color: #555; margin-top: 6px; font-size: 0.95rem;">
-                Creazione di estrazioni dati e report per il monitoraggio operativo. Redazione di documentazione tecnica chiara, gestione di contenuti web (WordPress/HTML) e assistenza avanzata agli utenti finali.
-              </p>
-            </div>
-
+          <h2>Aree di intervento</h2>
+          <div class="skill-list">
+            <article class="skill-card">
+              <span class="ic" aria-hidden="true">🔐</span>
+              <h3>Identity &amp; Access Management</h3>
+              <p>Gestione delle identità digitali, smart card, autenticazione forte, Active Directory e Single Sign-On (SSO) per garantire accessi sicuri e tracciabili.</p>
+            </article>
+            <article class="skill-card">
+              <span class="ic" aria-hidden="true">🗄️</span>
+              <h3>Gestione dati e database</h3>
+              <p>Controllo qualità dei dati, gestione anagrafiche, interrogazioni SQL complesse, analisi e verifica costante della coerenza delle informazioni aziendali.</p>
+            </article>
+            <article class="skill-card">
+              <span class="ic" aria-hidden="true">⚙️</span>
+              <h3>Automazione e scripting</h3>
+              <p>Sviluppo di procedure automatizzate e script su misura per semplificare le attività ripetitive, ridurre l'errore umano e migliorare l'efficienza operativa.</p>
+            </article>
+            <article class="skill-card">
+              <span class="ic" aria-hidden="true">🖥️</span>
+              <h3>Sistemi e infrastrutture</h3>
+              <p>Configurazione, amministrazione e supporto di ambienti Windows Server e client, gestione reti, VPN, utenze e attività di troubleshooting sistemistico.</p>
+            </article>
+            <article class="skill-card">
+              <span class="ic" aria-hidden="true">📊</span>
+              <h3>Reporting, supporto e web</h3>
+              <p>Estrazioni dati e report per il monitoraggio operativo. Documentazione tecnica chiara, gestione di contenuti web (WordPress/HTML) e assistenza avanzata agli utenti finali.</p>
+            </article>
           </div>
         </div>
 
-        <div class="skills-aside">
-          
-          <div class="about-box projects-card" style="min-height: auto; padding: 30px; margin-bottom: 26px;">
-            <span class="small-title" style="font-size: 1.6rem;">Tools & Tech</span>
-            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px;">Tecnologie che utilizzo</h4>
-            
-            <div class="badge-container">
-              <div class="badge">Active Directory</div>
-              <div class="badge">SQL</div>
-              <div class="badge">PowerShell</div>
-              <div class="badge">Python</div>
-              <div class="badge">Excel</div>
-              <div class="badge">Power Query</div>
-              <div class="badge">WordPress</div>
-              <div class="badge">HTML/CSS</div>
-              <div class="badge">LDAP</div>
-              <div class="badge">Kerberos</div>
-              <div class="badge">VPN</div>
-              <div class="badge">Smart Card</div>
-              <div class="badge">SSO</div>
-              <div class="badge">Windows Server</div>
-            </div>
+        <aside class="skills-aside">
+          <div class="aside-box aside-tools">
+            <span class="small-title" style="font-size:1.6rem">Tools &amp; Tech</span>
+            <h2>Tecnologie che utilizzo</h2>
+            <ul class="badge-container">
+              <li class="badge">Active Directory</li>
+              <li class="badge">SQL</li>
+              <li class="badge">Oracle</li>
+              <li class="badge">PowerShell</li>
+              <li class="badge">Python</li>
+              <li class="badge">C# / .NET</li>
+              <li class="badge">Excel</li>
+              <li class="badge">Power Query</li>
+              <li class="badge">WordPress</li>
+              <li class="badge">HTML/CSS</li>
+              <li class="badge">LDAP</li>
+              <li class="badge">Kerberos</li>
+              <li class="badge">VPN</li>
+              <li class="badge">Smart Card</li>
+              <li class="badge">SSO</li>
+              <li class="badge">Windows Server</li>
+            </ul>
           </div>
 
-          <div class="about-box dark-card" style="min-height: auto; padding: 30px;">
-            <span class="small-title" style="font-size: 1.6rem;">Dietro le quinte</span>
-            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff;">I miei Superpoteri</h4>
-            <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
-              <strong>🔍 Decodifica della realtà:</strong> Che si tratti di un log di errore, di un database disallineato o di una trama narrativa, adoro unire i puntini e trovare la logica nascosta.<br><br>
-              <strong>💬 Traduttore IT-Umano:</strong> Parlo fluidamente sia il linguaggio dei server che quello delle persone, trasformando i problemi tecnici in spiegazioni semplici e accessibili.
-            </p>
+          <div class="aside-box aside-dark">
+            <span class="small-title" style="font-size:1.6rem">Dietro le quinte</span>
+            <h2>I miei superpoteri</h2>
+            <p><strong>🔍 Decodifica della realtà:</strong> che si tratti di un log di errore, di un database disallineato o di una trama narrativa, adoro unire i puntini e trovare la logica nascosta.</p>
+            <p><strong>💬 Traduttrice IT-umano:</strong> parlo fluentemente sia il linguaggio dei server che quello delle persone, trasformando i problemi tecnici in spiegazioni semplici e accessibili.</p>
           </div>
-
-        </div>
-
+        </aside>
       </div>
 
-      <div style="text-align: center; margin-top: 60px;">
-        <a href="index.html" class="link-back" style="color: #d67087; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">← Torna alla Home</a>
+      <div class="skills-back">
+        <a href="index.html" class="text-link">← TORNA ALLA HOME</a>
       </div>
-
     </div>
   </main>
 
   <footer class="footer">
-    <p>Tra codice e storie. Tra dati e immaginazione.</p>
-    <small>© 2026 Cinzia Molisano</small>
-  </footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>

@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <title>Informatica · Il mio laboratorio digitale - Cinzia</title>
   <meta name="description" content="Il laboratorio digitale di Cinzia: progetti, automazione, identità digitale, dati e sperimentazione tecnologica." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     .lab-page{padding-top:78px}.lab-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}.lab-hero{padding:92px 0 72px;background:var(--surface-soft);border-bottom:1px solid var(--line)}
@@ -53,14 +55,27 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-  <nav class="menu" id="mainMenu">
-    <a href="index.html">HOME</a><a href="index.html#chi-sono">CHI SONO</a><a href="competenze.html">COMPETENZE</a><a href="index.html#progetti">PROGETTI</a><a href="blog.html">BLOG</a><a href="index.html#contatti">CONTATTI</a>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html" class="active" aria-current="page">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
   </nav>
-  <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="Cambia tema">🌙</button><a class="icon-btn" href="index.html#contatti" aria-label="Contatti">✉️</a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu"><span></span><span></span><span></span></button></div>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
 </header>
-<main class="lab-page">
+<main id="contenuto" class="lab-page">
   <section class="lab-hero">
     <div class="lab-shell lab-hero-grid">
       <div><span class="section-kicker">Informatica · Il mio laboratorio digitale</span><h1>Dal problema<br>alla soluzione.</h1><p class="lab-lead">L'informatica che mi interessa nasce quasi sempre da una domanda molto semplice:</p><div class="lab-question">“Possiamo farlo meglio?”</div><p class="lab-lead">Mi piace osservare un processo, capire dove si perde tempo, individuare le operazioni ripetitive e trasformarle in qualcosa di più semplice. A volte la risposta è una query. A volte uno script. A volte serve costruire un'applicazione intera.</p></div>
@@ -85,7 +100,7 @@
 
   <section class="lab-section alt"><div class="lab-shell"><div class="lab-head"><span class="section-kicker">Esperimenti</span><h2>Quando tecnologia e creatività si incontrano.</h2><p>Non tutti i progetti nascono per diventare software: alcuni servono soprattutto a sperimentare modi nuovi di comunicare e utilizzare la tecnologia.</p></div>
     <div class="experiment-grid">
-      <article class="experiment"><span class="lab-tag">Tutorial · Grafica · AI</span><h3 class="ugi-title"><img class="ugi-icon" src="10.webp" alt="UGI"> <span>UGI — raccontare la tecnologia</span></h3><p>Un personaggio nato da un'impronta digitale per spiegare procedure e strumenti attraverso tutorial, illustrazioni e video. Un progetto che unisce storyboard, grafica, animazione, voce sintetica e sperimentazione con strumenti di intelligenza artificiale.</p><p><strong>Perché anche una procedura tecnica può essere raccontata bene.</strong></p></article>
+      <article class="experiment"><span class="lab-tag">Tutorial · Grafica · AI</span><h3 class="ugi-title"><img width="320" height="333" class="ugi-icon" src="10.webp" alt="UGI"> <span>UGI — raccontare la tecnologia</span></h3><p>Un personaggio nato da un'impronta digitale per spiegare procedure e strumenti attraverso tutorial, illustrazioni e video. Un progetto che unisce storyboard, grafica, animazione, voce sintetica e sperimentazione con strumenti di intelligenza artificiale.</p><p><strong>Perché anche una procedura tecnica può essere raccontata bene.</strong></p></article>
       <article class="experiment"><span class="lab-tag">Hardware · Offline</span><h3>🖥️ Un piccolo totem offline</h3><p>Recuperare hardware economico o non più utilizzato e trasformarlo in una postazione informativa minimale: avvio automatico, contenuti in loop e tutorial selezionabili, senza dipendere da Internet.</p><p><strong>Tecnologia nuova? Non necessariamente. Un nuovo modo di usare quella che abbiamo? Molto più interessante.</strong></p></article>
     </div>
   </div></section>
@@ -139,7 +154,57 @@
 
   <section class="lab-closing"><div class="lab-shell"><h2>Non sviluppo software per il gusto di sviluppare software.</h2><p>Mi piace costruire strumenti che risolvono problemi. E spesso tutto comincia da: <em>“Ogni volta dobbiamo fare tutto questo a mano…”</em></p><div class="code-line">while (curiosity) { learn(); }</div><div style="margin-top:34px"><a class="btn btn-primary" href="index.html#progetti">← Torna ai progetti</a></div></div></section>
 </main>
-<footer class="footer"><p>Tra codice e storie. Tra dati e immaginazione.</p><small>© 2026 Cinzia Molisano</small></footer>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

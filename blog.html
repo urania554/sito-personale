@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <title>Dal taccuino - Cinzia Molisano</title>
   <meta name="description" content="Appunti di tecnologia, scrittura e viaggi dal sito personale di Cinzia Molisano.">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --journal-paper:#f4efe7;
@@ -108,24 +110,28 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-  <nav class="menu" id="mainMenu">
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
     <a href="index.html">HOME</a>
     <a href="index.html#chi-sono">CHI SONO</a>
-    <a href="competenze.html">COMPETENZE</a>
-    <a href="index.html#progetti">PROGETTI</a>
-    <a href="blog.html" class="active">BLOG</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html" class="active" aria-current="page">BLOG</a>
     <a href="index.html#contatti">CONTATTI</a>
   </nav>
   <div class="nav-actions">
-    <button class="icon-btn" id="themeToggle" type="button">🌙</button>
-    <a class="icon-btn" href="index.html#contatti">✉️</a>
-    <button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
+<main id="contenuto">
 <section class="journal-hero">
   <div class="journal-shell journal-hero-grid">
     <div>
@@ -145,7 +151,22 @@
   </div>
 </section>
 
-<section class="journal-section">
+
+<section class="journal-section" id="ultimi">
+  <div class="journal-shell">
+    <div class="journal-head">
+      <div><span class="journal-kicker">Ultimi articoli</span><h2>Appena scritti.</h2></div>
+      <p>Gli articoli nuovi arrivano qui per primi, poi trovano posto nel loro filone.</p>
+    </div>
+    <div class="entries">
+      <a class="entry" href="blog-dietro-le-quinte-origin-movie.html"><span class="entry-tag">Scrittura</span><div><h3>Da “Sfigata” a Origin Movie: come è nato il mio libro.</h3><p>Un titolo cambiato, un cane investigatore e una frittata di pasta: dalla prima idea al libro su Amazon. · 20 ottobre 2026</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="blog-come-nasce-una-guida-di-viaggio.html"><span class="entry-tag">Viaggi</span><div><h3>Come nasce una guida di viaggio di carta.</h3><p>Formato, abbondanza, 300 DPI e copertine che cambiano con le pagine: appunti da Amazon KDP. · 20 ottobre 2026</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="blog-dal-problema-allo-strumento.html"><span class="entry-tag">Tecnologia</span><div><h3>Dal problema allo strumento.</h3><p>Perché il codice arriva sempre dopo: come una procedura ripetuta trenta volte diventa un tool. · 20 ottobre 2026</p></div><span class="entry-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="journal-section alt">
   <div class="journal-shell">
     <div class="journal-head">
       <div>
@@ -175,39 +196,42 @@
   </div>
 </section>
 
-<section class="journal-section alt" id="tecnologia">
+<section class="journal-section" id="tecnologia">
   <div class="journal-shell">
     <div class="journal-head">
       <div><span class="journal-kicker">Tecnologia</span><h2>Dal lavoro al racconto.</h2></div>
       <p>La parte seria e quella decisamente meno seria finiscono spesso per nascere dallo stesso problema.</p>
     </div>
     <div class="entries">
+      <a class="entry" href="blog-dal-problema-allo-strumento.html"><span class="entry-tag">Articolo</span><div><h3>Dal problema allo strumento.</h3><p>Il percorso che seguo ogni volta: problema, analisi, idea, prototipo, soluzione.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="informatica.html"><span class="entry-tag">Progetti</span><div><h3>Quando un problema reale diventa uno strumento.</h3><p>Utility, automazioni e software nati per rendere più semplice il lavoro quotidiano.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="it-happens.html"><span class="entry-tag">IT Happens</span><div><h3>Assistenza remota, orologi a parete e altre anomalie.</h3><p>Una raccolta di episodi realmente accaduti in cui la tecnologia è quasi sempre la parte meno imprevedibile.</p></div><span class="entry-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="journal-section" id="scrittura">
+<section class="journal-section alt" id="scrittura">
   <div class="journal-shell">
     <div class="journal-head">
       <div><span class="journal-kicker">Scrittura</span><h2>Prima dell'ultima pagina.</h2></div>
       <p>Le storie finite sembrano lineari. Il percorso per arrivarci molto meno.</p>
     </div>
     <div class="entries">
+      <a class="entry" href="blog-dietro-le-quinte-origin-movie.html"><span class="entry-tag">Articolo</span><div><h3>Da “Sfigata” a Origin Movie.</h3><p>Il dietro le quinte del mio libro illustrato.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="urania.html"><span class="entry-tag">Urania</span><div><h3>Raccontare un romanzo senza raccontarlo troppo.</h3><p>Atmosfera, personaggi e mistero: trovare il punto giusto tra incuriosire e svelare.</p></div><span class="entry-arrow">→</span></a>
-      <a class="entry" href="bob-notes.html"><span class="entry-tag">Bob Notes</span><div><h3>Quando i ricordi diventano fascicoli investigativi.</h3><p>Autobiografia ironica, graphic novel e Bob incaricato di trovare prove dove probabilmente non ce ne sono.</p></div><span class="entry-arrow">→</span></a>
+      <a class="entry" href="origin-movie.html"><span class="entry-tag">Origin Movie</span><div><h3>Quando i ricordi diventano fascicoli investigativi.</h3><p>Il mio libro illustrato: autobiografia ironica e Bob incaricato di trovare prove dove probabilmente non ce ne sono.</p></div><span class="entry-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="journal-section alt" id="viaggi">
+<section class="journal-section" id="viaggi">
   <div class="journal-shell">
     <div class="journal-head">
       <div><span class="journal-kicker">Viaggi</span><h2>Dalla pianificazione ai ricordi.</h2></div>
       <p>Il viaggio comincia molto prima della partenza e continua parecchio dopo il rientro.</p>
     </div>
     <div class="entries">
+      <a class="entry" href="blog-come-nasce-una-guida-di-viaggio.html"><span class="entry-tag">Articolo</span><div><h3>Come nasce una guida di viaggio di carta.</h3><p>Appunti dall'impaginazione delle guide di Urania per Amazon KDP.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="https://www.uraniainviaggio.it/viaggi/cina-2025.html"><span class="entry-tag">Cina 2025</span><div><h3>Un viaggio già diventato memoria.</h3><p>Hong Kong, Shenzhen, Shanghai, Chengdu, Xi'an e Pechino: la prima grande rotta, raccontata su Urania in Viaggio.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="https://www.uraniainviaggio.it/viaggi/cina-2025-racconto.html"><span class="entry-tag">Cina 2025 · Racconto</span><div><h3>Diciotto giorni, sei volti della Cina.</h3><p>Non l'itinerario ma le sensazioni: dalla vertigine di Hong Kong al silenzio dell'Esercito di Terracotta, fino alla Grande Muraglia.</p></div><span class="entry-arrow">→</span></a>
       <a class="entry" href="https://www.uraniainviaggio.it/viaggi/giappone-2026.html"><span class="entry-tag">Giappone 2026</span><div><h3>Il viaggio di settembre, raccontato.</h3><p>Tokyo, Kanazawa, Kyoto e Osaka: itinerario, budget reale e articoli pratici su Urania in Viaggio.</p></div><span class="entry-arrow">→</span></a>
@@ -216,7 +240,7 @@
 
     <div class="journal-note">
       <strong>Questo spazio crescerà senza fretta.</strong><br>
-      Quando nasce un nuovo articolo, entrerà qui. Il taccuino non deve essere riempito per forza:
+      Quando nasce un nuovo articolo, entra prima in “Ultimi articoli” e poi nel suo filone. Il taccuino non deve essere riempito per forza:
       deve soltanto avere un posto pronto quando c'è qualcosa che vale la pena raccontare.
     </div>
   </div>
@@ -224,8 +248,55 @@
 </main>
 
 <footer class="footer">
-  <p>Tra codice e storie. Tra dati e immaginazione.</p>
-  <small>© 2026 Cinzia Molisano</small>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
 </footer>
 <script src="script.js"></script>
 </body>

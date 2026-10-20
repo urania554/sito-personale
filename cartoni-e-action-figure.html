@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <title>Cartoni anni '80 e action figure - Cinzia Molisano</title>
 <meta name="description" content="Cartoni animati anni '80, action figure e qualche lettura recente: il mio angolo nerd.">
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 .am-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
 .am-hero{padding:120px 0 80px;background:linear-gradient(135deg,#1b1d27,#2a2230 60%,#3a2a3a);color:#fff}
@@ -43,29 +45,33 @@
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<header class="navbar">
-  <a class="logo" href="index.html">Cinzia<span>★</span></a>
-  <nav class="menu" id="mainMenu">
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
     <a href="index.html">HOME</a>
     <a href="index.html#chi-sono">CHI SONO</a>
-    <a href="competenze.html">COMPETENZE</a>
-    <a href="index.html#progetti">PROGETTI</a>
-    <a href="blog.html" class="active">BLOG</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html" class="active" aria-current="page">BLOG</a>
     <a href="index.html#contatti">CONTATTI</a>
   </nav>
   <div class="nav-actions">
-    <button class="icon-btn" id="themeToggle" type="button">🌙</button>
-    <a class="icon-btn" href="index.html#contatti">✉️</a>
-    <button class="menu-toggle" id="menuToggle" type="button"><span></span><span></span><span></span></button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
-<main>
+<main id="contenuto">
 <section class="am-hero"><div class="am-shell am-hero-grid">
   <div>
     <span class="am-kicker">Passioni · Cartoni · Action figure</span>
     <h1>Cartoni anni '80,<br><span>action figure e fumetti.</span></h1>
     <p>Sono cresciuta con i cartoni degli anni '80 e ancora oggi i personaggi, le storie e le action figure mi fanno viaggiare anche da casa.</p>
-    <div class="am-actions"><a class="am-btn" href="mailto:cinziamweb@gmail.com?subject=Un%20consiglio%20su%20cartoni%20e%20fumetti">Scrivimi un consiglio</a><a class="am-btn ghost" href="collezione.html">La mia collezione</a><a class="am-btn ghost" href="bob-notes.html">Vai a Bob Notes</a></div>
+    <div class="am-actions"><a class="am-btn" href="mailto:cinziamweb@gmail.com?subject=Un%20consiglio%20su%20cartoni%20e%20fumetti">Scrivimi un consiglio</a><a class="am-btn ghost" href="collezione.html">La mia collezione</a><a class="am-btn ghost" href="origin-movie.html">Scopri Origin Movie</a></div>
   </div>
   <figure class="am-fig"><img src="images/anime-manga-figure.webp" width="340" height="425" alt="Piccole action figure sulla scrivania: Goku, Wonder Woman e due Iron Man accanto a una macchina fotografica"></figure>
 </div></section>
@@ -75,7 +81,7 @@
   <div class="am-cards">
     <article class="am-card"><div class="ic">📺</div><h3>Cartoni anni '80</h3><p>Eroi, avventure e sigle di un'epoca che non passa mai di moda.</p></article>
     <article class="am-card"><div class="ic">🦸</div><h3>Action figure</h3><p>Piccoli personaggi che popolano la mia scrivania e mi tengono compagnia mentre lavoro e scrivo.</p></article>
-    <article class="am-card"><div class="ic">📚</div><h3>Letture di oggi</h3><p>Accanto alla nostalgia leggo anche qualcosa di recente. E il fumetto mi interessa anche da autrice: Bob Notes è la graphic novel su cui sto lavorando.</p><a href="bob-notes.html">Apri Bob Notes →</a></article>
+    <article class="am-card"><div class="ic">📚</div><h3>Letture di oggi</h3><p>Accanto alla nostalgia leggo anche qualcosa di recente. E il fumetto mi interessa anche da autrice: Origin Movie, il mio libro illustrato, è appena uscito.</p><a href="origin-movie.html">Scopri Origin Movie →</a></article>
   </div>
 </div></section>
 
@@ -85,8 +91,55 @@
 </div></div></section>
 </main>
 <footer class="footer">
-  <p>Tra codice e storie. Tra dati e immaginazione.</p>
-  <small>© 2026 Cinzia Molisano</small>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
 </footer>
 <script src="script.js"></script>
 </body>
