@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Le avventure di Zombetta e Geko - Cinzia Molisano</title>
+  <meta name="description" content="Le avventure di Zombetta e Geko: una serie per bambini di Cinzia Molisano, con una bambina zombie felice e un geco. Libro illustrato in lavorazione e cartone animato su YouTube." />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --zg-purple:#7b3fb0;
+      --zg-purple-deep:#3a1d58;
+      --zg-purple-soft:#efe4f8;
+      --zg-green:#4f9a3c;
+      --zg-green-soft:#e6f2df;
+      --zg-sun:#f6c45c;
+      --zg-cream:#fff7e8;
+    }
+    body.dark-theme{
+      --zg-purple-soft:#2a2133;
+      --zg-green-soft:#1f2a1d;
+      --zg-cream:#1b1a1f;
+    }
+
+    .zg-page{padding-top:78px}
+    .zg-shell{width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+    .zg-hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 15% 20%,rgba(246,196,92,.35),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(79,154,60,.22),transparent 32%),
+        linear-gradient(135deg,var(--zg-cream),var(--zg-purple-soft));
+      border-bottom:1px solid var(--line);
+    }
+    .zg-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:56px;
+      align-items:center;
+      padding:80px 0 90px;
+    }
+    .zg-kicker{
+      display:inline-block;
+      font-family:'Caveat',cursive;
+      font-size:1.7rem;
+      font-weight:700;
+      color:var(--zg-purple);
+      margin-bottom:6px;
+    }
+    .zg-hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3.2rem,7vw,6.2rem);
+      line-height:.95;
+      margin:0 0 18px;
+      color:var(--text);
+    }
+    .zg-hero h1 span{color:var(--zg-green)}
+    .zg-lead{
+      max-width:600px;
+      font-size:1.1rem;
+      line-height:1.8;
+      color:var(--muted);
+    }
+    .zg-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .zg-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:800;
+      transition:transform .2s ease;
+    }
+    .zg-btn:hover{transform:translateY(-2px)}
+    .zg-btn.primary{background:var(--zg-purple);color:#fff}
+    .zg-btn.yt{background:#d93025;color:#fff}
+    .zg-btn.secondary{border:1px solid var(--line);color:var(--text);background:var(--surface)}
+
+    .zg-portrait{
+      width:min(460px,100%);
+      margin-left:auto;
+      position:relative;
+    }
+    .zg-portrait img{
+      display:block;width:100%;height:auto;border-radius:50%;
+      border:12px solid #fff;
+      box-shadow:0 28px 60px rgba(58,29,88,.28);
+    }
+    .zg-badge{
+      position:absolute;left:-10px;bottom:30px;
+      background:var(--zg-sun);color:#3a2a06;
+      font-weight:900;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+      padding:9px 14px;border-radius:999px;transform:rotate(-4deg);
+      box-shadow:0 8px 20px rgba(0,0,0,.15);
+    }
+
+    .zg-section{padding:90px 0}
+    .zg-section.alt{background:var(--surface-soft)}
+    .zg-head{max-width:760px;margin-bottom:38px}
+    .zg-head h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.2rem,4vw,3.4rem);
+      line-height:1.08;
+      margin:4px 0 14px;
+    }
+    .zg-head p{color:var(--muted);font-size:1.04rem;line-height:1.78}
+
+    .zg-banner{
+      display:block;width:100%;height:auto;border-radius:24px;
+      box-shadow:0 18px 44px rgba(58,29,88,.16);
+      margin-bottom:38px;
+    }
+
+    .zg-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .zg-card{
+      padding:30px;border-radius:26px;background:var(--surface);
+      border:1px solid var(--line);box-shadow:0 12px 34px rgba(67,47,35,.05);
+    }
+    .zg-card .tag{
+      display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+      padding:6px 10px;border-radius:999px;margin-bottom:14px;
+    }
+    .zg-card.purple .tag{background:var(--zg-purple-soft);color:var(--zg-purple)}
+    .zg-card.green .tag{background:var(--zg-green-soft);color:var(--zg-green)}
+    .zg-card.sun .tag{background:#fcefd0;color:#7a5a0f}
+    .zg-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin:0 0 10px}
+    .zg-card p{color:var(--muted);line-height:1.68;margin:0}
+
+    .zg-video-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+    .zg-video{
+      position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;
+      background:#000;box-shadow:0 20px 50px rgba(0,0,0,.22);
+    }
+    .zg-video img,.zg-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+    .zg-play{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(0deg,rgba(0,0,0,.25),transparent 60%);
+      border:0;cursor:pointer;padding:0;
+    }
+    .zg-play span{
+      width:84px;height:84px;border-radius:50%;background:#d93025;color:#fff;
+      display:flex;align-items:center;justify-content:center;font-size:2rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .2s ease;
+    }
+    .zg-play:hover span,.zg-play:focus-visible span{transform:scale(1.08)}
+    .zg-play:focus-visible{outline:4px solid var(--zg-sun);outline-offset:-4px}
+    .zg-video-copy h3{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 10px}
+    .zg-video-copy p{color:var(--muted);line-height:1.72;margin:0 0 16px}
+    .zg-note{font-size:.85rem;color:var(--muted)}
+
+    .zg-book{
+      display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:center;
+      padding:40px;border-radius:30px;background:var(--surface);border:1px solid var(--line);
+    }
+    .zg-book img{display:block;width:100%;height:auto;border-radius:4px 10px 10px 4px;box-shadow:8px 10px 0 rgba(0,0,0,.08),0 14px 30px rgba(0,0,0,.18)}
+    .zg-status{
+      display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+      padding:6px 10px;border-radius:999px;background:#fcefd0;color:#7a5a0f;margin-bottom:12px;
+    }
+    .zg-book h3{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);margin:0 0 8px}
+    .zg-book .sub{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--zg-purple);margin-bottom:14px}
+    .zg-book p{color:var(--muted);line-height:1.75;margin:0 0 14px}
+    .zg-facts{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+    .zg-facts li{font-size:.85rem;padding:7px 12px;border-radius:999px;background:var(--surface-soft);border:1px solid var(--line)}
+
+    .zg-closing{padding:90px 20px;text-align:center}
+    .zg-closing h2{font-family:'Playfair Display',serif;max-width:780px;margin:0 auto 16px;font-size:clamp(2rem,4vw,3.2rem)}
+    .zg-closing p{max-width:620px;margin:0 auto 28px;color:var(--muted)}
+    .zg-closing .zg-actions{justify-content:center}
+
+    @media(max-width:950px){
+      .zg-hero-grid,.zg-video-grid{grid-template-columns:1fr}
+      .zg-portrait{margin:10px auto 0;width:min(360px,100%)}
+      .zg-cards{grid-template-columns:1fr}
+      .zg-book{grid-template-columns:1fr;padding:28px}
+      .zg-book img{max-width:240px}
+    }
+  </style>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#fcfbf9">
+<meta property="og:title" content="Le avventure di Zombetta e Geko - Cinzia Molisano">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:description" content="Una bambina zombie felice, un geco e tante avventure: la nuova serie per bambini di Cinzia Molisano, tra libro illustrato e cartone animato.">
+<link rel="canonical" href="https://www.cinziamolisano.it/zombetta-e-geko.html">
+<meta property="og:url" content="https://www.cinziamolisano.it/zombetta-e-geko.html">
+<meta property="og:image" content="https://www.cinziamolisano.it/images/zombetta/ep1.webp">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+<script>try{var t=localStorage.getItem('cinzia-theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="navbar" id="navbar">
+  <a class="logo" href="index.html" aria-label="Cinzia Molisano, torna alla home">Cinzia<span aria-hidden="true">★</span></a>
+  <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+    <a href="index.html">HOME</a>
+    <a href="index.html#chi-sono">CHI SONO</a>
+    <a href="origin-movie.html">ORIGIN MOVIE</a>
+    <a href="libri.html">LIBRI</a>
+    <a href="scrittura.html" class="active" aria-current="page">SCRITTURA</a>
+    <a href="informatica.html">INFORMATICA</a>
+    <a href="blog.html">BLOG</a>
+    <a href="index.html#contatti">CONTATTI</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Passa al tema scuro" aria-pressed="false" title="Tema scuro">☾</button>
+    <a class="icon-btn mail-btn" href="index.html#contatti" aria-label="Contatti" title="Contatti">✉</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="contenuto" class="zg-page">
+
+  <section class="zg-hero">
+    <div class="zg-shell zg-hero-grid">
+      <div>
+        <span class="zg-kicker">Una serie per bambini</span>
+        <h1>Le avventure di<br>Zombetta <span>e Geko</span></h1>
+        <p class="zg-lead">
+          Zombetta è una bambina zombie con i capelli viola, il sorriso facile e una valigia sempre pronta.
+          Geko è il geco che le sta accanto. Insieme partono per avventure piene di amicizia, sorprese
+          e piccoli misteri da risolvere un indizio alla volta.
+        </p>
+        <div class="zg-actions">
+          <a class="zg-btn yt" href="https://www.youtube.com/@ZombettaGeko" target="_blank" rel="noopener">▶ Guarda su YouTube</a>
+          <a class="zg-btn secondary" href="#libro">Il libro illustrato</a>
+        </div>
+      </div>
+      <div class="zg-portrait">
+        <img src="images/zombetta/zombetta-geko.webp" width="560" height="560" alt="Zombetta, bambina zombie dai capelli viola, sorride accanto al geco Geko">
+        <span class="zg-badge">Vol. 1 in lavorazione</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="zg-section" id="storia">
+    <div class="zg-shell">
+      <img class="zg-banner" src="images/zombetta/banner.webp" width="1138" height="188" loading="lazy" decoding="async" alt="Le avventure di Zombetta e Geko: Zombetta e Geko davanti a un paesino tra le colline">
+      <div class="zg-head">
+        <span class="zg-kicker">La storia</span>
+        <h2>Una zombie felice. Davvero.</h2>
+        <p>
+          Zombetta non è una bambina triste che fa paura agli altri: è serena, curiosa e piena di voglia di fare.
+          Le sue avventure parlano di amicizia, di come si trova il proprio posto e di quanto possano essere
+          importanti le persone che ci vogliono bene.
+        </p>
+      </div>
+
+      <div class="zg-cards">
+        <article class="zg-card purple">
+          <span class="tag">Protagonista</span>
+          <h3>Zombetta</h3>
+          <p>Capelli viola, toppe colorate e un sorriso che non si spegne. Affronta ogni giornata con allegria, anche quando le cose non vanno come previsto.</p>
+        </article>
+        <article class="zg-card green">
+          <span class="tag">Il migliore amico</span>
+          <h3>Geko</h3>
+          <p>Un geco vivace e sempre presente. Dove va Zombetta, va anche lui: a volte per aiutarla, a volte per combinare guai insieme.</p>
+        </article>
+        <article class="zg-card sun">
+          <span class="tag">Il mistero</span>
+          <h3>La valigia</h3>
+          <p>La serie è pensata in pochi volumi, con un mistero che si scopre poco alla volta e che si conclude. Gli indizi sono sparsi lungo il cammino.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="zg-section alt" id="cartone">
+    <div class="zg-shell">
+      <div class="zg-head">
+        <span class="zg-kicker">Il cartone animato</span>
+        <h2>Zombetta e Geko su YouTube.</h2>
+        <p>Le avventure diventano anche brevi episodi animati, pubblicati sul canale dedicato.</p>
+      </div>
+
+      <div class="zg-video-grid">
+        <div class="zg-video" id="zgVideo">
+          <img src="images/zombetta/ep1-640.webp" srcset="images/zombetta/ep1-640.webp 640w, images/zombetta/ep1.webp 1280w" sizes="(max-width: 950px) 100vw, 680px" width="1280" height="720" loading="lazy" decoding="async" alt="Episodio 1: La casetta di Zombetta">
+          <button class="zg-play" type="button" data-video="d0_W8UJYSJU" aria-label="Guarda l'episodio 1, La casetta di Zombetta"><span aria-hidden="true">▶</span></button>
+        </div>
+        <div class="zg-video-copy">
+          <span class="zg-kicker">Episodio 1</span>
+          <h3>La casetta di Zombetta</h3>
+          <p>Il primo episodio della serie: si entra nella casetta di Zombetta e si comincia a conoscerla.</p>
+          <div class="zg-actions">
+            <a class="zg-btn yt" href="https://www.youtube.com/@ZombettaGeko" target="_blank" rel="noopener">Iscriviti al canale</a>
+          </div>
+          <p class="zg-note">Il video si carica da YouTube solo quando premi play.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="zg-section" id="libro">
+    <div class="zg-shell">
+      <div class="zg-head">
+        <span class="zg-kicker">Il libro illustrato</span>
+        <h2>Il primo volume sta prendendo forma.</h2>
+      </div>
+
+      <article class="zg-book">
+        <img src="images/zombetta/copertina-vol1-400.webp" srcset="images/zombetta/copertina-vol1-400.webp 400w, images/zombetta/copertina-vol1.webp 800w" sizes="260px" width="400" height="600" loading="lazy" decoding="async" alt="Copertina provvisoria di Le avventure di Zombetta e Geko, Volume 1: Un amico per partire">
+        <div>
+          <span class="zg-status">In lavorazione</span>
+          <h3>Volume 1</h3>
+          <div class="sub">Un amico per partire</div>
+          <p>
+            Il primo libro illustrato della serie racconta l'inizio di tutto: come Zombetta e Geko si incontrano
+            e perché decidono di partire insieme.
+          </p>
+          <p>Quando sarà pronto lo troverai su Amazon, e qui su questa pagina.</p>
+          <ul class="zg-facts">
+            <li>Libro illustrato a colori</li>
+            <li>Per bambini</li>
+            <li>Serie di 3-4 volumi</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="zg-closing">
+    <div class="zg-shell">
+      <h2>Una valigia, un geco e tanta strada davanti.</h2>
+      <p>Questa pagina crescerà insieme alla serie: nuovi episodi, illustrazioni e l'uscita del libro.</p>
+      <div class="zg-actions">
+        <a class="zg-btn primary" href="scrittura.html">← Torna a Scrittura</a>
+        <a class="zg-btn secondary" href="libri.html">Tutti i miei libri</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Cinzia<span aria-hidden="true">★</span></a>
+        <p>Tra codice e storie.<br>Tra dati e immaginazione.</p>
+      </div>
+      <nav class="footer-col" aria-label="Libri">
+        <h2>Libri</h2>
+        <ul>
+          <li><a href="origin-movie.html">Origin Movie</a></li>
+          <li><a href="libri.html">Tutti i miei libri</a></li>
+          <li><a href="origin-movie.html#incontri">Incontri e scuole</a></li>
+          <li><a href="origin-movie.html#fascicoli">I Bob Files</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Scrittura">
+        <h2>Scrittura</h2>
+        <ul>
+          <li><a href="scrittura.html">Scrittura</a></li>
+          <li><a href="urania.html">Urania</a></li>
+          <li><a href="zombetta-e-geko.html">Zombetta e Geko</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Informatica">
+        <h2>Informatica</h2>
+        <ul>
+          <li><a href="informatica.html">Laboratorio digitale</a></li>
+          <li><a href="it-happens.html">IT Happens</a></li>
+          <li><a href="urania-live-translator.html">Urania Live Translator</a></li>
+          <li><a href="competenze.html">Competenze</a></li>
+          <li><a href="cv.html">Curriculum</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Passioni e contatti">
+        <h2>Passioni</h2>
+        <ul>
+          <li><a href="cartoni-e-action-figure.html">Cartoni e action figure</a></li>
+          <li><a href="collezione.html">La mia collezione</a></li>
+          <li><a href="https://www.uraniainviaggio.it/">Urania in Viaggio ↗</a></li>
+          <li><a href="https://www.instagram.com/cinzia.originmovie/" rel="me noopener" target="_blank">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@cinzia.originmovie" rel="me noopener" target="_blank">TikTok ↗</a></li>
+          <li><a href="https://www.youtube.com/@ZombettaGeko" rel="noopener" target="_blank">YouTube ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span data-year>2026</span> Cinzia Molisano · Fatto con curiosità e un po' di caffè.</small>
+      <small><a href="mailto:cinziamweb@gmail.com">cinziamweb@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  (function(){
+    var btn=document.querySelector('.zg-play');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var box=document.getElementById('zgVideo');
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+btn.getAttribute('data-video')+'?autoplay=1&rel=0';
+      f.title='La casetta di Zombetta · Le avventure di Zombetta e Geko, episodio 1';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen=true;
+      box.innerHTML='';
+      box.appendChild(f);
+    });
+  })();
+</script>
+</body>
+</html>
