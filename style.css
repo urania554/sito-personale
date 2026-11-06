@@ -305,6 +305,10 @@ body.dark-theme .about-intro-card { background: #0d0f13; border: 1px solid var(-
 .project-bob { background: radial-gradient(circle at 88% 12%,rgba(155,63,66,.23),transparent 25%), #181a1f; color: #fff; }
 .project-ugid { background: linear-gradient(135deg,#e9f1ee,#d7e6e2); color: #233431; }
 .project-places { background: linear-gradient(135deg,#f3e7d6,#e6d2b8); color: #3e3127; }
+.project-zombetta { grid-column: 1 / -1; min-height: 300px; padding-right: 340px; background: radial-gradient(circle at 80% 30%,rgba(246,196,92,.45),transparent 30%), linear-gradient(135deg,#efe4f8,#dcc6ef); color: #3a1d58; }
+.project-zg-img { position: absolute; right: 36px; top: 50%; width: 250px; height: 250px; transform: translateY(-50%) rotate(4deg); border-radius: 50%; border: 8px solid #fff; box-shadow: 0 16px 36px rgba(58,29,88,.25); transition: transform .25s ease; }
+.project-zombetta:hover .project-zg-img { transform: translateY(-50%) rotate(0); }
+@media (max-width: 760px) { .project-zombetta { padding-right: 22px; } .project-zg-img { position: static; transform: none; width: 140px; height: 140px; margin-top: 18px; } .project-zombetta:hover .project-zg-img { transform: none; } }
 .project-mark { position: absolute; right: 24px; bottom: 15px; font-family: 'Caveat', cursive; font-size: clamp(4rem,8vw,7rem); font-weight: 700; opacity: .07; pointer-events: none; }
 .projects-more {
   margin-top: 18px; padding: 18px 22px; border-radius: 18px;
