@@ -55,7 +55,7 @@
     body.dark-theme .zg-yt { background: linear-gradient(135deg, #2a1f2a, #2a2030); }
     .zg-yt h2 { margin-top: 0; }
     .zg-yt p { color: var(--muted); line-height: 1.7; max-width: 620px; margin: 0; }
-    .zg-yt-logo { font-size: 3.4rem; line-height: 1; text-align: center; }
+    .zg-yt-img { width: 260px; height: auto; display: block; filter: drop-shadow(0 14px 24px rgba(0,0,0,.22)); transform: rotate(3deg); }
 
     .zg-school { margin: 70px auto 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .zg-school article { padding: 28px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
@@ -68,6 +68,7 @@
       .zg-books { grid-template-columns: 1fr; }
       .zg-chars { grid-template-columns: 1fr; }
       .zg-complete img { max-width: 220px; }
+      .zg-yt-img { width: 200px; margin: 0 auto; order: -1; }
     }
     @media (max-width: 480px) {
       .zg-book { grid-template-columns: 110px 1fr; gap: 16px; padding: 18px; }
@@ -234,7 +235,7 @@
             <a class="btn btn-secondary" href="https://www.youtube.com/@ZombettaGeko?sub_confirmation=1" target="_blank" rel="noopener">Iscriviti</a>
           </div>
         </div>
-        <div class="zg-yt-logo" aria-hidden="true">📺</div>
+        <img class="zg-yt-img" src="images/zombetta/zombetta-geko-280.webp" srcset="images/zombetta/zombetta-geko-280.webp 280w, images/zombetta/zombetta-geko-560.webp 560w" sizes="(max-width: 860px) 200px, 260px" width="280" height="280" loading="lazy" decoding="async" alt="Zombetta e Geko sorridenti, appoggiati a una staccionata davanti a casa">
       </div>
     </div>
   </section>
