@@ -111,6 +111,10 @@ section{padding:70px 0}
 .tappa.prossima .tappa-card{box-shadow:0 0 0 3px var(--blu),var(--ombra)}
 .tappa.prossima .nodo{border-color:var(--blu);animation:pulsa 1.8s infinite}
 @keyframes pulsa{0%{box-shadow:0 0 0 0 rgba(28,91,214,.45)}70%{box-shadow:0 0 0 14px rgba(28,91,214,0)}100%{box-shadow:0 0 0 0 rgba(28,91,214,0)}}
+.link-tariffe{grid-row:2;justify-self:start;margin-top:8px;font-size:.88rem;font-weight:700;color:var(--blu);text-decoration:none;background:#fff;border:1px solid var(--linea);border-radius:99px;padding:6px 14px}
+.link-tariffe:hover{border-color:var(--blu)}
+.tappa:nth-of-type(odd) .link-tariffe{grid-column:1}
+.tappa:nth-of-type(even) .link-tariffe{grid-column:3}
 .tappa.segreta .tappa-card{background:repeating-linear-gradient(135deg,#fff 0 14px,#f6f8fd 14px 28px)}
 .tappa.segreta.bloccata .tappa-card{cursor:not-allowed}
 .tappa.segreta.bloccata .anteprima img{filter:blur(10px) grayscale(.6)}
@@ -122,6 +126,7 @@ section{padding:70px 0}
   .tappa .nodo{grid-column:1;grid-row:1;align-self:start;margin-top:30px}
   .tappa:nth-of-type(odd) .tappa-card,.tappa:nth-of-type(even) .tappa-card{grid-column:2}
   .tappa-card{grid-template-columns:1fr}
+  .tappa:nth-of-type(odd) .link-tariffe,.tappa:nth-of-type(even) .link-tariffe{grid-column:2}
   .timbro{width:70px;height:70px;font-size:.58rem}
 }
 
@@ -168,6 +173,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
 .player-bottom p{margin:0;color:#c9d6f5;font-size:.92rem;flex:1;min-width:220px}
 .player-bottom .btn{padding:11px 20px}
 .player-bottom .btn[hidden]{display:none}
+.player-bottom .btn-secondario{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)}
 
 /* ---------- festa finale ---------- */
 .festa{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
@@ -197,7 +203,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
       <img src="img/logo_piccolo.png" alt="Logo UGID" width="48" height="46">
       <span>UGID<small>Ufficio Gestione Identità Digitali</small></span>
     </a>
-    <nav><a href="#percorso">Il percorso</a><a href="#lampo">Domande lampo</a><a href="#aiuto">Aiuto</a></nav>
+    <nav><a href="#percorso">Il percorso</a><a href="#lampo">Domande lampo</a><a href="tariffe.html">Servizi e tariffe</a><a href="#aiuto">Aiuto</a></nav>
   </header>
 </div>
 
@@ -262,7 +268,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
       <div>
         <div class="kicker">Domande lampo</div>
         <h2>Ti serve solo una risposta?</h2>
-        <p>Le domande che ci fanno più spesso nelle prime settimane, con il video in cui UGI lo spiega.</p>
+        <p>Le domande che ci fanno più spesso nelle prime settimane, con il video in cui UGI lo spiega. Per le differenze tra dipendenti, frequentatori e liberi professionisti c'è la <a href="tariffe.html">tabella servizi e tariffe</a>.</p>
       </div>
     </div>
     <div class="faq-grid" id="faq"></div>
@@ -303,6 +309,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
     <video id="video" controls playsinline preload="metadata"></video>
     <div class="player-bottom">
       <p id="p-testo"></p>
+      <a class="btn btn-secondario" id="p-tariffe" href="tariffe.html#matrice" hidden>Tariffe per la tua qualifica</a>
       <button class="btn btn-primario" id="prossima" hidden>Tappa successiva →</button>
     </div>
   </div>
@@ -320,13 +327,13 @@ const TAPPE = [
    testo:"Lato sinistro per l'entrata, destro per l'uscita. Come vedere le ultime timbrature e usare le causali."},
   {id:"accessi", file:"04-controllo-accessi", dur:"0:25", dove:"Ingresso del reparto", titolo:"Aprire le porte",
    testo:"Il badge apre i varchi del tuo reparto. Se non lo fa, ecco a chi inviare la richiesta."},
-  {id:"parcheggio", file:"05-parcheggio", dur:"1:26", dove:"Parcheggi", titolo:"Dove parcheggiare",
+  {id:"parcheggio", tariffe:true, file:"05-parcheggio", dur:"1:26", dove:"Parcheggi", titolo:"Dove parcheggiare",
    testo:"Quali parcheggi sono per i dipendenti, come leggere i display e dove appoggiare il badge."},
   {id:"velostazione", file:"06-velostazione", dur:"1:03", dove:"Velostazione", titolo:"In bici al lavoro",
    testo:"La Velostazione comunale è gratuita con il badge. Cosa fare se il badge nuovo non viene riconosciuto."},
-  {id:"mensa", file:"07-mensa", dur:"0:36", dove:"Mensa", titolo:"Ricaricare la mensa",
-   testo:"Ricarica il credito al totem, solo con pagamento elettronico. Il credito residuo non si recupera."},
-  {id:"divise", file:"08-divise", dur:"0:46", dove:"Guardaroba", titolo:"Ritirare la divisa",
+  {id:"mensa", tariffe:true, file:"07-mensa", dur:"0:36", dove:"Mensa", titolo:"Ricaricare la mensa",
+   testo:"Chi non è dipendente ricarica il credito al totem, solo con pagamento elettronico. Dipendenti e specialisti ambulatoriali (ex SUMAI) non devono ricaricare."},
+  {id:"divise", tariffe:true, file:"08-divise", dur:"0:46", dove:"Guardaroba", titolo:"Ritirare la divisa",
    testo:"Prima la taglia al guardaroba, poi il distributore automatico con il badge. Le divise sporche vanno nella buca di raccolta."},
   {id:"conclusione", file:"10-conclusione", dur:"0:19", dove:"Ultima tappa", titolo:"Sei pronto!",
    testo:"Un riepilogo veloce e un saluto da UGI. Il tuo badge è completo."},
@@ -340,10 +347,13 @@ const FAQ = [
   {d:"Mi servono nuovi applicativi: a chi li chiedo?", r:"La segreteria del reparto o il coordinatore compila il modulo di richiesta abilitazioni. In genere le abilitazioni sono attive entro 48 ore.", t:"computer"},
   {d:"Da che lato timbro l'entrata?", r:"Sul terminale il lato sinistro registra l'ingresso e quello destro l'uscita. Dal menu Transazioni puoi vedere fino alle ultime 30 timbrature.", t:"timbrature"},
   {d:"Il badge non apre la porta del mio reparto", r:"Probabilmente il badge non è ancora abilitato a quel varco. Va inviata una richiesta a richiestacontrolloaccessi@asst-pg23.it: il video mostra come.", t:"accessi"},
-  {d:"Al parcheggio il badge va inserito nella fessura?", r:"No: va solo appoggiato sul sensore contactless. Se il display indica “posti abbonati completi”, prova un altro parcheggio aziendale.", t:"parcheggio"},
+  {d:"Al parcheggio il badge va inserito nella fessura?", r:"No: va solo appoggiato sul sensore contactless. Se il display indica “posti abbonati completi”, prova un altro parcheggio aziendale. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"parcheggio"},
+  {d:"Se i parcheggi sono pieni cosa faccio?", r:"Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto per sostare all'interno: in quel caso pagheresti la tariffa oraria. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"parcheggio"},
   {d:"La Velostazione non riconosce il mio badge nuovo", r:"Il badge funziona: deve solo essere aggiornato l'elenco della Velostazione. Contatta i recapiti esposti all'ingresso della Velostazione.", t:"velostazione"},
-  {d:"Posso ricaricare la mensa in contanti?", r:"No, al totem si paga solo con carta o con dispositivi contactless. Ricorda che il credito che resta sulla tessera quando lasci l'ospedale non viene rimborsato.", t:"mensa"},
-  {d:"Come scelgo la taglia della divisa?", r:"Passa prima dal guardaroba per far registrare la taglia. Il distributore poi ti consegna la divisa giusta per la tua mansione, senza bisogno di sceglierla.", t:"divise"}
+  {d:"Sono tirocinante o lavoro per una ditta esterna: dove parcheggio?", r:"C'è una convenzione con Interparking: ritiri una tessera ricaricabile all'Ufficio Cassa del parcheggio Multipiano-Sud (P4) e la usi nei parcheggi Nord (P1) ed Est (P3), pagando una tariffa oraria agevolata. Serve una lettera di autorizzazione. <a href='tariffe.html'>Tariffe e dettagli →</a>", t:"parcheggio"},
+  {d:"Devo ricaricare il credito della mensa?", r:"Solo se non sei dipendente. Dipendenti e specialisti ambulatoriali (ex SUMAI) non devono fare ricariche. Tutti gli altri (liberi professionisti, interinali, borsisti, tirocinanti…) ricaricano il credito al totem. <a href='tariffe.html'>Prezzi del pasto per tipologia →</a>", t:"mensa"},
+  {d:"Posso ricaricare la mensa in contanti?", r:"No, al totem si paga solo con carta o con dispositivi contactless. Ricorda che il credito che resta sulla tessera quando lasci l'ospedale non viene rimborsato. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"mensa"},
+  {d:"Come scelgo la taglia della divisa?", r:"Passa prima dal guardaroba per far registrare la taglia. Il distributore poi ti consegna la divisa giusta per la tua mansione, senza bisogno di sceglierla. Per alcuni tipi di contratto, prima del ritiro va pagato un contributo di € 20. <a href='tariffe.html#matrice'>Chi paga il contributo →</a>", t:"divise"}
 ];
 
 /* ---- stato (salvato nel browser, se disponibile) ---- */
@@ -376,6 +386,7 @@ TAPPE.forEach((t,i)=>{
       </div>
       <div class="timbro">${t.segreto?"SCOPERTO":"VISTO<br>✓<br>UGI"}</div>
     </button>`;
+  if(t.tariffe){ const a=document.createElement("a"); a.className="link-tariffe"; a.href="tariffe.html#matrice"; a.textContent="€ Quanto costa per te? Tariffe per qualifica →"; li.appendChild(a); }
   li.querySelector(".tappa-card").addEventListener("click",()=>apri(t.id));
   lista.appendChild(li);
 });
@@ -437,6 +448,7 @@ function apri(id){
   $("#p-titolo").textContent = t.titolo;
   $("#p-testo").textContent = t.testo;
   $("#prossima").hidden = true;
+  $("#p-tariffe").hidden = !t.tariffe;
   video.src = `video/${t.file}.mp4`;
   video.poster = `img/poster-${t.file}.jpg`;
   if(typeof dialog.showModal==="function") dialog.showModal(); else dialog.setAttribute("open","");

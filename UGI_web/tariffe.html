@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servizi e tariffe per tipologia · UGID ASST Papa Giovanni XXIII</title>
+<style>
+:root{--blu:#1c5bd6;--blu-scuro:#0b2560;--blu-chiaro:#e8f0ff;--cielo:#f4f8ff;--verde:#2a9d4b;--inchiostro:#14213d;--grigio:#5b6683;--linea:#d5e0f5;--giallo:#fff4cc}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--inchiostro);background:var(--cielo);line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px;flex-wrap:wrap}
+.marchio{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blu-scuro);text-decoration:none}
+.marchio img{width:48px;mix-blend-mode:multiply}
+.marchio small{display:block;font-weight:500;color:var(--grigio);font-size:.78rem}
+.torna{font-weight:700;color:var(--blu);text-decoration:none;background:#fff;border:1px solid var(--linea);padding:10px 18px;border-radius:99px}
+.torna:hover{border-color:var(--blu)}
+h1{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--blu-scuro);margin:24px 0 10px}
+.intro{color:var(--grigio);max-width:44em;margin:0 0 28px}
+.filtri{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filtri button{font:inherit;font-weight:700;border:1px solid var(--linea);background:#fff;color:var(--blu-scuro);padding:9px 16px;border-radius:99px;cursor:pointer}
+.filtri button[aria-pressed="true"]{background:var(--blu);color:#fff;border-color:var(--blu)}
+.tabella-box{background:#fff;border-radius:22px;box-shadow:0 0 0 1px var(--linea);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:640px;table-layout:fixed}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--linea);vertical-align:top;font-size:.95rem}
+thead th{background:var(--blu-scuro);color:#fff;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;position:sticky;top:0}
+thead th:first-child{border-top-left-radius:22px}
+thead th:last-child{border-top-right-radius:22px}
+tbody th{font-weight:700;color:var(--blu-scuro);width:24%}
+tbody th small{display:block;font-weight:500;color:var(--grigio);font-size:.8rem}
+tr.gruppo td{background:var(--blu-chiaro);font-weight:800;color:var(--blu);text-transform:uppercase;font-size:.78rem;letter-spacing:.08em;padding:10px 18px}
+td.vuoto{background:var(--giallo);color:#8a6d00;font-style:italic}
+td.nascosta,th.nascosta{display:none}
+.h2{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;font-size:1.7rem;letter-spacing:-.02em;color:var(--blu-scuro);margin:48px 0 6px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.cat{background:#fff;border-radius:18px;box-shadow:0 0 0 1px var(--linea);padding:16px 18px}
+.cat-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.cat-lettera{width:30px;height:30px;border-radius:50%;background:var(--blu-chiaro);color:var(--blu);font-weight:800;display:grid;place-items:center}
+.cat-prezzo{font-size:1.35rem;font-weight:800;color:var(--blu-scuro)}
+.cat p{margin:0;color:var(--grigio);font-size:.9rem}
+.cat .ric{display:inline-block;margin-top:8px;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:99px;background:#e3f6e8;color:var(--verde)}
+.cat .ric.si{background:var(--giallo);color:#8a6d00}
+.conv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.conv{background:#fff;border-radius:18px;box-shadow:0 0 0 1px var(--linea);padding:18px 20px}
+.conv h3{margin:0 0 4px;color:var(--blu-scuro);font-size:1.15rem}
+.conv .chi{color:var(--grigio);font-size:.88rem;margin:0 0 12px}
+.conv table{min-width:0;table-layout:auto}
+.conv td{padding:8px 0;font-size:.92rem;border-bottom:1px dashed var(--linea)}
+.conv td:last-child{text-align:right;font-weight:800;color:var(--blu-scuro);white-space:nowrap}
+.conv .fraz{margin:10px 0 0;font-size:.82rem;color:var(--grigio)}
+.conv-comune{background:var(--blu-chiaro);border-radius:18px;padding:18px 22px;margin-top:12px}
+.conv-comune h3{margin:0 0 8px;color:var(--blu-scuro);font-size:1.05rem}
+.conv-comune ul{margin:0;padding-left:18px}
+.conv-comune li{margin:6px 0;font-size:.93rem}
+.cerca{width:100%;font:inherit;font-size:1.05rem;padding:14px 18px;border-radius:99px;border:1px solid var(--linea);background:#fff;margin-bottom:14px}
+.cerca:focus{outline:3px solid var(--blu-chiaro);border-color:var(--blu)}
+table.matrice{min-width:820px;table-layout:auto}
+table.matrice th[scope=row]{width:30%}
+table.matrice td{font-size:.9rem}
+.si{color:var(--verde);font-weight:700}.no{color:#b3261e;font-weight:700}
+.nessuno{color:var(--grigio);padding:10px 4px}
+.note{margin:22px 0 60px;color:var(--grigio);font-size:.9rem}
+.note b{color:var(--blu-scuro)}
+@media(max-width:640px){.filtri button{flex:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="marchio" href="index.html"><img src="img/logo_piccolo.png" alt="Logo UGID"><span>UGID<small>Ufficio Gestione Identità Digitali</small></span></a>
+    <a class="torna" href="index.html">← Torna al percorso</a>
+  </header>
+
+  <h1>Servizi e tariffe per tipologia</h1>
+  <p class="intro">Parcheggi, mensa e divise funzionano in modo leggermente diverso per dipendenti, frequentatori e liberi professionisti. Qui sotto trovi il riepilogo; più in basso puoi <a href="#matrice">cercare la tua qualifica</a> nella matrice completa.</p>
+
+  <div class="filtri" role="group" aria-label="Filtra per tipologia">
+    <button data-col="tutti" aria-pressed="true">Tutti</button>
+    <button data-col="0" aria-pressed="false">Dipendenti</button>
+    <button data-col="1" aria-pressed="false">Frequentatori</button>
+    <button data-col="2" aria-pressed="false">Liberi professionisti</button>
+  </div>
+
+  <div class="tabella-box"><table id="tabella"></table></div>
+
+  <h2 class="h2">Parcheggi: tariffa con il badge</h2>
+  <p class="intro">Per i dipendenti (e per chi nella matrice ha “vedi categoria”) la tariffa dipende dalla categoria contrattuale ed è valida 24 ore. Liberi professionisti, specialisti ambulatoriali e specializzandi pagano € 2,00.</p>
+  <div class="cat-grid" id="cat-parcheggi"></div>
+
+  <h2 class="h2">Parcheggi: le convenzioni Interparking</h2>
+  <p class="intro">Per chi non ha il parcheggio con il badge (tirocinanti, dottorandi, studenti, volontari…) c'è una convenzione con il gestore dei parcheggi: serve una lettera di autorizzazione e si usa una tessera ricaricabile.</p>
+  <div class="conv-grid" id="convenzioni"></div>
+  <div class="conv-comune">
+    <h3>Come funziona la tessera (per entrambe le convenzioni)</h3>
+    <ul>
+      <li><b>Dove si ritira:</b> Ufficio Cassa del parcheggio Multipiano-Sud (P4), piano verde, settore 1, con un documento d'identità. L'operatore verifica che tu sia nella lista e ti consegna la tessera con credito zero.</li>
+      <li><b>Parcheggi abilitati:</b> Nord (P1) ed Est (P3).</li>
+      <li><b>Come si usa:</b> in ingresso e in uscita, senza ritirare il ticket.</li>
+      <li><b>Ricarica:</b> alle casse automatiche dei parcheggi, oppure alla cassa centrale con carta di credito o bancomat. Il credito residuo compare a ogni utilizzo.</li>
+      <li><b>Attenzione:</b> la tessera teme i campi magnetici. Se la perdi, il rifacimento costa € 5,00. Il credito non utilizzato non viene rimborsato.</li>
+      <li><b>Informazioni:</b> Interparking, tel. 035 5785057 · info-bhp@interparking.com</li>
+    </ul>
+  </div>
+
+  <h2 class="h2" id="matrice">Trova la tua qualifica</h2>
+  <p class="intro">La matrice dei servizi completa: scrivi la tua qualifica (per esempio “tirocinante”, “borsista”, “specializzando”) per vedere divise, mensa e parcheggio.</p>
+  <input class="cerca" id="cerca" type="search" placeholder="Cerca la tua qualifica…" aria-label="Cerca la tua qualifica">
+  <div class="tabella-box"><table class="matrice" id="tab-matrice"></table></div>
+  <p class="nessuno" id="nessuno" hidden>Nessuna qualifica trovata. Prova con un'altra parola o chiedi all'Ufficio UGID.</p>
+  <p class="intro" style="margin-top:14px;font-size:.88rem">Divise: gratuite per gli operatori Covid e delle vaccinazioni. Quanto indicato è definito; restano possibili autorizzazioni concesse in via del tutto eccezionale.</p>
+
+  <p class="note"><b>Aggiornato al:</b> <span id="aggiornato"></span> · Per casi particolari rivolgiti all'Ufficio UGID: ugid.segreteria@asst-pg23.it</p>
+</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* =========================================================
+   DATI DELLA TABELLA: modifica solo questa parte.
+   Ogni riga: [voce, nota sotto la voce, dipendenti, frequentatori, liberi professionisti]
+   Le celle lasciate "" compaiono evidenziate in giallo (da compilare).
+   ========================================================= */
+const AGGIORNATO = "novembre 2026 (Matrice dei servizi UGID · tariffe parcheggio 26/06/2025 · convenzioni Interparking 10/03/2021)";
+const COLONNE = ["Dipendenti", "Frequentatori", "Liberi professionisti"];
+const DATI = [
+  { gruppo: "Parcheggi", righe: [
+    ["Il parcheggio si paga?", "", "Sì, cambia solo la tariffa", "Sì, cambia solo la tariffa", "Sì, cambia solo la tariffa"],
+    ["Come si entra", "", "Con il badge, appoggiandolo al lettore", "Borsisti, co.co.co., specializzandi: con il badge. Tirocinanti, dottorandi, studenti, volontari: con la tessera della convenzione Interparking, su lettera di autorizzazione", "Con il badge, appoggiandolo al lettore"],
+    ["Tariffa", "", "Da € 0,75 a € 2,00 per 24 ore, secondo la categoria", "Borsisti e co.co.co.: € 1,20 per 24 ore. Specializzandi: € 2,00. In convenzione: tariffa oraria", "€ 2,00 per 24 ore"],
+    ["Se il parcheggio è pieno", "", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria."],
+  ]},
+  { gruppo: "Mensa", righe: [
+    ["Ricarica del credito", "al totem, solo pagamento elettronico", "Non serve", "Sì", "Sì"],
+    ["Prezzo del pasto", "IVA inclusa", "€ 1,03 con almeno 6 ore di servizio; € 7,90 sotto le 6 ore", "Da € 1,10 a € 7,90 secondo la qualifica; gratuito per esenti e convenzioni UE", "€ 5,00 (gratuito per convenzioni UE)"],
+  ]},
+  { gruppo: "Divise", righe: [
+    ["Ritiro", "al distributore automatico con il badge", "Sì", "Sì, per la maggior parte delle qualifiche", "Sì"],
+    ["Contributo spese", "da pagare prima del primo ritiro", "Nessuno", "€ 20,00 per la maggior parte delle qualifiche", "€ 20,00"],
+  ]},
+];
+
+/* Tariffe parcheggio con badge per categoria (versione ridotta UGID 26/06/2025) */
+const CAT_PARCHEGGI = [
+  ["A", "€ 0,75"], ["B", "€ 0,80"], ["Bs", "€ 0,80"], ["C", "€ 1,00"], ["D", "€ 1,10"],
+  ["Ds", "€ 1,20", "Coordinatori, P.O."], ["", "€ 1,20", "Borsisti e co.co.co."], ["", "€ 2,00", "Dirigenti medici e non medici"],
+];
+document.getElementById("cat-parcheggi").innerHTML = CAT_PARCHEGGI.map(([l,p,d])=>`
+  <div class="cat"><div class="cat-top">${l?`<span class="cat-lettera">${l}</span>`:'<span></span>'}<span class="cat-prezzo">${p}<small style="font-size:.7rem;font-weight:600;color:var(--grigio)"> /24 h</small></span></div>
+  <p>${d||"Categoria "+l}</p></div>`).join("");
+
+/* Convenzioni Interparking (rev. 10/03/2021) */
+const CONVENZIONI = [
+  { titolo:"Convenzione tirocinanti", chi:"Per i tirocinanti",
+    fasce:[["Lun–ven, 8:00–15:00","€ 0,60/h"],["Lun–ven, 15:00–8:00","€ 0,20/h"],["Sabato e festivi (24 ore)","€ 0,20/h"]],
+    fraz:"Si paga per ogni ora o frazione d'ora." },
+  { titolo:"Convenzione lavoratori esterni", chi:"Per chi lavora in ospedale per conto di ditte esterne",
+    fasce:[["Lun–ven, 8:00–13:00","€ 0,50/h"],["Lun–ven, 13:00–8:00","€ 0,20/h"],["Sabato e festivi (24 ore)","€ 0,20/h"]],
+    fraz:"La tariffa è calcolata ogni 30 minuti." },
+];
+document.getElementById("convenzioni").innerHTML = CONVENZIONI.map(c=>`
+  <div class="conv"><h3>${c.titolo}</h3><p class="chi">${c.chi}</p>
+  <table>${c.fasce.map(([a,b])=>`<tr><td>${a}</td><td>${b}</td></tr>`).join("")}</table>
+  <p class="fraz">${c.fraz}</p></div>`).join("");
+
+/* Matrice dei servizi per qualifica (foto della matrice esposta in UGID).
+   Colonne: qualifica, divise, ricarica mensa, prezzo pasto, parcheggio con badge, tariffa parcheggio */
+const MATRICE = [
+  ["Dipendenti", "Sì", "No", "€ 1,03 (almeno 6 ore) · € 7,90 (meno di 6 ore)", "Sì", "Vedi categoria"],
+  ["Comandati", "Sì", "Sì", "€ 1,05", "Sì", "Vedi categoria"],
+  ["Specialisti ambulatoriali (ex SUMAI), medici e psicologi", "Sì", "No", "€ 1,05", "Sì", "€ 2,00"],
+  ["Direttori di struttura, operatori assimilati, professori universitari", "Sì", "Sì", "€ 1,10", "Sì", "€ 2,00"],
+  ["Operatori assimilati (Temporary, Randstad, Etjca, Manpower)", "Sì", "Sì", "€ 1,10", "Sì", "Vedi categoria"],
+  ["Operatori assimilati AREU", "No", "Sì", "€ 1,10", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Operatori SOREU – Niguarda – AREU", "No", "Sì", "€ 1,10", "Sì", "Convenzione Interparking"],
+  ["Insegnanti dell'Ufficio Scolastico Provinciale e Polizia di Stato di presidio", "Sì", "Sì", "€ 1,10", "Sì", "Vedi categoria"],
+  ["Borsisti", "Sì, con contributo spese", "Sì", "€ 4,90 (gratuito per convenzioni UE)", "Sì", "€ 1,20"],
+  ["Lavoratori con contratto co.co.co. / ex co.co.co.", "Sì, con contributo spese", "Sì", "€ 4,90 (gratuito per convenzioni UE)", "Sì", "€ 1,20"],
+  ["Direttori della Direzione Strategica (co.co.co.)", "Sì", "No", "€ 4,90", "Sì", "Parcheggio riservato"],
+  ["Liberi professionisti (partita IVA) o convenzioni UE", "Sì, con contributo spese", "Sì", "€ 5,00 (gratuito per convenzioni UE)", "Sì", "€ 2,00"],
+  ["Medici necroscopi (partita IVA)", "Sì, con contributo spese", "Sì", "€ 5,00", "Sì", "€ 2,00"],
+  ["Medici di continuità assistenziale (guardia medica)", "No", "Sì", "€ 5,00", "Sì", "€ 2,00"],
+  ["Operatori convenzionati (associazioni convenzionate, CRI…)", "Sì, con contributo spese", "Sì", "€ 5,00", "Sì", "Vedi categoria"],
+  ["Specializzandi", "Sì, con contributo spese", "Sì", "€ 1,10 (esenti Bicocca € 0,00)", "Sì", "€ 2,00"],
+  ["Dottorandi", "Sì, con contributo spese", "Sì", "€ 5,00", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Master", "Sì, con contributo spese", "Sì", "€ 5,00 (esenti € 0,00)", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Medici a prestazione d'opera a titolo gratuito", "Sì, con contributo spese", "Sì", "€ 5,00", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Tirocinanti (pre e post laurea)", "Sì, con contributo spese", "Sì", "€ 5,00 · iscritti Bicocca € 1,10 · esenti € 0,00 · gratuito per convenzioni UE", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Studenti in alternanza scuola-lavoro, stagisti OSS", "Sì, con contributo spese", "Sì (o buono cartaceo)", "€ 5,00", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Studenti International Heart School", "Sì, con contributo spese", "Sì", "€ 1,10", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Studenti dei corsi di laurea in tirocinio / professioni sanitarie con lezione oltre 4 ore", "Sì", "Sì", "€ 1,10 (esenti Bicocca € 0,00)", "No", "Convenzione Interparking"],
+  ["Studenti dei corsi di laurea in aula / professioni sanitarie con lezione sotto 4 ore", "Sì", "Sì", "€ 7,90 (esenti Bicocca € 0,00)", "No", "Convenzione Interparking"],
+  ["Medici del corso di medicina generale", "Sì", "Sì", "€ 5,00 (esenti € 0,00)", "No", "Convenzione Interparking per gli autorizzati"],
+  ["Volontari a titolo personale", "Sì, con contributo spese", "Sì", "€ 5,00", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Volontari associati", "Sì", "Sì", "€ 5,00", "No", "No"],
+  ["Personale in comando per aggiornamento", "No", "Sì", "€ 7,90", "No", "No"],
+  ["Delegati sindacali esterni o in aspettativa sindacale", "No", "Sì", "€ 7,90", "No", "Convenzione Interparking con lettera di autorizzazione"],
+  ["Fornitori di beni e servizi (anche lavoratori saltuari o della manutenzione)", "No", "Sì (o buono cartaceo)", "€ 7,90", "No", "No"],
+  ["Ospiti della Direzione Strategica, collegio sindacale, comitati, commissioni concorsi, docenti esterni", "No", "No", "Gratuito", "No", "Accordo Interparking"],
+];
+const cella = v => /^No$/.test(v) ? `<span class="no">No</span>` : /^Sì$/.test(v) ? `<span class="si">Sì</span>` : esc(v).replace("con contributo spese","con contributo spese (€ 20)");
+const tm = document.getElementById("tab-matrice");
+tm.innerHTML = `<thead><tr><th>Qualifica</th><th>Divise</th><th>Ricarica mensa</th><th>Prezzo del pasto</th><th>Parcheggio con badge</th><th>Tariffa parcheggio</th></tr></thead><tbody>` +
+  MATRICE.map(r=>`<tr data-q="${esc(r[0].toLowerCase())}"><th scope="row">${esc(r[0])}</th>${r.slice(1).map(v=>`<td>${cella(v)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
+const norm = t => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\./g,"");
+document.getElementById("cerca").addEventListener("input", e=>{
+  const parole = norm(e.target.value).split(/[^a-z0-9]+/).filter(w=>w.length>1).map(w=>w.length>4?w.slice(0,Math.max(4,w.length-2)):w);
+  let n=0; tm.querySelectorAll("tbody tr").forEach(tr=>{ const t=norm(tr.dataset.q); const ok=parole.every(w=>t.includes(w)); tr.hidden=!ok; if(ok) n++; });
+  document.getElementById("nessuno").hidden = n>0;
+});
+
+/* ---- costruzione (non serve modificare) ---- */
+const t = document.getElementById("tabella");
+let html = `<thead><tr><th>Servizio</th>${COLONNE.map((c,i)=>`<th data-c="${i}">${esc(c)}</th>`).join("")}</tr></thead><tbody>`;
+DATI.forEach(g=>{
+  html += `<tr class="gruppo"><td colspan="${COLONNE.length+1}">${esc(g.gruppo)}</td></tr>`;
+  g.righe.forEach(([voce,nota,...val])=>{
+    html += `<tr><th scope="row">${esc(voce)}${nota?`<small>${esc(nota)}</small>`:""}</th>` +
+      val.map((v,i)=> v ? `<td data-c="${i}">${esc(v)}</td>` : `<td data-c="${i}" class="vuoto">da compilare</td>`).join("") + `</tr>`;
+  });
+});
+t.innerHTML = html + "</tbody>";
+document.getElementById("aggiornato").textContent = AGGIORNATO;
+
+const pulsanti = document.querySelectorAll(".filtri button");
+function filtra(col){
+  pulsanti.forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.col===col)));
+  t.querySelectorAll("[data-c]").forEach(el=>el.classList.toggle("nascosta", col!=="tutti" && el.dataset.c!==col));
+  try{ localStorage.setItem("ugi-tipologia", col); }catch(e){}
+}
+pulsanti.forEach(b=>b.addEventListener("click",()=>filtra(b.dataset.col)));
+let iniziale="tutti"; try{ iniziale = localStorage.getItem("ugi-tipologia") || "tutti"; }catch(e){}
+filtra(iniziale);
+</script>
+</body>
+</html>
