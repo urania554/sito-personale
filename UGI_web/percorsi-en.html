@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to find us · UGID ASST Papa Giovanni XXIII</title>
+<style>
+:root{--blu:#1c5bd6;--blu-scuro:#0b2560;--blu-chiaro:#e8f0ff;--cielo:#f4f8ff;--verde:#2a9d4b;--inchiostro:#14213d;--grigio:#5b6683;--linea:#d5e0f5;--giallo:#fff4cc}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--inchiostro);background:var(--cielo);line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px;flex-wrap:wrap}
+.marchio{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blu-scuro);text-decoration:none}
+.marchio img{width:48px;mix-blend-mode:multiply}
+.marchio small{display:block;font-weight:500;color:var(--grigio);font-size:.78rem}
+.torna{font-weight:700;color:var(--blu);text-decoration:none;background:#fff;border:1px solid var(--linea);padding:10px 18px;border-radius:99px}
+.torna:hover{border-color:var(--blu)}
+h1,h2,h3{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15;margin:0}
+h1{font-size:clamp(1.9rem,4vw,2.8rem);color:var(--blu-scuro);margin:24px 0 10px}
+.intro{color:var(--grigio);max-width:44em;margin:0 0 28px}
+
+/* dove siamo */
+.dove{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--blu-scuro);color:#fff;border-radius:28px;padding:26px 32px;margin-bottom:44px}
+.dove .cerchio{width:130px;height:130px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+.dove .cerchio img{height:118px;mix-blend-mode:multiply}
+.dove small{color:#9fb4e6;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}
+.dove h2{font-size:1.7rem;margin:4px 0 14px}
+.indirizzo{display:flex;gap:10px;flex-wrap:wrap}
+.indirizzo span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:8px 14px;font-size:.92rem}
+.indirizzo b{display:block;font-size:1.3rem}
+@media(max-width:640px){.dove{grid-template-columns:1fr;text-align:left}.dove .cerchio{width:96px;height:96px}.dove .cerchio img{height:86px}}
+
+/* destinazioni */
+.scelta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+@media(max-width:760px){.scelta{grid-template-columns:repeat(2,1fr)}}
+.scelta button{font:inherit;text-align:left;cursor:pointer;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:16px 18px;transition:all .15s}
+.scelta button:hover{border-color:var(--blu);transform:translateY(-2px)}
+.scelta button[aria-pressed="true"]{background:var(--blu);border-color:var(--blu);color:#fff}
+.scelta .ico{font-size:1.6rem;display:block;margin-bottom:6px}
+.scelta b{display:block;font-size:1.05rem}
+.scelta span.sub{font-size:.8rem;opacity:.75}
+.percorso{background:#fff;border-radius:24px;box-shadow:0 0 0 1px var(--linea);padding:26px 28px;margin-bottom:60px}
+.p-testa{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.p-testa h2{font-size:1.6rem;color:var(--blu-scuro)}
+.p-testa p{margin:6px 0 0;color:var(--grigio)}
+.arrivo{background:var(--blu-chiaro);border-radius:16px;padding:10px 16px;font-size:.9rem;color:var(--blu-scuro)}
+.arrivo b{display:block;font-size:1.05rem}
+ol.passi{list-style:none;margin:0;padding:0;position:relative}
+ol.passi::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;border-left:3px dashed var(--linea)}
+ol.passi li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:16px;padding:8px 0 18px}
+ol.passi .n{width:40px;height:40px;border-radius:50%;background:var(--blu);color:#fff;font-weight:800;display:grid;place-items:center;z-index:1}
+ol.passi li.fine .n{background:var(--verde)}
+ol.passi .t{padding-top:8px}
+ol.passi .t img{margin-top:10px;max-width:min(420px,100%);border-radius:14px;box-shadow:0 0 0 1px var(--linea)}
+.vuoto{background:var(--giallo);color:#8a6d00;font-style:italic;border-radius:8px;padding:2px 8px}
+.video-link{display:inline-block;margin-top:6px;font-weight:700;color:var(--blu);text-decoration:none}
+.mappa-box{background:#fff;border-radius:24px;box-shadow:0 0 0 1px var(--linea);padding:12px 18px;margin-bottom:16px}
+#mappa{width:100%;height:auto;display:block;max-height:440px}
+#mappa text{font-family:inherit}
+.torre rect{fill:var(--blu-chiaro);stroke:#a9c0ee}
+.torre text{text-anchor:middle;font-size:13px;font-weight:700;fill:var(--blu-scuro)}
+.t7 rect{fill:var(--blu);stroke:var(--blu)}.t7 text{fill:#fff}
+.strada{fill:none;stroke:#dfe7f6;stroke-width:22;stroke-linejoin:round}
+.lbl-s{font-size:11px;fill:var(--grigio);font-style:italic;text-anchor:middle}
+.lbl-p{font-size:11px;font-weight:800;fill:#b3261e;letter-spacing:.06em}
+.lbl-ing{font-size:12px;font-weight:800;fill:#8a6d00}
+.rotta{fill:none;stroke:var(--verde);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14 10;opacity:0}
+.rotta.on{opacity:1;animation:scorri 1.2s linear infinite}
+@keyframes scorri{to{stroke-dashoffset:-24}}
+.ing circle{fill:var(--blu-scuro)}.ing text{fill:#fff;font-size:10px;font-weight:800;text-anchor:middle}
+.ing.info circle{fill:var(--giallo);stroke:#b3261e}.ing.info text{fill:#b3261e;font-size:12px}
+.pin circle{fill:none;stroke:var(--verde);stroke-width:4}
+.pin text{font-size:13px;font-weight:800;fill:var(--verde)}
+.pin.ugid circle{stroke:var(--blu)}.pin.ugid text{fill:var(--blu)}
+.pin[data-p]{display:none}.pin[data-p].on{display:inline}
+@media(prefers-reduced-motion:reduce){.rotta.on{animation:none}}
+.note{margin:0 0 60px;color:var(--grigio);font-size:.9rem}
+.lingua{display:inline-flex;border:1px solid var(--linea);border-radius:99px;overflow:hidden;margin-left:18px;vertical-align:middle;background:#fff}.lingua a{margin:0!important;padding:5px 11px;font-size:.8rem;font-weight:800;text-decoration:none;color:var(--blu-scuro)}.lingua a.on{background:var(--blu);color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="marchio" href="index-en.html"><img src="img/logo_piccolo.png" alt="Logo UGID"><span>UGID<small>Digital Identity Management Office</small></span></a>
+    <span class="lingua" aria-label="Lingua / Language"><a href="percorsi.html" lang="it" class="">IT</a><a href="percorsi-en.html" lang="en" class="on">EN</a></span><a class="torna" href="index-en.html">← Back to the path</a>
+  </header>
+
+  <h1>How to find us</h1>
+  <p class="intro">The hospital is big: here is where to find us and how to reach, starting from our office, the services you'll need in your first days. The <b>hospital street</b> is the ring corridor on the ground floor linking the seven towers: the entrance numbers help you find your way.</p>
+
+  <section class="dove" aria-labelledby="dove-titolo">
+    <div class="cerchio"><img src="img/ugi-saluta.webp" alt="UGI waving"></div>
+    <div>
+      <small>Where we are</small>
+      <h2 id="dove-titolo">Digital Identity Management Office</h2>
+      <div class="indirizzo">
+        <span>Tower<b>7</b></span>
+        <span>Floor<b>1</b></span>
+        <span>Entrance<b>55</b></span>
+      </div>
+    </div>
+  </section>
+
+  <h2 style="color:var(--blu-scuro);font-size:1.6rem;margin-bottom:6px">From UGID to…</h2>
+  <p class="intro" style="margin-bottom:18px">Choose where you need to go.</p>
+  <div class="scelta" id="scelta" role="group" aria-label="Choose your destination"></div>
+  <div class="mappa-box" id="mappa-box">
+    <svg viewBox="0 0 640 470" role="img" aria-labelledby="mappa-t" id="mappa">
+      <title id="mappa-t">Map of the hospital street with the seven towers and the highlighted route</title>
+      <!-- parcheggi -->
+      <text x="560" y="160" class="lbl-p">P NORTH</text>
+      <text x="22" y="300" class="lbl-p" transform="rotate(-90 22 300)">P SOUTH · MULTI-STOREY</text>
+      <text x="70" y="452" class="lbl-p">P EAST</text>
+      <!-- torri -->
+      <g class="torre"><rect x="60" y="170" width="72" height="56" rx="8"/><text x="96" y="203">Tower 1</text></g>
+      <g class="torre"><rect x="60" y="300" width="72" height="56" rx="8"/><text x="96" y="333">Tower 2</text></g>
+      <g class="torre"><rect x="200" y="392" width="72" height="56" rx="8"/><text x="236" y="425">Tower 3</text></g>
+      <g class="torre"><rect x="380" y="392" width="72" height="56" rx="8"/><text x="416" y="425">Tower 4</text></g>
+      <g class="torre"><rect x="508" y="300" width="72" height="56" rx="8"/><text x="544" y="333">Tower 5</text></g>
+      <g class="torre"><rect x="508" y="200" width="72" height="56" rx="8"/><text x="544" y="233">Tower 6</text></g>
+      <g class="torre t7"><rect x="508" y="62" width="72" height="56" rx="8"/><text x="544" y="95">Tower 7</text></g>
+      <!-- hospital street -->
+      <path class="strada" d="M150 60 V370 H490 V60 Z"/>
+      <text x="320" y="88" class="lbl-s">corridor Tower 7 → entrances 1-2</text>
+      <text x="215" y="356" class="lbl-s">hospital street</text>
+      <path class="strada" style="stroke-width:12" d="M150 60 H70"/>
+      <path class="rotta" id="rotta" d=""/>
+      <!-- ingressi -->
+      <g class="ing"><circle cx="490" cy="72" r="13"/><text x="490" y="76">55</text></g>
+      <g class="ing"><circle cx="490" cy="228" r="13"/><text x="490" y="232">45</text></g>
+      <g class="ing"><circle cx="490" cy="328" r="13"/><text x="490" y="332">37</text></g>
+      <g class="ing"><circle cx="416" cy="370" r="13"/><text x="416" y="374">31</text></g>
+      <g class="ing"><circle cx="236" cy="370" r="13"/><text x="236" y="374">23</text></g>
+      <g class="ing"><circle cx="150" cy="328" r="13"/><text x="150" y="332">15</text></g>
+      <g class="ing"><circle cx="150" cy="198" r="13"/><text x="150" y="202">7</text></g>
+      <g class="ing"><circle cx="150" cy="60" r="13"/><text x="150" y="64">1</text></g>
+      <g class="ing"><circle cx="190" cy="60" r="13"/><text x="190" y="64">2</text></g>
+      <g class="ing info"><circle cx="452" cy="345" r="11"/><text x="452" y="349">i</text></g>
+      <text x="40" y="96" class="lbl-ing">SOUTH ENTRANCE</text>
+      <text x="600" y="282" class="lbl-ing" text-anchor="middle">EAST ENTRANCE</text>
+      <text x="440" y="34" class="lbl-ing">NORTH ENTRANCE</text>
+      <text x="345" y="44" class="lbl-s" style="font-style:normal">Emergency Dept.</text>
+      <!-- punti -->
+      <g class="pin ugid"><circle cx="490" cy="72" r="20"/><text x="508" y="138">UGID · 1st floor</text></g>
+      <g class="pin" data-p="divise"><circle cx="70" cy="60" r="20"/><text x="20" y="26">Uniform machine · ground floor</text></g>
+      <g class="pin" data-p="guardaroba"><circle cx="190" cy="14" r="14"/><text x="212" y="19">Uniform room (Lavanolo) · basement ↑</text></g>
+      <g class="pin" data-p="mensa"><circle cx="70" cy="60" r="20"/><text x="20" y="26">Canteen · ground floor</text></g>
+      <g class="pin" data-p="banca"><circle cx="330" cy="370" r="20"/><text x="330" y="332" text-anchor="middle">Bank · ground floor</text></g>
+    </svg>
+  </div>
+  <section class="percorso" id="percorso" aria-live="polite"></section>
+</div>
+
+<script>
+/* =========================================================
+   PERCORSI: modifica solo questa parte.
+   - arrivo: torre, piano, ingresso del punto d'arrivo ("" = da compilare)
+   - passi: un testo per passo; foto facoltativa, es. {testo:"…", foto:"img/percorsi/mensa-1.jpg"}
+   - video: tappa del percorso da collegare (facoltativo)
+   ========================================================= */
+const GIRO = [
+  "From UGID, go to the hospital street at entrance 55 (Tower 7).",
+  "Take the corridor linking Tower 7 to the opposite side of the hospital: it's the shortest way and takes you straight to entrances 1 and 2.",
+];
+const VERSO_SUD = "At entrance 1, keep going towards the South Entrance (South – Multi-storey car park side).";
+const PERCORSI = [
+  { id:"divise", ico:"🧺", nome:"Uniform collection", sub:"Vending machine",
+    arrivo:"Ground floor, near the South Entrance and the canteen",
+    passi:[...GIRO, VERSO_SUD, "The uniform machine is on the ground floor, in the canteen area."],
+    rotta:"M490 60 H70", pin:"divise", video:"divise" },
+  { id:"guardaroba", ico:"👕", nome:"Uniform room", sub:"Give your uniform size",
+    arrivo:"Basement, at the Lavanolo: beyond the square of towers",
+    passi:[...GIRO, "At entrance 2 take the stairs down to the basement.", "In the basement the corridor continues beyond the square of towers: follow it to the Lavanolo, next to the pharmacy and the kitchen.", "The uniform room is at the Lavanolo: this is where you give your size."],
+    rotta:"M490 60 H190 V10", pin:"guardaroba", video:null },
+  { id:"mensa", ico:"🍽️", nome:"Canteen", sub:"Lunch and credit top-up",
+    arrivo:"Ground floor, just past the South Entrance",
+    passi:[...GIRO, VERSO_SUD, "The canteen is on the ground floor, just past the South Entrance, near the uniform machine."],
+    rotta:"M490 60 H70", pin:"mensa", video:"mensa" },
+  { id:"banca", ico:"🏦", nome:"Bank", sub:"Branch in the hospital",
+    arrivo:"Ground floor, hospital street between entrances 28 and 30 (between Towers 3 and 4)",
+    passi:["From UGID, go to the hospital street at entrance 55 (Tower 7).",
+      "This time don't take the corridor: walk along the hospital street past Tower 6 and Tower 5 (entrances 53 to 35).",
+      "At the end continue along the side of Towers 4 and 3: you pass the information point (entrance 34) and Tower 4.",
+      "The bank is on the ground floor, on the inner side of the corridor, between entrances 30 and 28."],
+    rotta:"M490 72 V370 H330", pin:"banca", video:null },
+];
+
+/* ---- costruzione (non serve modificare) ---- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const V = v => v ? esc(v) : '<span class="vuoto">to be completed</span>';
+const scelta = document.getElementById("scelta"), box = document.getElementById("percorso");
+PERCORSI.forEach(p=>{
+  const b=document.createElement("button");
+  b.dataset.id=p.id; b.setAttribute("aria-pressed","false");
+  b.innerHTML=`<span class="ico" aria-hidden="true">${p.ico}</span><b>${esc(p.nome)}</b><span class="sub">${esc(p.sub)}</span>`;
+  b.addEventListener("click",()=>mostra(p.id,true));
+  scelta.appendChild(b);
+});
+function mostra(id, aggiornaHash){
+  const p = PERCORSI.find(x=>x.id===id) || PERCORSI[0];
+  scelta.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.id===p.id)));
+  const passi = p.passi.length ? p.passi : [{testo:""}];
+  const lista = p.passi.length ? p.passi : [""];
+  box.innerHTML = `
+    <div class="p-testa">
+      <div><h2>From UGID to: ${esc(p.nome)}</h2><p>${esc(p.sub)}</p></div>
+      <div class="arrivo">Arrival<b>${V(p.arrivo)}</b></div>
+    </div>
+    <ol class="passi">
+      <li><span class="n">0</span><div class="t">Start from UGID: Tower 7, 1st floor, entrance 55.</div></li>
+      ${lista.map((x,i)=>{ const o = typeof x==="string"?{testo:x}:x;
+        return `<li><span class="n">${i+1}</span><div class="t">${V(o.testo)}${o.foto?`<img src="${esc(o.foto)}" alt="">`:""}</div></li>`; }).join("")}
+      <li class="fine"><span class="n">✓</span><div class="t"><b>You've arrived: ${esc(p.nome)}.</b>
+        ${p.video?`<br><a class="video-link" href="index-en.html#percorso">▶ Watch UGI's video on this service</a><br><a class="video-link" href="tariffe-en.html#matrice">€ Fees for your role</a>`:""}</div></li>
+    </ol>`;
+  const rotta = document.getElementById("rotta");
+  rotta.setAttribute("d", p.rotta || ""); rotta.classList.toggle("on", !!p.rotta);
+  document.querySelectorAll(".pin[data-p]").forEach(g=>g.classList.toggle("on", g.dataset.p===p.pin));
+  if(aggiornaHash) history.replaceState(null,"","#"+p.id);
+}
+mostra((location.hash||"").slice(1), false);
+window.addEventListener("hashchange",()=>mostra(location.hash.slice(1),false));
+</script>
+</body>
+</html>

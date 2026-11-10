@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your first day with UGI · UGID ASST Papa Giovanni XXIII</title>
+<meta name="description" content="The welcome path of the Digital Identity Management Office for new staff: badge, computer, clocking in, parking, canteen and more, explained by UGI.">
+<style>
+:root{
+  --blu:#1c5bd6; --blu-scuro:#0b2560; --blu-chiaro:#e8f0ff; --cielo:#f4f8ff;
+  --verde:#2a9d4b; --verde-chiaro:#e3f6e8; --giallo:#ffcc33; --inchiostro:#14213d;
+  --grigio:#5b6683; --linea:#d5e0f5; --r:22px;
+  --ombra:0 10px 30px -12px rgba(11,37,96,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--inchiostro);background:var(--cielo);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.ugi{mix-blend-mode:multiply}
+a{color:var(--blu)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+
+/* ---------- testata ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.marchio{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blu-scuro);text-decoration:none}
+.marchio img{width:48px;height:auto;mix-blend-mode:multiply}
+.marchio small{display:block;font-weight:500;color:var(--grigio);font-size:.78rem;letter-spacing:.01em}
+.top nav a{font-weight:600;text-decoration:none;margin-left:20px;font-size:.95rem;color:var(--blu-scuro)}
+@media(max-width:640px){.top nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:30px 0 90px}
+.impronta-sfondo{position:absolute;right:-160px;top:-90px;width:720px;height:720px;opacity:.55;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.etichetta{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--linea);border-radius:99px;padding:6px 14px 6px 8px;font-size:.85rem;font-weight:600;color:var(--blu-scuro)}
+.etichetta i{width:22px;height:22px;border-radius:50%;background:var(--verde);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.75rem}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.1rem);margin:18px 0 16px;color:var(--blu-scuro)}
+.hero h1 em{font-style:normal;color:var(--blu);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.22em;background:var(--giallo);z-index:-1;border-radius:4px;opacity:.75}
+.hero p.lead{font-size:1.15rem;color:var(--grigio);max-width:34em;margin:0 0 26px}
+.azioni{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:99px;padding:14px 24px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn-primario{background:var(--blu);color:#fff;box-shadow:0 8px 20px -8px var(--blu)}
+.btn-primario:hover{transform:translateY(-2px);background:#174cb5}
+.btn-secondario{background:#fff;color:var(--blu-scuro);border:1px solid var(--linea)}
+.btn-secondario:hover{border-color:var(--blu)}
+.btn:focus-visible,.tappa-card:focus-visible,.faq summary:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
+.info-rapida{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;color:var(--grigio);font-size:.92rem}
+.info-rapida b{color:var(--blu-scuro);font-size:1.25rem;display:block}
+
+/* ---------- badge digitale ---------- */
+.badge-zona{position:relative;display:flex;justify-content:center}
+.cordino{position:absolute;top:-60px;left:50%;width:22px;height:90px;transform:translateX(-50%);background:repeating-linear-gradient(90deg,var(--blu) 0 7px,#3d78e6 7px 14px);border-radius:4px}
+.badge{position:relative;width:min(340px,100%);background:#fff;border-radius:26px;box-shadow:var(--ombra),0 0 0 1px var(--linea);padding:22px 22px 20px;transform:rotate(-3deg);transition:transform .4s}
+.badge:hover{transform:rotate(0)}
+.badge::before{content:"";position:absolute;top:12px;left:50%;width:56px;height:10px;border-radius:9px;background:var(--cielo);transform:translateX(-50%);box-shadow:inset 0 1px 3px rgba(0,0,0,.15)}
+.badge-head{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:.72rem;font-weight:700;color:var(--grigio);letter-spacing:.08em;text-transform:uppercase}
+.badge-head span:last-child{color:var(--verde)}
+.badge-foto{display:flex;gap:14px;align-items:center;margin:14px 0}
+.badge-foto .foto{width:96px;height:112px;border-radius:14px;background:linear-gradient(160deg,var(--blu-chiaro),#fff);overflow:hidden;flex:none;display:grid;place-items:end center}
+.badge-foto .foto img{width:92%}
+.badge-foto h3{font-size:1.25rem;color:var(--blu-scuro)}
+.badge-foto p{margin:4px 0 0;font-size:.85rem;color:var(--grigio)}
+.timbri{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-top:6px}
+.timbri span{aspect-ratio:1;border-radius:50%;border:2px dashed var(--linea);display:grid;place-items:center;font-size:.62rem;font-weight:800;color:#a7b4d3;transition:all .35s}
+.timbri span.ok{border:0;background:var(--verde);color:#fff;transform:scale(1.08)}
+.badge-stato{margin-top:14px;display:flex;justify-content:space-between;font-size:.8rem;color:var(--grigio)}
+.badge-stato b{color:var(--blu-scuro)}
+.barra{height:8px;background:var(--blu-chiaro);border-radius:9px;overflow:hidden;margin-top:6px}
+.barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blu),var(--verde));border-radius:9px;transition:width .6s}
+.badge.completo{transform:rotate(0)}
+.badge.completo .badge-head span:last-child::after{content:" · ABILITATO"}
+.fumetto{position:absolute;left:-18px;bottom:-62px;background:var(--blu-scuro);color:#fff;padding:10px 14px;border-radius:16px 16px 16px 4px;font-size:.88rem;font-weight:600;max-width:230px;box-shadow:var(--ombra)}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .badge-zona{margin-top:70px}
+  .fumetto{left:0}
+}
+
+/* ---------- percorso ---------- */
+section{padding:70px 0}
+.sez-titolo{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.sez-titolo .kicker{font-weight:700;color:var(--verde);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.sez-titolo h2{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--blu-scuro);margin-top:6px}
+.sez-titolo p{color:var(--grigio);max-width:30em;margin:8px 0 0}
+.percorso{position:relative;list-style:none;margin:0;padding:0}
+.percorso::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(var(--linea) 0 12px,transparent 12px 22px)}
+.percorso .progresso-linea{position:absolute;left:50%;top:10px;width:4px;transform:translateX(-50%);background:var(--verde);border-radius:4px;height:0;transition:height .8s}
+.tappa{position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;margin-bottom:28px}
+.tappa .nodo{grid-column:2;justify-self:center;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--linea);display:grid;place-items:center;font-weight:800;color:var(--blu-scuro);z-index:1;transition:all .35s}
+.tappa.fatta .nodo{background:var(--verde);border-color:var(--verde);color:#fff}
+.tappa.fatta .nodo .num{display:none}
+.tappa .nodo svg{display:none;width:26px;height:26px}
+.tappa.fatta .nodo svg{display:block}
+.tappa:nth-of-type(odd) .tappa-card{grid-column:1;grid-row:1}
+.tappa:nth-of-type(even) .tappa-card{grid-column:3;grid-row:1}
+.tappa-card{position:relative;display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:#fff;border-radius:var(--r);padding:12px;box-shadow:0 1px 0 var(--linea),0 0 0 1px var(--linea);cursor:pointer;text-align:left;font:inherit;color:inherit;border:0;width:100%;transition:transform .2s,box-shadow .2s}
+.tappa-card:hover{transform:translateY(-3px);box-shadow:var(--ombra),0 0 0 1px var(--linea)}
+.anteprima{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--blu-chiaro)}
+.anteprima img{width:100%;height:100%;object-fit:cover}
+.anteprima .play{position:absolute;inset:auto 8px 8px auto;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.anteprima .play svg{width:14px;margin-left:2px;fill:var(--blu)}
+.durata{position:absolute;left:8px;bottom:8px;background:rgba(11,37,96,.85);color:#fff;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px}
+.tappa-card h3{font-size:1.18rem;color:var(--blu-scuro);margin-bottom:4px}
+.tappa-card p{margin:0;font-size:.92rem;color:var(--grigio)}
+.dove{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blu);margin-bottom:4px}
+.timbro{position:absolute;top:-12px;right:-10px;width:86px;height:86px;border-radius:50%;border:3px solid var(--verde);color:var(--verde);display:grid;place-items:center;text-align:center;font-weight:900;font-size:.68rem;letter-spacing:.08em;line-height:1.1;transform:rotate(14deg) scale(0);opacity:0;background:rgba(255,255,255,.85);transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .2s;pointer-events:none}
+.timbro::before{content:"";position:absolute;inset:4px;border:1.5px dashed var(--verde);border-radius:50%}
+.tappa.fatta .timbro{transform:rotate(14deg) scale(1);opacity:1}
+.tappa.prossima .tappa-card{box-shadow:0 0 0 3px var(--blu),var(--ombra)}
+.tappa.prossima .nodo{border-color:var(--blu);animation:pulsa 1.8s infinite}
+@keyframes pulsa{0%{box-shadow:0 0 0 0 rgba(28,91,214,.45)}70%{box-shadow:0 0 0 14px rgba(28,91,214,0)}100%{box-shadow:0 0 0 0 rgba(28,91,214,0)}}
+.link-tariffe{grid-row:2;justify-self:start;margin-top:8px;font-size:.88rem;font-weight:700;color:var(--blu);text-decoration:none;background:#fff;border:1px solid var(--linea);border-radius:99px;padding:6px 14px}
+.link-tariffe:hover{border-color:var(--blu)}
+.tappa:nth-of-type(odd) .link-tariffe{grid-column:1}
+.tappa:nth-of-type(even) .link-tariffe{grid-column:3}
+.tappa.segreta .tappa-card{background:repeating-linear-gradient(135deg,#fff 0 14px,#f6f8fd 14px 28px)}
+.tappa.segreta.bloccata .tappa-card{cursor:not-allowed}
+.tappa.segreta.bloccata .anteprima img{filter:blur(10px) grayscale(.6)}
+.lucchetto{position:absolute;inset:0;display:grid;place-items:center;font-size:1.8rem}
+.tappa.segreta:not(.bloccata) .lucchetto{display:none}
+@media(max-width:760px){
+  .percorso::before,.percorso .progresso-linea{left:26px}
+  .tappa{grid-template-columns:52px 1fr;gap:14px}
+  .tappa .nodo{grid-column:1;grid-row:1;align-self:start;margin-top:30px}
+  .tappa:nth-of-type(odd) .tappa-card,.tappa:nth-of-type(even) .tappa-card{grid-column:2}
+  .tappa-card{grid-template-columns:1fr}
+  .tappa:nth-of-type(odd) .link-tariffe,.tappa:nth-of-type(even) .link-tariffe{grid-column:2}
+  .timbro{width:70px;height:70px;font-size:.58rem}
+}
+
+/* ---------- domande lampo ---------- */
+.lampo{background:#fff;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+.faq{background:var(--cielo);border-radius:18px;padding:0 20px;border:1px solid transparent;transition:border-color .2s}
+.faq[open]{border-color:var(--linea);background:#fff;box-shadow:var(--ombra)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:700;color:var(--blu-scuro);display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--blu);font-size:1.2rem;border:1px solid var(--linea)}
+.faq[open] summary::after{content:"–"}
+.faq p{margin:0 0 12px;color:var(--grigio)}
+.faq .vai{background:none;border:0;padding:0 0 18px;font:inherit;font-weight:700;color:var(--blu);cursor:pointer}
+
+/* ---------- aiuto ---------- */
+.aiuto{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center;background:var(--blu-scuro);color:#fff;border-radius:32px;padding:40px;position:relative;overflow:hidden}
+.cerchio{background:#fff;border-radius:50%;padding:18px;aspect-ratio:1;isolation:isolate;display:grid;place-items:center}
+.cerchio img{max-height:100%;object-fit:contain}
+.aiuto h2{font-size:2rem}
+.aiuto > div > p{color:#c9d6f5;margin:8px 0 24px}
+.contatti{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contatto{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px}
+.contatto small{display:block;color:#9fb4e6;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.contatto b{display:block;font-size:1.05rem;margin:4px 0 2px;word-break:break-word}
+.contatto a{color:#fff}
+.contatto span{font-size:.85rem;color:#c9d6f5}
+@media(max-width:860px){.aiuto{grid-template-columns:1fr;padding:28px}.cerchio{width:170px}.contatti{grid-template-columns:1fr}}
+
+footer{padding:40px 0 60px;color:var(--grigio);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer button{background:none;border:0;font:inherit;color:var(--grigio);text-decoration:underline;cursor:pointer}
+
+/* ---------- player ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(980px,94vw);width:100%;color:#fff}
+dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
+.player{background:#0b1838;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.player-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px}
+.player-top h3{font-size:1.1rem}
+.player-top small{color:#9fb4e6;font-weight:600}
+.chiudi{background:rgba(255,255,255,.1);border:0;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;flex:none}
+.player video{display:block;width:100%;max-height:72vh;background:#000}
+.player-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;flex-wrap:wrap}
+.player-bottom p{margin:0;color:#c9d6f5;font-size:.92rem;flex:1;min-width:220px}
+.player-bottom .btn{padding:11px 20px}
+.player-bottom .btn[hidden]{display:none}
+.player-bottom .btn-secondario{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)}
+
+/* ---------- festa finale ---------- */
+.festa{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.festa i{position:absolute;top:-20px;width:14px;height:14px;border-radius:50%;opacity:.9;animation:cade linear forwards}
+@keyframes cade{to{transform:translateY(110vh) rotate(540deg)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--verde);color:#fff;font-weight:700;padding:14px 22px;border-radius:99px;box-shadow:var(--ombra);transition:transform .4s;z-index:60}
+.toast.vis{transform:translate(-50%,0);visibility:visible}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.lingua{display:inline-flex;border:1px solid var(--linea);border-radius:99px;overflow:hidden;margin-left:18px;vertical-align:middle;background:#fff}.lingua a{margin:0!important;padding:5px 11px;font-size:.8rem;font-weight:800;text-decoration:none;color:var(--blu-scuro)}.lingua a.on{background:var(--blu);color:#fff}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="impronta" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+    <path d="M30 22a34 34 0 0 1 40 0"/><path d="M20 36a38 38 0 0 1 60 0"/>
+    <path d="M26 72c-4-8-6-16-6-24a30 30 0 0 1 60 0c0 6-1 10-3 14"/>
+    <path d="M34 80c-4-10-6-20-6-30a22 22 0 0 1 44 0c0 10-2 18-6 26"/>
+    <path d="M44 86c-4-10-6-22-6-34a12 12 0 0 1 24 0c0 14-3 26-8 36"/>
+    <path d="M50 52c0 14-2 26-8 38"/>
+  </symbol>
+  <symbol id="spunta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="marchio" href="#">
+      <img src="img/logo_piccolo.png" alt="Logo UGID" width="48" height="46">
+      <span>UGID<small>Digital Identity Management Office</small></span>
+    </a>
+    <nav><a href="#percorso">The path</a><a href="#lampo">Quick answers</a><a href="tariffe-en.html">Services &amp; fees</a><a href="percorsi-en.html">How to find us</a><a href="#aiuto">Help</a></nav><span class="lingua" aria-label="Lingua / Language"><a href="index.html" lang="it" class="">IT</a><a href="index-en.html" lang="en" class="on">EN</a></span>
+  </header>
+</div>
+
+<main>
+<section class="hero" style="padding-top:20px">
+  <svg class="impronta-sfondo" style="color:#d9e5fb"><use href="#impronta"/></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="etichetta"><i>✓</i> ASST Papa Giovanni XXIII · Bergamo</span>
+      <h1>First day?<br><em>UGI</em> will show you around.</h1>
+      <p class="lead">Badge, computer, clocking in, parking, canteen and uniforms: everything you need in your first weeks, in short videos. Every video you watch adds a stamp to your badge. <i>The videos are in Italian.</i></p>
+      <div class="azioni">
+        <button class="btn btn-primario" id="inizia">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg>
+          <span>Start the path</span>
+        </button>
+        <a class="btn btn-secondario" href="#lampo">I just have a question</a>
+      </div>
+      <div class="info-rapida">
+        <div><b>9</b>stops</div>
+        <div><b>~9 min</b>in total</div>
+        <div><b>1</b>final surprise</div>
+      </div>
+    </div>
+
+    <div class="badge-zona">
+      <div class="cordino"></div>
+      <div class="badge" id="badge" aria-live="polite">
+        <div class="badge-head"><span>Welcome badge</span><span>UGID</span></div>
+        <div class="badge-foto">
+          <div class="foto"><img class="ugi" src="img/ugi-badge-parla.webp" alt="UGI, the UGID mascot, showing the badge"></div>
+          <div>
+            <h3 id="badge-titolo">Newcomer</h3>
+            <p id="badge-sottotitolo">Collect all 9 stamps by watching the videos.</p>
+          </div>
+        </div>
+        <div class="timbri" id="timbri" aria-hidden="true"></div>
+        <div class="badge-stato"><span>Stamps collected</span><b id="conteggio">0 / 9</b></div>
+        <div class="barra"><i id="barra"></i></div>
+        <div class="fumetto" id="fumetto">Hi! I'm UGI. Shall we take the tour together?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="percorso">
+  <div class="wrap">
+    <div class="sez-titolo">
+      <div>
+        <div class="kicker">The path</div>
+        <h2>Nine stops, one fully enabled badge</h2>
+        <p>Follow them in order or jump straight to the one you need. The page remembers where you left off.</p>
+      </div>
+    </div>
+    <ol class="percorso" id="lista"><div class="progresso-linea" id="linea"></div></ol>
+  </div>
+</section>
+
+<section class="lampo" id="lampo">
+  <div class="wrap">
+    <div class="sez-titolo">
+      <div>
+        <div class="kicker">Quick answers</div>
+        <h2>Just need an answer?</h2>
+        <p>The questions we hear most often in the first weeks, with the video where UGI explains it. For the differences between employees, trainees/visiting staff and freelancers, see the <a href="tariffe-en.html">services &amp; fees table</a>.</p>
+      </div>
+    </div>
+    <div class="faq-grid" id="faq"></div>
+  </div>
+</section>
+
+<section id="aiuto">
+  <div class="wrap">
+    <div class="aiuto">
+      <div class="cerchio"><img class="ugi" src="img/ugi-saluta.webp" alt="UGI waving"></div>
+      <div>
+        <h2>Need a hand?</h2>
+        <p>If something doesn't work or you can't find the answer here, write, call or come and see us: <b>Tower 7, 1st floor, entrance 55</b> · <a href="percorsi-en.html" style="color:#fff;font-weight:700">How to find us →</a></p>
+        <div class="contatti">
+          <div class="contatto"><small>UGID office</small><b><a href="mailto:ugid.segreteria@asst-pg23.it">ugid.segreteria@asst-pg23.it</a></b><span>Badge, credentials, digital identity</span></div>
+          <div class="contatto"><small>Help Desk</small><b><a href="tel:3333">3333</a></b><span>24/7 · PIN, PUK, blocked smart card</span></div>
+          <div class="contatto"><small>Access control</small><b><a href="mailto:richiestacontrolloaccessi@asst-pg23.it">richiestacontrolloaccessi@asst-pg23.it</a></b><span>Badge access to doors</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>Digital Identity Management Office · ASST Papa Giovanni XXIII · “UGID is always by your side.”</span>
+    <button id="azzera">Restart the path</button>
+  </footer>
+</div>
+
+<dialog id="dialog" aria-labelledby="p-titolo">
+  <div class="player">
+    <div class="player-top">
+      <div><small id="p-tappa"></small><h3 id="p-titolo"></h3></div>
+      <button class="chiudi" id="chiudi" aria-label="Close video">×</button>
+    </div>
+    <video id="video" controls playsinline preload="metadata"></video>
+    <div class="player-bottom">
+      <p id="p-testo"></p>
+      <a class="btn btn-secondario" id="p-tariffe" href="tariffe-en.html#matrice" hidden>Fees for your role</a>
+      <button class="btn btn-primario" id="prossima" hidden>Next stop →</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const TAPPE = [
+  {id:"benvenuto", file:"01-benvenuto", dur:"0:32", dove:"UGID office", titolo:"Welcome, here is your badge",
+   testo:"Meet UGI and your staff badge: the key you'll use for everything, from doors to your computer."},
+  {id:"computer", file:"02-computer", dur:"2:02", dove:"Your workstation", titolo:"Logging in to the computer",
+   testo:"Badge in the smart card reader, then your PIN. What to do with PIN and PUK, and how to request new applications."},
+  {id:"timbrature", file:"03-timbrature", dur:"1:08", dove:"Time clock", titolo:"Clocking in and out",
+   testo:"Left side to clock in, right side to clock out. How to check your latest records and use reason codes."},
+  {id:"accessi", file:"04-controllo-accessi", dur:"0:25", dove:"Ward entrance", titolo:"Opening doors",
+   testo:"Depending on your role, your badge opens the wards and changing rooms you are authorised for. Other doors need an email from your manager."},
+  {id:"parcheggio", tariffe:true, file:"05-parcheggio", dur:"1:26", dove:"Car parks", titolo:"Where to park",
+   testo:"Which car parks are for staff, how to read the displays and where to tap your badge."},
+  {id:"velostazione", file:"06-velostazione", dur:"1:03", dove:"Bike station", titolo:"Cycling to work",
+   testo:"The city bike station is free with your badge. What to do if a new badge isn't recognised."},
+  {id:"mensa", tariffe:true, file:"07-mensa", dur:"0:36", dove:"Canteen", titolo:"Topping up for the canteen",
+   testo:"Non-employees top up their credit at the kiosk, by card only. Employees and outpatient specialists (ex SUMAI) don't need to top up."},
+  {id:"divise", tariffe:true, file:"08-divise", dur:"0:46", dove:"Uniform room", titolo:"Collecting your uniform",
+   testo:"First give your size at the uniform room, then use the vending machine with your badge. Dirty uniforms go in the collection bin."},
+  {id:"conclusione", file:"10-conclusione", dur:"0:19", dove:"Last stop", titolo:"You're ready!",
+   testo:"A quick recap and a goodbye from UGI. Your badge is complete."},
+  {id:"segreto", file:"09-caffe", dur:"0:09", dove:"Bonus content", titolo:"UGI's secret", segreto:true,
+   testo:"Unlocks only when you've collected all the stamps. What does UGI do off duty?"}
+];
+const PRINCIPALI = TAPPE.filter(t=>!t.segreto);
+
+const FAQ = [
+  {d:"I entered the wrong PIN three times: now what?", r:"After three wrong attempts the smart card locks for security. To unlock it you need the PUK code in the envelope you received with your badge. If you have trouble, call the Help Desk on 3333, available 24/7.", t:"computer"},
+  {d:"I need new applications: who do I ask?", r:"Your ward secretary or coordinator fills in the access request form. New permissions are activated within 5 working days.", t:"computer"},
+  {d:"Which side do I use to clock in?", r:"On the terminal, the left side records your arrival and the right side your departure. From the Transazioni (transactions) menu you can see up to your last 30 records.", t:"timbrature"},
+  {d:"I mixed up clock-in and clock-out: what do I do?", r:"If you notice straight away, no problem: clock again correctly within the same minute and the terminal automatically discards the wrong one. If you notice later, tell your manager.", t:"timbrature"},
+  {d:"My badge doesn't open my ward's door", r:"Your badge opens the wards and changing rooms set for your role. To enable it for other doors, your manager must email richiestacontrolloaccessi@asst-pg23.it.", t:"accessi"},
+  {d:"At the car park, do I insert the badge in the slot?", r:"No: just tap it on the contactless sensor. If the display shows “posti abbonati completi” (subscriber spaces full), try another staff car park. <a href='tariffe-en.html'>Details and fees by category →</a>", t:"parcheggio"},
+  {d:"What if the car parks are full?", r:"Use the intercom to call the parking attendants and ask for directions. If you have already entered with a ticket, you can leave free of charge within 10 minutes and park elsewhere. Don't stay inside: after 10 minutes you would pay the hourly rate. <a href='tariffe-en.html'>Details and fees by category →</a>", t:"parcheggio"},
+  {d:"The bike station doesn't recognise my new badge", r:"Your badge works: the bike station's list just needs updating. Use the contacts posted at the bike station entrance.", t:"velostazione"},
+  {d:"I'm a trainee or work for an external company: where do I park?", r:"There is an agreement with Interparking: collect a rechargeable card at the cash office of the Multipiano-Sud car park (P4) and use it in the North (P1) and East (P3) car parks at a reduced hourly rate. An authorisation letter is required. <a href='tariffe-en.html'>Fees and details →</a>", t:"parcheggio"},
+  {d:"Do I need to top up my canteen credit?", r:"Only if you are not an employee. Employees and outpatient specialists (ex SUMAI) don't need to. Everyone else (freelancers, agency staff, grant holders, trainees…) tops up at the kiosk. <a href='tariffe-en.html'>Meal prices by category →</a>", t:"mensa"},
+  {d:"Can I top up the canteen with cash?", r:"No, the kiosk only accepts cards or contactless devices. Remember that any credit left on the card when you leave the hospital is not refunded. <a href='tariffe-en.html'>Details and fees by category →</a>", t:"mensa"},
+  {d:"How do I choose my uniform size?", r:"First go to the uniform room to have your size recorded. The machine then gives you the right uniform for your role, no need to choose. For some contract types a € 20 contribution must be paid before collection. <a href='tariffe-en.html#matrice'>Who pays the contribution →</a>", t:"divise"}
+];
+
+/* ---- stato (salvato nel browser, se disponibile) ---- */
+const CHIAVE = "ugi-percorso-v1";
+let fatte = new Set();
+try{ fatte = new Set(JSON.parse(localStorage.getItem(CHIAVE)||"[]")); }catch(e){}
+const salva = ()=>{ try{ localStorage.setItem(CHIAVE, JSON.stringify([...fatte])); }catch(e){} };
+const completo = ()=> PRINCIPALI.every(t=>fatte.has(t.id));
+
+/* ---- costruzione ---- */
+const $ = s=>document.querySelector(s);
+const lista = $("#lista");
+TAPPE.forEach((t,i)=>{
+  const li = document.createElement("li");
+  li.className = "tappa" + (t.segreto?" segreta":"");
+  li.dataset.id = t.id;
+  li.innerHTML = `
+    <div class="nodo">${t.segreto?'<span class="num">★</span>':`<span class="num">${i+1}</span>`}<svg><use href="#spunta"/></svg></div>
+    <button class="tappa-card" aria-label="Watch the video: ${t.titolo}, length ${t.dur}">
+      <div class="anteprima">
+        <img src="img/poster-${t.file}.jpg" alt="" loading="lazy">
+        <span class="durata">${t.dur}</span>
+        <span class="play"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+        ${t.segreto?'<span class="lucchetto" aria-hidden="true">🔒</span>':''}
+      </div>
+      <div>
+        <span class="dove">${t.segreto?"Bonus":"Stop "+(i+1)} · ${t.dove}</span>
+        <h3>${t.titolo}</h3>
+        <p>${t.testo}</p>
+      </div>
+      <div class="timbro">${t.segreto?"FOUND":"SEEN<br>✓<br>UGI"}</div>
+    </button>`;
+  if(t.tariffe){ const a=document.createElement("a"); a.className="link-tariffe"; a.href="tariffe-en.html#matrice"; a.textContent="€ How much for you? Fees by role →"; li.appendChild(a); }
+  li.querySelector(".tappa-card").addEventListener("click",()=>apri(t.id));
+  lista.appendChild(li);
+});
+
+const timbri = $("#timbri");
+PRINCIPALI.forEach((t,i)=>{ const s=document.createElement("span"); s.textContent=i+1; s.dataset.id=t.id; s.title=t.titolo; timbri.appendChild(s); });
+
+const faq = $("#faq");
+FAQ.forEach(f=>{
+  const d = document.createElement("details"); d.className="faq";
+  const t = TAPPE.find(x=>x.id===f.t);
+  d.innerHTML = `<summary>${f.d}</summary><p>${f.r}</p><button class="vai">▶ Watch “${t.titolo}” (${t.dur})</button>`;
+  d.querySelector(".vai").addEventListener("click",()=>apri(f.t));
+  faq.appendChild(d);
+});
+
+/* ---- aggiornamento interfaccia ---- */
+function aggiorna(){
+  const n = PRINCIPALI.filter(t=>fatte.has(t.id)).length;
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  document.querySelectorAll(".tappa").forEach(li=>{
+    const id = li.dataset.id;
+    li.classList.toggle("fatta", fatte.has(id));
+    li.classList.toggle("prossima", !!prossima && prossima.id===id);
+    if(li.classList.contains("segreta")) li.classList.toggle("bloccata", !completo());
+  });
+  timbri.querySelectorAll("span").forEach(s=>s.classList.toggle("ok", fatte.has(s.dataset.id)));
+  $("#conteggio").textContent = `${n} / ${PRINCIPALI.length}`;
+  $("#barra").style.width = (n/PRINCIPALI.length*100)+"%";
+  // linea verde del percorso fino all'ultima tappa completata consecutiva
+  let ultima = -1; PRINCIPALI.forEach((t,i)=>{ if(fatte.has(t.id) && ultima===i-1) ultima=i; });
+  const items = lista.querySelectorAll(".tappa");
+  const linea = $("#linea");
+  if(ultima>=0){ const el=items[ultima]; linea.style.height = (el.offsetTop + el.offsetHeight/2 - 10)+"px"; } else linea.style.height = "0";
+  const badge=$("#badge"); badge.classList.toggle("completo", completo());
+  const fum=$("#fumetto"), bt=$("#inizia span");
+  if(completo()){
+    $("#badge-titolo").textContent="Badge enabled!";
+    $("#badge-sottotitolo").textContent="You've completed the path. Welcome to ASST Papa Giovanni XXIII.";
+    fum.textContent = fatte.has("segreto") ? "Now you know my secret too. Enjoy your work!" : "Fantastic! I've unlocked a secret for you ★";
+    bt.textContent = fatte.has("segreto") ? "Watch the path again" : "Discover UGI's secret";
+  }else if(n>0){
+    $("#badge-titolo").textContent="Newcomer";
+    $("#badge-sottotitolo").textContent=`Next stop: ${prossima.titolo.toLowerCase()}.`;
+    fum.textContent = n>=6 ? "Almost there, just a few stops left!" : "Great! Shall we carry on where we left off?";
+    bt.textContent = "Continue the path";
+  }
+}
+
+/* ---- player ---- */
+const dialog=$("#dialog"), video=$("#video");
+let corrente=null;
+function apri(id){
+  const t = TAPPE.find(x=>x.id===id);
+  if(t.segreto && !completo()){ toast("🔒 Collect all 9 stamps to unlock UGI's secret"); return; }
+  corrente = t;
+  const i = TAPPE.indexOf(t);
+  $("#p-tappa").textContent = t.segreto ? "Bonus content" : `Stop ${i+1} of ${PRINCIPALI.length} · ${t.dove}`;
+  $("#p-titolo").textContent = t.titolo;
+  $("#p-testo").textContent = t.testo;
+  $("#prossima").hidden = true;
+  $("#p-tariffe").hidden = !t.tariffe;
+  video.src = `video/${t.file}.mp4`;
+  video.poster = `img/poster-${t.file}.jpg`;
+  if(typeof dialog.showModal==="function") dialog.showModal(); else dialog.setAttribute("open","");
+  video.play().catch(()=>{});
+}
+function chiudi(){ video.pause(); video.removeAttribute("src"); video.load(); if(dialog.open) dialog.close(); }
+$("#chiudi").addEventListener("click",chiudi);
+dialog.addEventListener("click",e=>{ if(e.target===dialog) chiudi(); });
+dialog.addEventListener("close",()=>{ video.pause(); });
+
+function segna(){
+  if(!corrente || fatte.has(corrente.id)) return;
+  const eraCompleto = completo();
+  fatte.add(corrente.id); salva(); aggiorna();
+  if(!corrente.segreto) toast(`✓ Stamp ${PRINCIPALI.indexOf(corrente)+1} collected: ${corrente.titolo}`);
+  if(!eraCompleto && completo()) festa();
+}
+video.addEventListener("timeupdate",()=>{ if(video.duration && video.currentTime/video.duration>0.9) segna(); });
+video.addEventListener("ended",()=>{
+  segna();
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  const btn=$("#prossima");
+  if(prossima){ btn.textContent=`Next stop: ${prossima.titolo} →`; btn.onclick=()=>apri(prossima.id); btn.hidden=false; }
+  else if(!fatte.has("segreto")){ btn.textContent="★ Discover UGI's secret"; btn.onclick=()=>apri("segreto"); btn.hidden=false; }
+});
+
+$("#inizia").addEventListener("click",()=>{
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  if(prossima) apri(prossima.id);
+  else if(!fatte.has("segreto")) apri("segreto");
+  else document.getElementById("percorso").scrollIntoView();
+});
+$("#azzera").addEventListener("click",()=>{ fatte.clear(); salva(); aggiorna(); toast("Path reset"); });
+
+let tt;
+function toast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("vis"); clearTimeout(tt); tt=setTimeout(()=>el.classList.remove("vis"),3200); }
+function festa(){
+  const f=document.createElement("div"); f.className="festa";
+  const colori=["#1c5bd6","#2a9d4b","#ffcc33","#7fb0ff","#ffffff"];
+  for(let i=0;i<90;i++){ const c=document.createElement("i"); c.style.left=Math.random()*100+"vw"; c.style.background=colori[i%colori.length]; c.style.animationDuration=(2.2+Math.random()*2.2)+"s"; c.style.animationDelay=(Math.random()*.8)+"s"; c.style.borderRadius=i%3?"50%":"3px"; f.appendChild(c); }
+  document.body.appendChild(f); setTimeout(()=>f.remove(),5500);
+  setTimeout(()=>toast("🎉 Badge enabled! You've unlocked UGI's secret"),400);
+}
+window.addEventListener("resize",aggiorna);
+aggiorna();
+</script>
+</body>
+</html>

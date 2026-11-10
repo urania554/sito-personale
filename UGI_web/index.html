@@ -182,6 +182,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--verde);color:#fff;font-weight:700;padding:14px 22px;border-radius:99px;box-shadow:var(--ombra);transition:transform .4s;z-index:60}
 .toast.vis{transform:translate(-50%,0);visibility:visible}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.lingua{display:inline-flex;border:1px solid var(--linea);border-radius:99px;overflow:hidden;margin-left:18px;vertical-align:middle;background:#fff}.lingua a{margin:0!important;padding:5px 11px;font-size:.8rem;font-weight:800;text-decoration:none;color:var(--blu-scuro)}.lingua a.on{background:var(--blu);color:#fff}
 </style>
 </head>
 <body>
@@ -203,7 +204,7 @@ dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
       <img src="img/logo_piccolo.png" alt="Logo UGID" width="48" height="46">
       <span>UGID<small>Ufficio Gestione Identità Digitali</small></span>
     </a>
-    <nav><a href="#percorso">Il percorso</a><a href="#lampo">Domande lampo</a><a href="tariffe.html">Servizi e tariffe</a><a href="percorsi.html">Come arrivare</a><a href="#aiuto">Aiuto</a></nav>
+    <nav><a href="#percorso">Il percorso</a><a href="#lampo">Domande lampo</a><a href="tariffe.html">Servizi e tariffe</a><a href="percorsi.html">Come arrivare</a><a href="#aiuto">Aiuto</a></nav><span class="lingua" aria-label="Lingua / Language"><a href="index.html" lang="it" class="on">IT</a><a href="index-en.html" lang="en" class="">EN</a></span>
   </header>
 </div>
 
@@ -326,7 +327,7 @@ const TAPPE = [
   {id:"timbrature", file:"03-timbrature", dur:"1:08", dove:"Terminale presenze", titolo:"Le timbrature",
    testo:"Lato sinistro per l'entrata, destro per l'uscita. Come vedere le ultime timbrature e usare le causali."},
   {id:"accessi", file:"04-controllo-accessi", dur:"0:25", dove:"Ingresso del reparto", titolo:"Aprire le porte",
-   testo:"Il badge apre i varchi del tuo reparto. Se non lo fa, ecco a chi inviare la richiesta."},
+   testo:"In base al tuo ruolo il badge apre i reparti e gli spogliatoi autorizzati. Per altre porte serve un'email del responsabile."},
   {id:"parcheggio", tariffe:true, file:"05-parcheggio", dur:"1:26", dove:"Parcheggi", titolo:"Dove parcheggiare",
    testo:"Quali parcheggi sono per i dipendenti, come leggere i display e dove appoggiare il badge."},
   {id:"velostazione", file:"06-velostazione", dur:"1:03", dove:"Velostazione", titolo:"In bici al lavoro",
@@ -346,9 +347,10 @@ const FAQ = [
   {d:"Ho sbagliato il PIN tre volte: e adesso?", r:"Dopo tre tentativi errati la smart card si blocca per sicurezza. Per sbloccarla serve il codice PUK che trovi nella busta consegnata con il badge. Se hai difficoltà, chiama l'Help Desk al 3333, attivo 24 ore su 24.", t:"computer"},
   {d:"Mi servono nuovi applicativi: a chi li chiedo?", r:"La segreteria del reparto o il coordinatore compila il modulo di richiesta abilitazioni. Le nuove abilitazioni vengono attivate entro 5 giorni lavorativi.", t:"computer"},
   {d:"Da che lato timbro l'entrata?", r:"Sul terminale il lato sinistro registra l'ingresso e quello destro l'uscita. Dal menu Transazioni puoi vedere fino alle ultime 30 timbrature.", t:"timbrature"},
-  {d:"Il badge non apre la porta del mio reparto", r:"Probabilmente il badge non è ancora abilitato a quel varco. Va inviata una richiesta a richiestacontrolloaccessi@asst-pg23.it: il video mostra come.", t:"accessi"},
+  {d:"Ho invertito entrata e uscita: cosa faccio?", r:"Se te ne accorgi subito, nessun problema: rifai la timbratura corretta entro lo stesso minuto. Il terminale scarta automaticamente la prima, quella sbagliata. Se te ne accorgi più tardi, segnalalo al tuo responsabile.", t:"timbrature"},
+  {d:"Il badge non apre la porta del mio reparto", r:"Il badge apre i reparti e gli spogliatoi previsti per il tuo ruolo. Per abilitarlo ad altre porte serve un'email del tuo responsabile a richiestacontrolloaccessi@asst-pg23.it.", t:"accessi"},
   {d:"Al parcheggio il badge va inserito nella fessura?", r:"No: va solo appoggiato sul sensore contactless. Se il display indica “posti abbonati completi”, prova un altro parcheggio aziendale. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"parcheggio"},
-  {d:"Se i parcheggi sono pieni cosa faccio?", r:"Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto per sostare all'interno: in quel caso pagheresti la tariffa oraria. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"parcheggio"},
+  {d:"Se i parcheggi sono pieni cosa faccio?", r:"Citofona ai parcheggiatori e chiedi indicazioni. Se sei già entrato ritirando il biglietto, puoi uscire gratuitamente entro 10 minuti e parcheggiare altrove. Non sostare all'interno: oltre i 10 minuti pagheresti la tariffa oraria. <a href='tariffe.html'>Dettagli e tariffe per tipologia →</a>", t:"parcheggio"},
   {d:"La Velostazione non riconosce il mio badge nuovo", r:"Il badge funziona: deve solo essere aggiornato l'elenco della Velostazione. Contatta i recapiti esposti all'ingresso della Velostazione.", t:"velostazione"},
   {d:"Sono tirocinante o lavoro per una ditta esterna: dove parcheggio?", r:"C'è una convenzione con Interparking: ritiri una tessera ricaricabile all'Ufficio Cassa del parcheggio Multipiano-Sud (P4) e la usi nei parcheggi Nord (P1) ed Est (P3), pagando una tariffa oraria agevolata. Serve una lettera di autorizzazione. <a href='tariffe.html'>Tariffe e dettagli →</a>", t:"parcheggio"},
   {d:"Devo ricaricare il credito della mensa?", r:"Solo se non sei dipendente. Dipendenti e specialisti ambulatoriali (ex SUMAI) non devono fare ricariche. Tutti gli altri (liberi professionisti, interinali, borsisti, tirocinanti…) ricaricano il credito al totem. <a href='tariffe.html'>Prezzi del pasto per tipologia →</a>", t:"mensa"},

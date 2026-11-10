@@ -62,13 +62,14 @@ table.matrice td{font-size:.9rem}
 .note{margin:22px 0 60px;color:var(--grigio);font-size:.9rem}
 .note b{color:var(--blu-scuro)}
 @media(max-width:640px){.filtri button{flex:1}}
+.lingua{display:inline-flex;border:1px solid var(--linea);border-radius:99px;overflow:hidden;margin-left:18px;vertical-align:middle;background:#fff}.lingua a{margin:0!important;padding:5px 11px;font-size:.8rem;font-weight:800;text-decoration:none;color:var(--blu-scuro)}.lingua a.on{background:var(--blu);color:#fff}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="marchio" href="index.html"><img src="img/logo_piccolo.png" alt="Logo UGID"><span>UGID<small>Ufficio Gestione Identità Digitali</small></span></a>
-    <a class="torna" href="index.html">← Torna al percorso</a>
+    <span class="lingua" aria-label="Lingua / Language"><a href="tariffe.html" lang="it" class="on">IT</a><a href="tariffe-en.html" lang="en" class="">EN</a></span><a class="torna" href="index.html">← Torna al percorso</a>
   </header>
 
   <h1>Servizi e tariffe per tipologia</h1>
@@ -126,7 +127,7 @@ const DATI = [
     ["Il parcheggio si paga?", "", "Sì, cambia solo la tariffa", "Sì, cambia solo la tariffa", "Sì, cambia solo la tariffa"],
     ["Come si entra", "", "Con il badge, appoggiandolo al lettore", "Borsisti, co.co.co., specializzandi: con il badge. Tirocinanti, dottorandi, studenti, volontari: con la tessera della convenzione Interparking, su lettera di autorizzazione", "Con il badge, appoggiandolo al lettore"],
     ["Tariffa", "", "Da € 0,75 a € 2,00 per 24 ore, secondo la categoria", "Borsisti e co.co.co.: € 1,20 per 24 ore. Specializzandi: € 2,00. In convenzione: tariffa oraria", "€ 2,00 per 24 ore"],
-    ["Se il parcheggio è pieno", "", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Non entrare ritirando il biglietto: pagheresti la tariffa oraria."],
+    ["Se il parcheggio è pieno", "", "Citofona ai parcheggiatori e chiedi indicazioni. Se sei già entrato ritirando il biglietto, puoi uscire gratuitamente entro 10 minuti e parcheggiare altrove. Non sostare all'interno: oltre i 10 minuti pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Se sei già entrato ritirando il biglietto, puoi uscire gratuitamente entro 10 minuti e parcheggiare altrove. Non sostare all'interno: oltre i 10 minuti pagheresti la tariffa oraria.", "Citofona ai parcheggiatori e chiedi indicazioni. Se sei già entrato ritirando il biglietto, puoi uscire gratuitamente entro 10 minuti e parcheggiare altrove. Non sostare all'interno: oltre i 10 minuti pagheresti la tariffa oraria."],
   ]},
   { gruppo: "Mensa", righe: [
     ["Ricarica del credito", "al totem, solo pagamento elettronico", "Non serve", "Sì", "Sì"],
