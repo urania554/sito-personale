@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il tuo primo giorno con UGI · UGID ASST Papa Giovanni XXIII</title>
+<meta name="description" content="Il percorso di benvenuto dell'Ufficio Gestione Identità Digitali per i nuovi assunti: badge, computer, timbrature, parcheggi, mensa e molto altro, spiegati da UGI.">
+<style>
+:root{
+  --blu:#1c5bd6; --blu-scuro:#0b2560; --blu-chiaro:#e8f0ff; --cielo:#f4f8ff;
+  --verde:#2a9d4b; --verde-chiaro:#e3f6e8; --giallo:#ffcc33; --inchiostro:#14213d;
+  --grigio:#5b6683; --linea:#d5e0f5; --r:22px;
+  --ombra:0 10px 30px -12px rgba(11,37,96,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--inchiostro);background:var(--cielo);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.ugi{mix-blend-mode:multiply}
+a{color:var(--blu)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+
+/* ---------- testata ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.marchio{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--blu-scuro);text-decoration:none}
+.marchio img{width:48px;height:auto;mix-blend-mode:multiply}
+.marchio small{display:block;font-weight:500;color:var(--grigio);font-size:.78rem;letter-spacing:.01em}
+.top nav a{font-weight:600;text-decoration:none;margin-left:20px;font-size:.95rem;color:var(--blu-scuro)}
+@media(max-width:640px){.top nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:30px 0 90px}
+.impronta-sfondo{position:absolute;right:-160px;top:-90px;width:720px;height:720px;opacity:.55;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.etichetta{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--linea);border-radius:99px;padding:6px 14px 6px 8px;font-size:.85rem;font-weight:600;color:var(--blu-scuro)}
+.etichetta i{width:22px;height:22px;border-radius:50%;background:var(--verde);display:grid;place-items:center;color:#fff;font-style:normal;font-size:.75rem}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.1rem);margin:18px 0 16px;color:var(--blu-scuro)}
+.hero h1 em{font-style:normal;color:var(--blu);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.22em;background:var(--giallo);z-index:-1;border-radius:4px;opacity:.75}
+.hero p.lead{font-size:1.15rem;color:var(--grigio);max-width:34em;margin:0 0 26px}
+.azioni{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:99px;padding:14px 24px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn-primario{background:var(--blu);color:#fff;box-shadow:0 8px 20px -8px var(--blu)}
+.btn-primario:hover{transform:translateY(-2px);background:#174cb5}
+.btn-secondario{background:#fff;color:var(--blu-scuro);border:1px solid var(--linea)}
+.btn-secondario:hover{border-color:var(--blu)}
+.btn:focus-visible,.tappa-card:focus-visible,.faq summary:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
+.info-rapida{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;color:var(--grigio);font-size:.92rem}
+.info-rapida b{color:var(--blu-scuro);font-size:1.25rem;display:block}
+
+/* ---------- badge digitale ---------- */
+.badge-zona{position:relative;display:flex;justify-content:center}
+.cordino{position:absolute;top:-60px;left:50%;width:22px;height:90px;transform:translateX(-50%);background:repeating-linear-gradient(90deg,var(--blu) 0 7px,#3d78e6 7px 14px);border-radius:4px}
+.badge{position:relative;width:min(340px,100%);background:#fff;border-radius:26px;box-shadow:var(--ombra),0 0 0 1px var(--linea);padding:22px 22px 20px;transform:rotate(-3deg);transition:transform .4s}
+.badge:hover{transform:rotate(0)}
+.badge::before{content:"";position:absolute;top:12px;left:50%;width:56px;height:10px;border-radius:9px;background:var(--cielo);transform:translateX(-50%);box-shadow:inset 0 1px 3px rgba(0,0,0,.15)}
+.badge-head{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:.72rem;font-weight:700;color:var(--grigio);letter-spacing:.08em;text-transform:uppercase}
+.badge-head span:last-child{color:var(--verde)}
+.badge-foto{display:flex;gap:14px;align-items:center;margin:14px 0}
+.badge-foto .foto{width:96px;height:112px;border-radius:14px;background:linear-gradient(160deg,var(--blu-chiaro),#fff);overflow:hidden;flex:none;display:grid;place-items:end center}
+.badge-foto .foto img{width:92%}
+.badge-foto h3{font-size:1.25rem;color:var(--blu-scuro)}
+.badge-foto p{margin:4px 0 0;font-size:.85rem;color:var(--grigio)}
+.timbri{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-top:6px}
+.timbri span{aspect-ratio:1;border-radius:50%;border:2px dashed var(--linea);display:grid;place-items:center;font-size:.62rem;font-weight:800;color:#a7b4d3;transition:all .35s}
+.timbri span.ok{border:0;background:var(--verde);color:#fff;transform:scale(1.08)}
+.badge-stato{margin-top:14px;display:flex;justify-content:space-between;font-size:.8rem;color:var(--grigio)}
+.badge-stato b{color:var(--blu-scuro)}
+.barra{height:8px;background:var(--blu-chiaro);border-radius:9px;overflow:hidden;margin-top:6px}
+.barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blu),var(--verde));border-radius:9px;transition:width .6s}
+.badge.completo{transform:rotate(0)}
+.badge.completo .badge-head span:last-child::after{content:" · ABILITATO"}
+.fumetto{position:absolute;left:-18px;bottom:-62px;background:var(--blu-scuro);color:#fff;padding:10px 14px;border-radius:16px 16px 16px 4px;font-size:.88rem;font-weight:600;max-width:230px;box-shadow:var(--ombra)}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .badge-zona{margin-top:70px}
+  .fumetto{left:0}
+}
+
+/* ---------- percorso ---------- */
+section{padding:70px 0}
+.sez-titolo{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.sez-titolo .kicker{font-weight:700;color:var(--verde);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.sez-titolo h2{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--blu-scuro);margin-top:6px}
+.sez-titolo p{color:var(--grigio);max-width:30em;margin:8px 0 0}
+.percorso{position:relative;list-style:none;margin:0;padding:0}
+.percorso::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(var(--linea) 0 12px,transparent 12px 22px)}
+.percorso .progresso-linea{position:absolute;left:50%;top:10px;width:4px;transform:translateX(-50%);background:var(--verde);border-radius:4px;height:0;transition:height .8s}
+.tappa{position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;margin-bottom:28px}
+.tappa .nodo{grid-column:2;justify-self:center;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--linea);display:grid;place-items:center;font-weight:800;color:var(--blu-scuro);z-index:1;transition:all .35s}
+.tappa.fatta .nodo{background:var(--verde);border-color:var(--verde);color:#fff}
+.tappa.fatta .nodo .num{display:none}
+.tappa .nodo svg{display:none;width:26px;height:26px}
+.tappa.fatta .nodo svg{display:block}
+.tappa:nth-of-type(odd) .tappa-card{grid-column:1;grid-row:1}
+.tappa:nth-of-type(even) .tappa-card{grid-column:3;grid-row:1}
+.tappa-card{position:relative;display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:#fff;border-radius:var(--r);padding:12px;box-shadow:0 1px 0 var(--linea),0 0 0 1px var(--linea);cursor:pointer;text-align:left;font:inherit;color:inherit;border:0;width:100%;transition:transform .2s,box-shadow .2s}
+.tappa-card:hover{transform:translateY(-3px);box-shadow:var(--ombra),0 0 0 1px var(--linea)}
+.anteprima{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--blu-chiaro)}
+.anteprima img{width:100%;height:100%;object-fit:cover}
+.anteprima .play{position:absolute;inset:auto 8px 8px auto;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.anteprima .play svg{width:14px;margin-left:2px;fill:var(--blu)}
+.durata{position:absolute;left:8px;bottom:8px;background:rgba(11,37,96,.85);color:#fff;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px}
+.tappa-card h3{font-size:1.18rem;color:var(--blu-scuro);margin-bottom:4px}
+.tappa-card p{margin:0;font-size:.92rem;color:var(--grigio)}
+.dove{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blu);margin-bottom:4px}
+.timbro{position:absolute;top:-12px;right:-10px;width:86px;height:86px;border-radius:50%;border:3px solid var(--verde);color:var(--verde);display:grid;place-items:center;text-align:center;font-weight:900;font-size:.68rem;letter-spacing:.08em;line-height:1.1;transform:rotate(14deg) scale(0);opacity:0;background:rgba(255,255,255,.85);transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .2s;pointer-events:none}
+.timbro::before{content:"";position:absolute;inset:4px;border:1.5px dashed var(--verde);border-radius:50%}
+.tappa.fatta .timbro{transform:rotate(14deg) scale(1);opacity:1}
+.tappa.prossima .tappa-card{box-shadow:0 0 0 3px var(--blu),var(--ombra)}
+.tappa.prossima .nodo{border-color:var(--blu);animation:pulsa 1.8s infinite}
+@keyframes pulsa{0%{box-shadow:0 0 0 0 rgba(28,91,214,.45)}70%{box-shadow:0 0 0 14px rgba(28,91,214,0)}100%{box-shadow:0 0 0 0 rgba(28,91,214,0)}}
+.tappa.segreta .tappa-card{background:repeating-linear-gradient(135deg,#fff 0 14px,#f6f8fd 14px 28px)}
+.tappa.segreta.bloccata .tappa-card{cursor:not-allowed}
+.tappa.segreta.bloccata .anteprima img{filter:blur(10px) grayscale(.6)}
+.lucchetto{position:absolute;inset:0;display:grid;place-items:center;font-size:1.8rem}
+.tappa.segreta:not(.bloccata) .lucchetto{display:none}
+@media(max-width:760px){
+  .percorso::before,.percorso .progresso-linea{left:26px}
+  .tappa{grid-template-columns:52px 1fr;gap:14px}
+  .tappa .nodo{grid-column:1;grid-row:1;align-self:start;margin-top:30px}
+  .tappa:nth-of-type(odd) .tappa-card,.tappa:nth-of-type(even) .tappa-card{grid-column:2}
+  .tappa-card{grid-template-columns:1fr}
+  .timbro{width:70px;height:70px;font-size:.58rem}
+}
+
+/* ---------- domande lampo ---------- */
+.lampo{background:#fff;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+.faq{background:var(--cielo);border-radius:18px;padding:0 20px;border:1px solid transparent;transition:border-color .2s}
+.faq[open]{border-color:var(--linea);background:#fff;box-shadow:var(--ombra)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:700;color:var(--blu-scuro);display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--blu);font-size:1.2rem;border:1px solid var(--linea)}
+.faq[open] summary::after{content:"–"}
+.faq p{margin:0 0 12px;color:var(--grigio)}
+.faq .vai{background:none;border:0;padding:0 0 18px;font:inherit;font-weight:700;color:var(--blu);cursor:pointer}
+
+/* ---------- aiuto ---------- */
+.aiuto{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center;background:var(--blu-scuro);color:#fff;border-radius:32px;padding:40px;position:relative;overflow:hidden}
+.cerchio{background:#fff;border-radius:50%;padding:18px;aspect-ratio:1;isolation:isolate;display:grid;place-items:center}
+.cerchio img{max-height:100%;object-fit:contain}
+.aiuto h2{font-size:2rem}
+.aiuto > div > p{color:#c9d6f5;margin:8px 0 24px}
+.contatti{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contatto{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px}
+.contatto small{display:block;color:#9fb4e6;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.contatto b{display:block;font-size:1.05rem;margin:4px 0 2px;word-break:break-word}
+.contatto a{color:#fff}
+.contatto span{font-size:.85rem;color:#c9d6f5}
+@media(max-width:860px){.aiuto{grid-template-columns:1fr;padding:28px}.cerchio{width:170px}.contatti{grid-template-columns:1fr}}
+
+footer{padding:40px 0 60px;color:var(--grigio);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer button{background:none;border:0;font:inherit;color:var(--grigio);text-decoration:underline;cursor:pointer}
+
+/* ---------- player ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(980px,94vw);width:100%;color:#fff}
+dialog::backdrop{background:rgba(6,18,48,.86);backdrop-filter:blur(4px)}
+.player{background:#0b1838;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.player-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px}
+.player-top h3{font-size:1.1rem}
+.player-top small{color:#9fb4e6;font-weight:600}
+.chiudi{background:rgba(255,255,255,.1);border:0;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;flex:none}
+.player video{display:block;width:100%;max-height:72vh;background:#000}
+.player-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;flex-wrap:wrap}
+.player-bottom p{margin:0;color:#c9d6f5;font-size:.92rem;flex:1;min-width:220px}
+.player-bottom .btn{padding:11px 20px}
+.player-bottom .btn[hidden]{display:none}
+
+/* ---------- festa finale ---------- */
+.festa{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.festa i{position:absolute;top:-20px;width:14px;height:14px;border-radius:50%;opacity:.9;animation:cade linear forwards}
+@keyframes cade{to{transform:translateY(110vh) rotate(540deg)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--verde);color:#fff;font-weight:700;padding:14px 22px;border-radius:99px;box-shadow:var(--ombra);transition:transform .4s;z-index:60}
+.toast.vis{transform:translate(-50%,0);visibility:visible}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="impronta" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+    <path d="M30 22a34 34 0 0 1 40 0"/><path d="M20 36a38 38 0 0 1 60 0"/>
+    <path d="M26 72c-4-8-6-16-6-24a30 30 0 0 1 60 0c0 6-1 10-3 14"/>
+    <path d="M34 80c-4-10-6-20-6-30a22 22 0 0 1 44 0c0 10-2 18-6 26"/>
+    <path d="M44 86c-4-10-6-22-6-34a12 12 0 0 1 24 0c0 14-3 26-8 36"/>
+    <path d="M50 52c0 14-2 26-8 38"/>
+  </symbol>
+  <symbol id="spunta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="marchio" href="#">
+      <img src="img/logo_piccolo.png" alt="Logo UGID" width="48" height="46">
+      <span>UGID<small>Ufficio Gestione Identità Digitali</small></span>
+    </a>
+    <nav><a href="#percorso">Il percorso</a><a href="#lampo">Domande lampo</a><a href="#aiuto">Aiuto</a></nav>
+  </header>
+</div>
+
+<main>
+<section class="hero" style="padding-top:20px">
+  <svg class="impronta-sfondo" style="color:#d9e5fb"><use href="#impronta"/></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="etichetta"><i>✓</i> ASST Papa Giovanni XXIII · Bergamo</span>
+      <h1>Primo giorno?<br>Ti accompagna <em>UGI</em>.</h1>
+      <p class="lead">Badge, computer, timbrature, parcheggi, mensa e divise: tutto quello che ti serve nelle prime settimane, in brevi video. Ogni video che guardi aggiunge un timbro al tuo badge.</p>
+      <div class="azioni">
+        <button class="btn btn-primario" id="inizia">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg>
+          <span>Inizia il percorso</span>
+        </button>
+        <a class="btn btn-secondario" href="#lampo">Ho solo una domanda</a>
+      </div>
+      <div class="info-rapida">
+        <div><b>9</b>tappe</div>
+        <div><b>~9 min</b>in tutto</div>
+        <div><b>1</b>sorpresa finale</div>
+      </div>
+    </div>
+
+    <div class="badge-zona">
+      <div class="cordino"></div>
+      <div class="badge" id="badge" aria-live="polite">
+        <div class="badge-head"><span>Badge di benvenuto</span><span>UGID</span></div>
+        <div class="badge-foto">
+          <div class="foto"><img class="ugi" src="img/ugi-badge-parla.webp" alt="UGI, la mascotte dell'UGID, mostra il badge"></div>
+          <div>
+            <h3 id="badge-titolo">Nuovo arrivo</h3>
+            <p id="badge-sottotitolo">Raccogli i 9 timbri guardando i video del percorso.</p>
+          </div>
+        </div>
+        <div class="timbri" id="timbri" aria-hidden="true"></div>
+        <div class="badge-stato"><span>Timbri raccolti</span><b id="conteggio">0 / 9</b></div>
+        <div class="barra"><i id="barra"></i></div>
+        <div class="fumetto" id="fumetto">Ciao! Io sono UGI. Facciamo il giro insieme?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="percorso">
+  <div class="wrap">
+    <div class="sez-titolo">
+      <div>
+        <div class="kicker">Il percorso</div>
+        <h2>Nove tappe, un badge abilitato</h2>
+        <p>Puoi seguirle in ordine o andare direttamente a quella che ti serve. La pagina ricorda a che punto sei.</p>
+      </div>
+    </div>
+    <ol class="percorso" id="lista"><div class="progresso-linea" id="linea"></div></ol>
+  </div>
+</section>
+
+<section class="lampo" id="lampo">
+  <div class="wrap">
+    <div class="sez-titolo">
+      <div>
+        <div class="kicker">Domande lampo</div>
+        <h2>Ti serve solo una risposta?</h2>
+        <p>Le domande che ci fanno più spesso nelle prime settimane, con il video in cui UGI lo spiega.</p>
+      </div>
+    </div>
+    <div class="faq-grid" id="faq"></div>
+  </div>
+</section>
+
+<section id="aiuto">
+  <div class="wrap">
+    <div class="aiuto">
+      <div class="cerchio"><img class="ugi" src="img/ugi-saluta.webp" alt="UGI saluta"></div>
+      <div>
+        <h2>Serve una mano?</h2>
+        <p>Se qualcosa non funziona o non trovi la risposta qui, scrivici o chiama.</p>
+        <div class="contatti">
+          <div class="contatto"><small>Ufficio UGID</small><b><a href="mailto:ugid.segreteria@asst-pg23.it">ugid.segreteria@asst-pg23.it</a></b><span>Badge, credenziali, identità digitale</span></div>
+          <div class="contatto"><small>Help Desk</small><b><a href="tel:3333">3333</a></b><span>24 ore su 24 · PIN, PUK, smart card bloccata</span></div>
+          <div class="contatto"><small>Controllo accessi</small><b><a href="mailto:richiestacontrolloaccessi@asst-pg23.it">richiestacontrolloaccessi@asst-pg23.it</a></b><span>Abilitazione del badge alle porte</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>Ufficio Gestione Identità Digitali · ASST Papa Giovanni XXIII · “L'UGID è sempre al tuo fianco.”</span>
+    <button id="azzera">Ricomincia il percorso</button>
+  </footer>
+</div>
+
+<dialog id="dialog" aria-labelledby="p-titolo">
+  <div class="player">
+    <div class="player-top">
+      <div><small id="p-tappa"></small><h3 id="p-titolo"></h3></div>
+      <button class="chiudi" id="chiudi" aria-label="Chiudi il video">×</button>
+    </div>
+    <video id="video" controls playsinline preload="metadata"></video>
+    <div class="player-bottom">
+      <p id="p-testo"></p>
+      <button class="btn btn-primario" id="prossima" hidden>Tappa successiva →</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const TAPPE = [
+  {id:"benvenuto", file:"01-benvenuto", dur:"0:32", dove:"Ufficio UGID", titolo:"Benvenuto, ecco il tuo badge",
+   testo:"Conosci UGI e il badge aziendale: la chiave che userai per tutto, dalle porte al computer."},
+  {id:"computer", file:"02-computer", dur:"2:02", dove:"La tua postazione", titolo:"Accendere il computer",
+   testo:"Badge nel lettore di smart card e PIN. Cosa fare con PIN e PUK e come chiedere nuovi applicativi."},
+  {id:"timbrature", file:"03-timbrature", dur:"1:08", dove:"Terminale presenze", titolo:"Le timbrature",
+   testo:"Lato sinistro per l'entrata, destro per l'uscita. Come vedere le ultime timbrature e usare le causali."},
+  {id:"accessi", file:"04-controllo-accessi", dur:"0:25", dove:"Ingresso del reparto", titolo:"Aprire le porte",
+   testo:"Il badge apre i varchi del tuo reparto. Se non lo fa, ecco a chi inviare la richiesta."},
+  {id:"parcheggio", file:"05-parcheggio", dur:"1:26", dove:"Parcheggi", titolo:"Dove parcheggiare",
+   testo:"Quali parcheggi sono per i dipendenti, come leggere i display e dove appoggiare il badge."},
+  {id:"velostazione", file:"06-velostazione", dur:"1:03", dove:"Velostazione", titolo:"In bici al lavoro",
+   testo:"La Velostazione comunale è gratuita con il badge. Cosa fare se il badge nuovo non viene riconosciuto."},
+  {id:"mensa", file:"07-mensa", dur:"0:36", dove:"Mensa", titolo:"Ricaricare la mensa",
+   testo:"Ricarica il credito al totem, solo con pagamento elettronico. Il credito residuo non si recupera."},
+  {id:"divise", file:"08-divise", dur:"0:46", dove:"Guardaroba", titolo:"Ritirare la divisa",
+   testo:"Prima la taglia al guardaroba, poi il distributore automatico con il badge. Le divise sporche vanno nella buca di raccolta."},
+  {id:"conclusione", file:"10-conclusione", dur:"0:19", dove:"Ultima tappa", titolo:"Sei pronto!",
+   testo:"Un riepilogo veloce e un saluto da UGI. Il tuo badge è completo."},
+  {id:"segreto", file:"09-caffe", dur:"0:09", dove:"Contenuto bonus", titolo:"Il segreto di UGI", segreto:true,
+   testo:"Si sblocca solo quando hai raccolto tutti i timbri. Cosa fa UGI quando non è al lavoro?"}
+];
+const PRINCIPALI = TAPPE.filter(t=>!t.segreto);
+
+const FAQ = [
+  {d:"Ho sbagliato il PIN tre volte: e adesso?", r:"Dopo tre tentativi errati la smart card si blocca per sicurezza. Per sbloccarla serve il codice PUK che trovi nella busta consegnata con il badge. Se hai difficoltà, chiama l'Help Desk al 3333, attivo 24 ore su 24.", t:"computer"},
+  {d:"Mi servono nuovi applicativi: a chi li chiedo?", r:"La segreteria del reparto o il coordinatore compila il modulo di richiesta abilitazioni. In genere le abilitazioni sono attive entro 48 ore.", t:"computer"},
+  {d:"Da che lato timbro l'entrata?", r:"Sul terminale il lato sinistro registra l'ingresso e quello destro l'uscita. Dal menu Transazioni puoi vedere fino alle ultime 30 timbrature.", t:"timbrature"},
+  {d:"Il badge non apre la porta del mio reparto", r:"Probabilmente il badge non è ancora abilitato a quel varco. Va inviata una richiesta a richiestacontrolloaccessi@asst-pg23.it: il video mostra come.", t:"accessi"},
+  {d:"Al parcheggio il badge va inserito nella fessura?", r:"No: va solo appoggiato sul sensore contactless. Se il display indica “posti abbonati completi”, prova un altro parcheggio aziendale.", t:"parcheggio"},
+  {d:"La Velostazione non riconosce il mio badge nuovo", r:"Il badge funziona: deve solo essere aggiornato l'elenco della Velostazione. Contatta i recapiti esposti all'ingresso della Velostazione.", t:"velostazione"},
+  {d:"Posso ricaricare la mensa in contanti?", r:"No, al totem si paga solo con carta o con dispositivi contactless. Ricorda che il credito che resta sulla tessera quando lasci l'ospedale non viene rimborsato.", t:"mensa"},
+  {d:"Come scelgo la taglia della divisa?", r:"Passa prima dal guardaroba per far registrare la taglia. Il distributore poi ti consegna la divisa giusta per la tua mansione, senza bisogno di sceglierla.", t:"divise"}
+];
+
+/* ---- stato (salvato nel browser, se disponibile) ---- */
+const CHIAVE = "ugi-percorso-v1";
+let fatte = new Set();
+try{ fatte = new Set(JSON.parse(localStorage.getItem(CHIAVE)||"[]")); }catch(e){}
+const salva = ()=>{ try{ localStorage.setItem(CHIAVE, JSON.stringify([...fatte])); }catch(e){} };
+const completo = ()=> PRINCIPALI.every(t=>fatte.has(t.id));
+
+/* ---- costruzione ---- */
+const $ = s=>document.querySelector(s);
+const lista = $("#lista");
+TAPPE.forEach((t,i)=>{
+  const li = document.createElement("li");
+  li.className = "tappa" + (t.segreto?" segreta":"");
+  li.dataset.id = t.id;
+  li.innerHTML = `
+    <div class="nodo">${t.segreto?'<span class="num">★</span>':`<span class="num">${i+1}</span>`}<svg><use href="#spunta"/></svg></div>
+    <button class="tappa-card" aria-label="Guarda il video: ${t.titolo}, durata ${t.dur}">
+      <div class="anteprima">
+        <img src="img/poster-${t.file}.jpg" alt="" loading="lazy">
+        <span class="durata">${t.dur}</span>
+        <span class="play"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+        ${t.segreto?'<span class="lucchetto" aria-hidden="true">🔒</span>':''}
+      </div>
+      <div>
+        <span class="dove">${t.segreto?"Bonus":"Tappa "+(i+1)} · ${t.dove}</span>
+        <h3>${t.titolo}</h3>
+        <p>${t.testo}</p>
+      </div>
+      <div class="timbro">${t.segreto?"SCOPERTO":"VISTO<br>✓<br>UGI"}</div>
+    </button>`;
+  li.querySelector(".tappa-card").addEventListener("click",()=>apri(t.id));
+  lista.appendChild(li);
+});
+
+const timbri = $("#timbri");
+PRINCIPALI.forEach((t,i)=>{ const s=document.createElement("span"); s.textContent=i+1; s.dataset.id=t.id; s.title=t.titolo; timbri.appendChild(s); });
+
+const faq = $("#faq");
+FAQ.forEach(f=>{
+  const d = document.createElement("details"); d.className="faq";
+  const t = TAPPE.find(x=>x.id===f.t);
+  d.innerHTML = `<summary>${f.d}</summary><p>${f.r}</p><button class="vai">▶ Guarda “${t.titolo}” (${t.dur})</button>`;
+  d.querySelector(".vai").addEventListener("click",()=>apri(f.t));
+  faq.appendChild(d);
+});
+
+/* ---- aggiornamento interfaccia ---- */
+function aggiorna(){
+  const n = PRINCIPALI.filter(t=>fatte.has(t.id)).length;
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  document.querySelectorAll(".tappa").forEach(li=>{
+    const id = li.dataset.id;
+    li.classList.toggle("fatta", fatte.has(id));
+    li.classList.toggle("prossima", !!prossima && prossima.id===id);
+    if(li.classList.contains("segreta")) li.classList.toggle("bloccata", !completo());
+  });
+  timbri.querySelectorAll("span").forEach(s=>s.classList.toggle("ok", fatte.has(s.dataset.id)));
+  $("#conteggio").textContent = `${n} / ${PRINCIPALI.length}`;
+  $("#barra").style.width = (n/PRINCIPALI.length*100)+"%";
+  // linea verde del percorso fino all'ultima tappa completata consecutiva
+  let ultima = -1; PRINCIPALI.forEach((t,i)=>{ if(fatte.has(t.id) && ultima===i-1) ultima=i; });
+  const items = lista.querySelectorAll(".tappa");
+  const linea = $("#linea");
+  if(ultima>=0){ const el=items[ultima]; linea.style.height = (el.offsetTop + el.offsetHeight/2 - 10)+"px"; } else linea.style.height = "0";
+  const badge=$("#badge"); badge.classList.toggle("completo", completo());
+  const fum=$("#fumetto"), bt=$("#inizia span");
+  if(completo()){
+    $("#badge-titolo").textContent="Badge abilitato!";
+    $("#badge-sottotitolo").textContent="Hai completato il percorso. Benvenuto in ASST Papa Giovanni XXIII.";
+    fum.textContent = fatte.has("segreto") ? "Ora sai anche il mio segreto. Buon lavoro!" : "Fantastico! Ho sbloccato un segreto per te ★";
+    bt.textContent = fatte.has("segreto") ? "Rivedi il percorso" : "Scopri il segreto di UGI";
+  }else if(n>0){
+    $("#badge-titolo").textContent="Nuovo arrivo";
+    $("#badge-sottotitolo").textContent=`Prossima tappa: ${prossima.titolo.toLowerCase()}.`;
+    fum.textContent = n>=6 ? "Ci siamo quasi, ancora poche tappe!" : "Bene! Continuiamo da dove eravamo?";
+    bt.textContent = "Continua il percorso";
+  }
+}
+
+/* ---- player ---- */
+const dialog=$("#dialog"), video=$("#video");
+let corrente=null;
+function apri(id){
+  const t = TAPPE.find(x=>x.id===id);
+  if(t.segreto && !completo()){ toast("🔒 Raccogli tutti i 9 timbri per sbloccare il segreto di UGI"); return; }
+  corrente = t;
+  const i = TAPPE.indexOf(t);
+  $("#p-tappa").textContent = t.segreto ? "Contenuto bonus" : `Tappa ${i+1} di ${PRINCIPALI.length} · ${t.dove}`;
+  $("#p-titolo").textContent = t.titolo;
+  $("#p-testo").textContent = t.testo;
+  $("#prossima").hidden = true;
+  video.src = `video/${t.file}.mp4`;
+  video.poster = `img/poster-${t.file}.jpg`;
+  if(typeof dialog.showModal==="function") dialog.showModal(); else dialog.setAttribute("open","");
+  video.play().catch(()=>{});
+}
+function chiudi(){ video.pause(); video.removeAttribute("src"); video.load(); if(dialog.open) dialog.close(); }
+$("#chiudi").addEventListener("click",chiudi);
+dialog.addEventListener("click",e=>{ if(e.target===dialog) chiudi(); });
+dialog.addEventListener("close",()=>{ video.pause(); });
+
+function segna(){
+  if(!corrente || fatte.has(corrente.id)) return;
+  const eraCompleto = completo();
+  fatte.add(corrente.id); salva(); aggiorna();
+  if(!corrente.segreto) toast(`✓ Timbro ${PRINCIPALI.indexOf(corrente)+1} raccolto: ${corrente.titolo}`);
+  if(!eraCompleto && completo()) festa();
+}
+video.addEventListener("timeupdate",()=>{ if(video.duration && video.currentTime/video.duration>0.9) segna(); });
+video.addEventListener("ended",()=>{
+  segna();
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  const btn=$("#prossima");
+  if(prossima){ btn.textContent=`Tappa successiva: ${prossima.titolo} →`; btn.onclick=()=>apri(prossima.id); btn.hidden=false; }
+  else if(!fatte.has("segreto")){ btn.textContent="★ Scopri il segreto di UGI"; btn.onclick=()=>apri("segreto"); btn.hidden=false; }
+});
+
+$("#inizia").addEventListener("click",()=>{
+  const prossima = PRINCIPALI.find(t=>!fatte.has(t.id));
+  if(prossima) apri(prossima.id);
+  else if(!fatte.has("segreto")) apri("segreto");
+  else document.getElementById("percorso").scrollIntoView();
+});
+$("#azzera").addEventListener("click",()=>{ fatte.clear(); salva(); aggiorna(); toast("Percorso azzerato"); });
+
+let tt;
+function toast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("vis"); clearTimeout(tt); tt=setTimeout(()=>el.classList.remove("vis"),3200); }
+function festa(){
+  const f=document.createElement("div"); f.className="festa";
+  const colori=["#1c5bd6","#2a9d4b","#ffcc33","#7fb0ff","#ffffff"];
+  for(let i=0;i<90;i++){ const c=document.createElement("i"); c.style.left=Math.random()*100+"vw"; c.style.background=colori[i%colori.length]; c.style.animationDuration=(2.2+Math.random()*2.2)+"s"; c.style.animationDelay=(Math.random()*.8)+"s"; c.style.borderRadius=i%3?"50%":"3px"; f.appendChild(c); }
+  document.body.appendChild(f); setTimeout(()=>f.remove(),5500);
+  setTimeout(()=>toast("🎉 Badge abilitato! Hai sbloccato il segreto di UGI"),400);
+}
+window.addEventListener("resize",aggiorna);
+aggiorna();
+</script>
+</body>
+</html>
