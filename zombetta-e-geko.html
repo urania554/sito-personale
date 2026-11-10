@@ -6,8 +6,9 @@
   <script>document.documentElement.classList.add('js')</script>
   <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="images/zombetta/completa-400.webp" imagesrcset="images/zombetta/completa-400.webp 400w, images/zombetta/completa-640.webp 640w" imagesizes="(max-width: 860px) 240px, 320px">
   <title>Le avventure di Zombetta e Geko · libri illustrati per bambini - Cinzia Molisano</title>
-  <meta name="description" content="Le avventure di Zombetta e Geko: una serie di quattro libri illustrati per bambini dai 5 agli 8 anni, l'edizione completa per le scuole e i cartoni sul canale YouTube." />
+  <meta name="description" content="Le avventure di Zombetta e Geko: libri illustrati per bambini dai 5 agli 8 anni. Volume 1 e Volume 2 disponibili su Amazon, i prossimi in arrivo, e i cartoni sul canale YouTube." />
   <link rel="stylesheet" href="style.css" />
   <style>
     .zg-page { padding-top: 78px; }
@@ -42,6 +43,11 @@
     body.dark-theme .zg-num { color: #c9a6f5; }
     .zg-book h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; line-height: 1.12; margin: 6px 0 8px; }
     .zg-book p { color: var(--muted); line-height: 1.6; margin: 0; font-size: .95rem; }
+    .zg-buy { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 9px 16px; min-height: 44px; border-radius: 999px; font-weight: 800; font-size: .85rem; text-decoration: none; background: #f2b632; color: #221338; transition: background .2s ease; }
+    .zg-buy:hover { background: #ffc94a; }
+    .zg-soon { display: inline-block; margin-top: 14px; padding: 7px 12px; border-radius: 999px; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; background: #e9e4f3; color: #5a4685; }
+    body.dark-theme .zg-soon { background: #2f2840; color: #cbb8f0; }
+    .zg-complete .zg-soon { background: rgba(255,255,255,.14); color: #fff; }
 
     .zg-complete { margin-top: 22px; display: grid; grid-template-columns: 220px 1fr; gap: 34px; align-items: center; padding: 30px; border-radius: 28px; background: #1b2a52; color: #fff; border-bottom: 5px solid #f2b632; }
     .zg-complete img { width: 100%; height: auto; display: block; border-radius: 4px 10px 10px 4px; box-shadow: 0 16px 34px rgba(0,0,0,.35); }
@@ -96,8 +102,8 @@
     "url": "https://www.cinziamolisano.it/zombetta-e-geko.html",
     "sameAs": ["https://www.youtube.com/@ZombettaGeko"],
     "hasPart": [
-      { "@type": "Book", "name": "Un amico per partire", "position": 1, "bookFormat": "https://schema.org/Paperback" },
-      { "@type": "Book", "name": "Il segreto della gondola fantasma", "position": 2, "bookFormat": "https://schema.org/Paperback" },
+      { "@type": "Book", "name": "Un amico per partire", "position": 1, "bookFormat": "https://schema.org/Paperback", "inLanguage": "it", "url": "https://www.cinziamolisano.it/zombetta-e-geko.html#libri", "sameAs": "https://www.amazon.it/dp/B0HQX4SNHK", "offers": { "@type": "Offer", "url": "https://www.amazon.it/dp/B0HQX4SNHK", "availability": "https://schema.org/InStock" } },
+      { "@type": "Book", "name": "Il segreto della gondola fantasma", "position": 2, "bookFormat": "https://schema.org/Paperback", "inLanguage": "it", "url": "https://www.cinziamolisano.it/zombetta-e-geko.html#libri", "sameAs": "https://www.amazon.it/dp/B0HQX1T3Z9", "offers": { "@type": "Offer", "url": "https://www.amazon.it/dp/B0HQX1T3Z9", "availability": "https://schema.org/InStock" } },
       { "@type": "Book", "name": "Il segreto del portale rosso", "position": 3, "bookFormat": "https://schema.org/Paperback" },
       { "@type": "Book", "name": "Il cuore di Gramigna", "position": 4, "bookFormat": "https://schema.org/Paperback" },
       { "@type": "Book", "name": "Le avventure di Zombetta e Geko – L'avventura completa", "bookFormat": "https://schema.org/Paperback", "numberOfPages": 200 }
@@ -135,12 +141,12 @@
         <h1>Le avventure di Zombetta e Geko<span>un giro del mondo a caccia di amici</span></h1>
         <p>Zombetta è una bambina zombie con la pelle verde menta, i capelli viola sempre spettinati e qualche cucitura qua e là. Quando ride forte le cade un dentino, quando saluta troppo le vola via la mano… e per lei è tutto normalissimo! Con Geko, il geco parlante sempre affamato, parte per vedere il mondo.</p>
         <div class="zg-hero-actions">
-          <a class="btn btn-amazon" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener">I libri su Amazon →</a>
+          <a class="btn btn-amazon" href="https://www.amazon.it/dp/B0HQX4SNHK" target="_blank" rel="noopener">Acquista il Volume 1 su Amazon →</a>
           <a class="btn btn-yt" href="https://www.youtube.com/@ZombettaGeko" target="_blank" rel="noopener">▶ Guarda i cartoni su YouTube</a>
         </div>
       </div>
       <div class="zg-hero-cover">
-        <img src="images/zombetta/completa-400.webp" srcset="images/zombetta/completa-400.webp 400w, images/zombetta/completa-640.webp 640w" sizes="(max-width: 860px) 240px, 320px" width="400" height="600" decoding="async" alt="Copertina di Le avventure di Zombetta e Geko – L'avventura completa">
+        <img src="images/zombetta/completa-400.webp" srcset="images/zombetta/completa-400.webp 400w, images/zombetta/completa-640.webp 640w" sizes="(max-width: 860px) 240px, 320px" width="400" height="600" fetchpriority="high" decoding="async" alt="Copertina di Le avventure di Zombetta e Geko – L'avventura completa">
       </div>
     </div>
   </section>
@@ -165,58 +171,62 @@
       <p class="lead">Ogni volume è un'avventura completa in una città nuova. Si leggono in ordine: volume dopo volume, il segreto di Zombetta si svela.</p>
       <div class="zg-books">
         <article class="zg-book">
-          <a class="zg-cover" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener" aria-label="Un amico per partire su Amazon">
+          <a class="zg-cover" href="https://www.amazon.it/dp/B0HQX4SNHK" target="_blank" rel="noopener" aria-label="Un amico per partire su Amazon">
             <img src="images/zombetta/vol1-400.webp" srcset="images/zombetta/vol1-400.webp 400w, images/zombetta/vol1-640.webp 640w" sizes="(max-width: 760px) 44vw, 240px" width="400" height="600" loading="lazy" decoding="async" alt="Copertina del volume 1 di Le avventure di Zombetta e Geko: Un amico per partire">
           </a>
           <div class="zg-book-body">
             <span class="zg-num">Volume 1 · Borgoquieto</span>
             <h3>Un amico per partire</h3>
             <p>Nella soffitta di una casetta un po' storta, Zombetta trova uno zaino arancione… e dentro c'è Geko, un geco parlante sempre affamato. Insieme salgono sul treno sbagliato e partono per vedere il mondo.</p>
+            <a class="zg-buy" href="https://www.amazon.it/dp/B0HQX4SNHK" target="_blank" rel="noopener">Acquista su Amazon →</a>
           </div>
         </article>
         <article class="zg-book">
-          <a class="zg-cover" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener" aria-label="Il segreto della gondola fantasma su Amazon">
+          <a class="zg-cover" href="https://www.amazon.it/dp/B0HQX1T3Z9" target="_blank" rel="noopener" aria-label="Il segreto della gondola fantasma su Amazon">
             <img src="images/zombetta/vol2-400.webp" srcset="images/zombetta/vol2-400.webp 400w, images/zombetta/vol2-640.webp 640w" sizes="(max-width: 760px) 44vw, 240px" width="400" height="600" loading="lazy" decoding="async" alt="Copertina del volume 2 di Le avventure di Zombetta e Geko: Il segreto della gondola fantasma">
           </a>
           <div class="zg-book-body">
             <span class="zg-num">Volume 2 · Venezia</span>
             <h3>Il segreto della gondola fantasma</h3>
             <p>Un gabbiano ladro ruba la vecchia foto di Zombetta. Per riprenderla, una gondola che va da sola, un campanile altissimo e due nuovi amici: Nina, che dipinge maschere, e Bortolo, il vecchio gondoliere.</p>
+            <a class="zg-buy" href="https://www.amazon.it/dp/B0HQX1T3Z9" target="_blank" rel="noopener">Acquista su Amazon →</a>
           </div>
         </article>
         <article class="zg-book">
-          <a class="zg-cover" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener" aria-label="Il segreto del portale rosso su Amazon">
+          <div class="zg-cover">
             <img src="images/zombetta/vol3-400.webp" srcset="images/zombetta/vol3-400.webp 400w, images/zombetta/vol3-640.webp 640w" sizes="(max-width: 760px) 44vw, 240px" width="400" height="600" loading="lazy" decoding="async" alt="Copertina del volume 3 di Le avventure di Zombetta e Geko: Il segreto del portale rosso">
-          </a>
+          </div>
           <div class="zg-book-body">
             <span class="zg-num">Volume 3 · Tokyo</span>
             <h3>Il segreto del portale rosso</h3>
             <p>Ramen, luci e un gatto portafortuna che di notte prende vita. La cartolina porta Zombetta fino a un portale rosso sul lago, ai piedi del monte Fuji, dove una volpe magica conosce un segreto.</p>
+            <span class="zg-soon">Presto su Amazon</span>
           </div>
         </article>
         <article class="zg-book">
-          <a class="zg-cover" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener" aria-label="Il cuore di Gramigna su Amazon">
+          <div class="zg-cover">
             <img src="images/zombetta/vol4-400.webp" srcset="images/zombetta/vol4-400.webp 400w, images/zombetta/vol4-640.webp 640w" sizes="(max-width: 760px) 44vw, 240px" width="400" height="600" loading="lazy" decoding="async" alt="Copertina del volume 4 di Le avventure di Zombetta e Geko: Il cuore di Gramigna">
-          </a>
+          </div>
           <div class="zg-book-body">
             <span class="zg-num">Volume 4 · Roma</span>
             <h3>Il cuore di Gramigna</h3>
             <p>Le erbacce invadono i monumenti di Roma: la strega Gramigna sa che manca pochissimo. Con Lia, la gatta Cornelia e tutti gli amici dei viaggi, Zombetta affronta l'ultima avventura.</p>
+            <span class="zg-soon">Presto su Amazon</span>
           </div>
         </article>
       </div>
 
       <div class="zg-complete" id="completa">
-        <a href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener" aria-label="L'avventura completa su Amazon">
+        <div>
           <img src="images/zombetta/completa-400.webp" width="400" height="600" loading="lazy" decoding="async" alt="Copertina dell'edizione completa">
-        </a>
+        </div>
         <div>
           <span class="zg-badge">Edizione completa · ideale per la scuola</span>
           <h3>L'avventura completa</h3>
           <p>Tutti e quattro i volumi in un unico libro: 28 capitoli brevi da leggere in classe, uno al giorno, fino al finale. Così tutti i bambini arrivano insieme in fondo al mistero.</p>
           <ul><li>4 volumi in 1</li><li>28 capitoli</li><li>200 pagine a colori</li><li>Formato 6 × 9 pollici</li></ul>
           <div class="zg-hero-actions">
-            <a class="btn btn-amazon" href="https://www.amazon.it/s?k=Le+avventure+di+Zombetta+e+Geko" target="_blank" rel="noopener">Acquista su Amazon →</a>
+            <span class="zg-soon">Presto su Amazon</span>
           </div>
         </div>
       </div>
