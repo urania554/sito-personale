@@ -73,16 +73,7 @@ table.matrice td{font-size:.9rem}
   </header>
 
   <h1>Services and fees by category</h1>
-  <p class="intro">Parking, canteen and uniforms work slightly differently for employees, trainees/visiting staff and freelancers. Below is a summary; further down you can <a href="#matrice">look up your role</a> in the full service matrix.</p>
-
-  <div class="filtri" role="group" aria-label="Filter by category">
-    <button data-col="tutti" aria-pressed="true">All</button>
-    <button data-col="0" aria-pressed="false">Employees</button>
-    <button data-col="1" aria-pressed="false">Trainees &amp; visiting staff</button>
-    <button data-col="2" aria-pressed="false">Freelancers</button>
-  </div>
-
-  <div class="tabella-box"><table id="tabella"></table></div>
+  <p class="intro">Parking, canteen and uniforms work slightly differently for employees, trainees/visiting staff and freelancers. Here you will find rates and agreements; further down you can <a href="#matrice">look up your role</a> in the full service matrix.</p>
 
   <h2 class="h2">Parking: fee with your badge</h2>
   <p class="intro">For employees (and anyone marked “see category” in the matrix) the fee depends on the contract category and is valid for 24 hours. Freelancers, outpatient specialists and medical residents pay € 2.00.</p>
@@ -209,27 +200,7 @@ document.getElementById("cerca").addEventListener("input", e=>{
 });
 
 /* ---- costruzione (non serve modificare) ---- */
-const t = document.getElementById("tabella");
-let html = `<thead><tr><th>Service</th>${COLONNE.map((c,i)=>`<th data-c="${i}">${esc(c)}</th>`).join("")}</tr></thead><tbody>`;
-DATI.forEach(g=>{
-  html += `<tr class="gruppo"><td colspan="${COLONNE.length+1}">${esc(g.gruppo)}</td></tr>`;
-  g.righe.forEach(([voce,nota,...val])=>{
-    html += `<tr><th scope="row">${esc(voce)}${nota?`<small>${esc(nota)}</small>`:""}</th>` +
-      val.map((v,i)=> v ? `<td data-c="${i}">${esc(v)}</td>` : `<td data-c="${i}" class="vuoto">to be completed</td>`).join("") + `</tr>`;
-  });
-});
-t.innerHTML = html + "</tbody>";
 document.getElementById("aggiornato").textContent = AGGIORNATO;
-
-const pulsanti = document.querySelectorAll(".filtri button");
-function filtra(col){
-  pulsanti.forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.col===col)));
-  t.querySelectorAll("[data-c]").forEach(el=>el.classList.toggle("nascosta", col!=="tutti" && el.dataset.c!==col));
-  try{ localStorage.setItem("ugi-tipologia", col); }catch(e){}
-}
-pulsanti.forEach(b=>b.addEventListener("click",()=>filtra(b.dataset.col)));
-let iniziale="tutti"; try{ iniziale = localStorage.getItem("ugi-tipologia") || "tutti"; }catch(e){}
-filtra(iniziale);
 </script>
 </body>
 </html>

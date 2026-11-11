@@ -451,7 +451,7 @@ function apri(id){
   $("#p-testo").textContent = t.testo;
   $("#prossima").hidden = true;
   $("#p-tariffe").hidden = !t.tariffe;
-  video.src = `video/${t.file}.mp4`;
+  video.src = `video/en/${t.file}.mp4`;
   video.poster = `img/poster-${t.file}.jpg`;
   if(typeof dialog.showModal==="function") dialog.showModal(); else dialog.setAttribute("open","");
   video.play().catch(()=>{});
